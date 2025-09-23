@@ -1,4 +1,4 @@
-name: 🧪 Run Cypress Tests
+name: 🧪 Run Cypress API Tests
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
           - stage
           - prod
       test_suite:
-        description: 'Test Suite to Run'
+        description: 'API Test Suite to Run'
         required: true
         default: 'all'
         type: choice
@@ -23,23 +23,29 @@ on:
           - regression
           - account
           - auth
+          - iam
           - edge_application
           - edge_firewall
-          - dns
-          - workspace
-          - data_stream
-          - digital_certificates
           - orchestrator
+          - workspace
+          - dns
+          - digital_certificates
+          - data_stream
+          - edge_storage
           - payments
+          - identity
+          - edge_functions
+          - edge_connector
+          - edge_sql
       browser:
-        description: 'Browser'
+        description: 'Browser (for API tests - headless recommended)'
         required: false
-        default: 'chrome'
+        default: 'electron'
         type: choice
         options:
+          - electron
           - chrome
           - firefox
-          - edge
       parallel:
         description: 'Run tests in parallel'
         required: false
@@ -65,7 +71,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: ${{ github.event.inputs.parallel == 'true' && '[1, 2, 3, 4]' || '[1]' }}
+        containers: ${{ github.event.inputs.parallel == 'true' && fromJSON('[1, 2, 3, 4]') || fromJSON('[1]') }}
     
     steps:
       - name: 📥 Checkout Repository
@@ -109,10 +115,14 @@ jobs:
             "environment": "$TARGET_ENVIRONMENT",
             "accountId": "${{ vars.ACCOUNT_ID || '1234' }}",
             "timeout": 30000,
+            "requestTimeout": 10000,
+            "responseTimeout": 30000,
             "retries": {
               "runMode": 2,
               "openMode": 0
-            }
+            },
+            "chromeWebSecurity": false,
+            "modifyObstructiveCode": false
           }
           EOF
           
@@ -141,30 +151,37 @@ jobs:
         run: |
           echo "🚀 Starting Cypress tests..."
           
-          # Build test command based on suite selection
+          # Build test command based on suite selection (backend API tests only)
           case "${{ github.event.inputs.test_suite }}" in
             "all")
-              SPEC_PATTERN="cypress/e2e/**/*.cy.js"
+              SPEC_PATTERN="cypress/e2e/api/**/*.cy.js"
               ;;
             "smoke")
-              SPEC_PATTERN="cypress/e2e/account-management.cy.js,cypress/e2e/api/auth.cy.js"
+              SPEC_PATTERN="cypress/e2e/api/account.cy.js,cypress/e2e/api/auth.cy.js,cypress/e2e/api/iam.cy.js"
               ;;
             "regression")
               SPEC_PATTERN="cypress/e2e/api/**/*.cy.js"
+              echo "🔄 Running full regression suite - all API tests"
               ;;
             *)
-              SPEC_PATTERN="cypress/e2e/api/${{ github.event.inputs.test_suite }}*.cy.js"
+              SPEC_PATTERN="cypress/e2e/api/${{ github.event.inputs.test_suite }}.cy.js"
+              echo "🎯 Running specific API test suite: ${{ github.event.inputs.test_suite }}"
               ;;
           esac
           
-          # Build Cypress command
+          # Build Cypress command for API testing
           CYPRESS_CMD="npx cypress run"
           CYPRESS_CMD="$CYPRESS_CMD --browser ${{ github.event.inputs.browser }}"
+          CYPRESS_CMD="$CYPRESS_CMD --headless"
           CYPRESS_CMD="$CYPRESS_CMD --spec \"$SPEC_PATTERN\""
+          CYPRESS_CMD="$CYPRESS_CMD --config video=true,screenshotOnRunFailure=true"
+          CYPRESS_CMD="$CYPRESS_CMD --reporter mochawesome"
+          CYPRESS_CMD="$CYPRESS_CMD --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true"
           
-          # Add parallel execution if enabled
+          # Add parallel execution if enabled (optimized for API tests)
           if [ "${{ github.event.inputs.parallel }}" == "true" ]; then
-            CYPRESS_CMD="$CYPRESS_CMD --parallel --ci-build-id ${{ github.run_id }}"
+            CYPRESS_CMD="$CYPRESS_CMD --parallel --ci-build-id ${{ github.run_id }}-api"
+            echo "⚡ Parallel execution enabled for API tests"
           fi
           
           # Add recording if enabled and key is available
@@ -176,17 +193,22 @@ jobs:
           echo "Executing: $CYPRESS_CMD"
           eval $CYPRESS_CMD
 
-      - name: 📊 Generate Test Report
+      - name: 📊 Generate API Test Report
         if: always()
         run: |
-          echo "📈 Generating test report..."
+          echo "📈 Generating API test report..."
           
-          # Run test report generator if available
+          # Run API-specific test report generator
           if [ -f "scripts/test-report-generator.js" ]; then
-            node scripts/test-report-generator.js
+            node scripts/test-report-generator.js --type=api
           fi
           
-          # Create summary report
+          # Run context coverage analyzer for API tests
+          if [ -f "scripts/context-coverage-analyzer.js" ]; then
+            node scripts/context-coverage-analyzer.js
+          fi
+          
+          # Create API test summary report
           mkdir -p reports/test-results
           
           cat > reports/test-results/summary.json << EOF
@@ -194,6 +216,7 @@ jobs:
             "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)",
             "environment": "${{ github.event.inputs.environment }}",
             "testSuite": "${{ github.event.inputs.test_suite }}",
+            "testType": "api-backend",
             "browser": "${{ github.event.inputs.browser }}",
             "parallel": ${{ github.event.inputs.parallel }},
             "runId": "${{ github.run_id }}",
@@ -211,6 +234,7 @@ jobs:
             cypress/screenshots/
             cypress/reports/
             reports/test-results/
+            reports/context-coverage/
             mochawesome-report/
           retention-days: 30
 
