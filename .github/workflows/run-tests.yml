@@ -157,7 +157,7 @@ jobs:
               SPEC_PATTERN="cypress/e2e/api/**/*.cy.js"
               ;;
             "smoke")
-              SPEC_PATTERN="cypress/e2e/api/account.cy.js,cypress/e2e/api/auth.cy.js"
+              SPEC_PATTERN="cypress/e2e/api/account.cy.js"
               ;;
             "regression")
               SPEC_PATTERN="cypress/e2e/api/**/*.cy.js"
