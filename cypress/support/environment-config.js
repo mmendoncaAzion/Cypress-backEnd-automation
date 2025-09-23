@@ -25,12 +25,15 @@ export class EnvironmentConfig {
     switch (env.toLowerCase()) {
       case 'production':
       case 'prod':
-        return Cypress.env('prodUrl') || 'https://api.azion.com/v4';
+        return Cypress.env('prodUrl') || 'https://api.azionapi.net';
       case 'stage':
       case 'staging':
-        return Cypress.env('stageUrl') || 'https://stage-api.azion.com/v4';
+        return Cypress.env('stageUrl') || 'https://api-stage.azionapi.net';
+      case 'dev':
+      case 'development':
+        return Cypress.env('devUrl') || 'https://api-dev.azionapi.net';
       default:
-        return Cypress.env('baseUrl') || 'https://api.azion.com/v4';
+        return Cypress.env('baseUrl') || 'https://api.azionapi.net';
     }
   }
 

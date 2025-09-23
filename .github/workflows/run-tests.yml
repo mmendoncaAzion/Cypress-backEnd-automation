@@ -1,0 +1,270 @@
+name: 🧪 Run Cypress Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      test_suite:
+        description: 'Test Suite to Run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - smoke
+          - regression
+          - account
+          - auth
+          - edge_application
+          - edge_firewall
+          - dns
+          - workspace
+          - data_stream
+          - digital_certificates
+          - orchestrator
+          - payments
+      browser:
+        description: 'Browser'
+        required: false
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+          - edge
+      parallel:
+        description: 'Run tests in parallel'
+        required: false
+        default: true
+        type: boolean
+      record:
+        description: 'Record test results'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  NODE_VERSION: '18'
+  CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+jobs:
+  test:
+    name: 🚀 Cypress Tests - ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    
+    environment: ${{ github.event.inputs.environment }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: ${{ github.event.inputs.parallel == 'true' && '[1, 2, 3, 4]' || '[1]' }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔧 Setup Environment Configuration
+        env:
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          AZION_BASE_URL: ${{ vars.AZION_BASE_URL }}
+          TARGET_ENVIRONMENT: ${{ github.event.inputs.environment }}
+        run: |
+          echo "🌍 Configuring environment: $TARGET_ENVIRONMENT"
+          
+          # Set environment-specific base URL
+          case "$TARGET_ENVIRONMENT" in
+            "dev")
+              BASE_URL="https://api-dev.azionapi.net"
+              ;;
+            "stage")
+              BASE_URL="https://api-stage.azionapi.net"
+              ;;
+            "prod")
+              BASE_URL="https://api.azionapi.net"
+              ;;
+          esac
+          
+          # Create environment-specific cypress.env.json
+          cat > cypress.env.json << EOF
+          {
+            "baseUrl": "$BASE_URL",
+            "token": "$AZION_TOKEN",
+            "environment": "$TARGET_ENVIRONMENT",
+            "accountId": "${{ vars.ACCOUNT_ID || '1234' }}",
+            "timeout": 30000,
+            "retries": {
+              "runMode": 2,
+              "openMode": 0
+            }
+          }
+          EOF
+          
+          echo "✅ Environment configuration created"
+
+      - name: 🔍 Validate Configuration
+        run: |
+          echo "🔧 Validating test configuration..."
+          
+          # Check required secrets
+          if [ -z "${{ secrets.AZION_TOKEN }}" ]; then
+            echo "❌ AZION_TOKEN secret not configured for ${{ github.event.inputs.environment }}"
+            exit 1
+          fi
+          
+          # Validate test suite selection
+          echo "📋 Test Suite: ${{ github.event.inputs.test_suite }}"
+          echo "🌐 Browser: ${{ github.event.inputs.browser }}"
+          echo "⚡ Parallel: ${{ github.event.inputs.parallel }}"
+          echo "📹 Record: ${{ github.event.inputs.record }}"
+
+      - name: 🧪 Run Cypress Tests
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🚀 Starting Cypress tests..."
+          
+          # Build test command based on suite selection
+          case "${{ github.event.inputs.test_suite }}" in
+            "all")
+              SPEC_PATTERN="cypress/e2e/**/*.cy.js"
+              ;;
+            "smoke")
+              SPEC_PATTERN="cypress/e2e/account-management.cy.js,cypress/e2e/api/auth.cy.js"
+              ;;
+            "regression")
+              SPEC_PATTERN="cypress/e2e/api/**/*.cy.js"
+              ;;
+            *)
+              SPEC_PATTERN="cypress/e2e/api/${{ github.event.inputs.test_suite }}*.cy.js"
+              ;;
+          esac
+          
+          # Build Cypress command
+          CYPRESS_CMD="npx cypress run"
+          CYPRESS_CMD="$CYPRESS_CMD --browser ${{ github.event.inputs.browser }}"
+          CYPRESS_CMD="$CYPRESS_CMD --spec \"$SPEC_PATTERN\""
+          
+          # Add parallel execution if enabled
+          if [ "${{ github.event.inputs.parallel }}" == "true" ]; then
+            CYPRESS_CMD="$CYPRESS_CMD --parallel --ci-build-id ${{ github.run_id }}"
+          fi
+          
+          # Add recording if enabled and key is available
+          if [ "${{ github.event.inputs.record }}" == "true" ] && [ -n "$CYPRESS_RECORD_KEY" ]; then
+            CYPRESS_CMD="$CYPRESS_CMD --record --key $CYPRESS_RECORD_KEY"
+          fi
+          
+          # Execute tests
+          echo "Executing: $CYPRESS_CMD"
+          eval $CYPRESS_CMD
+
+      - name: 📊 Generate Test Report
+        if: always()
+        run: |
+          echo "📈 Generating test report..."
+          
+          # Run test report generator if available
+          if [ -f "scripts/test-report-generator.js" ]; then
+            node scripts/test-report-generator.js
+          fi
+          
+          # Create summary report
+          mkdir -p reports/test-results
+          
+          cat > reports/test-results/summary.json << EOF
+          {
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)",
+            "environment": "${{ github.event.inputs.environment }}",
+            "testSuite": "${{ github.event.inputs.test_suite }}",
+            "browser": "${{ github.event.inputs.browser }}",
+            "parallel": ${{ github.event.inputs.parallel }},
+            "runId": "${{ github.run_id }}",
+            "runNumber": ${{ github.run_number }}
+          }
+          EOF
+
+      - name: 📤 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-results-${{ github.event.inputs.environment }}-${{ matrix.containers }}-${{ github.run_number }}
+          path: |
+            cypress/videos/
+            cypress/screenshots/
+            cypress/reports/
+            reports/test-results/
+            mochawesome-report/
+          retention-days: 30
+
+      - name: 📋 Upload Test Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports-${{ github.event.inputs.environment }}-${{ github.run_number }}
+          path: |
+            reports/
+            *.xml
+            *.json
+          retention-days: 30
+
+      - name: 📝 Comment Test Results (if PR)
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            let summary = "## 🧪 Cypress Test Results\n\n";
+            summary += `**Environment:** ${{ github.event.inputs.environment }}\n`;
+            summary += `**Test Suite:** ${{ github.event.inputs.test_suite }}\n`;
+            summary += `**Browser:** ${{ github.event.inputs.browser }}\n`;
+            summary += `**Parallel:** ${{ github.event.inputs.parallel }}\n\n`;
+            
+            // Check if summary file exists
+            const summaryPath = './reports/test-results/summary.json';
+            if (fs.existsSync(summaryPath)) {
+              const testSummary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+              summary += `**Run ID:** ${testSummary.runId}\n`;
+              summary += `**Timestamp:** ${testSummary.timestamp}\n\n`;
+            }
+            
+            summary += "📊 **Detailed results available in artifacts**\n";
+            summary += "📹 **Videos and screenshots captured for failed tests**";
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+
+      - name: 🎯 Job Summary
+        if: always()
+        run: |
+          echo "## 🧪 Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ github.event.inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Test Suite:** ${{ github.event.inputs.test_suite }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Browser:** ${{ github.event.inputs.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Parallel Execution:** ${{ github.event.inputs.parallel }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Container:** ${{ matrix.containers }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Results and artifacts uploaded for analysis**" >> $GITHUB_STEP_SUMMARY

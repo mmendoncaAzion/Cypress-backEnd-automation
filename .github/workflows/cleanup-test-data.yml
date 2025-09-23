@@ -1,0 +1,160 @@
+name: 🧹 Cleanup Test Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      dry_run:
+        description: 'Dry Run (preview only)'
+        required: false
+        default: true
+        type: boolean
+      categories:
+        description: 'Categories to cleanup (comma-separated, leave empty for all)'
+        required: false
+        default: ''
+        type: string
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  cleanup:
+    name: 🗑️ Cleanup Test Resources
+    runs-on: ubuntu-latest
+    
+    environment: ${{ github.event.inputs.environment }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔍 Validate Environment Configuration
+        run: |
+          echo "🌍 Environment: ${{ github.event.inputs.environment }}"
+          echo "🔄 Dry Run: ${{ github.event.inputs.dry_run }}"
+          echo "📂 Categories: ${{ github.event.inputs.categories }}"
+          
+          # Validate required secrets
+          if [ -z "${{ secrets.AZION_TOKEN }}" ]; then
+            echo "❌ AZION_TOKEN secret not configured"
+            exit 1
+          fi
+
+      - name: 🧹 Execute Cleanup Script
+        env:
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          AZION_BASE_URL: ${{ vars.AZION_BASE_URL || 'https://api.azionapi.net' }}
+          TARGET_ENVIRONMENT: ${{ github.event.inputs.environment }}
+          CLEANUP_CATEGORIES: ${{ github.event.inputs.categories }}
+        run: |
+          echo "🚀 Starting cleanup process..."
+          
+          # Build cleanup command
+          CLEANUP_CMD="node scripts/cleanup-test-data.js"
+          
+          # Add environment-specific base URL
+          case "$TARGET_ENVIRONMENT" in
+            "dev")
+              CLEANUP_CMD="$CLEANUP_CMD https://api-dev.azionapi.net"
+              ;;
+            "stage")
+              CLEANUP_CMD="$CLEANUP_CMD https://api-stage.azionapi.net"
+              ;;
+            "prod")
+              CLEANUP_CMD="$CLEANUP_CMD https://api.azionapi.net"
+              ;;
+          esac
+          
+          # Add token
+          CLEANUP_CMD="$CLEANUP_CMD $AZION_TOKEN"
+          
+          # Add live flag if not dry run
+          if [ "${{ github.event.inputs.dry_run }}" != "true" ]; then
+            CLEANUP_CMD="$CLEANUP_CMD --live"
+            echo "⚠️  LIVE MODE: Resources will be permanently deleted!"
+          else
+            echo "🔍 DRY RUN MODE: No resources will be deleted"
+          fi
+          
+          # Execute cleanup
+          eval $CLEANUP_CMD
+
+      - name: 📊 Upload Cleanup Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cleanup-report-${{ github.event.inputs.environment }}-${{ github.run_number }}
+          path: |
+            reports/cleanup-report.json
+            reports/cleanup-*.json
+          retention-days: 30
+
+      - name: 📝 Comment Results (if PR)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = './reports/cleanup-report.json';
+            
+            if (fs.existsSync(path)) {
+              const report = JSON.parse(fs.readFileSync(path, 'utf8'));
+              
+              const comment = `## 🧹 Cleanup Results
+              
+              **Environment:** ${{ github.event.inputs.environment }}
+              **Mode:** ${{ github.event.inputs.dry_run == 'true' && 'Dry Run' || 'Live' }}
+              
+              ### Summary
+              - **Attempted:** ${report.summary.attempted}
+              - **Successful:** ${report.summary.successful}
+              - **Failed:** ${report.summary.failed}
+              
+              ${report.summary.errors.length > 0 ? `### Errors\n${report.summary.errors.map(e => `- ${e.endpoint}: ${e.error}`).join('\n')}` : ''}
+              
+              <details>
+              <summary>📋 Available DELETE Endpoints (${report.deleteEndpoints.length})</summary>
+              
+              ${report.deleteEndpoints.map(ep => `- **${ep.category}**: ${ep.name}`).join('\n')}
+              </details>`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+
+      - name: 🎯 Summary
+        if: always()
+        run: |
+          echo "## 🧹 Cleanup Completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Environment:** ${{ github.event.inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Mode:** ${{ github.event.inputs.dry_run == 'true' && 'Dry Run 🔍' || 'Live Mode ⚠️' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "reports/cleanup-report.json" ]; then
+            echo "**Results available in artifacts** 📊" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**No cleanup report generated** ❌" >> $GITHUB_STEP_SUMMARY
+          fi
