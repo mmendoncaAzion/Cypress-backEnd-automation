@@ -169,14 +169,21 @@ jobs:
               ;;
           esac
           
+          # Ensure directories exist before running tests
+          mkdir -p cypress/videos
+          mkdir -p cypress/screenshots
+          mkdir -p cypress/reports
+          mkdir -p reports/test-results
+          mkdir -p mochawesome-report
+          
           # Build Cypress command for API testing
           CYPRESS_CMD="npx cypress run"
           CYPRESS_CMD="$CYPRESS_CMD --browser ${{ github.event.inputs.browser }}"
           CYPRESS_CMD="$CYPRESS_CMD --headless"
           CYPRESS_CMD="$CYPRESS_CMD --spec \"$SPEC_PATTERN\""
-          CYPRESS_CMD="$CYPRESS_CMD --config video=true,screenshotOnRunFailure=true"
+          CYPRESS_CMD="$CYPRESS_CMD --config video=true,screenshotOnRunFailure=true,videosFolder=cypress/videos,screenshotsFolder=cypress/screenshots"
           CYPRESS_CMD="$CYPRESS_CMD --reporter mochawesome"
-          CYPRESS_CMD="$CYPRESS_CMD --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true"
+          CYPRESS_CMD="$CYPRESS_CMD --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true,reportFilename=api-test-report"
           
           # Add parallel execution if enabled (optimized for API tests)
           if [ "${{ github.event.inputs.parallel }}" == "true" ]; then
@@ -189,9 +196,22 @@ jobs:
             CYPRESS_CMD="$CYPRESS_CMD --record --key $CYPRESS_RECORD_KEY"
           fi
           
-          # Execute tests
+          # Execute tests with error handling
           echo "Executing: $CYPRESS_CMD"
+          set +e  # Don't exit on test failures
           eval $CYPRESS_CMD
+          TEST_EXIT_CODE=$?
+          set -e  # Re-enable exit on error
+          
+          echo "Test execution completed with exit code: $TEST_EXIT_CODE"
+          
+          # Always generate basic report structure even if tests fail
+          if [ ! -f "cypress/reports/api-test-report.json" ]; then
+            echo '{"stats":{"tests":0,"passes":0,"failures":0},"results":[]}' > cypress/reports/api-test-report.json
+          fi
+          
+          # Exit with the original test exit code
+          exit $TEST_EXIT_CODE
 
       - name: 📊 Generate API Test Report
         if: always()
@@ -210,6 +230,9 @@ jobs:
           
           # Create API test summary report
           mkdir -p reports/test-results
+          mkdir -p reports/context-coverage
+          mkdir -p cypress/reports
+          mkdir -p mochawesome-report
           
           cat > reports/test-results/summary.json << EOF
           {
@@ -228,7 +251,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-results-${{ github.event.inputs.environment }}-${{ matrix.containers }}-${{ github.run_number }}
+          name: cypress-results-${{ github.event.inputs.environment }}-container-${{ matrix.containers }}-run-${{ github.run_number }}
           path: |
             cypress/videos/
             cypress/screenshots/
@@ -237,17 +260,19 @@ jobs:
             reports/context-coverage/
             mochawesome-report/
           retention-days: 30
+          if-no-files-found: ignore
 
       - name: 📋 Upload Test Reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: test-reports-${{ github.event.inputs.environment }}-${{ github.run_number }}
+          name: test-reports-${{ github.event.inputs.environment }}-container-${{ matrix.containers }}-run-${{ github.run_number }}
           path: |
             reports/
             *.xml
             *.json
           retention-days: 30
+          if-no-files-found: ignore
 
       - name: 📝 Comment Test Results (if PR)
         if: github.event_name == 'pull_request' && always()
