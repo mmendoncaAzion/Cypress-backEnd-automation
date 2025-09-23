@@ -203,26 +203,67 @@ jobs:
           echo "TARGET_ENVIRONMENT: $TARGET_ENVIRONMENT"
           echo "SPEC_PATTERN: $SPEC_PATTERN"
           echo "Working Directory: $(pwd)"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
           
           # Check if test files exist
           echo "📁 Checking test files:"
           if [ -d "cypress/e2e/api" ]; then
             echo "✅ cypress/e2e/api directory exists"
-            ls -la cypress/e2e/api/ | head -10
+            echo "Files matching spec pattern:"
+            echo "$SPEC_PATTERN" | tr ',' '\n' | while read -r file; do
+              if [ -f "$file" ]; then
+                echo "✅ $file exists"
+              else
+                echo "❌ $file NOT FOUND"
+              fi
+            done
+            echo "All .cy.js files in api directory:"
+            find cypress/e2e/api -name "*.cy.js" | head -10
           else
             echo "❌ cypress/e2e/api directory not found"
             echo "Available directories:"
             find cypress -type d -name "*api*" 2>/dev/null || echo "No API directories found"
           fi
           
-          # Execute tests with error handling
-          echo "Executing: $CYPRESS_CMD"
+          # Check Cypress installation and config
+          echo "🔧 Cypress Environment Check:"
+          echo "Cypress binary location:"
+          npx cypress cache path 2>/dev/null || echo "Cypress cache not found"
+          echo "Cypress version:"
+          npx cypress version 2>/dev/null || echo "Failed to get Cypress version"
+          
+          # Validate environment variables
+          echo "🔑 Environment Variables Check:"
+          if [ -z "$AZION_TOKEN" ]; then
+            echo "❌ AZION_TOKEN is empty or not set"
+          else
+            echo "✅ AZION_TOKEN is set (length: ${#AZION_TOKEN})"
+          fi
+          
+          if [ -z "${{ vars.ACCOUNT_ID }}" ]; then
+            echo "❌ ACCOUNT_ID is empty or not set"
+          else
+            echo "✅ ACCOUNT_ID is set: ${{ vars.ACCOUNT_ID }}"
+          fi
+          
+          # Execute tests with comprehensive error handling
+          echo "🚀 Executing: $CYPRESS_CMD"
           set +e  # Don't exit on test failures
-          eval $CYPRESS_CMD
-          TEST_EXIT_CODE=$?
+          
+          # Run with timeout to prevent hanging
+          timeout 600 bash -c "eval $CYPRESS_CMD" 2>&1 | tee cypress_output.log
+          TEST_EXIT_CODE=${PIPESTATUS[0]}
+          
           set -e  # Re-enable exit on error
           
-          echo "Test execution completed with exit code: $TEST_EXIT_CODE"
+          echo "📊 Test execution completed with exit code: $TEST_EXIT_CODE"
+          
+          # Show last lines of output for debugging
+          if [ -f "cypress_output.log" ]; then
+            echo "🔍 Last 20 lines of Cypress output:"
+            tail -20 cypress_output.log
+          fi
           
           # Always generate basic report structure even if tests fail
           if [ ! -f "cypress/reports/api-test-report.json" ]; then
