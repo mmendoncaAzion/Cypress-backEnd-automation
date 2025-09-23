@@ -1,0 +1,68 @@
+{
+  "timestamp": "2025-09-22T21:40:12.199Z",
+  "analysis": {
+    "postman": {
+      "totalEndpoints": 239,
+      "categories": 16,
+      "topCategories": [
+        {
+          "category": "edge_application",
+          "count": 39
+        },
+        {
+          "category": "edge_firewall",
+          "count": 33
+        },
+        {
+          "category": "orchestrator",
+          "count": 27
+        },
+        {
+          "category": "workspace",
+          "count": 23
+        },
+        {
+          "category": "auth",
+          "count": 18
+        }
+      ]
+    },
+    "cypress": {
+      "totalEndpoints": 201,
+      "testFiles": 45,
+      "averageEndpointsPerFile": 4
+    },
+    "coverage": {
+      "percentage": 8,
+      "covered": 19,
+      "missing": 219,
+      "extra": 182
+    }
+  },
+  "recommendations": [
+    "Low coverage detected - prioritize creating missing Cypress tests",
+    "Large number of missing endpoints - consider batch test generation",
+    "Review extra Cypress endpoints for relevance and accuracy",
+    "High gap in auth category (18 missing endpoints)",
+    "High gap in data_stream category (13 missing endpoints)",
+    "High gap in digital_certificates category (14 missing endpoints)",
+    "High gap in edge_connector category (6 missing endpoints)",
+    "High gap in edge_firewall category (29 missing endpoints)",
+    "High gap in orchestrator category (27 missing endpoints)",
+    "High gap in identity category (7 missing endpoints)",
+    "High gap in payments category (7 missing endpoints)",
+    "High gap in edge_storage category (9 missing endpoints)",
+    "High gap in edge_application category (36 missing endpoints)",
+    "High gap in workspace category (17 missing endpoints)",
+    "High gap in dns category (13 missing endpoints)",
+    "High gap in account category (10 missing endpoints)"
+  ],
+  "nextSteps": [
+    "Review missing endpoints by category",
+    "Generate Cypress tests for uncovered endpoints",
+    "Create comprehensive payload variations",
+    "Add boundary and error testing",
+    "Implement performance testing",
+    "Validate rate limiting scenarios"
+  ]
+}

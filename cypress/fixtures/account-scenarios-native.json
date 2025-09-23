@@ -1,0 +1,316 @@
+[
+  {
+    "endpoint": "Retrieve account information details",
+    "method": "GET",
+    "path": "/account/accounts/{{accountId}}/info",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful GET request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Retrieve account information details",
+    "method": "GET",
+    "path": "/account/accounts/{{accountId}}/info",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update account information details",
+    "method": "PUT",
+    "path": "/account/accounts/{{accountId}}/info",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful PUT request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Update account information details",
+    "method": "PUT",
+    "path": "/account/accounts/{{accountId}}/info",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update account information details",
+    "method": "PUT",
+    "path": "/account/accounts/{{accountId}}/info",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "payload"
+  },
+  {
+    "endpoint": "Retrieve account details",
+    "method": "GET",
+    "path": "/account/accounts/{{accountId}}",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful GET request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Retrieve account details",
+    "method": "GET",
+    "path": "/account/accounts/{{accountId}}",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update account details",
+    "method": "PUT",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful PUT request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Update account details",
+    "method": "PUT",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update account details",
+    "method": "PUT",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "payload"
+  },
+  {
+    "endpoint": "Partially update account details",
+    "method": "PATCH",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful PATCH request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Partially update account details",
+    "method": "PATCH",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Partially update account details",
+    "method": "PATCH",
+    "path": "/account/accounts/:id",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "payload"
+  },
+  {
+    "endpoint": "List accounts",
+    "method": "GET",
+    "path": "/account/accounts",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful GET request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "List accounts",
+    "method": "GET",
+    "path": "/account/accounts",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Create a new account",
+    "method": "POST",
+    "path": "/account/accounts",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful POST request",
+    "expectedStatus": 201,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Create a new account",
+    "method": "POST",
+    "path": "/account/accounts",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Create a new account",
+    "method": "POST",
+    "path": "/account/accounts",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 201,
+    "priority": "high",
+    "category": "payload"
+  },
+  {
+    "endpoint": "Retrieve logged account details",
+    "method": "GET",
+    "path": "/account/account",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful GET request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Retrieve logged account details",
+    "method": "GET",
+    "path": "/account/account",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update logged account details",
+    "method": "PUT",
+    "path": "/account/account",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful PUT request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Update logged account details",
+    "method": "PUT",
+    "path": "/account/account",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Update logged account details",
+    "method": "PUT",
+    "path": "/account/account",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "payload"
+  },
+  {
+    "endpoint": "Partially update logged account details",
+    "method": "PATCH",
+    "path": "/account/account",
+    "context": "account",
+    "name": "successful_request",
+    "description": "Successful PATCH request",
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "core"
+  },
+  {
+    "endpoint": "Partially update logged account details",
+    "method": "PATCH",
+    "path": "/account/account",
+    "context": "account",
+    "name": "no_authentication",
+    "description": "Request without authentication",
+    "headers": {},
+    "expectedStatus": 401,
+    "priority": "high",
+    "category": "security"
+  },
+  {
+    "endpoint": "Partially update logged account details",
+    "method": "PATCH",
+    "path": "/account/account",
+    "context": "account",
+    "name": "minimal_payload",
+    "description": "Request with minimal payload",
+    "payload": {
+      "name": "Test account"
+    },
+    "expectedStatus": 200,
+    "priority": "high",
+    "category": "payload"
+  }
+]

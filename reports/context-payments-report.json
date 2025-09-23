@@ -1,0 +1,212 @@
+{
+  "name": "payments",
+  "endpoints_count": 7,
+  "tests_count": 12,
+  "coverage_percentage": 100,
+  "endpoints": [
+    {
+      "name": "Retrieve details from a credit card",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/credit_cards/{{creditCardId}}",
+      "path": "payments/credit_cards/{{creditCardId}}",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Retrieve details from a credit card"
+    },
+    {
+      "name": "Partially update a credit card",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/payments/credit_cards/:id",
+      "path": "payments/credit_cards/:id",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Partially update a credit card"
+    },
+    {
+      "name": "Destroy a credit card",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/payments/credit_cards/:id",
+      "path": "payments/credit_cards/:id",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Destroy a credit card"
+    },
+    {
+      "name": "List of the credit cards",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/credit_cards",
+      "path": "payments/credit_cards",
+      "parentPath": "payments/credit_cards",
+      "fullPath": "payments/credit_cards/List of the credit cards"
+    },
+    {
+      "name": "Create a new credit card",
+      "method": "POST",
+      "url": "{{baseUrl}}/payments/credit_cards",
+      "path": "payments/credit_cards",
+      "parentPath": "payments/credit_cards",
+      "fullPath": "payments/credit_cards/Create a new credit card"
+    },
+    {
+      "name": "Add credits using the default credit card",
+      "method": "POST",
+      "url": "{{baseUrl}}/payments/credits",
+      "path": "payments/credits",
+      "parentPath": "payments/credits",
+      "fullPath": "payments/credits/Add credits using the default credit card"
+    },
+    {
+      "name": "List of the payment history",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/history",
+      "path": "payments/history",
+      "parentPath": "payments/history",
+      "fullPath": "payments/history/List of the payment history"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list payments resources",
+      "file": "payments.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new payments resource",
+      "file": "payments.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific payments resource",
+      "file": "payments.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update payments resource",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Retrieve details from a credit card",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/credit_cards/{{creditCardId}}",
+      "path": "payments/credit_cards/{{creditCardId}}",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Retrieve details from a credit card"
+    },
+    {
+      "name": "Partially update a credit card",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/payments/credit_cards/:id",
+      "path": "payments/credit_cards/:id",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Partially update a credit card"
+    },
+    {
+      "name": "Destroy a credit card",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/payments/credit_cards/:id",
+      "path": "payments/credit_cards/:id",
+      "parentPath": "payments/credit_cards/{id}",
+      "fullPath": "payments/credit_cards/{id}/Destroy a credit card"
+    },
+    {
+      "name": "List of the credit cards",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/credit_cards",
+      "path": "payments/credit_cards",
+      "parentPath": "payments/credit_cards",
+      "fullPath": "payments/credit_cards/List of the credit cards"
+    },
+    {
+      "name": "Create a new credit card",
+      "method": "POST",
+      "url": "{{baseUrl}}/payments/credit_cards",
+      "path": "payments/credit_cards",
+      "parentPath": "payments/credit_cards",
+      "fullPath": "payments/credit_cards/Create a new credit card"
+    },
+    {
+      "name": "Add credits using the default credit card",
+      "method": "POST",
+      "url": "{{baseUrl}}/payments/credits",
+      "path": "payments/credits",
+      "parentPath": "payments/credits",
+      "fullPath": "payments/credits/Add credits using the default credit card"
+    },
+    {
+      "name": "List of the payment history",
+      "method": "GET",
+      "url": "{{baseUrl}}/payments/history",
+      "path": "payments/history",
+      "parentPath": "payments/history",
+      "fullPath": "payments/history/List of the payment history"
+    }
+  ],
+  "missing_endpoints": [],
+  "extra_tests": [
+    {
+      "name": "should handle unauthorized requests",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "payments.cy.js",
+      "hasApiCall": false
+    }
+  ]
+}

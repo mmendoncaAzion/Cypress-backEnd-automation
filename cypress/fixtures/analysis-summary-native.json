@@ -1,0 +1,89 @@
+{
+  "timestamp": "2025-09-23T16:39:41.094Z",
+  "endpoints": 239,
+  "contexts": 16,
+  "scenarios": 600,
+  "contextBreakdown": [
+    {
+      "context": "account",
+      "endpoints": 10,
+      "scenarios": 26
+    },
+    {
+      "context": "auth",
+      "endpoints": 18,
+      "scenarios": 46
+    },
+    {
+      "context": "payments",
+      "endpoints": 7,
+      "scenarios": 17
+    },
+    {
+      "context": "workspace",
+      "endpoints": 23,
+      "scenarios": 58
+    },
+    {
+      "context": "dns",
+      "endpoints": 15,
+      "scenarios": 38
+    },
+    {
+      "context": "data_stream",
+      "endpoints": 13,
+      "scenarios": 32
+    },
+    {
+      "context": "digital_certificates",
+      "endpoints": 14,
+      "scenarios": 36
+    },
+    {
+      "context": "edge_application",
+      "endpoints": 39,
+      "scenarios": 99
+    },
+    {
+      "context": "edge_connector",
+      "endpoints": 6,
+      "scenarios": 15
+    },
+    {
+      "context": "edge_firewall",
+      "endpoints": 33,
+      "scenarios": 84
+    },
+    {
+      "context": "edge_functions",
+      "endpoints": 6,
+      "scenarios": 15
+    },
+    {
+      "context": "edge_sql",
+      "endpoints": 5,
+      "scenarios": 12
+    },
+    {
+      "context": "edge_storage",
+      "endpoints": 13,
+      "scenarios": 31
+    },
+    {
+      "context": "iam",
+      "endpoints": 3,
+      "scenarios": 9
+    },
+    {
+      "context": "orchestrator",
+      "endpoints": 27,
+      "scenarios": 65
+    },
+    {
+      "context": "identity",
+      "endpoints": 7,
+      "scenarios": 17
+    }
+  ],
+  "generatedBy": "Cypress Native Analyzer"
+}

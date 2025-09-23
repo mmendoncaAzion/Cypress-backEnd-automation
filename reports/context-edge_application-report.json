@@ -1,0 +1,699 @@
+{
+  "name": "edge_application",
+  "endpoints_count": 39,
+  "tests_count": 12,
+  "coverage_percentage": 31,
+  "endpoints": [
+    {
+      "name": "Clone an Edge Application",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/clone",
+      "path": "workspace/applications/{{edgeApplicationId}}/clone",
+      "parentPath": "edge_application/applications/{globalId}/clone",
+      "fullPath": "edge_application/applications/{globalId}/clone/Clone an Edge Application"
+    },
+    {
+      "name": "Retrieve details of an Edge Application",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Retrieve details of an Edge Application"
+    },
+    {
+      "name": "Update an Edge Application",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Update an Edge Application"
+    },
+    {
+      "name": "Partially update an Edge Application",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Partially update an Edge Application"
+    },
+    {
+      "name": "Destroy an Edge Application",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Destroy an Edge Application"
+    },
+    {
+      "name": "Retrieve details of an Edge Applications Cache Setting",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Retrieve details of an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Update an Edge Applications Cache Setting",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Update an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Partially update an Edge Applications Cache Setting",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Partially update an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Destroy an Edge Applications Cache Setting",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Destroy an Edge Applications Cache Setting"
+    },
+    {
+      "name": "List all Edge Applications Cache Settings",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/List all Edge Applications Cache Settings"
+    },
+    {
+      "name": "Create an Edge Applications Cache Setting",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/Create an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Retrieve details of a Device Group",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Retrieve details of a Device Group"
+    },
+    {
+      "name": "Update an Edge Applications Device Group",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Update an Edge Applications Device Group"
+    },
+    {
+      "name": "Partially update an Edge Applications Device Group",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Partially update an Edge Applications Device Group"
+    },
+    {
+      "name": "Destroy an Edge Applications Device Group",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Destroy an Edge Applications Device Group"
+    },
+    {
+      "name": "List Edge Applications Device Groups",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/List Edge Applications Device Groups"
+    },
+    {
+      "name": "Create an Edge Applications Device Group",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/Create an Edge Applications Device Group"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Function Instance",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Retrieve details of an Edge Application Function Instance"
+    },
+    {
+      "name": "Update an Edge Application Function Instance",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Update an Edge Application Function Instance"
+    },
+    {
+      "name": "Partially update an Edge Application Function Instance",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Partially update an Edge Application Function Instance"
+    },
+    {
+      "name": "Destroy an Edge Application Function Instance",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Destroy an Edge Application Function Instance"
+    },
+    {
+      "name": "List Function Instances",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/List Function Instances"
+    },
+    {
+      "name": "Create an Edge Application Function Instance",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/Create an Edge Application Function Instance"
+    },
+    {
+      "name": "List Edge Application Request Rules",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/List Edge Application Request Rules"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Rule",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Retrieve details of an Edge Application Rule"
+    },
+    {
+      "name": "Update an Edge Application Rule",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Update an Edge Application Rule"
+    },
+    {
+      "name": "Partially update an Edge Application Rule",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Partially update an Edge Application Rule"
+    },
+    {
+      "name": "Destroy an Edge Application Rule",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Destroy an Edge Application Rule"
+    },
+    {
+      "name": "Create an Edge Application Request Rule",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Create an Edge Application Request Rule"
+    },
+    {
+      "name": "Ordering Edge Application Request Rules",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules/order",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules/order",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Ordering Edge Application Request Rules"
+    },
+    {
+      "name": "Ordering Edge Application Response Rules",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules/order",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules/order",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Ordering Edge Application Response Rules"
+    },
+    {
+      "name": "List Edge Application Response Rules",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/List Edge Application Response Rules"
+    },
+    {
+      "name": "Create an Edge Application Response Rule",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Create an Edge Application Response Rule"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Response Rule",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Retrieve details of an Edge Application Response Rule"
+    },
+    {
+      "name": "Update an Edge Application Response Rule",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Update an Edge Application Response Rule"
+    },
+    {
+      "name": "Partially update an Edge Application Response Rule",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Partially update an Edge Application Response Rule"
+    },
+    {
+      "name": "Destroy an Edge Application Response Rule",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Destroy an Edge Application Response Rule"
+    },
+    {
+      "name": "List Edge Applications",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications",
+      "path": "workspace/applications",
+      "parentPath": "edge_application/applications",
+      "fullPath": "edge_application/applications/List Edge Applications"
+    },
+    {
+      "name": "Create an Edge Application",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications",
+      "path": "workspace/applications",
+      "parentPath": "edge_application/applications",
+      "fullPath": "edge_application/applications/Create an Edge Application"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list edge_application resources",
+      "file": "edge-application.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new edge_application resource",
+      "file": "edge-application.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific edge_application resource",
+      "file": "edge-application.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update edge_application resource",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-application.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Clone an Edge Application",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/clone",
+      "path": "workspace/applications/{{edgeApplicationId}}/clone",
+      "parentPath": "edge_application/applications/{globalId}/clone",
+      "fullPath": "edge_application/applications/{globalId}/clone/Clone an Edge Application"
+    },
+    {
+      "name": "Retrieve details of an Edge Application",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Retrieve details of an Edge Application"
+    },
+    {
+      "name": "Update an Edge Application",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Update an Edge Application"
+    },
+    {
+      "name": "Partially update an Edge Application",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Partially update an Edge Application"
+    },
+    {
+      "name": "Destroy an Edge Application",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}",
+      "parentPath": "edge_application/applications/{globalId}",
+      "fullPath": "edge_application/applications/{globalId}/Destroy an Edge Application"
+    },
+    {
+      "name": "Retrieve details of an Edge Applications Cache Setting",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Retrieve details of an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Update an Edge Applications Cache Setting",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Update an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Partially update an Edge Applications Cache Setting",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Partially update an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Destroy an Edge Applications Cache Setting",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings/{{edgeCacheSettingsId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}/Destroy an Edge Applications Cache Setting"
+    },
+    {
+      "name": "List all Edge Applications Cache Settings",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/List all Edge Applications Cache Settings"
+    },
+    {
+      "name": "Create an Edge Applications Cache Setting",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "path": "workspace/applications/{{edgeApplicationId}}/cache_settings",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/cache_settings/Create an Edge Applications Cache Setting"
+    },
+    {
+      "name": "Retrieve details of a Device Group",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Retrieve details of a Device Group"
+    }
+  ],
+  "missing_endpoints": [
+    {
+      "name": "Update an Edge Applications Device Group",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Update an Edge Applications Device Group"
+    },
+    {
+      "name": "Partially update an Edge Applications Device Group",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Partially update an Edge Applications Device Group"
+    },
+    {
+      "name": "Destroy an Edge Applications Device Group",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups/{{deviceGroupId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/{id}/Destroy an Edge Applications Device Group"
+    },
+    {
+      "name": "List Edge Applications Device Groups",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/List Edge Applications Device Groups"
+    },
+    {
+      "name": "Create an Edge Applications Device Group",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/device_groups",
+      "path": "workspace/applications/{{edgeApplicationId}}/device_groups",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/device_groups/Create an Edge Applications Device Group"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Function Instance",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Retrieve details of an Edge Application Function Instance"
+    },
+    {
+      "name": "Update an Edge Application Function Instance",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Update an Edge Application Function Instance"
+    },
+    {
+      "name": "Partially update an Edge Application Function Instance",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Partially update an Edge Application Function Instance"
+    },
+    {
+      "name": "Destroy an Edge Application Function Instance",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions/{{edgeApplicationFunctionId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/{id}/Destroy an Edge Application Function Instance"
+    },
+    {
+      "name": "List Function Instances",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/List Function Instances"
+    },
+    {
+      "name": "Create an Edge Application Function Instance",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/functions",
+      "path": "workspace/applications/{{edgeApplicationId}}/functions",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/functions/Create an Edge Application Function Instance"
+    },
+    {
+      "name": "List Edge Application Request Rules",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/List Edge Application Request Rules"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Rule",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Retrieve details of an Edge Application Rule"
+    },
+    {
+      "name": "Update an Edge Application Rule",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Update an Edge Application Rule"
+    },
+    {
+      "name": "Partially update an Edge Application Rule",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Partially update an Edge Application Rule"
+    },
+    {
+      "name": "Destroy an Edge Application Rule",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Destroy an Edge Application Rule"
+    },
+    {
+      "name": "Create an Edge Application Request Rule",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/request_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/request_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Create an Edge Application Request Rule"
+    },
+    {
+      "name": "Ordering Edge Application Request Rules",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules/order",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules/order",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/request rules/Ordering Edge Application Request Rules"
+    },
+    {
+      "name": "Ordering Edge Application Response Rules",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules/order",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules/order",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Ordering Edge Application Response Rules"
+    },
+    {
+      "name": "List Edge Application Response Rules",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/List Edge Application Response Rules"
+    },
+    {
+      "name": "Create an Edge Application Response Rule",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Create an Edge Application Response Rule"
+    },
+    {
+      "name": "Retrieve details of an Edge Application Response Rule",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Retrieve details of an Edge Application Response Rule"
+    },
+    {
+      "name": "Update an Edge Application Response Rule",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Update an Edge Application Response Rule"
+    },
+    {
+      "name": "Partially update an Edge Application Response Rule",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Partially update an Edge Application Response Rule"
+    },
+    {
+      "name": "Destroy an Edge Application Response Rule",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "path": "workspace/applications/{{edgeApplicationId}}/response_rules/{{ruleId}}",
+      "parentPath": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullPath": "edge_application/applications/{edgeApplicationId}/rules/response rules/Destroy an Edge Application Response Rule"
+    },
+    {
+      "name": "List Edge Applications",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/applications",
+      "path": "workspace/applications",
+      "parentPath": "edge_application/applications",
+      "fullPath": "edge_application/applications/List Edge Applications"
+    },
+    {
+      "name": "Create an Edge Application",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/applications",
+      "path": "workspace/applications",
+      "parentPath": "edge_application/applications",
+      "fullPath": "edge_application/applications/Create an Edge Application"
+    }
+  ],
+  "extra_tests": []
+}

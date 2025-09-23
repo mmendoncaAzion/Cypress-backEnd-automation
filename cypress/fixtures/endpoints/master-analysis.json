@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "timestamp": "2025-09-23T15:22:11.342Z",
+    "total_contexts": 2,
+    "total_scenarios": 576,
+    "analyzer_version": "1.0.0"
+  },
+  "contexts": [
+    "workspace",
+    "account"
+  ],
+  "summary": {
+    "workspace": {
+      "endpoints": 264,
+      "scenarios": 528
+    },
+    "account": {
+      "endpoints": 24,
+      "scenarios": 48
+    }
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "context": "account",
+  "endpoints": 24,
+  "scenarios": {
+    "URL_/account/auth/login": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/login": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/login": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/login": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/account/auth/login/method": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/login/method": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/login/method": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/login/method": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/account/auth/mfa/totp": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/mfa/totp": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/mfa/totp": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/mfa/totp": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/account/auth/token": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/token": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/token": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/token": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/account/auth/revoke": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/account/auth/revoke": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/account/auth/revoke": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/account/auth/revoke": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ]
+  },
+  "total_scenarios": 48
+}

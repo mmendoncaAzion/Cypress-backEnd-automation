@@ -1,0 +1,274 @@
+name: API Tests CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to test'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+        - dev
+        - stage
+        - prod
+      strategy:
+        description: 'Test execution strategy'
+        required: true
+        default: 'context'
+        type: choice
+        options:
+        - context
+        - tags
+        - spec
+        - parallel
+      max_workers:
+        description: 'Maximum parallel workers'
+        required: false
+        default: '4'
+        type: string
+
+jobs:
+  quality-check:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint:check
+
+      - name: Run Prettier
+        run: npm run format:check
+
+      - name: Validate package.json
+        run: npm run validate || echo "Package validation completed"
+
+  api-tests-smoke:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    needs: quality-check
+    strategy:
+      matrix:
+        environment: [stage]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Smoke Tests
+        run: npm run test:smoke
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_API_TOKEN }}
+          CYPRESS_accountId: ${{ secrets.AZION_ACCOUNT_ID }}
+          CYPRESS_environment: ${{ matrix.environment }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-test-results-${{ matrix.environment }}
+          path: |
+            cypress/screenshots/
+            cypress/videos/
+            reports/
+          retention-days: 7
+
+  api-tests-parallel:
+    name: Parallel API Tests
+    runs-on: ubuntu-latest
+    needs: api-tests-smoke
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate deployment readiness
+        run: |
+          cd cypress-automation
+          node scripts/deployment-validator.js
+
+      - name: Run Parallel Tests
+        run: |
+          cd cypress-automation
+          STRATEGY=${{ github.event.inputs.strategy || 'context' }}
+          MAX_WORKERS=${{ github.event.inputs.max_workers || '4' }}
+          ENVIRONMENT=${{ github.event.inputs.environment || 'stage' }}
+          
+          node scripts/parallel-test-runner.js \
+            --strategy $STRATEGY \
+            --max-workers $MAX_WORKERS \
+            --timeout 300 \
+            --verbose
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_API_TOKEN }}
+          CYPRESS_accountId: ${{ secrets.AZION_ACCOUNT_ID }}
+          CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
+
+      - name: Generate Test Report
+        if: always()
+        run: |
+          npm run report:merge
+          npm run report:generate
+
+      - name: Upload parallel test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parallel-test-results
+          path: |
+            reports/
+            cypress/screenshots/
+            cypress/videos/
+          retention-days: 14
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'reports/parallel-execution-report-*.json';
+            
+            // Find the latest report file
+            const { execSync } = require('child_process');
+            const reportFiles = execSync(`ls ${path} 2>/dev/null || echo ""`).toString().trim().split('\n').filter(f => f);
+            
+            if (reportFiles.length > 0) {
+              const reportPath = reportFiles[reportFiles.length - 1];
+              const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+              
+              const comment = `## ⚡ Parallel Test Results
+              
+              ### Execution Summary
+              - **Total Duration:** ${report.execution_summary.total_duration}s
+              - **Jobs:** ${report.execution_summary.successful_jobs}/${report.execution_summary.total_jobs} successful (${report.execution_summary.job_success_rate}%)
+              - **Tests:** ${report.test_summary.passed_tests}/${report.test_summary.total_tests} passed (${report.test_summary.success_rate}%)
+              - **Parallelization Efficiency:** ${report.performance_metrics.parallelization_efficiency}x speedup
+              
+              ### Performance
+              - **Average Job Duration:** ${report.performance_metrics.average_job_duration}s
+              - **Fastest Job:** ${report.performance_metrics.fastest_job.name} (${report.performance_metrics.fastest_job.duration.toFixed(2)}s)
+              - **Slowest Job:** ${report.performance_metrics.slowest_job.name} (${report.performance_metrics.slowest_job.duration.toFixed(2)}s)
+              `;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+
+  sonarqube-analysis:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    needs: api-tests-parallel
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_API_TOKEN }}
+          CYPRESS_accountId: ${{ secrets.AZION_ACCOUNT_ID }}
+
+      - name: SonarQube Scan
+        uses: sonarqube-quality-gate-action@master
+        with:
+          scanMetadataReportFile: .scannerwork/report-task.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+  deployment-tests:
+    name: Production Deployment Tests
+    runs-on: ubuntu-latest
+    needs: [api-tests-parallel, sonarqube-analysis]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Production Tests
+        run: npm run test:api:prod
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_API_TOKEN_PROD }}
+          CYPRESS_accountId: ${{ secrets.AZION_ACCOUNT_ID_PROD }}
+          CYPRESS_environment: prod
+
+      - name: Upload production test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-test-results
+          path: |
+            reports/
+            cypress/screenshots/
+            cypress/videos/
+          retention-days: 30
+
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Production tests passed - deployment validated"
+          else
+            echo "❌ Production tests failed - deployment validation failed"
+            exit 1
+          fi

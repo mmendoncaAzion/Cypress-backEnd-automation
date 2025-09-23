@@ -1,0 +1,315 @@
+{
+  "name": "dns",
+  "endpoints_count": 15,
+  "tests_count": 12,
+  "coverage_percentage": 80,
+  "endpoints": [
+    {
+      "name": "Retrieve details of a DNSSEC",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Retrieve details of a DNSSEC"
+    },
+    {
+      "name": "Update a DNSSEC",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Update a DNSSEC"
+    },
+    {
+      "name": "Partially update a DNSSEC",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Partially update a DNSSEC"
+    },
+    {
+      "name": "Retrieve details of a DNS Record",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Retrieve details of a DNS Record"
+    },
+    {
+      "name": "Update a DNS Record",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Update a DNS Record"
+    },
+    {
+      "name": "Partially update a DNS Record",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Partially update a DNS Record"
+    },
+    {
+      "name": "Destroy a DNS Record",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Destroy a DNS Record"
+    },
+    {
+      "name": "List DNS Records",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records",
+      "path": "workspace/dns/zones/{{zoneId}}/records",
+      "parentPath": "dns/zones/{zoneId}/records",
+      "fullPath": "dns/zones/{zoneId}/records/List DNS Records"
+    },
+    {
+      "name": "Create a DNS Record",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records",
+      "path": "workspace/dns/zones/{{zoneId}}/records",
+      "parentPath": "dns/zones/{zoneId}/records",
+      "fullPath": "dns/zones/{zoneId}/records/Create a DNS Record"
+    },
+    {
+      "name": "Retrieve details of a DNS Zone",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Retrieve details of a DNS Zone"
+    },
+    {
+      "name": "Update a DNS Zone",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Update a DNS Zone"
+    },
+    {
+      "name": "Partially update a DNS Zone",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Partially update a DNS Zone"
+    },
+    {
+      "name": "Destroy a DNS Zone",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Destroy a DNS Zone"
+    },
+    {
+      "name": "List DNS Zones",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones",
+      "path": "workspace/dns/zones",
+      "parentPath": "dns/zones",
+      "fullPath": "dns/zones/List DNS Zones"
+    },
+    {
+      "name": "Create a DNS Zone",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/dns/zones",
+      "path": "workspace/dns/zones",
+      "parentPath": "dns/zones",
+      "fullPath": "dns/zones/Create a DNS Zone"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list dns resources",
+      "file": "dns.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new dns resource",
+      "file": "dns.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific dns resource",
+      "file": "dns.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update dns resource",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "dns.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Retrieve details of a DNSSEC",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Retrieve details of a DNSSEC"
+    },
+    {
+      "name": "Update a DNSSEC",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Update a DNSSEC"
+    },
+    {
+      "name": "Partially update a DNSSEC",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/dnssec",
+      "path": "workspace/dns/zones/{{zoneId}}/dnssec",
+      "parentPath": "dns/zones/{zoneId}/dnssec",
+      "fullPath": "dns/zones/{zoneId}/dnssec/Partially update a DNSSEC"
+    },
+    {
+      "name": "Retrieve details of a DNS Record",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Retrieve details of a DNS Record"
+    },
+    {
+      "name": "Update a DNS Record",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Update a DNS Record"
+    },
+    {
+      "name": "Partially update a DNS Record",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Partially update a DNS Record"
+    },
+    {
+      "name": "Destroy a DNS Record",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "path": "workspace/dns/zones/{{zoneId}}/records/{{recordId}}",
+      "parentPath": "dns/zones/{zoneId}/records/{recordId}",
+      "fullPath": "dns/zones/{zoneId}/records/{recordId}/Destroy a DNS Record"
+    },
+    {
+      "name": "List DNS Records",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records",
+      "path": "workspace/dns/zones/{{zoneId}}/records",
+      "parentPath": "dns/zones/{zoneId}/records",
+      "fullPath": "dns/zones/{zoneId}/records/List DNS Records"
+    },
+    {
+      "name": "Create a DNS Record",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}/records",
+      "path": "workspace/dns/zones/{{zoneId}}/records",
+      "parentPath": "dns/zones/{zoneId}/records",
+      "fullPath": "dns/zones/{zoneId}/records/Create a DNS Record"
+    },
+    {
+      "name": "Retrieve details of a DNS Zone",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Retrieve details of a DNS Zone"
+    },
+    {
+      "name": "Update a DNS Zone",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Update a DNS Zone"
+    },
+    {
+      "name": "Partially update a DNS Zone",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Partially update a DNS Zone"
+    }
+  ],
+  "missing_endpoints": [
+    {
+      "name": "Destroy a DNS Zone",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/dns/zones/{{zoneId}}",
+      "path": "workspace/dns/zones/{{zoneId}}",
+      "parentPath": "dns/zones/{zoneId}",
+      "fullPath": "dns/zones/{zoneId}/Destroy a DNS Zone"
+    },
+    {
+      "name": "List DNS Zones",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/dns/zones",
+      "path": "workspace/dns/zones",
+      "parentPath": "dns/zones",
+      "fullPath": "dns/zones/List DNS Zones"
+    },
+    {
+      "name": "Create a DNS Zone",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/dns/zones",
+      "path": "workspace/dns/zones",
+      "parentPath": "dns/zones",
+      "fullPath": "dns/zones/Create a DNS Zone"
+    }
+  ],
+  "extra_tests": []
+}

@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-09-23T17:10:13.711Z",
+  "environment": "stage",
+  "stageOnlyEndpoints": 284,
+  "commonEndpoints": 39,
+  "totalStageEndpoints": 323,
+  "testResults": "Stage-specific tests completed"
+}

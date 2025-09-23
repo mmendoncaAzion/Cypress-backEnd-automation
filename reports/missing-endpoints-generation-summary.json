@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-09-23T14:04:43.901Z",
+  "contexts_processed": 9,
+  "tests_generated": 352,
+  "files_created": [
+    "auth-missing-endpoints.cy.js",
+    "workspace-missing-endpoints.cy.js",
+    "dns-missing-endpoints.cy.js",
+    "data_stream-missing-endpoints.cy.js",
+    "digital_certificates-missing-endpoints.cy.js",
+    "edge_application-missing-endpoints.cy.js",
+    "edge_firewall-missing-endpoints.cy.js",
+    "edge_storage-missing-endpoints.cy.js",
+    "orchestrator-missing-endpoints.cy.js"
+  ],
+  "files_updated": []
+}

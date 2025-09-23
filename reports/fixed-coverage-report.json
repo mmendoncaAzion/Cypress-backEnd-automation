@@ -1,0 +1,1508 @@
+{
+  "timestamp": "2025-09-23T14:15:10.791Z",
+  "summary": {
+    "total_endpoints": 239,
+    "covered_endpoints": 238,
+    "missing_endpoints": 0,
+    "extra_tests": 238,
+    "coverage_percentage": 100
+  },
+  "coverage_by_context": {
+    "account": {
+      "total": 12,
+      "covered": 12,
+      "percentage": 100
+    },
+    "auth": {
+      "total": 19,
+      "covered": 19,
+      "percentage": 100
+    },
+    "payments": {
+      "total": 7,
+      "covered": 7,
+      "percentage": 100
+    },
+    "workspace": {
+      "total": 119,
+      "covered": 118,
+      "percentage": 99
+    },
+    "data_stream": {
+      "total": 13,
+      "covered": 13,
+      "percentage": 100
+    },
+    "digital_certificates": {
+      "total": 14,
+      "covered": 14,
+      "percentage": 100
+    },
+    "edge_connector": {
+      "total": 6,
+      "covered": 6,
+      "percentage": 100
+    },
+    "edge_firewall": {
+      "total": 3,
+      "covered": 3,
+      "percentage": 100
+    },
+    "edge_functions": {
+      "total": 5,
+      "covered": 5,
+      "percentage": 100
+    },
+    "edge_sql": {
+      "total": 5,
+      "covered": 5,
+      "percentage": 100
+    },
+    "edge_storage": {
+      "total": 2,
+      "covered": 2,
+      "percentage": 100
+    },
+    "orchestrator": {
+      "total": 27,
+      "covered": 27,
+      "percentage": 100
+    },
+    "identity": {
+      "total": 7,
+      "covered": 7,
+      "percentage": 100
+    }
+  },
+  "missing_endpoints": [],
+  "extra_tests": [
+    {
+      "method": "GET",
+      "path": ":param/account/accounts/:param/info",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/account/accounts/:param/info",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "GET",
+      "path": ":param/account/accounts/:param",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/account/accounts/:param",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/account/accounts/:param",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "GET",
+      "path": ":param/account/accounts",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "POST",
+      "path": ":param/account/accounts",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "GET",
+      "path": ":param/account/account",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/account/account",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/account/account",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "POST",
+      "path": ":param/iam/users",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "POST",
+      "path": ":param/iam/accounts",
+      "filename": "account.cy.js",
+      "context": "account"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/login/method",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/login",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/auth/mfa/totp/:param",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/mfa/totp",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/mfa/totp",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/token",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/revoke",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/verify",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/policies/lockout",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/auth/policies/lockout",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/policies/:param",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/auth/policies/:param",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/auth/policies/:param",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/auth/policies/:param",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/policies/session",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/auth/policies/session",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/auth/policies",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/auth/policies",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "POST",
+      "path": ":param/iam/mfa/totp",
+      "filename": "auth.cy.js",
+      "context": "auth"
+    },
+    {
+      "method": "GET",
+      "path": ":param/data_stream/templates/{{templateId}}",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/data_stream/templates/{{dataSetId}}",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/data_stream/templates/{{dataSetId}}",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/data_stream/data_sets/{{dataSetId}}",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "GET",
+      "path": ":param/data_stream/templates",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "POST",
+      "path": ":param/data_stream/templates",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "GET",
+      "path": ":param/data_stream/data_sources",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "GET",
+      "path": ":param/data_stream/streams/:param",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/data_stream/streams/:param",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/data_stream/streams/:param",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/data_stream/streams/:param",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "GET",
+      "path": ":param/data_stream/streams",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "POST",
+      "path": ":param/data_stream/streams",
+      "filename": "data_stream.cy.js",
+      "context": "data_stream"
+    },
+    {
+      "method": "POST",
+      "path": ":param/digital_certificates/certificates/request",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "GET",
+      "path": ":param/digital_certificates/certificates/:param",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/digital_certificates/certificates/:param",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/digital_certificates/certificates/:param",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/digital_certificates/certificates/:param",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "GET",
+      "path": ":param/digital_certificates/certificates",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "POST",
+      "path": ":param/digital_certificates/certificates",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "GET",
+      "path": ":param/digital_certificates/crls/{{crlsId}}",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/digital_certificates/crls/{{crlsId}}",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/digital_certificates/crls/{{crlsId}}",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/digital_certificates/crls/{{crlsId}}",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "GET",
+      "path": ":param/digital_certificates/crls",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "POST",
+      "path": ":param/digital_certificates/crls",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "POST",
+      "path": ":param/digital_certificates/csr",
+      "filename": "digital_certificates.cy.js",
+      "context": "digital_certificates"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_connector/connectors/:param",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/edge_connector/connectors/:param",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/edge_connector/connectors/:param",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_connector/connectors/:param",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_connector/connectors",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_connector/connectors",
+      "filename": "edge_connector.cy.js",
+      "context": "edge_connector"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_firewall/wafs/{{wafId}}/clone",
+      "filename": "edge_firewall.cy.js",
+      "context": "edge_firewall"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_firewall/wafs/{{wafId}}",
+      "filename": "edge_firewall.cy.js",
+      "context": "edge_firewall"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_firewall/wafs/{{wafId}}/exceptions",
+      "filename": "edge_firewall.cy.js",
+      "context": "edge_firewall"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_functions/functions/:param",
+      "filename": "edge_functions.cy.js",
+      "context": "edge_functions"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/edge_functions/functions/:param",
+      "filename": "edge_functions.cy.js",
+      "context": "edge_functions"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/edge_functions/functions/:param",
+      "filename": "edge_functions.cy.js",
+      "context": "edge_functions"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_functions/functions/:param",
+      "filename": "edge_functions.cy.js",
+      "context": "edge_functions"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_functions/functions",
+      "filename": "edge_functions.cy.js",
+      "context": "edge_functions"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_sql/databases/:param/query",
+      "filename": "edge_sql.cy.js",
+      "context": "edge_sql"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_sql/databases/:param",
+      "filename": "edge_sql.cy.js",
+      "context": "edge_sql"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_sql/databases/:param",
+      "filename": "edge_sql.cy.js",
+      "context": "edge_sql"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_sql/databases",
+      "filename": "edge_sql.cy.js",
+      "context": "edge_sql"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_sql/databases",
+      "filename": "edge_sql.cy.js",
+      "context": "edge_sql"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/wrokspace/storage/buckets/:param",
+      "filename": "edge_storage.cy.js",
+      "context": "edge_storage"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/worksapce/storage/buckets/:param",
+      "filename": "edge_storage.cy.js",
+      "context": "edge_storage"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/identity/users/:param/lockout",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "GET",
+      "path": ":param/identity/users/:param",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/identity/users/:param",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/identity/users/:param",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/identity/users/:param",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "GET",
+      "path": ":param/identity/users",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "POST",
+      "path": ":param/identity/users",
+      "filename": "identity.cy.js",
+      "context": "identity"
+    },
+    {
+      "method": "GET",
+      "path": ":param/orchestrator/edge_nodes/:param/groups",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "POST",
+      "path": ":param/orchestrator/edge_nodes/:param/groups",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/orchestrator/edge_nodes/:param/services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/orchestrator/edge_nodes/:param/services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/orchestrator/edge_nodes/:param/services",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_orchestrator/edge_nodes/:param/services",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_nodes/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/orchestrator/edge_nodes/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/orchestrator/edge_nodes/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/orchestrator/edge_nodes/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_orchestrator/edge_nodes/groups/{{groupId}}",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_nodes/groups",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_orchestrator/edge_nodes/groups",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_nodes",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_services/:param/resources/{{resourceId}}/content",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/orchestrator/edge_services/:param/resources/:param/content",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/orchestrator/edge_services/:param/resources/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/orchestrator/edge_services/:param/resources/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/orchestrator/edge_services/:param/resources/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_services/:param/resources",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_orchestrator/edge_services/:param/resources",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/edge_orchestrator/edge_services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/edge_orchestrator/edge_services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/edge_orchestrator/edge_services/:param",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/edge_orchestrator/edge_services",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "POST",
+      "path": ":param/edge_orchestrator/edge_services",
+      "filename": "orchestrator.cy.js",
+      "context": "orchestrator"
+    },
+    {
+      "method": "GET",
+      "path": ":param/payments/credit_cards/{{creditCardId}}",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/payments/credit_cards/:param",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/payments/credit_cards/:param",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "GET",
+      "path": ":param/payments/credit_cards",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "POST",
+      "path": ":param/payments/credit_cards",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "POST",
+      "path": ":param/payments/credits",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "GET",
+      "path": ":param/payments/history",
+      "filename": "payments.cy.js",
+      "context": "payments"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/custom_pages/{{customPageId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/custom_pages/{{customPageId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/custom_pages/{{customPageId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/custom_pages/{{deleteId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/custom_pages",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/custom_pages",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/network_lists/{{networkId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/network_lists/{{networkId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/network_lists/{{networkId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/network_lists/{{networkId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/network_lists",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/network_lists",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/purge/url",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/workloads/{{workloadId}}/deployments/{{workloadDeploymentsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/workloads/{{workloadId}}/deployments/{{workloadDeploymentsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/workloads/{{workloadId}}/deployments/{{workloadDeploymentsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/workloads/{{workloadId}}/deployments",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/workloads/{{workloadId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/workloads/{{workloadId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/workloads/{{workloadId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/workloads/{{workloadId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/workloads",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/workloads",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/dns/zones/:param/dnssec",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/dns/zones/:param/dnssec",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/dns/zones/:param/dnssec",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/dns/zones/:param/records/{{recordId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/dns/zones/:param/records/{{recordId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/dns/zones/:param/records/{{recordId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/dns/zones/:param/records/{{recordId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/dns/zones/:param/records",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/dns/zones/:param/records",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/dns/zones/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/dns/zones/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/dns/zones/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/dns/zones/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/dns/zones",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/dns/zones",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/clone",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/cache_settings/{{edgeCacheSettingsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/cache_settings/{{edgeCacheSettingsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param/cache_settings/{{edgeCacheSettingsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param/cache_settings/{{edgeCacheSettingsId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/cache_settings",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/cache_settings",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/device_groups/{{deviceGroupId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/device_groups/{{deviceGroupId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param/device_groups/{{deviceGroupId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param/device_groups/{{deviceGroupId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/device_groups",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/device_groups",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/functions/{{edgeApplicationFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/functions/{{edgeApplicationFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param/functions/{{edgeApplicationFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param/functions/{{edgeApplicationFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/functions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/functions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/request_rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/request_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/request_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param/request_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param/request_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/request_rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/rules/order",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications/:param/response_rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications/:param/response_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/applications/:param/response_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/applications/:param/response_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/applications/:param/response_rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/applications",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/applications",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/firewalls/:param/clone",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/firewalls/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/firewalls/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/firewalls/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls/:param/functions/{{edgeFirewallFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/firewalls/:param/functions/{{edgeFirewallFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/firewalls/:param/functions/{{edgeFirewallFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/firewalls/:param/functions/{{edgeFirewallFunctionId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls/:param/functions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/firewalls/:param/functions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls/:param/rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/firewalls/:param/rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/firewalls/:param/rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/firewalls/:param/rules/{{ruleId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/firewalls/:param/rules/order",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls/:param/request_rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/firewalls/:param/request_rules",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/firewalls",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/firewalls",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/wafs/{{wafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/wafs/{{wafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/wafs/{{wafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/wafs/{{wafId}}/exceptions/{{exceptionWafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/wafs/{{wafId}}/exceptions/{{exceptionWafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PATCH",
+      "path": ":param/workspace/wafs/{{wafId}}/exceptions/{{exceptionWafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/wafs/{{wafId}}/exceptions/{{exceptionWafId}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/wafs/{{wafId}}/exceptions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/wafs",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/wafs",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/functions",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/storage/buckets/:param/objects/{{objectKey}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/storage/buckets/:param/objects/{{objectKey}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "PUT",
+      "path": ":param/workspace/storage/buckets/:param/objects/{{objectKey}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/storage/buckets/:param/objects/{{objectKey}}",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/storage/buckets/:param/objects",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/storage/buckets",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/storage/buckets",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/storage/credentials/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "DELETE",
+      "path": ":param/workspace/storage/credentials/:param",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "GET",
+      "path": ":param/workspace/storage/credentials",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    },
+    {
+      "method": "POST",
+      "path": ":param/workspace/storage/credentials",
+      "filename": "workspace.cy.js",
+      "context": "workspace"
+    }
+  ]
+}

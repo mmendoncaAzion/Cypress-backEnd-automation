@@ -1,0 +1,5815 @@
+{
+  "context": "workspace",
+  "endpoints": 264,
+  "scenarios": {
+    "URL_/workspace/applications": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/cache_settings": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/cache_settings": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/cache_settings": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/cache_settings": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/cache_settings",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/cache_settings/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/cache_settings/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/cache_settings/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/cache_settings/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/device_groups": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/device_groups": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/device_groups": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/device_groups": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/device_groups",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/device_groups/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/device_groups/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/device_groups/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/device_groups/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/device_groups/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/response_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/response_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/response_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/response_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/response_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/response_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/response_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/response_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/applications/{application_id}/response_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/applications/{application_id}/response_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/applications/{application_id}/response_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/applications/{application_id}/response_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/applications/{application_id}/response_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/connectors": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/connectors",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/connectors",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/connectors": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/connectors",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/connectors",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/connectors": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/connectors",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/connectors",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/connectors": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/connectors",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/connectors",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/connectors/{connector_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/connectors/{connector_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/connectors/{connector_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/connectors/{connector_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/connectors/{connector_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/custom_pages": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/custom_pages",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/custom_pages",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/custom_pages": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/custom_pages",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/custom_pages",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/custom_pages": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/custom_pages",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/custom_pages",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/custom_pages": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/custom_pages",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/custom_pages",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/custom_pages/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/custom_pages/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/custom_pages/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/custom_pages/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/custom_pages/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/dns/zones/{zone_id}/dnssec": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/dns/zones/{zone_id}/dnssec": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/dns/zones/{zone_id}/dnssec": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/dns/zones/{zone_id}/dnssec": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/dnssec",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/dns/zones/{zone_id}/records": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/dns/zones/{zone_id}/records": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/dns/zones/{zone_id}/records": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/dns/zones/{zone_id}/records": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/records",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/dns/zones/{zone_id}/records/{record_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/dns/zones/{zone_id}/records/{record_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/dns/zones/{zone_id}/records/{record_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/dns/zones/{zone_id}/records/{record_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/dns/zones": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/dns/zones": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/dns/zones": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/dns/zones": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/dns/zones/{zone_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/dns/zones/{zone_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/dns/zones/{zone_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/dns/zones/{zone_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/dns/zones/{zone_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/stream/data_sources": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/data_sources",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/data_sources",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/stream/data_sources": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/data_sources",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/data_sources",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/stream/data_sources": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/data_sources",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/data_sources",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/stream/data_sources": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/data_sources",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/data_sources",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/stream/streams": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/streams",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/streams",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/stream/streams": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/streams",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/streams",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/stream/streams": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/streams",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/streams",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/stream/streams": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/streams",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/streams",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/stream/streams/{stream_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/stream/streams/{stream_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/stream/streams/{stream_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/stream/streams/{stream_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/streams/{stream_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/stream/templates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/templates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/templates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/stream/templates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/templates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/templates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/stream/templates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/templates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/templates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/stream/templates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/templates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/templates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/stream/templates/{template_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/stream/templates/{template_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/stream/templates/{template_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/stream/templates/{template_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/stream/templates/{template_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/crls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/crls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/crls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/crls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/crls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/crls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/crls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/crls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/crls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/crls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/crls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/crls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/crls/{crl_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/crls/{crl_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/crls/{crl_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/crls/{crl_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/crls/{crl_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/csr": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/csr",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/csr",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/csr": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/csr",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/csr",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/csr": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/csr",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/csr",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/csr": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/csr",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/csr",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/certificates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/certificates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/certificates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/certificates": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/certificates/{certificate_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/certificates/{certificate_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/certificates/{certificate_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/certificates/{certificate_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates/{certificate_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/tls/certificates/request": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/tls/certificates/request": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/tls/certificates/request": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/tls/certificates/request": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/tls/certificates/request",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/sql/databases": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/sql/databases": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/sql/databases": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/sql/databases": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/sql/databases/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/sql/databases/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/sql/databases/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/sql/databases/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/sql/databases/{id}/query": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/sql/databases/{id}/query": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/sql/databases/{id}/query": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/sql/databases/{id}/query": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/sql/databases/{id}/query",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{edge_firewall_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{edge_firewall_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{edge_firewall_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{edge_firewall_id}/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{edge_firewall_id}/functions/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{edge_firewall_id}/functions/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{edge_firewall_id}/functions/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{edge_firewall_id}/functions/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{edge_firewall_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{edge_firewall_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{edge_firewall_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{edge_firewall_id}/request_rules": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{edge_firewall_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{edge_firewall_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{edge_firewall_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{edge_firewall_id}/request_rules/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/firewalls/{edge_firewall_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/firewalls/{edge_firewall_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/firewalls/{edge_firewall_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/firewalls/{edge_firewall_id}/request_rules/order": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/functions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/functions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/functions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/functions/{function_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/functions/{function_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/network_lists": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/network_lists",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/network_lists",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/network_lists": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/network_lists",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/network_lists",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/network_lists": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/network_lists",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/network_lists",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/network_lists": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/network_lists",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/network_lists",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/network_lists/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/network_lists/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/network_lists/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/network_lists/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/network_lists/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/purge/{purge_type}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/purge/{purge_type}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/purge/{purge_type}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/purge/{purge_type}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/purge/{purge_type}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/buckets": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/buckets": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/buckets": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/buckets": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/buckets/{name}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/buckets/{name}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/buckets/{name}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/buckets/{name}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{name}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/credentials": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/credentials",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/credentials",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/credentials": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/credentials",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/credentials",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/credentials": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/credentials",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/credentials",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/credentials": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/credentials",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/credentials",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/credentials/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/credentials/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/credentials/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/credentials/{id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/credentials/{id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/buckets/{bucketName}/objects": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/buckets/{bucketName}/objects": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/buckets/{bucketName}/objects": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/buckets/{bucketName}/objects": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{bucketName}/objects",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/storage/buckets/{bucketName}/objects/{objectKey}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/storage/buckets/{bucketName}/objects/{objectKey}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/storage/buckets/{bucketName}/objects/{objectKey}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/storage/buckets/{bucketName}/objects/{objectKey}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/storage/buckets/{bucketName}/objects/{objectKey}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/wafs": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/wafs": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/wafs": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/wafs": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/wafs/{waf_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/wafs/{waf_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/wafs/{waf_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/wafs/{waf_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/wafs/{waf_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/wafs/{waf_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/wafs/{waf_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/wafs/{waf_id}/clone": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/clone",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/wafs/{waf_id}/exceptions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/wafs/{waf_id}/exceptions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/wafs/{waf_id}/exceptions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/wafs/{waf_id}/exceptions": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/exceptions",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/wafs/{waf_id}/exceptions/{exception_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/wafs/{waf_id}/exceptions/{exception_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/wafs/{waf_id}/exceptions/{exception_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/wafs/{waf_id}/exceptions/{exception_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/workloads/{workload_id}/deployments": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/workloads/{workload_id}/deployments": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/workloads/{workload_id}/deployments": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/workloads/{workload_id}/deployments": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}/deployments",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/workloads/{workload_id}/deployments/{deployment_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/workloads/{workload_id}/deployments/{deployment_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/workloads/{workload_id}/deployments/{deployment_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/workloads/{workload_id}/deployments/{deployment_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/workloads": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/workloads": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/workloads": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/workloads": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "URL_/workspace/workloads/{workload_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "URL",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "OPERATIONS_/workspace/workloads/{workload_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "OPERATIONS",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "PARAMETERS_/workspace/workloads/{workload_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "PARAMETERS",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ],
+    "CONTEXT_/workspace/workloads/{workload_id}": [
+      {
+        "name": "no_authentication",
+        "description": "Request without authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high"
+      },
+      {
+        "name": "invalid_token",
+        "description": "Request with invalid authentication token",
+        "method": "CONTEXT",
+        "path": "/workspace/workloads/{workload_id}",
+        "headers": {
+          "Authorization": "Token invalid_token"
+        },
+        "expected_status": 401,
+        "priority": "medium"
+      }
+    ]
+  },
+  "total_scenarios": 528
+}

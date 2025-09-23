@@ -1,0 +1,15 @@
+{
+  "accountId": "test-account-123",
+  "userId": "test-user-456",
+  "applicationId": "test-app-789",
+  "firewallId": "test-firewall-101",
+  "zoneId": "test-zone-202",
+  "certificateId": "test-cert-303",
+  "streamId": "test-stream-404",
+  "bucketName": "test-bucket-505",
+  "functionId": "test-function-606",
+  "serviceId": "test-service-707",
+  "connectorId": "test-connector-808",
+  "databaseId": "test-db-909",
+  "credentialId": "test-cred-010"
+}

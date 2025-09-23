@@ -1,0 +1,4384 @@
+{
+  "timestamp": "2025-09-23T16:35:03.206Z",
+  "analysis": {
+    "stageEndpoints": 323,
+    "prodEndpoints": 239,
+    "differences": {
+      "identical": 39,
+      "stageOnly": 284,
+      "prodOnly": 199
+    }
+  },
+  "stageOnlyEndpoints": [
+    {
+      "path": "/account/accounts/{id}",
+      "method": "get",
+      "operationId": "GetAccountAccountsId",
+      "summary": "Retrieve account details",
+      "tags": "Accounts - Descendants",
+      "fullEndpoint": "GET /account/accounts/{id}"
+    },
+    {
+      "path": "/account/accounts/{id}",
+      "method": "put",
+      "operationId": "PutAccountAccountsId",
+      "summary": "Update account details",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /account/accounts/{id}"
+    },
+    {
+      "path": "/account/accounts/{id}",
+      "method": "patch",
+      "operationId": "PatchAccountAccountsId",
+      "summary": "Partially update account details",
+      "tags": "Accounts - Descendants",
+      "fullEndpoint": "PATCH /account/accounts/{id}"
+    },
+    {
+      "path": "/account/accounts/{id}/info",
+      "method": "get",
+      "operationId": "GetAccountAccountsIdInfo",
+      "summary": "Retrieve account information details",
+      "tags": "Accounts - Info",
+      "fullEndpoint": "GET /account/accounts/{id}/info"
+    },
+    {
+      "path": "/account/accounts/{id}/info",
+      "method": "put",
+      "operationId": "PutAccountAccountsIdInfo",
+      "summary": "Update account information details",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /account/accounts/{id}/info"
+    },
+    {
+      "path": "/workspace/applications/{application_id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationId",
+      "summary": "Retrieve details of an Application",
+      "tags": "Applications",
+      "fullEndpoint": "GET /workspace/applications/{application_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationId",
+      "summary": "Update an Application",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationId",
+      "summary": "Partially update an Application",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationId",
+      "summary": "Destroy an Application",
+      "tags": "Applications",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/clone",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdClone",
+      "summary": "Clone an Application",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/clone"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdCacheSettings",
+      "summary": "List all Applications Cache Settings",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/cache_settings"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdCacheSettings",
+      "summary": "Create an Applications Cache Setting",
+      "tags": "Applications - Cache Settings",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/cache_settings"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "summary": "Retrieve details of an Applications Cache Setting",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/cache_settings/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "summary": "Update an Applications Cache Setting",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/cache_settings/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "summary": "Partially update an Applications Cache Setting",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}/cache_settings/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "summary": "Destroy an Applications Cache Setting",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}/cache_settings/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdDeviceGroups",
+      "summary": "List Applications Device Groups",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/device_groups"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdDeviceGroups",
+      "summary": "Create an Applications Device Group",
+      "tags": "Applications - Device Groups",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/device_groups"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "summary": "Retrieve details of a Device Group",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/device_groups/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "summary": "Update an Applications Device Group",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/device_groups/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "summary": "Partially update an Applications Device Group",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}/device_groups/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "summary": "Destroy an Applications Device Group",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}/device_groups/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdFunctions",
+      "summary": "List Function Instances",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/functions"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdFunctions",
+      "summary": "Create an Application Function Instance",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/functions"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "summary": "Retrieve details of an Application Function Instance",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "summary": "Update an Edge Application Function Instance",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "summary": "Partially update an Application Function Instance",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "summary": "Destroy an Application Function Instance",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdRequestRules",
+      "summary": "List Application Request Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/request_rules"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdRequestRules",
+      "summary": "Create an Application Request Rule",
+      "tags": "Applications - Request Rules",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/request_rules"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "summary": "Retrieve details of an Application Request Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "summary": "Update an Application Request Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "summary": "Partially update an Application Request Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "summary": "Destroy an Application Request Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/request_rules/order",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdRequestRulesOrder",
+      "summary": "Ordering Application Request Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/request_rules/order"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdResponseRules",
+      "summary": "List Application Response Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/response_rules"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules",
+      "method": "post",
+      "operationId": "PostEdgeApplicationApplicationsApplicationIdResponseRules",
+      "summary": "Create an Application Response Rule",
+      "tags": "Applications - Response Rules",
+      "fullEndpoint": "POST /workspace/applications/{application_id}/response_rules"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "get",
+      "operationId": "GetEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "summary": "Retrieve details of an Application Response Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/applications/{application_id}/response_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "summary": "Update an Application Response Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/response_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "summary": "Partially update an Application Response Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/applications/{application_id}/response_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "summary": "Destroy an Application Response Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/applications/{application_id}/response_rules/{id}"
+    },
+    {
+      "path": "/workspace/applications/{application_id}/response_rules/order",
+      "method": "put",
+      "operationId": "PutEdgeApplicationApplicationsApplicationIdResponseRulesOrder",
+      "summary": "Ordering Application Response Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/applications/{application_id}/response_rules/order"
+    },
+    {
+      "path": "/account/auth/login",
+      "method": "post",
+      "operationId": "PostAuthLogin",
+      "summary": "\"User Login \\u2013 Generate JWT Tokens\"",
+      "tags": "Auth - Login",
+      "fullEndpoint": "POST /account/auth/login"
+    },
+    {
+      "path": "/account/auth/login/method",
+      "method": "get",
+      "operationId": "GetAuthLoginMethod",
+      "summary": "Check User Authentication Method",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /account/auth/login/method"
+    },
+    {
+      "path": "/account/auth/mfa/totp/verify",
+      "method": "post",
+      "operationId": "PostAuthMfaTotpVerify",
+      "summary": "Retrieve user JWT tokens by MFA auth",
+      "tags": "Auth - Login",
+      "fullEndpoint": "POST /account/auth/mfa/totp/verify"
+    },
+    {
+      "path": "/account/auth/mfa/totp",
+      "method": "get",
+      "operationId": "GetAuthMfaTotp",
+      "summary": "List of TOTP devices",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /account/auth/mfa/totp"
+    },
+    {
+      "path": "/account/auth/mfa/totp",
+      "method": "post",
+      "operationId": "PostAuthMfaTotp",
+      "summary": "Create a TOTP device",
+      "tags": "Auth - MFA TOTP Device",
+      "fullEndpoint": "POST /account/auth/mfa/totp"
+    },
+    {
+      "path": "/account/auth/mfa/totp/{totp_id}",
+      "method": "delete",
+      "operationId": "DeleteAuthMfaTotpId",
+      "summary": "Destroy a TOTP device",
+      "tags": "Auth - MFA TOTP Device",
+      "fullEndpoint": "DELETE /account/auth/mfa/totp/{totp_id}"
+    },
+    {
+      "path": "/account/auth/token",
+      "method": "post",
+      "operationId": "PostAuthToken",
+      "summary": "Refresh user JWT access token",
+      "tags": "Auth - Refresh Access Token",
+      "fullEndpoint": "POST /account/auth/token"
+    },
+    {
+      "path": "/account/auth/revoke",
+      "method": "post",
+      "operationId": "PostAuthRevoke",
+      "summary": "Revoke user JWT refresh token",
+      "tags": "Auth - Revoke",
+      "fullEndpoint": "POST /account/auth/revoke"
+    },
+    {
+      "path": "/payments/credit_cards/{id}",
+      "method": "get",
+      "operationId": "GetPaymentsCreditCardsId",
+      "summary": "Retrieve details from a credit card",
+      "tags": "Billing & Payments",
+      "fullEndpoint": "GET /payments/credit_cards/{id}"
+    },
+    {
+      "path": "/payments/credit_cards/{id}",
+      "method": "patch",
+      "operationId": "PatchPaymentsCreditCardsId",
+      "summary": "Partially update a credit card",
+      "tags": "Billing & Payments",
+      "fullEndpoint": "PATCH /payments/credit_cards/{id}"
+    },
+    {
+      "path": "/payments/credit_cards/{id}",
+      "method": "delete",
+      "operationId": "DeletePaymentsCreditCardsId",
+      "summary": "Destroy a credit card",
+      "tags": "Billing & Payments",
+      "fullEndpoint": "DELETE /payments/credit_cards/{id}"
+    },
+    {
+      "path": "/billing/invoices/{period}",
+      "method": "get",
+      "operationId": "GetBillingInvoicesPeriod",
+      "summary": "Retrieve details of an invoice",
+      "tags": "Billing - Invoices",
+      "fullEndpoint": "GET /billing/invoices/{period}"
+    },
+    {
+      "path": "/workspace/connectors",
+      "method": "get",
+      "operationId": "GetEdgeConnectorConnectors",
+      "summary": "List Connectors",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/connectors"
+    },
+    {
+      "path": "/workspace/connectors",
+      "method": "post",
+      "operationId": "PostEdgeConnectorConnectors",
+      "summary": "Create an Connector",
+      "tags": "Connectors",
+      "fullEndpoint": "POST /workspace/connectors"
+    },
+    {
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "get",
+      "operationId": "GetEdgeConnectorConnectorsId",
+      "summary": "Retrieve details of an Connector",
+      "tags": "Connectors",
+      "fullEndpoint": "GET /workspace/connectors/{connector_id}"
+    },
+    {
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "put",
+      "operationId": "PutEdgeConnectorConnectorsId",
+      "summary": "Update an Connector",
+      "tags": "Connectors",
+      "fullEndpoint": "PUT /workspace/connectors/{connector_id}"
+    },
+    {
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeConnectorConnectorsId",
+      "summary": "Partially update an Connector",
+      "tags": "Connectors",
+      "fullEndpoint": "PATCH /workspace/connectors/{connector_id}"
+    },
+    {
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeConnectorConnectorsId",
+      "summary": "Destroy an Connector",
+      "tags": "Connectors",
+      "fullEndpoint": "DELETE /workspace/connectors/{connector_id}"
+    },
+    {
+      "path": "/workspace/custom_pages/{id}",
+      "method": "get",
+      "operationId": "GetWorkspaceCustomPagesId",
+      "summary": "Retrieve details of a Custom Page",
+      "tags": "Custom Pages",
+      "fullEndpoint": "GET /workspace/custom_pages/{id}"
+    },
+    {
+      "path": "/workspace/custom_pages/{id}",
+      "method": "put",
+      "operationId": "PutWorkspaceCustomPagesId",
+      "summary": "Update a Custom Page",
+      "tags": "Custom Pages",
+      "fullEndpoint": "PUT /workspace/custom_pages/{id}"
+    },
+    {
+      "path": "/workspace/custom_pages/{id}",
+      "method": "patch",
+      "operationId": "PatchWorkspaceCustomPagesId",
+      "summary": "Partially update a Custom Page",
+      "tags": "Custom Pages",
+      "fullEndpoint": "PATCH /workspace/custom_pages/{id}"
+    },
+    {
+      "path": "/workspace/custom_pages/{id}",
+      "method": "delete",
+      "operationId": "DeleteWorkspaceCustomPagesId",
+      "summary": "Destroy a Custom Page",
+      "tags": "Custom Pages",
+      "fullEndpoint": "DELETE /workspace/custom_pages/{id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "get",
+      "operationId": "GetEdgeDnsZonesZoneIdDnssec",
+      "summary": "Retrieve details of a DNSSEC",
+      "tags": "DNS - DNSSEC",
+      "fullEndpoint": "GET /workspace/dns/zones/{zone_id}/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "put",
+      "operationId": "PutEdgeDnsZonesZoneIdDnssec",
+      "summary": "Update a DNSSEC",
+      "tags": "DNS - DNSSEC",
+      "fullEndpoint": "PUT /workspace/dns/zones/{zone_id}/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "patch",
+      "operationId": "PatchEdgeDnsZonesZoneIdDnssec",
+      "summary": "Partially update a DNSSEC",
+      "tags": "DNS - DNSSEC",
+      "fullEndpoint": "PATCH /workspace/dns/zones/{zone_id}/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records",
+      "method": "get",
+      "operationId": "GetEdgeDnsZonesZoneIdRecords",
+      "summary": "List DNS Records",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/dns/zones/{zone_id}/records"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records",
+      "method": "post",
+      "operationId": "PostEdgeDnsZonesZoneIdRecords",
+      "summary": "Create a DNS Record",
+      "tags": "DNS - Records",
+      "fullEndpoint": "POST /workspace/dns/zones/{zone_id}/records"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "get",
+      "operationId": "GetEdgeDnsZonesZoneIdRecordsRecordId",
+      "summary": "Retrieve details of a DNS Record",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/dns/zones/{zone_id}/records/{record_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "put",
+      "operationId": "PutEdgeDnsZonesZoneIdRecordsRecordId",
+      "summary": "Update a DNS Record",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/dns/zones/{zone_id}/records/{record_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeDnsZonesZoneIdRecordsRecordId",
+      "summary": "Partially update a DNS Record",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/dns/zones/{zone_id}/records/{record_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeDnsZonesZoneIdRecordsRecordId",
+      "summary": "Destroy a DNS Record",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/dns/zones/{zone_id}/records/{record_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "get",
+      "operationId": "GetEdgeDnsZonesZoneId",
+      "summary": "Retrieve details of a DNS Zone",
+      "tags": "DNS - Zones",
+      "fullEndpoint": "GET /workspace/dns/zones/{zone_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "put",
+      "operationId": "PutEdgeDnsZonesZoneId",
+      "summary": "Update a DNS Zone",
+      "tags": "DNS - Zones",
+      "fullEndpoint": "PUT /workspace/dns/zones/{zone_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeDnsZonesZoneId",
+      "summary": "Partially update a DNS Zone",
+      "tags": "DNS - Zones",
+      "fullEndpoint": "PATCH /workspace/dns/zones/{zone_id}"
+    },
+    {
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeDnsZonesZoneId",
+      "summary": "Destroy a DNS Zone",
+      "tags": "DNS - Zones",
+      "fullEndpoint": "DELETE /workspace/dns/zones/{zone_id}"
+    },
+    {
+      "path": "/workspace/stream/data_sources",
+      "method": "get",
+      "operationId": "GetDataStreamDataSources",
+      "summary": "List of Data Sources",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/stream/data_sources"
+    },
+    {
+      "path": "/workspace/stream/streams",
+      "method": "get",
+      "operationId": "GetDataStreamStreams",
+      "summary": "List Data Streams",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/stream/streams"
+    },
+    {
+      "path": "/workspace/stream/streams",
+      "method": "post",
+      "operationId": "PostDataStreamStreams",
+      "summary": "Create a Data Stream",
+      "tags": "Data Stream - Streams",
+      "fullEndpoint": "POST /workspace/stream/streams"
+    },
+    {
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "get",
+      "operationId": "GetDataStreamStreamsId",
+      "summary": "Retrieve details of a Data Stream",
+      "tags": "Data Stream - Streams",
+      "fullEndpoint": "GET /workspace/stream/streams/{stream_id}"
+    },
+    {
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "put",
+      "operationId": "PutDataStreamStreamsId",
+      "summary": "Update a Data Stream",
+      "tags": "Data Stream - Streams",
+      "fullEndpoint": "PUT /workspace/stream/streams/{stream_id}"
+    },
+    {
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "patch",
+      "operationId": "PatchDataStreamStreamsId",
+      "summary": "Partially update a Data Stream",
+      "tags": "Data Stream - Streams",
+      "fullEndpoint": "PATCH /workspace/stream/streams/{stream_id}"
+    },
+    {
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "delete",
+      "operationId": "DeleteDataStreamStreamsId",
+      "summary": "Destroy a Data Stream",
+      "tags": "Data Stream - Streams",
+      "fullEndpoint": "DELETE /workspace/stream/streams/{stream_id}"
+    },
+    {
+      "path": "/workspace/stream/templates",
+      "method": "get",
+      "operationId": "GetDataStreamTemplates",
+      "summary": "List Templates",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/stream/templates"
+    },
+    {
+      "path": "/workspace/stream/templates",
+      "method": "post",
+      "operationId": "PostDataStreamTemplates",
+      "summary": "Create a Template",
+      "tags": "Data Stream - Templates",
+      "fullEndpoint": "POST /workspace/stream/templates"
+    },
+    {
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "get",
+      "operationId": "GetDataStreamTemplatesId",
+      "summary": "Retrieve details of a Template",
+      "tags": "Data Stream - Templates",
+      "fullEndpoint": "GET /workspace/stream/templates/{template_id}"
+    },
+    {
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "put",
+      "operationId": "PutDataStreamTemplatesId",
+      "summary": "Update a Template",
+      "tags": "Data Stream - Templates",
+      "fullEndpoint": "PUT /workspace/stream/templates/{template_id}"
+    },
+    {
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "patch",
+      "operationId": "PatchDataStreamTemplatesId",
+      "summary": "Partially update a Template",
+      "tags": "Data Stream - Templates",
+      "fullEndpoint": "PATCH /workspace/stream/templates/{template_id}"
+    },
+    {
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "delete",
+      "operationId": "DeleteDataStreamTemplatesId",
+      "summary": "Destroy a Template",
+      "tags": "Data Stream - Templates",
+      "fullEndpoint": "DELETE /workspace/stream/templates/{template_id}"
+    },
+    {
+      "path": "/workspace/tls/crls",
+      "method": "get",
+      "operationId": "GetDigitalCertificatesCrls",
+      "summary": "List certificate revocation lists (CRL)",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/tls/crls"
+    },
+    {
+      "path": "/workspace/tls/crls",
+      "method": "post",
+      "operationId": "PostDigitalCertificatesCrls",
+      "summary": "Create a certificate revocation lists (CRL)",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "fullEndpoint": "POST /workspace/tls/crls"
+    },
+    {
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "get",
+      "operationId": "GetDigitalCertificatesCrlsId",
+      "summary": "Retrieve details from a certificate revocation lists (CRL)",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "fullEndpoint": "GET /workspace/tls/crls/{crl_id}"
+    },
+    {
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "put",
+      "operationId": "PutDigitalCertificatesCrlsId",
+      "summary": "Update a certificate revocation lists (CRL)",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "fullEndpoint": "PUT /workspace/tls/crls/{crl_id}"
+    },
+    {
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "patch",
+      "operationId": "PatchDigitalCertificatesCrlsId",
+      "summary": "Update a certificate revocation lists (CRL)",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "fullEndpoint": "PATCH /workspace/tls/crls/{crl_id}"
+    },
+    {
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "delete",
+      "operationId": "DeleteDigitalCertificatesCrlsId",
+      "summary": "Destroy a certificate revocation lists (CRL)",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "fullEndpoint": "DELETE /workspace/tls/crls/{crl_id}"
+    },
+    {
+      "path": "/workspace/tls/csr",
+      "method": "post",
+      "operationId": "PostDigitalCertificatesCsr",
+      "summary": "Create a certificate signing request (CSR)",
+      "tags": "Digital Certificates - Certificate Signing Requests",
+      "fullEndpoint": "POST /workspace/tls/csr"
+    },
+    {
+      "path": "/workspace/tls/certificates",
+      "method": "get",
+      "operationId": "GetDigitalCertificatesCertificates",
+      "summary": "List certificates",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/tls/certificates"
+    },
+    {
+      "path": "/workspace/tls/certificates",
+      "method": "post",
+      "operationId": "PostDigitalCertificatesCertificates",
+      "summary": "Create a certificate",
+      "tags": "Digital Certificates - Certificates",
+      "fullEndpoint": "POST /workspace/tls/certificates"
+    },
+    {
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "get",
+      "operationId": "GetDigitalCertificatesCertificatesId",
+      "summary": "Retrieve details from a certificate",
+      "tags": "Digital Certificates - Certificates",
+      "fullEndpoint": "GET /workspace/tls/certificates/{certificate_id}"
+    },
+    {
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "put",
+      "operationId": "PutDigitalCertificatesCertificatesId",
+      "summary": "Update a certificate",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/tls/certificates/{certificate_id}"
+    },
+    {
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "patch",
+      "operationId": "PatchDigitalCertificatesCertificatesId",
+      "summary": "Partially update a certificate",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/tls/certificates/{certificate_id}"
+    },
+    {
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "delete",
+      "operationId": "DeleteDigitalCertificatesCertificatesId",
+      "summary": "Destroy a certificate",
+      "tags": "Digital Certificates - Certificates",
+      "fullEndpoint": "DELETE /workspace/tls/certificates/{certificate_id}"
+    },
+    {
+      "path": "/workspace/tls/certificates/request",
+      "method": "post",
+      "operationId": "PostDigitalCertificatesCertificatesRequest",
+      "summary": "Request a certificate",
+      "tags": "Digital Certificates - Request a Certificate",
+      "fullEndpoint": "POST /workspace/tls/certificates/request"
+    },
+    {
+      "path": "/identity/user/favorites",
+      "method": "get",
+      "operationId": "GetIdentityUserFavorites",
+      "summary": "List of the favorites",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /identity/user/favorites"
+    },
+    {
+      "path": "/identity/user/favorites",
+      "method": "post",
+      "operationId": "PostIdentityUserFavorites",
+      "summary": "Create a new favorite",
+      "tags": "Favorites",
+      "fullEndpoint": "POST /identity/user/favorites"
+    },
+    {
+      "path": "/identity/user/favorites/{id}",
+      "method": "delete",
+      "operationId": "DeleteIdentityUserFavoritesId",
+      "summary": "Destroy a favorite",
+      "tags": "Favorites",
+      "fullEndpoint": "DELETE /identity/user/favorites/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{id}",
+      "method": "get",
+      "operationId": "GetEdgeFirewallFirewallsId",
+      "summary": "Retrieve details from an Firewall",
+      "tags": "Firewalls",
+      "fullEndpoint": "GET /workspace/firewalls/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{id}",
+      "method": "put",
+      "operationId": "PutEdgeFirewallFirewallsId",
+      "summary": "Update an Firewall",
+      "tags": "Firewalls",
+      "fullEndpoint": "PUT /workspace/firewalls/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFirewallFirewallsId",
+      "summary": "Partially update an Firewall",
+      "tags": "Firewalls",
+      "fullEndpoint": "PATCH /workspace/firewalls/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFirewallFirewallsId",
+      "summary": "Destroy an Firewall",
+      "tags": "Firewalls",
+      "fullEndpoint": "DELETE /workspace/firewalls/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{id}/clone",
+      "method": "post",
+      "operationId": "PostEdgeFirewallFirewallsIdClone",
+      "summary": "Clone an Firewall",
+      "tags": "Firewalls",
+      "fullEndpoint": "POST /workspace/firewalls/{id}/clone"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+      "method": "get",
+      "operationId": "GetEdgeFirewallFirewallsEdgeFirewallIdFunctions",
+      "summary": "List Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/firewalls/{edge_firewall_id}/functions"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+      "method": "post",
+      "operationId": "PostEdgeFirewallFirewallsEdgeFirewallIdFunctions",
+      "summary": "Create an Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /workspace/firewalls/{edge_firewall_id}/functions"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "get",
+      "operationId": "GetEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "summary": "Retrieve details of an Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/firewalls/{edge_firewall_id}/functions/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "put",
+      "operationId": "PutEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "summary": "Update an Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/firewalls/{edge_firewall_id}/functions/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "summary": "Partially update an Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/firewalls/{edge_firewall_id}/functions/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "summary": "Destroy an Firewall Function",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/firewalls/{edge_firewall_id}/functions/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+      "method": "get",
+      "operationId": "GetEdgeFirewallFirewallsEdgeFirewallIdRequestRules",
+      "summary": "List Firewall Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/firewalls/{edge_firewall_id}/request_rules"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+      "method": "post",
+      "operationId": "PostEdgeFirewallFirewallsEdgeFirewallIdRequestRules",
+      "summary": "Create an Firewall Rule",
+      "tags": "Firewalls - Rules Engine",
+      "fullEndpoint": "POST /workspace/firewalls/{edge_firewall_id}/request_rules"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "get",
+      "operationId": "GetEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "summary": "Retrieve details of an Firewall Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/firewalls/{edge_firewall_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "put",
+      "operationId": "PutEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "summary": "Update an Firewall Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "summary": "Partially update an Firewall Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/firewalls/{edge_firewall_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "summary": "Destroy an Firewall Rule",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/firewalls/{edge_firewall_id}/request_rules/{id}"
+    },
+    {
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+      "method": "put",
+      "operationId": "PutEdgeFirewallFirewallsEdgeFirewallIdRequestRulesOrder",
+      "summary": "Ordering Firewall Rules",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/order"
+    },
+    {
+      "path": "/workspace/functions",
+      "method": "get",
+      "operationId": "GetEdgeFunctionsFunctions",
+      "summary": "List Functions",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/functions"
+    },
+    {
+      "path": "/workspace/functions/{function_id}",
+      "method": "get",
+      "operationId": "GetEdgeFunctionsFunctionsId",
+      "summary": "Retrieve details of an Function",
+      "tags": "Functions",
+      "fullEndpoint": "GET /workspace/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/functions/{function_id}",
+      "method": "put",
+      "operationId": "PutEdgeFunctionsFunctionsId",
+      "summary": "Update an Function",
+      "tags": "Functions",
+      "fullEndpoint": "PUT /workspace/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/functions/{function_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFunctionsFunctionsId",
+      "summary": "Partially update an Function",
+      "tags": "Functions",
+      "fullEndpoint": "PATCH /workspace/functions/{function_id}"
+    },
+    {
+      "path": "/workspace/functions/{function_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFunctionsFunctionsId",
+      "summary": "Destroy an Function",
+      "tags": "Functions",
+      "fullEndpoint": "DELETE /workspace/functions/{function_id}"
+    },
+    {
+      "path": "/identity/grants",
+      "method": "get",
+      "operationId": "GetIdentityGrants",
+      "summary": "List grants for the account",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /identity/grants"
+    },
+    {
+      "path": "/identity/grants",
+      "method": "post",
+      "operationId": "PostIdentityGrants",
+      "summary": "Create a new grant",
+      "tags": "Identity - Grants",
+      "fullEndpoint": "POST /identity/grants"
+    },
+    {
+      "path": "/identity/grants/{id}",
+      "method": "get",
+      "operationId": "GetIdentityGrantsId",
+      "summary": "Retrieve grant details",
+      "tags": "Identity - Grants",
+      "fullEndpoint": "GET /identity/grants/{id}"
+    },
+    {
+      "path": "/identity/grants/{id}",
+      "method": "put",
+      "operationId": "PutIdentityGrantsId",
+      "summary": "Update a grant",
+      "tags": "Identity - Grants",
+      "fullEndpoint": "PUT /identity/grants/{id}"
+    },
+    {
+      "path": "/identity/grants/{id}",
+      "method": "patch",
+      "operationId": "PatchIdentityGrantsId",
+      "summary": "Partially update a grant",
+      "tags": "Identity - Grants",
+      "fullEndpoint": "PATCH /identity/grants/{id}"
+    },
+    {
+      "path": "/identity/grants/{id}",
+      "method": "delete",
+      "operationId": "DeleteIdentityGrantsId",
+      "summary": "Delete a grant",
+      "tags": "Identity - Grants",
+      "fullEndpoint": "DELETE /identity/grants/{id}"
+    },
+    {
+      "path": "/identity/groups/{id}/members",
+      "method": "get",
+      "operationId": "GetIdentityGroupsIdMembers",
+      "summary": "Retrieve members from a group",
+      "tags": "Identity - Group Members",
+      "fullEndpoint": "GET /identity/groups/{id}/members"
+    },
+    {
+      "path": "/identity/groups/{id}/members",
+      "method": "put",
+      "operationId": "PutIdentityGroupsIdMembers",
+      "summary": "Update members from a group",
+      "tags": "Identity - Group Members",
+      "fullEndpoint": "PUT /identity/groups/{id}/members"
+    },
+    {
+      "path": "/identity/groups",
+      "method": "get",
+      "operationId": "GetIdentityGroups",
+      "summary": "List of the account groups",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /identity/groups"
+    },
+    {
+      "path": "/identity/groups",
+      "method": "post",
+      "operationId": "PostIdentityGroups",
+      "summary": "Create a new group",
+      "tags": "Identity - Groups",
+      "fullEndpoint": "POST /identity/groups"
+    },
+    {
+      "path": "/identity/groups/{id}",
+      "method": "get",
+      "operationId": "GetIdentityGroupsId",
+      "summary": "Retrieve details from a group",
+      "tags": "Identity - Groups",
+      "fullEndpoint": "GET /identity/groups/{id}"
+    },
+    {
+      "path": "/identity/groups/{id}",
+      "method": "put",
+      "operationId": "PutIdentityGroupsId",
+      "summary": "Update a group",
+      "tags": "Identity - Groups",
+      "fullEndpoint": "PUT /identity/groups/{id}"
+    },
+    {
+      "path": "/identity/groups/{id}",
+      "method": "patch",
+      "operationId": "PatchIdentityGroupsId",
+      "summary": "Partially update a group",
+      "tags": "Identity - Groups",
+      "fullEndpoint": "PATCH /identity/groups/{id}"
+    },
+    {
+      "path": "/identity/groups/{id}",
+      "method": "delete",
+      "operationId": "DeleteIdentityGroupsId",
+      "summary": "Destroy a group",
+      "tags": "Identity - Groups",
+      "fullEndpoint": "DELETE /identity/groups/{id}"
+    },
+    {
+      "path": "/identity/user",
+      "method": "get",
+      "operationId": "GetIdentityUser",
+      "summary": "Retrieve details from the currently logged-in user",
+      "tags": "Identity - Logged In User",
+      "fullEndpoint": "GET /identity/user"
+    },
+    {
+      "path": "/identity/user",
+      "method": "put",
+      "operationId": "PutIdentityUser",
+      "summary": "Update the currently logged-in user",
+      "tags": "Identity - Logged In User",
+      "fullEndpoint": "PUT /identity/user"
+    },
+    {
+      "path": "/identity/user",
+      "method": "patch",
+      "operationId": "PatchIdentityUser",
+      "summary": "Partially update the currently logged-in user",
+      "tags": "Identity - Logged In User",
+      "fullEndpoint": "PATCH /identity/user"
+    },
+    {
+      "path": "/identity/service-tokens/{id}/renew",
+      "method": "post",
+      "operationId": "PostIdentityService-TokensIdRenew",
+      "summary": "Renews a service token",
+      "tags": "Identity - Service Token Renew",
+      "fullEndpoint": "POST /identity/service-tokens/{id}/renew"
+    },
+    {
+      "path": "/identity/service-tokens",
+      "method": "get",
+      "operationId": "GetIdentityService-Tokens",
+      "summary": "List of the account service tokens",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /identity/service-tokens"
+    },
+    {
+      "path": "/identity/service-tokens",
+      "method": "post",
+      "operationId": "PostIdentityService-Tokens",
+      "summary": "Create a new service token",
+      "tags": "Identity - Service Tokens",
+      "fullEndpoint": "POST /identity/service-tokens"
+    },
+    {
+      "path": "/identity/service-tokens/{id}",
+      "method": "get",
+      "operationId": "GetIdentityService-TokensId",
+      "summary": "Retrieve details from a service token",
+      "tags": "Identity - Service Tokens",
+      "fullEndpoint": "GET /identity/service-tokens/{id}"
+    },
+    {
+      "path": "/identity/service-tokens/{id}",
+      "method": "put",
+      "operationId": "PutIdentityService-TokensId",
+      "summary": "Update a service token",
+      "tags": "Identity - Service Tokens",
+      "fullEndpoint": "PUT /identity/service-tokens/{id}"
+    },
+    {
+      "path": "/identity/service-tokens/{id}",
+      "method": "patch",
+      "operationId": "PatchIdentityService-TokensId",
+      "summary": "Partially update a service token",
+      "tags": "Identity - Service Tokens",
+      "fullEndpoint": "PATCH /identity/service-tokens/{id}"
+    },
+    {
+      "path": "/identity/service-tokens/{id}",
+      "method": "delete",
+      "operationId": "DeleteIdentityService-TokensId",
+      "summary": "Destroy a service token",
+      "tags": "Identity - Service Tokens",
+      "fullEndpoint": "DELETE /identity/service-tokens/{id}"
+    },
+    {
+      "path": "/identity/users/{id}/info",
+      "method": "get",
+      "operationId": "GetIdentityUsersIdInfo",
+      "summary": "Retrieve user info",
+      "tags": "Identity - User info",
+      "fullEndpoint": "GET /identity/users/{id}/info"
+    },
+    {
+      "path": "/identity/users/{id}/info",
+      "method": "put",
+      "operationId": "PutIdentityUsersIdInfo",
+      "summary": "Update an user info",
+      "tags": "Identity - User info",
+      "fullEndpoint": "PUT /identity/users/{id}/info"
+    },
+    {
+      "path": "/identity/users/{id}",
+      "method": "get",
+      "operationId": "GetIdentityUsersId",
+      "summary": "Retrieve details from an user",
+      "tags": "Identity - Users",
+      "fullEndpoint": "GET /identity/users/{id}"
+    },
+    {
+      "path": "/identity/users/{id}",
+      "method": "put",
+      "operationId": "PutIdentityUsersId",
+      "summary": "Update an user",
+      "tags": "Identity - Users",
+      "fullEndpoint": "PUT /identity/users/{id}"
+    },
+    {
+      "path": "/identity/users/{id}",
+      "method": "patch",
+      "operationId": "PatchIdentityUsersId",
+      "summary": "Partially update an user",
+      "tags": "Identity - Users",
+      "fullEndpoint": "PATCH /identity/users/{id}"
+    },
+    {
+      "path": "/identity/users/{id}",
+      "method": "delete",
+      "operationId": "DeleteIdentityUsersId",
+      "summary": "Destroy an user",
+      "tags": "Identity - Users",
+      "fullEndpoint": "DELETE /identity/users/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboards",
+      "summary": "List of the dashboards",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards",
+      "method": "post",
+      "operationId": "PostMetricsFoldersFolderIdDashboards",
+      "summary": "Create a new dashboard",
+      "tags": "Metrics - Dashboard",
+      "fullEndpoint": "POST /metrics/folders/{folder_id}/dashboards"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboardsId",
+      "summary": "Retrieve details from a dashboard",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "put",
+      "operationId": "PutMetricsFoldersFolderIdDashboardsId",
+      "summary": "Update a dashboard",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /metrics/folders/{folder_id}/dashboards/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "patch",
+      "operationId": "PatchMetricsFoldersFolderIdDashboardsId",
+      "summary": "Partially update a dashboard",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /metrics/folders/{folder_id}/dashboards/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsFoldersFolderIdDashboardsId",
+      "summary": "Destroy a dashboard",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{id}"
+    },
+    {
+      "path": "/metrics/folders",
+      "method": "get",
+      "operationId": "GetMetricsFolders",
+      "summary": "List of the folders",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders"
+    },
+    {
+      "path": "/metrics/folders",
+      "method": "post",
+      "operationId": "PostMetricsFolders",
+      "summary": "Create a new folder",
+      "tags": "Metrics - Folders",
+      "fullEndpoint": "POST /metrics/folders"
+    },
+    {
+      "path": "/metrics/folders/{id}",
+      "method": "get",
+      "operationId": "GetMetricsFoldersId",
+      "summary": "Retrieve details from a folder",
+      "tags": "Metrics - Folders",
+      "fullEndpoint": "GET /metrics/folders/{id}"
+    },
+    {
+      "path": "/metrics/folders/{id}",
+      "method": "put",
+      "operationId": "PutMetricsFoldersId",
+      "summary": "Update a folder",
+      "tags": "Metrics - Folders",
+      "fullEndpoint": "PUT /metrics/folders/{id}"
+    },
+    {
+      "path": "/metrics/folders/{id}",
+      "method": "patch",
+      "operationId": "PatchMetricsFoldersId",
+      "summary": "Partially update a folder",
+      "tags": "Metrics - Folders",
+      "fullEndpoint": "PATCH /metrics/folders/{id}"
+    },
+    {
+      "path": "/metrics/folders/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsFoldersId",
+      "summary": "Destroy a folder",
+      "tags": "Metrics - Folders",
+      "fullEndpoint": "DELETE /metrics/folders/{id}"
+    },
+    {
+      "path": "/metrics/library/reports",
+      "method": "get",
+      "operationId": "GetMetricsLibraryReports",
+      "summary": "List of library reports",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/library/reports"
+    },
+    {
+      "path": "/metrics/library/reports",
+      "method": "post",
+      "operationId": "PostMetricsLibraryReports",
+      "summary": "Create a new library report",
+      "tags": "Metrics - Library Reports",
+      "fullEndpoint": "POST /metrics/library/reports"
+    },
+    {
+      "path": "/metrics/library/reports/{id}",
+      "method": "get",
+      "operationId": "GetMetricsLibraryReportsId",
+      "summary": "Retrieve details from a library report",
+      "tags": "Metrics - Library Reports",
+      "fullEndpoint": "GET /metrics/library/reports/{id}"
+    },
+    {
+      "path": "/metrics/library/reports/{id}",
+      "method": "put",
+      "operationId": "PutMetricsLibraryReportsId",
+      "summary": "Update a library report",
+      "tags": "Metrics - Library Reports",
+      "fullEndpoint": "PUT /metrics/library/reports/{id}"
+    },
+    {
+      "path": "/metrics/library/reports/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsLibraryReportsId",
+      "summary": "Destroy a library report",
+      "tags": "Metrics - Library Reports",
+      "fullEndpoint": "DELETE /metrics/library/reports/{id}"
+    },
+    {
+      "path": "/metrics/recommendations",
+      "method": "get",
+      "operationId": "GetMetricsRecommendations",
+      "summary": "List of the recommendations",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/recommendations"
+    },
+    {
+      "path": "/metrics/recommendations",
+      "method": "post",
+      "operationId": "PostMetricsRecommendations",
+      "summary": "Create a new recommendation",
+      "tags": "Metrics - Recommendations",
+      "fullEndpoint": "POST /metrics/recommendations"
+    },
+    {
+      "path": "/metrics/recommendations/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsRecommendationsId",
+      "summary": "Destroy a recommendation",
+      "tags": "Metrics - Recommendations",
+      "fullEndpoint": "DELETE /metrics/recommendations/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReports",
+      "summary": "List of reports",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "method": "post",
+      "operationId": "PostMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReports",
+      "summary": "Create a new report",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "summary": "Retrieve details from a report",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "put",
+      "operationId": "PutMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "summary": "Update a report",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "summary": "Destroy a report",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/order",
+      "method": "put",
+      "operationId": "PutMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsOrder",
+      "summary": "Ordering reports in row",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/order"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboardsDashboardIdRows",
+      "summary": "List of the rows",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "method": "post",
+      "operationId": "PostMetricsFoldersFolderIdDashboardsDashboardIdRows",
+      "summary": "Create a new row",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "get",
+      "operationId": "GetMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "summary": "Retrieve details from a row",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "put",
+      "operationId": "PutMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "summary": "Update a row",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "delete",
+      "operationId": "DeleteMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "summary": "Destroy a row",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}"
+    },
+    {
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/order",
+      "method": "put",
+      "operationId": "PutMetricsFoldersFolderIdDashboardsDashboardIdRowsOrder",
+      "summary": "Ordering rows in dashboard",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/order"
+    },
+    {
+      "path": "/workspace/network_lists/{id}",
+      "method": "get",
+      "operationId": "GetWorkspaceNetworkListsId",
+      "summary": "Retrieve details of a Network List",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/network_lists/{id}"
+    },
+    {
+      "path": "/workspace/network_lists/{id}",
+      "method": "put",
+      "operationId": "PutWorkspaceNetworkListsId",
+      "summary": "Update a Network List",
+      "tags": "Network Lists",
+      "fullEndpoint": "PUT /workspace/network_lists/{id}"
+    },
+    {
+      "path": "/workspace/network_lists/{id}",
+      "method": "patch",
+      "operationId": "PatchWorkspaceNetworkListsId",
+      "summary": "Partially update a Network List",
+      "tags": "Network Lists",
+      "fullEndpoint": "PATCH /workspace/network_lists/{id}"
+    },
+    {
+      "path": "/workspace/network_lists/{id}",
+      "method": "delete",
+      "operationId": "DeleteWorkspaceNetworkListsId",
+      "summary": "Destroy a Network List",
+      "tags": "Network Lists",
+      "fullEndpoint": "DELETE /workspace/network_lists/{id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/groups",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeNodesNodeIdGroups",
+      "summary": "List Edge Node Groups by id",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/groups"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/groups",
+      "method": "post",
+      "operationId": "PostEdgeOrchestratorEdgeNodesNodeIdGroups",
+      "summary": "Bind Node Group",
+      "tags": "Orchestrator - Edge Node Groups",
+      "fullEndpoint": "POST /edge_orchestrator/edge_nodes/{node_id}/groups"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/groups/{group_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeOrchestratorEdgeNodesGroupsGroupId",
+      "summary": "Remove Node Group",
+      "tags": "Orchestrator - Edge Node Groups",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_nodes/groups/{group_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeNodesNodeIdServices",
+      "summary": "List Node Services",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/services"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services",
+      "method": "post",
+      "operationId": "PostEdgeOrchestratorEdgeNodesNodeIdServices",
+      "summary": "Bind Node Service",
+      "tags": "Orchestrator - Edge Node Services",
+      "fullEndpoint": "POST /edge_orchestrator/edge_nodes/{node_id}/services"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeNodesNodeIdServicesBindId",
+      "summary": "Retrieve details of an Edge Node Service Bind",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeOrchestratorEdgeNodesNodeIdServicesBindId",
+      "summary": "Unbind Node Service",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Retrieve details of an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/{node_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "put",
+      "operationId": "PutEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Update an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_nodes/{node_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Partially update an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "PATCH /edge_orchestrator/edge_nodes/{node_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Delete an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_nodes/{node_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Retrieve details of an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "put",
+      "operationId": "PutEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Update an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_nodes/{node_id}/"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "patch",
+      "operationId": "PatchEdgeOrchestratorEdgeNodesNodeId",
+      "summary": "Partially update an Edge Node",
+      "tags": "Orchestrator - Edge Nodes",
+      "fullEndpoint": "PATCH /edge_orchestrator/edge_nodes/{node_id}/"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeServicesServiceIdResources",
+      "summary": "List Service Resources",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources",
+      "method": "post",
+      "operationId": "PostEdgeOrchestratorEdgeServicesServiceIdResources",
+      "summary": "Create Service Resource",
+      "tags": "Orchestrator - Edge Service Resources",
+      "fullEndpoint": "POST /edge_orchestrator/edge_services/{service_id}/resources"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "summary": "Retrieve details of a Resource",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "put",
+      "operationId": "PutEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "summary": "Update Resource",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "summary": "Delete Resource",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeServicesServiceIdResourcesResourceIdContent",
+      "summary": "Retrieve content of a Resource",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "method": "put",
+      "operationId": "PutEdgeOrchestratorEdgeServicesServiceIdResourcesResourceIdContent",
+      "summary": "Upload content of a Resource",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "get",
+      "operationId": "GetEdgeOrchestratorEdgeServicesServiceId",
+      "summary": "Retrieve details of an Edge Service",
+      "tags": "Orchestrator - Edge Services",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/{service_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "put",
+      "operationId": "PutEdgeOrchestratorEdgeServicesServiceId",
+      "summary": "Update an Edge Service",
+      "tags": "Orchestrator - Edge Services",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_services/{service_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeOrchestratorEdgeServicesServiceId",
+      "summary": "Partially update an Edge Service",
+      "tags": "Orchestrator - Edge Services",
+      "fullEndpoint": "PATCH /edge_orchestrator/edge_services/{service_id}"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeOrchestratorEdgeServicesServiceId",
+      "summary": "Destroy an Edge Service",
+      "tags": "Orchestrator - Edge Services",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_services/{service_id}"
+    },
+    {
+      "path": "/auth/policies/lockout",
+      "method": "get",
+      "operationId": "GetAuthPoliciesLockout",
+      "summary": "Get Lockout Policy",
+      "tags": "Policy - Lockout Policy",
+      "fullEndpoint": "GET /auth/policies/lockout"
+    },
+    {
+      "path": "/auth/policies/{id}",
+      "method": "get",
+      "operationId": "GetAuthPoliciesId",
+      "summary": "Retrieve details from a policy",
+      "tags": "Policy - Policies",
+      "fullEndpoint": "GET /auth/policies/{id}"
+    },
+    {
+      "path": "/auth/policies/{id}",
+      "method": "put",
+      "operationId": "PutAuthPoliciesId",
+      "summary": "Update a policy",
+      "tags": "Policy - Policies",
+      "fullEndpoint": "PUT /auth/policies/{id}"
+    },
+    {
+      "path": "/auth/policies/{id}",
+      "method": "patch",
+      "operationId": "PatchAuthPoliciesId",
+      "summary": "Partially update a policy",
+      "tags": "Policy - Policies",
+      "fullEndpoint": "PATCH /auth/policies/{id}"
+    },
+    {
+      "path": "/auth/policies/{id}",
+      "method": "delete",
+      "operationId": "DeleteAuthPoliciesId",
+      "summary": "Destroy a policy",
+      "tags": "Policy - Policies",
+      "fullEndpoint": "DELETE /auth/policies/{id}"
+    },
+    {
+      "path": "/auth/policies/session",
+      "method": "get",
+      "operationId": "GetAuthPoliciesSession",
+      "summary": "Get Session Timeout Policy",
+      "tags": "Policy - Session Timeout Policy",
+      "fullEndpoint": "GET /auth/policies/session"
+    },
+    {
+      "path": "/marketplace/publisher",
+      "method": "get",
+      "operationId": "GetMarketplacePublisher",
+      "summary": "Get publisher details",
+      "tags": "Publisher Management",
+      "fullEndpoint": "GET /marketplace/publisher"
+    },
+    {
+      "path": "/marketplace/publisher",
+      "method": "put",
+      "operationId": "PutMarketplacePublisher",
+      "summary": "Update publisher details",
+      "tags": "Publisher Management",
+      "fullEndpoint": "PUT /marketplace/publisher"
+    },
+    {
+      "path": "/workspace/purge/{purge_type}",
+      "method": "post",
+      "operationId": "PostWorkspacePurgePurgeType",
+      "summary": "Create a Purge Request",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /workspace/purge/{purge_type}"
+    },
+    {
+      "path": "/workspace/sql/databases",
+      "method": "get",
+      "operationId": "GetEdgeSqlDatabases",
+      "summary": "List databases",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/sql/databases"
+    },
+    {
+      "path": "/workspace/sql/databases",
+      "method": "post",
+      "operationId": "PostEdgeSqlDatabases",
+      "summary": "Create a database",
+      "tags": "SQL",
+      "fullEndpoint": "POST /workspace/sql/databases"
+    },
+    {
+      "path": "/workspace/sql/databases/{id}",
+      "method": "get",
+      "operationId": "GetEdgeSqlDatabasesId",
+      "summary": "Retrieve details from a database",
+      "tags": "SQL",
+      "fullEndpoint": "GET /workspace/sql/databases/{id}"
+    },
+    {
+      "path": "/workspace/sql/databases/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeSqlDatabasesId",
+      "summary": "Destroy a database",
+      "tags": "SQL",
+      "fullEndpoint": "DELETE /workspace/sql/databases/{id}"
+    },
+    {
+      "path": "/workspace/sql/databases/{id}/query",
+      "method": "post",
+      "operationId": "PostEdgeSqlDatabasesIdQuery",
+      "summary": "Execute a query into a database",
+      "tags": "SQL",
+      "fullEndpoint": "POST /workspace/sql/databases/{id}/query"
+    },
+    {
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "get",
+      "operationId": "GetEdgeStorageBucketsName",
+      "summary": "Retrieve details from a bucket",
+      "tags": "Storage - Buckets",
+      "fullEndpoint": "GET /workspace/storage/buckets/{name}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "patch",
+      "operationId": "PatchEdgeStorageBucketsName",
+      "summary": "Update bucket info",
+      "tags": "Storage - Buckets",
+      "fullEndpoint": "PATCH /workspace/storage/buckets/{name}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "delete",
+      "operationId": "DeleteEdgeStorageBucketsName",
+      "summary": "Delete a bucket",
+      "tags": "Storage - Buckets",
+      "fullEndpoint": "DELETE /workspace/storage/buckets/{name}"
+    },
+    {
+      "path": "/workspace/storage/credentials/{id}",
+      "method": "get",
+      "operationId": "GetEdgeStorageCredentialsId",
+      "summary": "Retrieve details from a credential",
+      "tags": "Storage - Credentials",
+      "fullEndpoint": "GET /workspace/storage/credentials/{id}"
+    },
+    {
+      "path": "/workspace/storage/credentials/{id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeStorageCredentialsId",
+      "summary": "Delete a credential",
+      "tags": "Storage - Credentials",
+      "fullEndpoint": "DELETE /workspace/storage/credentials/{id}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{bucket_name}/objects",
+      "method": "get",
+      "operationId": "GetEdgeStorageBucketsBucketNameObjects",
+      "summary": "List objects from bucket",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/storage/buckets/{bucket_name}/objects"
+    },
+    {
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "get",
+      "operationId": "GetEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "summary": "Download object",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/storage/buckets/{bucket_name}/objects/{object_key}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "post",
+      "operationId": "PostEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "summary": "Create new object key.",
+      "tags": "Unknown",
+      "fullEndpoint": "POST /workspace/storage/buckets/{bucket_name}/objects/{object_key}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "put",
+      "operationId": "PutEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "summary": "Update the object key.",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/storage/buckets/{bucket_name}/objects/{object_key}"
+    },
+    {
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "delete",
+      "operationId": "DeleteEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "summary": "Delete object key",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/storage/buckets/{bucket_name}/objects/{object_key}"
+    },
+    {
+      "path": "/identity/users/{id}/lockout",
+      "method": "delete",
+      "operationId": "DeleteIdentityUsersIdLockout",
+      "summary": "Unlock user",
+      "tags": "Users - Lockout",
+      "fullEndpoint": "DELETE /identity/users/{id}/lockout"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}/executions",
+      "method": "get",
+      "operationId": "GetVcsContinuousDeploymentsIdExecutions",
+      "summary": "List executions",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/continuous_deployments/{id}/executions"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}/executions",
+      "method": "post",
+      "operationId": "PostVcsContinuousDeploymentsIdExecutions",
+      "summary": "Create a execution",
+      "tags": "VCS - Continuous Deployment Executions",
+      "fullEndpoint": "POST /vcs/continuous_deployments/{id}/executions"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}/executor",
+      "method": "get",
+      "operationId": "GetVcsContinuousDeploymentsIdExecutor",
+      "summary": "Retrieve details from a executor",
+      "tags": "VCS - Continuous Deployment Executor",
+      "fullEndpoint": "GET /vcs/continuous_deployments/{id}/executor"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}/executor",
+      "method": "put",
+      "operationId": "PutVcsContinuousDeploymentsIdExecutor",
+      "summary": "Update a executor",
+      "tags": "VCS - Continuous Deployment Executor",
+      "fullEndpoint": "PUT /vcs/continuous_deployments/{id}/executor"
+    },
+    {
+      "path": "/vcs/continuous_deployments",
+      "method": "get",
+      "operationId": "GetVcsContinuousDeployments",
+      "summary": "List continuous deployments",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/continuous_deployments"
+    },
+    {
+      "path": "/vcs/continuous_deployments",
+      "method": "post",
+      "operationId": "PostVcsContinuousDeployments",
+      "summary": "Create a continuous deployment",
+      "tags": "VCS - Continuous Deployments",
+      "fullEndpoint": "POST /vcs/continuous_deployments"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "get",
+      "operationId": "GetVcsContinuousDeploymentsId",
+      "summary": "Retrieve details from a continuous deployment",
+      "tags": "VCS - Continuous Deployments",
+      "fullEndpoint": "GET /vcs/continuous_deployments/{id}"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "put",
+      "operationId": "PutVcsContinuousDeploymentsId",
+      "summary": "Update a continuous deployment",
+      "tags": "VCS - Continuous Deployments",
+      "fullEndpoint": "PUT /vcs/continuous_deployments/{id}"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "patch",
+      "operationId": "PatchVcsContinuousDeploymentsId",
+      "summary": "Partialy update a continuous deployment",
+      "tags": "VCS - Continuous Deployments",
+      "fullEndpoint": "PATCH /vcs/continuous_deployments/{id}"
+    },
+    {
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "delete",
+      "operationId": "DeleteVcsContinuousDeploymentsId",
+      "summary": "Delete a continuous deployment",
+      "tags": "VCS - Continuous Deployments",
+      "fullEndpoint": "DELETE /vcs/continuous_deployments/{id}"
+    },
+    {
+      "path": "/vcs/execution_scripts",
+      "method": "get",
+      "operationId": "GetVcsExecutionScripts",
+      "summary": "List execution scripts",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/execution_scripts"
+    },
+    {
+      "path": "/vcs/execution_scripts/{id}",
+      "method": "get",
+      "operationId": "GetVcsExecutionScriptsId",
+      "summary": "Retrieve details from a execution script",
+      "tags": "VCS - Execution Scripts",
+      "fullEndpoint": "GET /vcs/execution_scripts/{id}"
+    },
+    {
+      "path": "/vcs/integrations",
+      "method": "get",
+      "operationId": "GetVcsIntegrations",
+      "summary": "List integrations",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/integrations"
+    },
+    {
+      "path": "/vcs/integrations/{id}/repositories",
+      "method": "get",
+      "operationId": "GetVcsIntegrationsIdRepositories",
+      "summary": "List integration repositories.",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/integrations/{id}/repositories"
+    },
+    {
+      "path": "/vcs/integrations/{id}",
+      "method": "get",
+      "operationId": "GetVcsIntegrationsId",
+      "summary": "Retrieve details from a integration",
+      "tags": "VCS - Integrations",
+      "fullEndpoint": "GET /vcs/integrations/{id}"
+    },
+    {
+      "path": "/vcs/integrations/{id}",
+      "method": "delete",
+      "operationId": "DeleteVcsIntegrationsId",
+      "summary": "Delete an integration",
+      "tags": "VCS - Integrations",
+      "fullEndpoint": "DELETE /vcs/integrations/{id}"
+    },
+    {
+      "path": "/vcs/providers",
+      "method": "get",
+      "operationId": "GetVcsProviders",
+      "summary": "List providers",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /vcs/providers"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "get",
+      "operationId": "GetEdgeFirewallWafsWafId",
+      "summary": "Retrieve details from a Web Application Firewall (WAF)",
+      "tags": "WAFs",
+      "fullEndpoint": "GET /workspace/wafs/{waf_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "put",
+      "operationId": "PutEdgeFirewallWafsWafId",
+      "summary": "Update a Web Application Firewall (WAF)",
+      "tags": "WAFs",
+      "fullEndpoint": "PUT /workspace/wafs/{waf_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFirewallWafsWafId",
+      "summary": "Partially update a Web Application Firewall (WAF)",
+      "tags": "WAFs",
+      "fullEndpoint": "PATCH /workspace/wafs/{waf_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFirewallWafsWafId",
+      "summary": "Destroy a Web Application Firewall (WAF)",
+      "tags": "WAFs",
+      "fullEndpoint": "DELETE /workspace/wafs/{waf_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/clone",
+      "method": "post",
+      "operationId": "PostEdgeFirewallWafsWafIdClone",
+      "summary": "Clone a Web Application Firewall (WAF)",
+      "tags": "WAFs",
+      "fullEndpoint": "POST /workspace/wafs/{waf_id}/clone"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions",
+      "method": "get",
+      "operationId": "GetEdgeFirewallWafsWafIdExceptions",
+      "summary": "List Exceptions for a Web Application Firewall (WAF)",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/wafs/{waf_id}/exceptions"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions",
+      "method": "post",
+      "operationId": "PostEdgeFirewallWafsWafIdExceptions",
+      "summary": "Create an Exception for a Web Application Firewall (WAF)",
+      "tags": "WAFs - Exceptions",
+      "fullEndpoint": "POST /workspace/wafs/{waf_id}/exceptions"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "get",
+      "operationId": "GetEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "summary": "Retrieve details of an Exception from a Web Application Firewall (WAF)",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/wafs/{waf_id}/exceptions/{exception_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "put",
+      "operationId": "PutEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "summary": "Update an Exception for a Web Application Firewall (WAF)",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/wafs/{waf_id}/exceptions/{exception_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "patch",
+      "operationId": "PatchEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "summary": "Partially update an Exception for a Web Application Firewall (WAF)",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/wafs/{waf_id}/exceptions/{exception_id}"
+    },
+    {
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "delete",
+      "operationId": "DeleteEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "summary": "Destroy an Exception from a Web Application Firewall (WAF)",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/wafs/{waf_id}/exceptions/{exception_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments",
+      "method": "get",
+      "operationId": "GetWorkspaceWorkloadsWorkloadIdDeployments",
+      "summary": "List Workload Deployments",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/workloads/{workload_id}/deployments"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments",
+      "method": "post",
+      "operationId": "PostWorkspaceWorkloadsWorkloadIdDeployments",
+      "summary": "Create a Workload Deployment",
+      "tags": "Workload Deployments",
+      "fullEndpoint": "POST /workspace/workloads/{workload_id}/deployments"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "get",
+      "operationId": "GetWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "summary": "Retrieve details of a Workload Deployment",
+      "tags": "Unknown",
+      "fullEndpoint": "GET /workspace/workloads/{workload_id}/deployments/{deployment_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "put",
+      "operationId": "PutWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "summary": "Update a Workload Deployment",
+      "tags": "Unknown",
+      "fullEndpoint": "PUT /workspace/workloads/{workload_id}/deployments/{deployment_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "patch",
+      "operationId": "PatchWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "summary": "Partially update a Workload Deployment",
+      "tags": "Unknown",
+      "fullEndpoint": "PATCH /workspace/workloads/{workload_id}/deployments/{deployment_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "delete",
+      "operationId": "DeleteWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "summary": "Destroy a Workload Deployment",
+      "tags": "Unknown",
+      "fullEndpoint": "DELETE /workspace/workloads/{workload_id}/deployments/{deployment_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "get",
+      "operationId": "GetWorkspaceWorkloadsWorkloadId",
+      "summary": "Retrieve details of an Workload",
+      "tags": "Workloads",
+      "fullEndpoint": "GET /workspace/workloads/{workload_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "put",
+      "operationId": "PutWorkspaceWorkloadsWorkloadId",
+      "summary": "Update an Workload",
+      "tags": "Workloads",
+      "fullEndpoint": "PUT /workspace/workloads/{workload_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "patch",
+      "operationId": "PatchWorkspaceWorkloadsWorkloadId",
+      "summary": "Partially update an Workload",
+      "tags": "Workloads",
+      "fullEndpoint": "PATCH /workspace/workloads/{workload_id}"
+    },
+    {
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "delete",
+      "operationId": "DeleteWorkspaceWorkloadsWorkloadId",
+      "summary": "Destroy an Workload",
+      "tags": "Workloads",
+      "fullEndpoint": "DELETE /workspace/workloads/{workload_id}"
+    }
+  ],
+  "prodOnlyEndpoints": [
+    {
+      "path": "/account/accounts/:accountId/info",
+      "method": "get",
+      "operationId": "Retrieve account information details",
+      "summary": "Retrieve account information details",
+      "tags": "account/accounts/{id}/info",
+      "fullEndpoint": "GET /account/accounts/:accountId/info"
+    },
+    {
+      "path": "/account/accounts/:accountId/info",
+      "method": "put",
+      "operationId": "Update account information details",
+      "summary": "Update account information details",
+      "tags": "account/accounts/{id}/info",
+      "fullEndpoint": "PUT /account/accounts/:accountId/info"
+    },
+    {
+      "path": "/account/accounts/:accountId",
+      "method": "get",
+      "operationId": "Retrieve account details",
+      "summary": "Retrieve account details",
+      "tags": "account/accounts/{id}",
+      "fullEndpoint": "GET /account/accounts/:accountId"
+    },
+    {
+      "path": "/account/accounts/:id",
+      "method": "put",
+      "operationId": "Update account details",
+      "summary": "Update account details",
+      "tags": "account/accounts/{id}",
+      "fullEndpoint": "PUT /account/accounts/:id"
+    },
+    {
+      "path": "/account/accounts/:id",
+      "method": "patch",
+      "operationId": "Partially update account details",
+      "summary": "Partially update account details",
+      "tags": "account/accounts/{id}",
+      "fullEndpoint": "PATCH /account/accounts/:id"
+    },
+    {
+      "path": "/auth/login/method",
+      "method": "get",
+      "operationId": "Retrieve user login method",
+      "summary": "Retrieve user login method",
+      "tags": "auth/login/method",
+      "fullEndpoint": "GET /auth/login/method"
+    },
+    {
+      "path": "/auth/login",
+      "method": "post",
+      "operationId": "Retrieve user JWT tokens",
+      "summary": "Retrieve user JWT tokens",
+      "tags": "auth/login",
+      "fullEndpoint": "POST /auth/login"
+    },
+    {
+      "path": "/auth/mfa/totp/:id",
+      "method": "delete",
+      "operationId": "Destroy a TOTP device",
+      "summary": "Destroy a TOTP device",
+      "tags": "auth/mfa/totp/{id}",
+      "fullEndpoint": "DELETE /auth/mfa/totp/:id"
+    },
+    {
+      "path": "/auth/mfa/totp",
+      "method": "get",
+      "operationId": "List of TOTP devices",
+      "summary": "List of TOTP devices",
+      "tags": "auth/mfa/totp",
+      "fullEndpoint": "GET /auth/mfa/totp"
+    },
+    {
+      "path": "/auth/mfa/totp",
+      "method": "post",
+      "operationId": "Create a TOTP device",
+      "summary": "Create a TOTP device",
+      "tags": "auth/mfa/totp",
+      "fullEndpoint": "POST /auth/mfa/totp"
+    },
+    {
+      "path": "/auth/token",
+      "method": "post",
+      "operationId": "Refresh user JWT access token",
+      "summary": "Refresh user JWT access token",
+      "tags": "auth/token",
+      "fullEndpoint": "POST /auth/token"
+    },
+    {
+      "path": "/auth/revoke",
+      "method": "post",
+      "operationId": "Revoke user JWT refresh token",
+      "summary": "Revoke user JWT refresh token",
+      "tags": "auth/revoke",
+      "fullEndpoint": "POST /auth/revoke"
+    },
+    {
+      "path": "/auth/verify",
+      "method": "post",
+      "operationId": "Retrieve user JWT tokens by MFA auth",
+      "summary": "Retrieve user JWT tokens by MFA auth",
+      "tags": "auth/verify",
+      "fullEndpoint": "POST /auth/verify"
+    },
+    {
+      "path": "/auth/policies/lockout?fields=<string>",
+      "method": "get",
+      "operationId": "Get Lockout Policy",
+      "summary": "Get Lockout Policy",
+      "tags": "auth/policies/lockout",
+      "fullEndpoint": "GET /auth/policies/lockout?fields=<string>"
+    },
+    {
+      "path": "/auth/policies/:id?fields=<string>",
+      "method": "get",
+      "operationId": "Retrieve details from a policy",
+      "summary": "Retrieve details from a policy",
+      "tags": "auth/policies/{id}",
+      "fullEndpoint": "GET /auth/policies/:id?fields=<string>"
+    },
+    {
+      "path": "/auth/policies/:id",
+      "method": "put",
+      "operationId": "Update a policy",
+      "summary": "Update a policy",
+      "tags": "auth/policies/{id}",
+      "fullEndpoint": "PUT /auth/policies/:id"
+    },
+    {
+      "path": "/auth/policies/:id",
+      "method": "patch",
+      "operationId": "Partially update a policy",
+      "summary": "Partially update a policy",
+      "tags": "auth/policies/{id}",
+      "fullEndpoint": "PATCH /auth/policies/:id"
+    },
+    {
+      "path": "/auth/policies/:id",
+      "method": "delete",
+      "operationId": "Destroy a policy",
+      "summary": "Destroy a policy",
+      "tags": "auth/policies/{id}",
+      "fullEndpoint": "DELETE /auth/policies/:id"
+    },
+    {
+      "path": "/auth/policies/session?fields=<string>",
+      "method": "get",
+      "operationId": "Get Session Timeout Policy",
+      "summary": "Get Session Timeout Policy",
+      "tags": "auth/policies/session",
+      "fullEndpoint": "GET /auth/policies/session?fields=<string>"
+    },
+    {
+      "path": "/payments/credit_cards/:creditCardId",
+      "method": "get",
+      "operationId": "Retrieve details from a credit card",
+      "summary": "Retrieve details from a credit card",
+      "tags": "payments/credit_cards/{id}",
+      "fullEndpoint": "GET /payments/credit_cards/:creditCardId"
+    },
+    {
+      "path": "/payments/credit_cards/:id",
+      "method": "patch",
+      "operationId": "Partially update a credit card",
+      "summary": "Partially update a credit card",
+      "tags": "payments/credit_cards/{id}",
+      "fullEndpoint": "PATCH /payments/credit_cards/:id"
+    },
+    {
+      "path": "/payments/credit_cards/:id",
+      "method": "delete",
+      "operationId": "Destroy a credit card",
+      "summary": "Destroy a credit card",
+      "tags": "payments/credit_cards/{id}",
+      "fullEndpoint": "DELETE /payments/credit_cards/:id"
+    },
+    {
+      "path": "/workspace/custom_pages/:customPageId",
+      "method": "get",
+      "operationId": "Retrieve details of a Custom Page",
+      "summary": "Retrieve details of a Custom Page",
+      "tags": "workspace/custom_pages/{id}",
+      "fullEndpoint": "GET /workspace/custom_pages/:customPageId"
+    },
+    {
+      "path": "/workspace/custom_pages/:customPageId",
+      "method": "put",
+      "operationId": "Update a Custom Page",
+      "summary": "Update a Custom Page",
+      "tags": "workspace/custom_pages/{id}",
+      "fullEndpoint": "PUT /workspace/custom_pages/:customPageId"
+    },
+    {
+      "path": "/workspace/custom_pages/:customPageId",
+      "method": "patch",
+      "operationId": "Partially update a Custom Page",
+      "summary": "Partially update a Custom Page",
+      "tags": "workspace/custom_pages/{id}",
+      "fullEndpoint": "PATCH /workspace/custom_pages/:customPageId"
+    },
+    {
+      "path": "/workspace/custom_pages/:deleteId",
+      "method": "delete",
+      "operationId": "Destroy a Custom Page",
+      "summary": "Destroy a Custom Page",
+      "tags": "workspace/custom_pages/{id}",
+      "fullEndpoint": "DELETE /workspace/custom_pages/:deleteId"
+    },
+    {
+      "path": "/workspace/network_lists/:networkId",
+      "method": "get",
+      "operationId": "Retrieve details of a Network List",
+      "summary": "Retrieve details of a Network List",
+      "tags": "workspace/network_lists/{id}",
+      "fullEndpoint": "GET /workspace/network_lists/:networkId"
+    },
+    {
+      "path": "/workspace/network_lists/:networkId",
+      "method": "put",
+      "operationId": "Update a Network List",
+      "summary": "Update a Network List",
+      "tags": "workspace/network_lists/{id}",
+      "fullEndpoint": "PUT /workspace/network_lists/:networkId"
+    },
+    {
+      "path": "/workspace/network_lists/:networkId",
+      "method": "patch",
+      "operationId": "Partially update a Network List",
+      "summary": "Partially update a Network List",
+      "tags": "workspace/network_lists/{id}",
+      "fullEndpoint": "PATCH /workspace/network_lists/:networkId"
+    },
+    {
+      "path": "/workspace/network_lists/:networkId",
+      "method": "delete",
+      "operationId": "Destroy a Network List",
+      "summary": "Destroy a Network List",
+      "tags": "workspace/network_lists/{id}",
+      "fullEndpoint": "DELETE /workspace/network_lists/:networkId"
+    },
+    {
+      "path": "/workspace/purge/url",
+      "method": "post",
+      "operationId": "Create a Purge Request",
+      "summary": "Create a Purge Request",
+      "tags": "workspace/purge/{purgeType}",
+      "fullEndpoint": "POST /workspace/purge/url"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+      "method": "get",
+      "operationId": "Retrieve details of a Workload Deployment",
+      "summary": "Retrieve details of a Workload Deployment",
+      "tags": "workspace/workloads/{workloadId}/deployments/{id}",
+      "fullEndpoint": "GET /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+      "method": "put",
+      "operationId": "Update a Workload Deployment",
+      "summary": "Update a Workload Deployment",
+      "tags": "workspace/workloads/{workloadId}/deployments/{id}",
+      "fullEndpoint": "PUT /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+      "method": "patch",
+      "operationId": "Partially update a Workload Deployment",
+      "summary": "Partially update a Workload Deployment",
+      "tags": "workspace/workloads/{workloadId}/deployments/{id}",
+      "fullEndpoint": "PATCH /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId/deployments",
+      "method": "get",
+      "operationId": "List Workload Deployments",
+      "summary": "List Workload Deployments",
+      "tags": "workspace/workloads/{workloadId}/deployments",
+      "fullEndpoint": "GET /workspace/workloads/:workloadId/deployments"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId",
+      "method": "get",
+      "operationId": "Retrieve details of an Workload",
+      "summary": "Retrieve details of an Workload",
+      "tags": "workspace/workloads/{globalId}",
+      "fullEndpoint": "GET /workspace/workloads/:workloadId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId",
+      "method": "put",
+      "operationId": "Update an Workload",
+      "summary": "Update an Workload",
+      "tags": "workspace/workloads/{globalId}",
+      "fullEndpoint": "PUT /workspace/workloads/:workloadId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId",
+      "method": "patch",
+      "operationId": "Partially update an Workload",
+      "summary": "Partially update an Workload",
+      "tags": "workspace/workloads/{globalId}",
+      "fullEndpoint": "PATCH /workspace/workloads/:workloadId"
+    },
+    {
+      "path": "/workspace/workloads/:workloadId",
+      "method": "delete",
+      "operationId": "Destroy an Workload",
+      "summary": "Destroy an Workload",
+      "tags": "workspace/workloads/{globalId}",
+      "fullEndpoint": "DELETE /workspace/workloads/:workloadId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/dnssec",
+      "method": "get",
+      "operationId": "Retrieve details of a DNSSEC",
+      "summary": "Retrieve details of a DNSSEC",
+      "tags": "dns/zones/{zoneId}/dnssec",
+      "fullEndpoint": "GET /workspace/dns/zones/:zoneId/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/dnssec",
+      "method": "put",
+      "operationId": "Update a DNSSEC",
+      "summary": "Update a DNSSEC",
+      "tags": "dns/zones/{zoneId}/dnssec",
+      "fullEndpoint": "PUT /workspace/dns/zones/:zoneId/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/dnssec",
+      "method": "patch",
+      "operationId": "Partially update a DNSSEC",
+      "summary": "Partially update a DNSSEC",
+      "tags": "dns/zones/{zoneId}/dnssec",
+      "fullEndpoint": "PATCH /workspace/dns/zones/:zoneId/dnssec"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records/:recordId",
+      "method": "get",
+      "operationId": "Retrieve details of a DNS Record",
+      "summary": "Retrieve details of a DNS Record",
+      "tags": "dns/zones/{zoneId}/records/{recordId}",
+      "fullEndpoint": "GET /workspace/dns/zones/:zoneId/records/:recordId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records/:recordId",
+      "method": "put",
+      "operationId": "Update a DNS Record",
+      "summary": "Update a DNS Record",
+      "tags": "dns/zones/{zoneId}/records/{recordId}",
+      "fullEndpoint": "PUT /workspace/dns/zones/:zoneId/records/:recordId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records/:recordId",
+      "method": "patch",
+      "operationId": "Partially update a DNS Record",
+      "summary": "Partially update a DNS Record",
+      "tags": "dns/zones/{zoneId}/records/{recordId}",
+      "fullEndpoint": "PATCH /workspace/dns/zones/:zoneId/records/:recordId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records/:recordId",
+      "method": "delete",
+      "operationId": "Destroy a DNS Record",
+      "summary": "Destroy a DNS Record",
+      "tags": "dns/zones/{zoneId}/records/{recordId}",
+      "fullEndpoint": "DELETE /workspace/dns/zones/:zoneId/records/:recordId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records",
+      "method": "get",
+      "operationId": "List DNS Records",
+      "summary": "List DNS Records",
+      "tags": "dns/zones/{zoneId}/records",
+      "fullEndpoint": "GET /workspace/dns/zones/:zoneId/records"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId/records",
+      "method": "post",
+      "operationId": "Create a DNS Record",
+      "summary": "Create a DNS Record",
+      "tags": "dns/zones/{zoneId}/records",
+      "fullEndpoint": "POST /workspace/dns/zones/:zoneId/records"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId",
+      "method": "get",
+      "operationId": "Retrieve details of a DNS Zone",
+      "summary": "Retrieve details of a DNS Zone",
+      "tags": "dns/zones/{zoneId}",
+      "fullEndpoint": "GET /workspace/dns/zones/:zoneId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId",
+      "method": "put",
+      "operationId": "Update a DNS Zone",
+      "summary": "Update a DNS Zone",
+      "tags": "dns/zones/{zoneId}",
+      "fullEndpoint": "PUT /workspace/dns/zones/:zoneId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId",
+      "method": "patch",
+      "operationId": "Partially update a DNS Zone",
+      "summary": "Partially update a DNS Zone",
+      "tags": "dns/zones/{zoneId}",
+      "fullEndpoint": "PATCH /workspace/dns/zones/:zoneId"
+    },
+    {
+      "path": "/workspace/dns/zones/:zoneId",
+      "method": "delete",
+      "operationId": "Destroy a DNS Zone",
+      "summary": "Destroy a DNS Zone",
+      "tags": "dns/zones/{zoneId}",
+      "fullEndpoint": "DELETE /workspace/dns/zones/:zoneId"
+    },
+    {
+      "path": "/data_stream/templates/:templateId",
+      "method": "get",
+      "operationId": "Retrieve details of a template",
+      "summary": "Retrieve details of a template",
+      "tags": "data_stream/templates/{id}",
+      "fullEndpoint": "GET /data_stream/templates/:templateId"
+    },
+    {
+      "path": "/data_stream/templates/:dataSetId",
+      "method": "put",
+      "operationId": "Update a template",
+      "summary": "Update a template",
+      "tags": "data_stream/templates/{id}",
+      "fullEndpoint": "PUT /data_stream/templates/:dataSetId"
+    },
+    {
+      "path": "/data_stream/templates/:dataSetId",
+      "method": "patch",
+      "operationId": "Partially update a template",
+      "summary": "Partially update a template",
+      "tags": "data_stream/templates/{id}",
+      "fullEndpoint": "PATCH /data_stream/templates/:dataSetId"
+    },
+    {
+      "path": "/data_stream/data_sets/:dataSetId",
+      "method": "delete",
+      "operationId": "Destroy a template",
+      "summary": "Destroy a template",
+      "tags": "data_stream/templates/{id}",
+      "fullEndpoint": "DELETE /data_stream/data_sets/:dataSetId"
+    },
+    {
+      "path": "/data_stream/templates",
+      "method": "get",
+      "operationId": "List Template",
+      "summary": "List Template",
+      "tags": "data_stream/templates",
+      "fullEndpoint": "GET /data_stream/templates"
+    },
+    {
+      "path": "/data_stream/templates",
+      "method": "post",
+      "operationId": "Create a Template",
+      "summary": "Create a Template",
+      "tags": "data_stream/templates",
+      "fullEndpoint": "POST /data_stream/templates"
+    },
+    {
+      "path": "/data_stream/data_sources",
+      "method": "get",
+      "operationId": "List of Data Sources",
+      "summary": "List of Data Sources",
+      "tags": "data_stream/data_sources",
+      "fullEndpoint": "GET /data_stream/data_sources"
+    },
+    {
+      "path": "/data_stream/streams/:dataStreamingId",
+      "method": "get",
+      "operationId": "Retrieve details of a Data Stream",
+      "summary": "Retrieve details of a Data Stream",
+      "tags": "data_stream/streams/{id}",
+      "fullEndpoint": "GET /data_stream/streams/:dataStreamingId"
+    },
+    {
+      "path": "/data_stream/streams/:dataStreamingId",
+      "method": "put",
+      "operationId": "Update a Data Stream",
+      "summary": "Update a Data Stream",
+      "tags": "data_stream/streams/{id}",
+      "fullEndpoint": "PUT /data_stream/streams/:dataStreamingId"
+    },
+    {
+      "path": "/data_stream/streams/:dataStreamingId",
+      "method": "patch",
+      "operationId": "Partially update a Data Stream",
+      "summary": "Partially update a Data Stream",
+      "tags": "data_stream/streams/{id}",
+      "fullEndpoint": "PATCH /data_stream/streams/:dataStreamingId"
+    },
+    {
+      "path": "/data_stream/streams/:dataStreamingId",
+      "method": "delete",
+      "operationId": "Destroy a Data Stream",
+      "summary": "Destroy a Data Stream",
+      "tags": "data_stream/streams/{id}",
+      "fullEndpoint": "DELETE /data_stream/streams/:dataStreamingId"
+    },
+    {
+      "path": "/data_stream/streams",
+      "method": "get",
+      "operationId": "List Data Streams",
+      "summary": "List Data Streams",
+      "tags": "data_stream/streams",
+      "fullEndpoint": "GET /data_stream/streams"
+    },
+    {
+      "path": "/data_stream/streams",
+      "method": "post",
+      "operationId": "Create a Data Stream",
+      "summary": "Create a Data Stream",
+      "tags": "data_stream/streams",
+      "fullEndpoint": "POST /data_stream/streams"
+    },
+    {
+      "path": "/digital_certificates/certificates/request",
+      "method": "post",
+      "operationId": "Create a certificate request (CR)",
+      "summary": "Create a certificate request (CR)",
+      "tags": "digital_certificates/certificates/request",
+      "fullEndpoint": "POST /digital_certificates/certificates/request"
+    },
+    {
+      "path": "/digital_certificates/certificates/:certificateId",
+      "method": "get",
+      "operationId": "Retrieve details from a certificate",
+      "summary": "Retrieve details from a certificate",
+      "tags": "digital_certificates/certificates/{id}",
+      "fullEndpoint": "GET /digital_certificates/certificates/:certificateId"
+    },
+    {
+      "path": "/digital_certificates/certificates/:certificateId",
+      "method": "put",
+      "operationId": "Update a certificate",
+      "summary": "Update a certificate",
+      "tags": "digital_certificates/certificates/{id}",
+      "fullEndpoint": "PUT /digital_certificates/certificates/:certificateId"
+    },
+    {
+      "path": "/digital_certificates/certificates/:certificateId",
+      "method": "patch",
+      "operationId": "Partially update a certificate",
+      "summary": "Partially update a certificate",
+      "tags": "digital_certificates/certificates/{id}",
+      "fullEndpoint": "PATCH /digital_certificates/certificates/:certificateId"
+    },
+    {
+      "path": "/digital_certificates/certificates/:certificateId",
+      "method": "delete",
+      "operationId": "Destroy a certificate",
+      "summary": "Destroy a certificate",
+      "tags": "digital_certificates/certificates/{id}",
+      "fullEndpoint": "DELETE /digital_certificates/certificates/:certificateId"
+    },
+    {
+      "path": "/digital_certificates/certificates",
+      "method": "get",
+      "operationId": "List certificates",
+      "summary": "List certificates",
+      "tags": "digital_certificates/certificates",
+      "fullEndpoint": "GET /digital_certificates/certificates"
+    },
+    {
+      "path": "/digital_certificates/certificates",
+      "method": "post",
+      "operationId": "Create a certificate",
+      "summary": "Create a certificate",
+      "tags": "digital_certificates/certificates",
+      "fullEndpoint": "POST /digital_certificates/certificates"
+    },
+    {
+      "path": "/digital_certificates/crls/:crlsId",
+      "method": "get",
+      "operationId": "Retrieve details from a certificate revocation lists (CRL)",
+      "summary": "Retrieve details from a certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls/{id}",
+      "fullEndpoint": "GET /digital_certificates/crls/:crlsId"
+    },
+    {
+      "path": "/digital_certificates/crls/:crlsId",
+      "method": "put",
+      "operationId": "Update a certificate revocation lists (CRL)",
+      "summary": "Update a certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls/{id}",
+      "fullEndpoint": "PUT /digital_certificates/crls/:crlsId"
+    },
+    {
+      "path": "/digital_certificates/crls/:crlsId",
+      "method": "patch",
+      "operationId": "Update a certificate revocation lists (CRL)",
+      "summary": "Update a certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls/{id}",
+      "fullEndpoint": "PATCH /digital_certificates/crls/:crlsId"
+    },
+    {
+      "path": "/digital_certificates/crls/:crlsId",
+      "method": "delete",
+      "operationId": "Destroy a certificate revocation lists (CRL)",
+      "summary": "Destroy a certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls/{id}",
+      "fullEndpoint": "DELETE /digital_certificates/crls/:crlsId"
+    },
+    {
+      "path": "/digital_certificates/crls",
+      "method": "get",
+      "operationId": "List certificate revocation lists (CRL)",
+      "summary": "List certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls",
+      "fullEndpoint": "GET /digital_certificates/crls"
+    },
+    {
+      "path": "/digital_certificates/crls",
+      "method": "post",
+      "operationId": "Create a certificate revocation lists (CRL)",
+      "summary": "Create a certificate revocation lists (CRL)",
+      "tags": "digital_certificates/crls",
+      "fullEndpoint": "POST /digital_certificates/crls"
+    },
+    {
+      "path": "/digital_certificates/csr",
+      "method": "post",
+      "operationId": "Create a certificate signing request (CSR)",
+      "summary": "Create a certificate signing request (CSR)",
+      "tags": "digital_certificates/csr",
+      "fullEndpoint": "POST /digital_certificates/csr"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/clone",
+      "method": "post",
+      "operationId": "Clone an Edge Application",
+      "summary": "Clone an Edge Application",
+      "tags": "edge_application/applications/{globalId}/clone",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/clone"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Application",
+      "summary": "Retrieve details of an Edge Application",
+      "tags": "edge_application/applications/{globalId}",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId",
+      "method": "put",
+      "operationId": "Update an Edge Application",
+      "summary": "Update an Edge Application",
+      "tags": "edge_application/applications/{globalId}",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Application",
+      "summary": "Partially update an Edge Application",
+      "tags": "edge_application/applications/{globalId}",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Application",
+      "summary": "Destroy an Edge Application",
+      "tags": "edge_application/applications/{globalId}",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Applications Cache Setting",
+      "summary": "Retrieve details of an Edge Applications Cache Setting",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+      "method": "put",
+      "operationId": "Update an Edge Applications Cache Setting",
+      "summary": "Update an Edge Applications Cache Setting",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Applications Cache Setting",
+      "summary": "Partially update an Edge Applications Cache Setting",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Applications Cache Setting",
+      "summary": "Destroy an Edge Applications Cache Setting",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings/{id}",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings",
+      "method": "get",
+      "operationId": "List all Edge Applications Cache Settings",
+      "summary": "List all Edge Applications Cache Settings",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/cache_settings"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/cache_settings",
+      "method": "post",
+      "operationId": "Create an Edge Applications Cache Setting",
+      "summary": "Create an Edge Applications Cache Setting",
+      "tags": "edge_application/applications/{edgeApplicationId}/cache_settings",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/cache_settings"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+      "method": "get",
+      "operationId": "Retrieve details of a Device Group",
+      "summary": "Retrieve details of a Device Group",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+      "method": "put",
+      "operationId": "Update an Edge Applications Device Group",
+      "summary": "Update an Edge Applications Device Group",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Applications Device Group",
+      "summary": "Partially update an Edge Applications Device Group",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Applications Device Group",
+      "summary": "Destroy an Edge Applications Device Group",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups/{id}",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups",
+      "method": "get",
+      "operationId": "List Edge Applications Device Groups",
+      "summary": "List Edge Applications Device Groups",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/device_groups"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/device_groups",
+      "method": "post",
+      "operationId": "Create an Edge Applications Device Group",
+      "summary": "Create an Edge Applications Device Group",
+      "tags": "edge_application/applications/{edgeApplicationId}/device_groups",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/device_groups"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Application Function Instance",
+      "summary": "Retrieve details of an Edge Application Function Instance",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+      "method": "put",
+      "operationId": "Update an Edge Application Function Instance",
+      "summary": "Update an Edge Application Function Instance",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Application Function Instance",
+      "summary": "Partially update an Edge Application Function Instance",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Application Function Instance",
+      "summary": "Destroy an Edge Application Function Instance",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions/{id}",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions",
+      "method": "get",
+      "operationId": "List Function Instances",
+      "summary": "List Function Instances",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/functions"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/functions",
+      "method": "post",
+      "operationId": "Create an Edge Application Function Instance",
+      "summary": "Create an Edge Application Function Instance",
+      "tags": "edge_application/applications/{edgeApplicationId}/functions",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/functions"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules",
+      "method": "get",
+      "operationId": "List Edge Application Request Rules",
+      "summary": "List Edge Application Request Rules",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/request_rules"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Application Rule",
+      "summary": "Retrieve details of an Edge Application Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/request_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+      "method": "put",
+      "operationId": "Update an Edge Application Rule",
+      "summary": "Update an Edge Application Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/request_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Application Rule",
+      "summary": "Partially update an Edge Application Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId/request_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Application Rule",
+      "summary": "Destroy an Edge Application Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId/request_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/request_rules",
+      "method": "post",
+      "operationId": "Create an Edge Application Request Rule",
+      "summary": "Create an Edge Application Request Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/request rules",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/request_rules"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/rules/order",
+      "method": "put",
+      "operationId": "Ordering Edge Application Response Rules",
+      "summary": "Ordering Edge Application Response Rules",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/rules/order"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/rules",
+      "method": "get",
+      "operationId": "List Edge Application Response Rules",
+      "summary": "List Edge Application Response Rules",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/rules"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/response_rules",
+      "method": "post",
+      "operationId": "Create an Edge Application Response Rule",
+      "summary": "Create an Edge Application Response Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "POST /workspace/applications/:edgeApplicationId/response_rules"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Application Response Rule",
+      "summary": "Retrieve details of an Edge Application Response Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "GET /workspace/applications/:edgeApplicationId/response_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+      "method": "put",
+      "operationId": "Update an Edge Application Response Rule",
+      "summary": "Update an Edge Application Response Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "PUT /workspace/applications/:edgeApplicationId/response_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Application Response Rule",
+      "summary": "Partially update an Edge Application Response Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "PATCH /workspace/applications/:edgeApplicationId/response_rules/:ruleId"
+    },
+    {
+      "path": "/workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Application Response Rule",
+      "summary": "Destroy an Edge Application Response Rule",
+      "tags": "edge_application/applications/{edgeApplicationId}/rules/response rules",
+      "fullEndpoint": "DELETE /workspace/applications/:edgeApplicationId/response_rules/:ruleId"
+    },
+    {
+      "path": "/edge_connector/connectors/:connector_id",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Connector",
+      "summary": "Retrieve details of an Edge Connector",
+      "tags": "edge_connector/connectors/{id}",
+      "fullEndpoint": "GET /edge_connector/connectors/:connector_id"
+    },
+    {
+      "path": "/edge_connector/connectors/:connector_id",
+      "method": "put",
+      "operationId": "Update an Edge Connector",
+      "summary": "Update an Edge Connector",
+      "tags": "edge_connector/connectors/{id}",
+      "fullEndpoint": "PUT /edge_connector/connectors/:connector_id"
+    },
+    {
+      "path": "/edge_connector/connectors/:connector_id",
+      "method": "patch",
+      "operationId": "Partially update an Edge Connector",
+      "summary": "Partially update an Edge Connector",
+      "tags": "edge_connector/connectors/{id}",
+      "fullEndpoint": "PATCH /edge_connector/connectors/:connector_id"
+    },
+    {
+      "path": "/edge_connector/connectors/:connector_id",
+      "method": "delete",
+      "operationId": "Destroy an Edge Connector",
+      "summary": "Destroy an Edge Connector",
+      "tags": "edge_connector/connectors/{id}",
+      "fullEndpoint": "DELETE /edge_connector/connectors/:connector_id"
+    },
+    {
+      "path": "/edge_connector/connectors",
+      "method": "get",
+      "operationId": "List Edge Connectors",
+      "summary": "List Edge Connectors",
+      "tags": "edge_connector/connectors",
+      "fullEndpoint": "GET /edge_connector/connectors"
+    },
+    {
+      "path": "/edge_connector/connectors",
+      "method": "post",
+      "operationId": "Create an Edge Connector",
+      "summary": "Create an Edge Connector",
+      "tags": "edge_connector/connectors",
+      "fullEndpoint": "POST /edge_connector/connectors"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/clone",
+      "method": "post",
+      "operationId": "Clone an Edge Firewall",
+      "summary": "Clone an Edge Firewall",
+      "tags": "edge_firewall/firewalls/{id}/clone",
+      "fullEndpoint": "POST /workspace/firewalls/:edgeFirewallId/clone"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId",
+      "method": "get",
+      "operationId": "Retrieve details from an Edge Firewall",
+      "summary": "Retrieve details from an Edge Firewall",
+      "tags": "edge_firewall/firewalls/{id}",
+      "fullEndpoint": "GET /workspace/firewalls/:edgeFirewallId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId",
+      "method": "put",
+      "operationId": "Update an Edge Firewall",
+      "summary": "Update an Edge Firewall",
+      "tags": "edge_firewall/firewalls/{id}",
+      "fullEndpoint": "PUT /workspace/firewalls/:edgeFirewallId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Firewall",
+      "summary": "Partially update an Edge Firewall",
+      "tags": "edge_firewall/firewalls/{id}",
+      "fullEndpoint": "PATCH /workspace/firewalls/:edgeFirewallId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Firewall",
+      "summary": "Destroy an Edge Firewall",
+      "tags": "edge_firewall/firewalls/{id}",
+      "fullEndpoint": "DELETE /workspace/firewalls/:edgeFirewallId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Firewall Function",
+      "summary": "Retrieve details of an Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions/{id}",
+      "fullEndpoint": "GET /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+      "method": "put",
+      "operationId": "Update an Edge Firewall Function",
+      "summary": "Update an Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions/{id}",
+      "fullEndpoint": "PUT /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Firewall Function",
+      "summary": "Partially update an Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions/{id}",
+      "fullEndpoint": "PATCH /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Firewall Function",
+      "summary": "Destroy an Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions/{id}",
+      "fullEndpoint": "DELETE /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions",
+      "method": "get",
+      "operationId": "List Edge Firewall Function",
+      "summary": "List Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions",
+      "fullEndpoint": "GET /workspace/firewalls/:edgeFirewallId/functions"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/functions",
+      "method": "post",
+      "operationId": "Create an Edge Firewall Function",
+      "summary": "Create an Edge Firewall Function",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/functions",
+      "fullEndpoint": "POST /workspace/firewalls/:edgeFirewallId/functions"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Firewall Rule",
+      "summary": "Retrieve details of an Edge Firewall Rule",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules/{id}",
+      "fullEndpoint": "GET /workspace/firewalls/:edgeFirewallId/rules/:ruleId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+      "method": "put",
+      "operationId": "Update an Edge Firewall Rule",
+      "summary": "Update an Edge Firewall Rule",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules/{id}",
+      "fullEndpoint": "PUT /workspace/firewalls/:edgeFirewallId/rules/:ruleId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Firewall Rule",
+      "summary": "Partially update an Edge Firewall Rule",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules/{id}",
+      "fullEndpoint": "PATCH /workspace/firewalls/:edgeFirewallId/rules/:ruleId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Firewall Rule",
+      "summary": "Destroy an Edge Firewall Rule",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules/{id}",
+      "fullEndpoint": "DELETE /workspace/firewalls/:edgeFirewallId/rules/:ruleId"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/rules/order",
+      "method": "put",
+      "operationId": "Ordering Edge Firewall Rules",
+      "summary": "Ordering Edge Firewall Rules",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules/order",
+      "fullEndpoint": "PUT /workspace/firewalls/:edgeFirewallId/rules/order"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/request_rules",
+      "method": "get",
+      "operationId": "List Edge Firewall Rules",
+      "summary": "List Edge Firewall Rules",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules",
+      "fullEndpoint": "GET /workspace/firewalls/:edgeFirewallId/request_rules"
+    },
+    {
+      "path": "/workspace/firewalls/:edgeFirewallId/request_rules",
+      "method": "post",
+      "operationId": "Create an Edge Firewall Rule",
+      "summary": "Create an Edge Firewall Rule",
+      "tags": "edge_firewall/firewalls/{edgeFirewallId}/rules",
+      "fullEndpoint": "POST /workspace/firewalls/:edgeFirewallId/request_rules"
+    },
+    {
+      "path": "/edge_firewall/wafs/:wafId/clone",
+      "method": "post",
+      "operationId": "Clone a Web Application Firewall (WAF)",
+      "summary": "Clone a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{id}/clone",
+      "fullEndpoint": "POST /edge_firewall/wafs/:wafId/clone"
+    },
+    {
+      "path": "/workspace/wafs/:wafId",
+      "method": "get",
+      "operationId": "Retrieve details from a Web Application Firewall (WAF)",
+      "summary": "Retrieve details from a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{id}",
+      "fullEndpoint": "GET /workspace/wafs/:wafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId",
+      "method": "put",
+      "operationId": "Update a Web Application Firewall (WAF)",
+      "summary": "Update a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{id}",
+      "fullEndpoint": "PUT /workspace/wafs/:wafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId",
+      "method": "patch",
+      "operationId": "Partially update a Web Application Firewall (WAF)",
+      "summary": "Partially update a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{id}",
+      "fullEndpoint": "PATCH /workspace/wafs/:wafId"
+    },
+    {
+      "path": "/edge_firewall/wafs/:wafId",
+      "method": "delete",
+      "operationId": "Destroy a Web Application Firewall (WAF)",
+      "summary": "Destroy a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{id}",
+      "fullEndpoint": "DELETE /edge_firewall/wafs/:wafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId/exceptions/:exceptionWafId",
+      "method": "get",
+      "operationId": "Retrieve details of an Exception from a Web Application Firewall (WAF)",
+      "summary": "Retrieve details of an Exception from a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions/{id}",
+      "fullEndpoint": "GET /workspace/wafs/:wafId/exceptions/:exceptionWafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId/exceptions/:exceptionWafId",
+      "method": "put",
+      "operationId": "Update an Exception for a Web Application Firewall (WAF)",
+      "summary": "Update an Exception for a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions/{id}",
+      "fullEndpoint": "PUT /workspace/wafs/:wafId/exceptions/:exceptionWafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId/exceptions/:exceptionWafId",
+      "method": "patch",
+      "operationId": "Partially update an Exception for a Web Application Firewall (WAF)",
+      "summary": "Partially update an Exception for a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions/{id}",
+      "fullEndpoint": "PATCH /workspace/wafs/:wafId/exceptions/:exceptionWafId"
+    },
+    {
+      "path": "/workspace/wafs/:wafId/exceptions/:exceptionWafId",
+      "method": "delete",
+      "operationId": "Destroy an Exception from a Web Application Firewall (WAF)",
+      "summary": "Destroy an Exception from a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions/{id}",
+      "fullEndpoint": "DELETE /workspace/wafs/:wafId/exceptions/:exceptionWafId"
+    },
+    {
+      "path": "/edge_firewall/wafs/:wafId/exceptions",
+      "method": "get",
+      "operationId": "List Exceptions for a Web Application Firewall (WAF)",
+      "summary": "List Exceptions for a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions",
+      "fullEndpoint": "GET /edge_firewall/wafs/:wafId/exceptions"
+    },
+    {
+      "path": "/workspace/wafs/:wafId/exceptions",
+      "method": "post",
+      "operationId": "Create an Exception for a Web Application Firewall (WAF)",
+      "summary": "Create an Exception for a Web Application Firewall (WAF)",
+      "tags": "edge_firewall/wafs/{wafId}/exceptions",
+      "fullEndpoint": "POST /workspace/wafs/:wafId/exceptions"
+    },
+    {
+      "path": "/edge_functions/functions/:functionId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Function",
+      "summary": "Retrieve details of an Edge Function",
+      "tags": "edge_functions/functions/{id}",
+      "fullEndpoint": "GET /edge_functions/functions/:functionId"
+    },
+    {
+      "path": "/edge_functions/functions/:functionId",
+      "method": "put",
+      "operationId": "Update an Edge Function",
+      "summary": "Update an Edge Function",
+      "tags": "edge_functions/functions/{id}",
+      "fullEndpoint": "PUT /edge_functions/functions/:functionId"
+    },
+    {
+      "path": "/edge_functions/functions/:functionId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Function",
+      "summary": "Partially update an Edge Function",
+      "tags": "edge_functions/functions/{id}",
+      "fullEndpoint": "PATCH /edge_functions/functions/:functionId"
+    },
+    {
+      "path": "/edge_functions/functions/:functionId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Function",
+      "summary": "Destroy an Edge Function",
+      "tags": "edge_functions/functions/{id}",
+      "fullEndpoint": "DELETE /edge_functions/functions/:functionId"
+    },
+    {
+      "path": "/edge_functions/functions",
+      "method": "get",
+      "operationId": "List Edge Functions",
+      "summary": "List Edge Functions",
+      "tags": "edge_functions/functions",
+      "fullEndpoint": "GET /edge_functions/functions"
+    },
+    {
+      "path": "/edge_sql/databases/:databaseId/query",
+      "method": "post",
+      "operationId": "Execute a query into a database",
+      "summary": "Execute a query into a database",
+      "tags": "edge_sql/databases/{id}/query",
+      "fullEndpoint": "POST /edge_sql/databases/:databaseId/query"
+    },
+    {
+      "path": "/edge_sql/databases/:databaseId",
+      "method": "get",
+      "operationId": "Retrieve details from a database",
+      "summary": "Retrieve details from a database",
+      "tags": "edge_sql/databases/{id}",
+      "fullEndpoint": "GET /edge_sql/databases/:databaseId"
+    },
+    {
+      "path": "/edge_sql/databases/:databaseId",
+      "method": "delete",
+      "operationId": "Destroy a database",
+      "summary": "Destroy a database",
+      "tags": "edge_sql/databases/{id}",
+      "fullEndpoint": "DELETE /edge_sql/databases/:databaseId"
+    },
+    {
+      "path": "/edge_sql/databases",
+      "method": "get",
+      "operationId": "List databases",
+      "summary": "List databases",
+      "tags": "edge_sql/databases",
+      "fullEndpoint": "GET /edge_sql/databases"
+    },
+    {
+      "path": "/edge_sql/databases",
+      "method": "post",
+      "operationId": "Create a database",
+      "summary": "Create a database",
+      "tags": "edge_sql/databases",
+      "fullEndpoint": "POST /edge_sql/databases"
+    },
+    {
+      "path": "/wrokspace/storage/buckets/:bucketName",
+      "method": "patch",
+      "operationId": "Update bucket info",
+      "summary": "Update bucket info",
+      "tags": "edge_storage/buckets/{name}",
+      "fullEndpoint": "PATCH /wrokspace/storage/buckets/:bucketName"
+    },
+    {
+      "path": "/worksapce/storage/buckets/:bucketName",
+      "method": "delete",
+      "operationId": "Delete a bucket",
+      "summary": "Delete a bucket",
+      "tags": "edge_storage/buckets/{name}",
+      "fullEndpoint": "DELETE /worksapce/storage/buckets/:bucketName"
+    },
+    {
+      "path": "/workspace/storage/buckets/:bucketName/objects/:objectKey",
+      "method": "get",
+      "operationId": "Download object",
+      "summary": "Download object",
+      "tags": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullEndpoint": "GET /workspace/storage/buckets/:bucketName/objects/:objectKey"
+    },
+    {
+      "path": "/workspace/storage/buckets/:bucketName/objects/:objectKey",
+      "method": "post",
+      "operationId": "Create new object key",
+      "summary": "Create new object key",
+      "tags": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullEndpoint": "POST /workspace/storage/buckets/:bucketName/objects/:objectKey"
+    },
+    {
+      "path": "/workspace/storage/buckets/:bucketName/objects/:objectKey",
+      "method": "put",
+      "operationId": "Update the object key",
+      "summary": "Update the object key",
+      "tags": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullEndpoint": "PUT /workspace/storage/buckets/:bucketName/objects/:objectKey"
+    },
+    {
+      "path": "/workspace/storage/buckets/:bucketName/objects/:objectKey",
+      "method": "delete",
+      "operationId": "Delete object key",
+      "summary": "Delete object key",
+      "tags": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullEndpoint": "DELETE /workspace/storage/buckets/:bucketName/objects/:objectKey"
+    },
+    {
+      "path": "/workspace/storage/buckets/:bucketName/objects",
+      "method": "get",
+      "operationId": "List buckets objects",
+      "summary": "List buckets objects",
+      "tags": "edge_storage/buckets/{bucketName}/objects",
+      "fullEndpoint": "GET /workspace/storage/buckets/:bucketName/objects"
+    },
+    {
+      "path": "/workspace/storage/credentials/:credentialId",
+      "method": "get",
+      "operationId": "Retrieve details from a credential",
+      "summary": "Retrieve details from a credential",
+      "tags": "edge_storage/s3-credentials/{accessKey}",
+      "fullEndpoint": "GET /workspace/storage/credentials/:credentialId"
+    },
+    {
+      "path": "/workspace/storage/credentials/:credentialId",
+      "method": "delete",
+      "operationId": "Delete a Credential",
+      "summary": "Delete a Credential",
+      "tags": "edge_storage/s3-credentials/{accessKey}",
+      "fullEndpoint": "DELETE /workspace/storage/credentials/:credentialId"
+    },
+    {
+      "path": "/iam/mfa/totp",
+      "method": "post",
+      "operationId": "Create a TOTP device",
+      "summary": "Create a TOTP device",
+      "tags": "iam/mfa/totp",
+      "fullEndpoint": "POST /iam/mfa/totp"
+    },
+    {
+      "path": "/iam/users",
+      "method": "post",
+      "operationId": "Create User",
+      "summary": "Create User",
+      "tags": "iam/accounts",
+      "fullEndpoint": "POST /iam/users"
+    },
+    {
+      "path": "/iam/accounts",
+      "method": "post",
+      "operationId": "Create new account",
+      "summary": "Create new account",
+      "tags": "iam/accounts",
+      "fullEndpoint": "POST /iam/accounts"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/groups?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>",
+      "method": "get",
+      "operationId": "List Edge Node Groups by id",
+      "summary": "List Edge Node Groups by id",
+      "tags": "orchestrator/edge_nodes/{nodeId}/groups",
+      "fullEndpoint": "GET /orchestrator/edge_nodes/:nodeId/groups?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/groups",
+      "method": "post",
+      "operationId": "Bind Node Group",
+      "summary": "Bind Node Group",
+      "tags": "orchestrator/edge_nodes/{nodeId}/groups",
+      "fullEndpoint": "POST /orchestrator/edge_nodes/:nodeId/groups"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/services/:bindId?fields=<string>",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Node Service Bind",
+      "summary": "Retrieve details of an Edge Node Service Bind",
+      "tags": "orchestrator/edge_nodes/{nodeId}/services/{bindId}",
+      "fullEndpoint": "GET /orchestrator/edge_nodes/:nodeId/services/:bindId?fields=<string>"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/services/:bindId",
+      "method": "delete",
+      "operationId": "Unbind Node Service",
+      "summary": "Unbind Node Service",
+      "tags": "orchestrator/edge_nodes/{nodeId}/services/{bindId}",
+      "fullEndpoint": "DELETE /orchestrator/edge_nodes/:nodeId/services/:bindId"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/services?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>",
+      "method": "get",
+      "operationId": "List Node Services",
+      "summary": "List Node Services",
+      "tags": "orchestrator/edge_nodes/{nodeId}/services",
+      "fullEndpoint": "GET /orchestrator/edge_nodes/:nodeId/services?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/:nodeId/services",
+      "method": "post",
+      "operationId": "Bind Node Service",
+      "summary": "Bind Node Service",
+      "tags": "orchestrator/edge_nodes/{nodeId}/services",
+      "fullEndpoint": "POST /edge_orchestrator/edge_nodes/:nodeId/services"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/:nodeId/",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Node",
+      "summary": "Retrieve details of an Edge Node",
+      "tags": "orchestrator/edge_nodes/{nodeId}",
+      "fullEndpoint": "GET /edge_orchestrator/edge_nodes/:nodeId/"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/",
+      "method": "put",
+      "operationId": "Update an Edge Node",
+      "summary": "Update an Edge Node",
+      "tags": "orchestrator/edge_nodes/{nodeId}",
+      "fullEndpoint": "PUT /orchestrator/edge_nodes/:nodeId/"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId/",
+      "method": "patch",
+      "operationId": "Partially update an Edge Node",
+      "summary": "Partially update an Edge Node",
+      "tags": "orchestrator/edge_nodes/{nodeId}",
+      "fullEndpoint": "PATCH /orchestrator/edge_nodes/:nodeId/"
+    },
+    {
+      "path": "/orchestrator/edge_nodes/:nodeId",
+      "method": "delete",
+      "operationId": "Delete an Edge Node",
+      "summary": "Delete an Edge Node",
+      "tags": "orchestrator/edge_nodes/{nodeId}",
+      "fullEndpoint": "DELETE /orchestrator/edge_nodes/:nodeId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_nodes/groups/:groupId",
+      "method": "delete",
+      "operationId": "Remove Node Group",
+      "summary": "Remove Node Group",
+      "tags": "orchestrator/edge_nodes/groups/{groupId}",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_nodes/groups/:groupId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId/resources/:resourceId/content",
+      "method": "get",
+      "operationId": "Retrieve content of a Resource",
+      "summary": "Retrieve content of a Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources/{resourceId}/content",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/:serviceId/resources/:resourceId/content"
+    },
+    {
+      "path": "/orchestrator/edge_services/:serviceId/resources/:resourceId/content",
+      "method": "put",
+      "operationId": "Upload content of a Resource",
+      "summary": "Upload content of a Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources/{resourceId}/content",
+      "fullEndpoint": "PUT /orchestrator/edge_services/:serviceId/resources/:resourceId/content"
+    },
+    {
+      "path": "/orchestrator/edge_services/:serviceId/resources/:resourceId?fields=<string>",
+      "method": "get",
+      "operationId": "Retrieve details of a Resource",
+      "summary": "Retrieve details of a Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources/{resourceId}",
+      "fullEndpoint": "GET /orchestrator/edge_services/:serviceId/resources/:resourceId?fields=<string>"
+    },
+    {
+      "path": "/orchestrator/edge_services/:serviceId/resources/:resourceId",
+      "method": "put",
+      "operationId": "Update Resource",
+      "summary": "Update Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources/{resourceId}",
+      "fullEndpoint": "PUT /orchestrator/edge_services/:serviceId/resources/:resourceId"
+    },
+    {
+      "path": "/orchestrator/edge_services/:serviceId/resources/:resourceId",
+      "method": "delete",
+      "operationId": "Delete Resource",
+      "summary": "Delete Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources/{resourceId}",
+      "fullEndpoint": "DELETE /orchestrator/edge_services/:serviceId/resources/:resourceId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId/resources",
+      "method": "get",
+      "operationId": "List Service Resources",
+      "summary": "List Service Resources",
+      "tags": "orchestrator/edge_services/{serviceId}/resources",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/:serviceId/resources"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId/resources",
+      "method": "post",
+      "operationId": "Create Service Resource",
+      "summary": "Create Service Resource",
+      "tags": "orchestrator/edge_services/{serviceId}/resources",
+      "fullEndpoint": "POST /edge_orchestrator/edge_services/:serviceId/resources"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId",
+      "method": "get",
+      "operationId": "Retrieve details of an Edge Service",
+      "summary": "Retrieve details of an Edge Service",
+      "tags": "orchestrator/edge_services/{serviceId}",
+      "fullEndpoint": "GET /edge_orchestrator/edge_services/:serviceId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId",
+      "method": "put",
+      "operationId": "Update an Edge Service",
+      "summary": "Update an Edge Service",
+      "tags": "orchestrator/edge_services/{serviceId}",
+      "fullEndpoint": "PUT /edge_orchestrator/edge_services/:serviceId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId",
+      "method": "patch",
+      "operationId": "Partially update an Edge Service",
+      "summary": "Partially update an Edge Service",
+      "tags": "orchestrator/edge_services/{serviceId}",
+      "fullEndpoint": "PATCH /edge_orchestrator/edge_services/:serviceId"
+    },
+    {
+      "path": "/edge_orchestrator/edge_services/:serviceId",
+      "method": "delete",
+      "operationId": "Destroy an Edge Service",
+      "summary": "Destroy an Edge Service",
+      "tags": "orchestrator/edge_services/{serviceId}",
+      "fullEndpoint": "DELETE /edge_orchestrator/edge_services/:serviceId"
+    },
+    {
+      "path": "/identity/users/:userId/lockout",
+      "method": "delete",
+      "operationId": "Unlock user",
+      "summary": "Unlock user",
+      "tags": "identity/users/{id}/lockout",
+      "fullEndpoint": "DELETE /identity/users/:userId/lockout"
+    },
+    {
+      "path": "/identity/users/:userId",
+      "method": "get",
+      "operationId": "Retrieve details from a user",
+      "summary": "Retrieve details from a user",
+      "tags": "identity/users/{id}",
+      "fullEndpoint": "GET /identity/users/:userId"
+    },
+    {
+      "path": "/identity/users/:userId",
+      "method": "put",
+      "operationId": "Update a user",
+      "summary": "Update a user",
+      "tags": "identity/users/{id}",
+      "fullEndpoint": "PUT /identity/users/:userId"
+    },
+    {
+      "path": "/identity/users/:userId",
+      "method": "patch",
+      "operationId": "Partially update a user",
+      "summary": "Partially update a user",
+      "tags": "identity/users/{id}",
+      "fullEndpoint": "PATCH /identity/users/:userId"
+    },
+    {
+      "path": "/identity/users/:userId",
+      "method": "delete",
+      "operationId": "Destroy a user",
+      "summary": "Destroy a user",
+      "tags": "identity/users/{id}",
+      "fullEndpoint": "DELETE /identity/users/:userId"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "NEW_TESTS",
+      "priority": "HIGH",
+      "description": "Create 284 new test scenarios for Stage-specific endpoints",
+      "endpoints": [
+        "GET /account/accounts/{id}",
+        "PUT /account/accounts/{id}",
+        "PATCH /account/accounts/{id}",
+        "GET /account/accounts/{id}/info",
+        "PUT /account/accounts/{id}/info",
+        "GET /workspace/applications/{application_id}",
+        "PUT /workspace/applications/{application_id}",
+        "PATCH /workspace/applications/{application_id}",
+        "DELETE /workspace/applications/{application_id}",
+        "POST /workspace/applications/{application_id}/clone",
+        "GET /workspace/applications/{application_id}/cache_settings",
+        "POST /workspace/applications/{application_id}/cache_settings",
+        "GET /workspace/applications/{application_id}/cache_settings/{id}",
+        "PUT /workspace/applications/{application_id}/cache_settings/{id}",
+        "PATCH /workspace/applications/{application_id}/cache_settings/{id}",
+        "DELETE /workspace/applications/{application_id}/cache_settings/{id}",
+        "GET /workspace/applications/{application_id}/device_groups",
+        "POST /workspace/applications/{application_id}/device_groups",
+        "GET /workspace/applications/{application_id}/device_groups/{id}",
+        "PUT /workspace/applications/{application_id}/device_groups/{id}",
+        "PATCH /workspace/applications/{application_id}/device_groups/{id}",
+        "DELETE /workspace/applications/{application_id}/device_groups/{id}",
+        "GET /workspace/applications/{application_id}/functions",
+        "POST /workspace/applications/{application_id}/functions",
+        "GET /workspace/applications/{application_id}/functions/{function_id}",
+        "PUT /workspace/applications/{application_id}/functions/{function_id}",
+        "PATCH /workspace/applications/{application_id}/functions/{function_id}",
+        "DELETE /workspace/applications/{application_id}/functions/{function_id}",
+        "GET /workspace/applications/{application_id}/request_rules",
+        "POST /workspace/applications/{application_id}/request_rules",
+        "GET /workspace/applications/{application_id}/request_rules/{id}",
+        "PUT /workspace/applications/{application_id}/request_rules/{id}",
+        "PATCH /workspace/applications/{application_id}/request_rules/{id}",
+        "DELETE /workspace/applications/{application_id}/request_rules/{id}",
+        "PUT /workspace/applications/{application_id}/request_rules/order",
+        "GET /workspace/applications/{application_id}/response_rules",
+        "POST /workspace/applications/{application_id}/response_rules",
+        "GET /workspace/applications/{application_id}/response_rules/{id}",
+        "PUT /workspace/applications/{application_id}/response_rules/{id}",
+        "PATCH /workspace/applications/{application_id}/response_rules/{id}",
+        "DELETE /workspace/applications/{application_id}/response_rules/{id}",
+        "PUT /workspace/applications/{application_id}/response_rules/order",
+        "POST /account/auth/login",
+        "GET /account/auth/login/method",
+        "POST /account/auth/mfa/totp/verify",
+        "GET /account/auth/mfa/totp",
+        "POST /account/auth/mfa/totp",
+        "DELETE /account/auth/mfa/totp/{totp_id}",
+        "POST /account/auth/token",
+        "POST /account/auth/revoke",
+        "GET /payments/credit_cards/{id}",
+        "PATCH /payments/credit_cards/{id}",
+        "DELETE /payments/credit_cards/{id}",
+        "GET /billing/invoices/{period}",
+        "GET /workspace/connectors",
+        "POST /workspace/connectors",
+        "GET /workspace/connectors/{connector_id}",
+        "PUT /workspace/connectors/{connector_id}",
+        "PATCH /workspace/connectors/{connector_id}",
+        "DELETE /workspace/connectors/{connector_id}",
+        "GET /workspace/custom_pages/{id}",
+        "PUT /workspace/custom_pages/{id}",
+        "PATCH /workspace/custom_pages/{id}",
+        "DELETE /workspace/custom_pages/{id}",
+        "GET /workspace/dns/zones/{zone_id}/dnssec",
+        "PUT /workspace/dns/zones/{zone_id}/dnssec",
+        "PATCH /workspace/dns/zones/{zone_id}/dnssec",
+        "GET /workspace/dns/zones/{zone_id}/records",
+        "POST /workspace/dns/zones/{zone_id}/records",
+        "GET /workspace/dns/zones/{zone_id}/records/{record_id}",
+        "PUT /workspace/dns/zones/{zone_id}/records/{record_id}",
+        "PATCH /workspace/dns/zones/{zone_id}/records/{record_id}",
+        "DELETE /workspace/dns/zones/{zone_id}/records/{record_id}",
+        "GET /workspace/dns/zones/{zone_id}",
+        "PUT /workspace/dns/zones/{zone_id}",
+        "PATCH /workspace/dns/zones/{zone_id}",
+        "DELETE /workspace/dns/zones/{zone_id}",
+        "GET /workspace/stream/data_sources",
+        "GET /workspace/stream/streams",
+        "POST /workspace/stream/streams",
+        "GET /workspace/stream/streams/{stream_id}",
+        "PUT /workspace/stream/streams/{stream_id}",
+        "PATCH /workspace/stream/streams/{stream_id}",
+        "DELETE /workspace/stream/streams/{stream_id}",
+        "GET /workspace/stream/templates",
+        "POST /workspace/stream/templates",
+        "GET /workspace/stream/templates/{template_id}",
+        "PUT /workspace/stream/templates/{template_id}",
+        "PATCH /workspace/stream/templates/{template_id}",
+        "DELETE /workspace/stream/templates/{template_id}",
+        "GET /workspace/tls/crls",
+        "POST /workspace/tls/crls",
+        "GET /workspace/tls/crls/{crl_id}",
+        "PUT /workspace/tls/crls/{crl_id}",
+        "PATCH /workspace/tls/crls/{crl_id}",
+        "DELETE /workspace/tls/crls/{crl_id}",
+        "POST /workspace/tls/csr",
+        "GET /workspace/tls/certificates",
+        "POST /workspace/tls/certificates",
+        "GET /workspace/tls/certificates/{certificate_id}",
+        "PUT /workspace/tls/certificates/{certificate_id}",
+        "PATCH /workspace/tls/certificates/{certificate_id}",
+        "DELETE /workspace/tls/certificates/{certificate_id}",
+        "POST /workspace/tls/certificates/request",
+        "GET /identity/user/favorites",
+        "POST /identity/user/favorites",
+        "DELETE /identity/user/favorites/{id}",
+        "GET /workspace/firewalls/{id}",
+        "PUT /workspace/firewalls/{id}",
+        "PATCH /workspace/firewalls/{id}",
+        "DELETE /workspace/firewalls/{id}",
+        "POST /workspace/firewalls/{id}/clone",
+        "GET /workspace/firewalls/{edge_firewall_id}/functions",
+        "POST /workspace/firewalls/{edge_firewall_id}/functions",
+        "GET /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "PUT /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "PATCH /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "DELETE /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+        "GET /workspace/firewalls/{edge_firewall_id}/request_rules",
+        "POST /workspace/firewalls/{edge_firewall_id}/request_rules",
+        "GET /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "PATCH /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "DELETE /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+        "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/order",
+        "GET /workspace/functions",
+        "GET /workspace/functions/{function_id}",
+        "PUT /workspace/functions/{function_id}",
+        "PATCH /workspace/functions/{function_id}",
+        "DELETE /workspace/functions/{function_id}",
+        "GET /identity/grants",
+        "POST /identity/grants",
+        "GET /identity/grants/{id}",
+        "PUT /identity/grants/{id}",
+        "PATCH /identity/grants/{id}",
+        "DELETE /identity/grants/{id}",
+        "GET /identity/groups/{id}/members",
+        "PUT /identity/groups/{id}/members",
+        "GET /identity/groups",
+        "POST /identity/groups",
+        "GET /identity/groups/{id}",
+        "PUT /identity/groups/{id}",
+        "PATCH /identity/groups/{id}",
+        "DELETE /identity/groups/{id}",
+        "GET /identity/user",
+        "PUT /identity/user",
+        "PATCH /identity/user",
+        "POST /identity/service-tokens/{id}/renew",
+        "GET /identity/service-tokens",
+        "POST /identity/service-tokens",
+        "GET /identity/service-tokens/{id}",
+        "PUT /identity/service-tokens/{id}",
+        "PATCH /identity/service-tokens/{id}",
+        "DELETE /identity/service-tokens/{id}",
+        "GET /identity/users/{id}/info",
+        "PUT /identity/users/{id}/info",
+        "GET /identity/users/{id}",
+        "PUT /identity/users/{id}",
+        "PATCH /identity/users/{id}",
+        "DELETE /identity/users/{id}",
+        "GET /metrics/folders/{folder_id}/dashboards",
+        "POST /metrics/folders/{folder_id}/dashboards",
+        "GET /metrics/folders/{folder_id}/dashboards/{id}",
+        "PUT /metrics/folders/{folder_id}/dashboards/{id}",
+        "PATCH /metrics/folders/{folder_id}/dashboards/{id}",
+        "DELETE /metrics/folders/{folder_id}/dashboards/{id}",
+        "GET /metrics/folders",
+        "POST /metrics/folders",
+        "GET /metrics/folders/{id}",
+        "PUT /metrics/folders/{id}",
+        "PATCH /metrics/folders/{id}",
+        "DELETE /metrics/folders/{id}",
+        "GET /metrics/library/reports",
+        "POST /metrics/library/reports",
+        "GET /metrics/library/reports/{id}",
+        "PUT /metrics/library/reports/{id}",
+        "DELETE /metrics/library/reports/{id}",
+        "GET /metrics/recommendations",
+        "POST /metrics/recommendations",
+        "DELETE /metrics/recommendations/{id}",
+        "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+        "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+        "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+        "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+        "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+        "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/order",
+        "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+        "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+        "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+        "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+        "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+        "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/order",
+        "GET /workspace/network_lists/{id}",
+        "PUT /workspace/network_lists/{id}",
+        "PATCH /workspace/network_lists/{id}",
+        "DELETE /workspace/network_lists/{id}",
+        "GET /edge_orchestrator/edge_nodes/{node_id}/groups",
+        "POST /edge_orchestrator/edge_nodes/{node_id}/groups",
+        "DELETE /edge_orchestrator/edge_nodes/groups/{group_id}",
+        "GET /edge_orchestrator/edge_nodes/{node_id}/services",
+        "POST /edge_orchestrator/edge_nodes/{node_id}/services",
+        "GET /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+        "DELETE /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+        "GET /edge_orchestrator/edge_nodes/{node_id}",
+        "PUT /edge_orchestrator/edge_nodes/{node_id}",
+        "PATCH /edge_orchestrator/edge_nodes/{node_id}",
+        "DELETE /edge_orchestrator/edge_nodes/{node_id}",
+        "GET /edge_orchestrator/edge_nodes/{node_id}/",
+        "PUT /edge_orchestrator/edge_nodes/{node_id}/",
+        "PATCH /edge_orchestrator/edge_nodes/{node_id}/",
+        "GET /edge_orchestrator/edge_services/{service_id}/resources",
+        "POST /edge_orchestrator/edge_services/{service_id}/resources",
+        "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+        "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+        "DELETE /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+        "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+        "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+        "GET /edge_orchestrator/edge_services/{service_id}",
+        "PUT /edge_orchestrator/edge_services/{service_id}",
+        "PATCH /edge_orchestrator/edge_services/{service_id}",
+        "DELETE /edge_orchestrator/edge_services/{service_id}",
+        "GET /auth/policies/lockout",
+        "GET /auth/policies/{id}",
+        "PUT /auth/policies/{id}",
+        "PATCH /auth/policies/{id}",
+        "DELETE /auth/policies/{id}",
+        "GET /auth/policies/session",
+        "GET /marketplace/publisher",
+        "PUT /marketplace/publisher",
+        "POST /workspace/purge/{purge_type}",
+        "GET /workspace/sql/databases",
+        "POST /workspace/sql/databases",
+        "GET /workspace/sql/databases/{id}",
+        "DELETE /workspace/sql/databases/{id}",
+        "POST /workspace/sql/databases/{id}/query",
+        "GET /workspace/storage/buckets/{name}",
+        "PATCH /workspace/storage/buckets/{name}",
+        "DELETE /workspace/storage/buckets/{name}",
+        "GET /workspace/storage/credentials/{id}",
+        "DELETE /workspace/storage/credentials/{id}",
+        "GET /workspace/storage/buckets/{bucket_name}/objects",
+        "GET /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+        "POST /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+        "PUT /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+        "DELETE /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+        "DELETE /identity/users/{id}/lockout",
+        "GET /vcs/continuous_deployments/{id}/executions",
+        "POST /vcs/continuous_deployments/{id}/executions",
+        "GET /vcs/continuous_deployments/{id}/executor",
+        "PUT /vcs/continuous_deployments/{id}/executor",
+        "GET /vcs/continuous_deployments",
+        "POST /vcs/continuous_deployments",
+        "GET /vcs/continuous_deployments/{id}",
+        "PUT /vcs/continuous_deployments/{id}",
+        "PATCH /vcs/continuous_deployments/{id}",
+        "DELETE /vcs/continuous_deployments/{id}",
+        "GET /vcs/execution_scripts",
+        "GET /vcs/execution_scripts/{id}",
+        "GET /vcs/integrations",
+        "GET /vcs/integrations/{id}/repositories",
+        "GET /vcs/integrations/{id}",
+        "DELETE /vcs/integrations/{id}",
+        "GET /vcs/providers",
+        "GET /workspace/wafs/{waf_id}",
+        "PUT /workspace/wafs/{waf_id}",
+        "PATCH /workspace/wafs/{waf_id}",
+        "DELETE /workspace/wafs/{waf_id}",
+        "POST /workspace/wafs/{waf_id}/clone",
+        "GET /workspace/wafs/{waf_id}/exceptions",
+        "POST /workspace/wafs/{waf_id}/exceptions",
+        "GET /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "PUT /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "PATCH /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "DELETE /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+        "GET /workspace/workloads/{workload_id}/deployments",
+        "POST /workspace/workloads/{workload_id}/deployments",
+        "GET /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "PUT /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "PATCH /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "DELETE /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+        "GET /workspace/workloads/{workload_id}",
+        "PUT /workspace/workloads/{workload_id}",
+        "PATCH /workspace/workloads/{workload_id}",
+        "DELETE /workspace/workloads/{workload_id}"
+      ]
+    },
+    {
+      "type": "ENVIRONMENT_CHECK",
+      "priority": "MEDIUM",
+      "description": "199 endpoints exist in Production but not Stage - verify if intentional",
+      "endpoints": [
+        "GET /account/accounts/:accountId/info",
+        "PUT /account/accounts/:accountId/info",
+        "GET /account/accounts/:accountId",
+        "PUT /account/accounts/:id",
+        "PATCH /account/accounts/:id",
+        "GET /auth/login/method",
+        "POST /auth/login",
+        "DELETE /auth/mfa/totp/:id",
+        "GET /auth/mfa/totp",
+        "POST /auth/mfa/totp",
+        "POST /auth/token",
+        "POST /auth/revoke",
+        "POST /auth/verify",
+        "GET /auth/policies/lockout?fields=<string>",
+        "GET /auth/policies/:id?fields=<string>",
+        "PUT /auth/policies/:id",
+        "PATCH /auth/policies/:id",
+        "DELETE /auth/policies/:id",
+        "GET /auth/policies/session?fields=<string>",
+        "GET /payments/credit_cards/:creditCardId",
+        "PATCH /payments/credit_cards/:id",
+        "DELETE /payments/credit_cards/:id",
+        "GET /workspace/custom_pages/:customPageId",
+        "PUT /workspace/custom_pages/:customPageId",
+        "PATCH /workspace/custom_pages/:customPageId",
+        "DELETE /workspace/custom_pages/:deleteId",
+        "GET /workspace/network_lists/:networkId",
+        "PUT /workspace/network_lists/:networkId",
+        "PATCH /workspace/network_lists/:networkId",
+        "DELETE /workspace/network_lists/:networkId",
+        "POST /workspace/purge/url",
+        "GET /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+        "PUT /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+        "PATCH /workspace/workloads/:workloadId/deployments/:workloadDeploymentsId",
+        "GET /workspace/workloads/:workloadId/deployments",
+        "GET /workspace/workloads/:workloadId",
+        "PUT /workspace/workloads/:workloadId",
+        "PATCH /workspace/workloads/:workloadId",
+        "DELETE /workspace/workloads/:workloadId",
+        "GET /workspace/dns/zones/:zoneId/dnssec",
+        "PUT /workspace/dns/zones/:zoneId/dnssec",
+        "PATCH /workspace/dns/zones/:zoneId/dnssec",
+        "GET /workspace/dns/zones/:zoneId/records/:recordId",
+        "PUT /workspace/dns/zones/:zoneId/records/:recordId",
+        "PATCH /workspace/dns/zones/:zoneId/records/:recordId",
+        "DELETE /workspace/dns/zones/:zoneId/records/:recordId",
+        "GET /workspace/dns/zones/:zoneId/records",
+        "POST /workspace/dns/zones/:zoneId/records",
+        "GET /workspace/dns/zones/:zoneId",
+        "PUT /workspace/dns/zones/:zoneId",
+        "PATCH /workspace/dns/zones/:zoneId",
+        "DELETE /workspace/dns/zones/:zoneId",
+        "GET /data_stream/templates/:templateId",
+        "PUT /data_stream/templates/:dataSetId",
+        "PATCH /data_stream/templates/:dataSetId",
+        "DELETE /data_stream/data_sets/:dataSetId",
+        "GET /data_stream/templates",
+        "POST /data_stream/templates",
+        "GET /data_stream/data_sources",
+        "GET /data_stream/streams/:dataStreamingId",
+        "PUT /data_stream/streams/:dataStreamingId",
+        "PATCH /data_stream/streams/:dataStreamingId",
+        "DELETE /data_stream/streams/:dataStreamingId",
+        "GET /data_stream/streams",
+        "POST /data_stream/streams",
+        "POST /digital_certificates/certificates/request",
+        "GET /digital_certificates/certificates/:certificateId",
+        "PUT /digital_certificates/certificates/:certificateId",
+        "PATCH /digital_certificates/certificates/:certificateId",
+        "DELETE /digital_certificates/certificates/:certificateId",
+        "GET /digital_certificates/certificates",
+        "POST /digital_certificates/certificates",
+        "GET /digital_certificates/crls/:crlsId",
+        "PUT /digital_certificates/crls/:crlsId",
+        "PATCH /digital_certificates/crls/:crlsId",
+        "DELETE /digital_certificates/crls/:crlsId",
+        "GET /digital_certificates/crls",
+        "POST /digital_certificates/crls",
+        "POST /digital_certificates/csr",
+        "POST /workspace/applications/:edgeApplicationId/clone",
+        "GET /workspace/applications/:edgeApplicationId",
+        "PUT /workspace/applications/:edgeApplicationId",
+        "PATCH /workspace/applications/:edgeApplicationId",
+        "DELETE /workspace/applications/:edgeApplicationId",
+        "GET /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+        "PUT /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+        "PATCH /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+        "DELETE /workspace/applications/:edgeApplicationId/cache_settings/:edgeCacheSettingsId",
+        "GET /workspace/applications/:edgeApplicationId/cache_settings",
+        "POST /workspace/applications/:edgeApplicationId/cache_settings",
+        "GET /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+        "PUT /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+        "PATCH /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+        "DELETE /workspace/applications/:edgeApplicationId/device_groups/:deviceGroupId",
+        "GET /workspace/applications/:edgeApplicationId/device_groups",
+        "POST /workspace/applications/:edgeApplicationId/device_groups",
+        "GET /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+        "PUT /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+        "PATCH /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+        "DELETE /workspace/applications/:edgeApplicationId/functions/:edgeApplicationFunctionId",
+        "GET /workspace/applications/:edgeApplicationId/functions",
+        "POST /workspace/applications/:edgeApplicationId/functions",
+        "GET /workspace/applications/:edgeApplicationId/request_rules",
+        "GET /workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+        "PUT /workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+        "PATCH /workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+        "DELETE /workspace/applications/:edgeApplicationId/request_rules/:ruleId",
+        "POST /workspace/applications/:edgeApplicationId/request_rules",
+        "PUT /workspace/applications/:edgeApplicationId/rules/order",
+        "GET /workspace/applications/:edgeApplicationId/rules",
+        "POST /workspace/applications/:edgeApplicationId/response_rules",
+        "GET /workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+        "PUT /workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+        "PATCH /workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+        "DELETE /workspace/applications/:edgeApplicationId/response_rules/:ruleId",
+        "GET /edge_connector/connectors/:connector_id",
+        "PUT /edge_connector/connectors/:connector_id",
+        "PATCH /edge_connector/connectors/:connector_id",
+        "DELETE /edge_connector/connectors/:connector_id",
+        "GET /edge_connector/connectors",
+        "POST /edge_connector/connectors",
+        "POST /workspace/firewalls/:edgeFirewallId/clone",
+        "GET /workspace/firewalls/:edgeFirewallId",
+        "PUT /workspace/firewalls/:edgeFirewallId",
+        "PATCH /workspace/firewalls/:edgeFirewallId",
+        "DELETE /workspace/firewalls/:edgeFirewallId",
+        "GET /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+        "PUT /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+        "PATCH /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+        "DELETE /workspace/firewalls/:edgeFirewallId/functions/:edgeFirewallFunctionId",
+        "GET /workspace/firewalls/:edgeFirewallId/functions",
+        "POST /workspace/firewalls/:edgeFirewallId/functions",
+        "GET /workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+        "PUT /workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+        "PATCH /workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+        "DELETE /workspace/firewalls/:edgeFirewallId/rules/:ruleId",
+        "PUT /workspace/firewalls/:edgeFirewallId/rules/order",
+        "GET /workspace/firewalls/:edgeFirewallId/request_rules",
+        "POST /workspace/firewalls/:edgeFirewallId/request_rules",
+        "POST /edge_firewall/wafs/:wafId/clone",
+        "GET /workspace/wafs/:wafId",
+        "PUT /workspace/wafs/:wafId",
+        "PATCH /workspace/wafs/:wafId",
+        "DELETE /edge_firewall/wafs/:wafId",
+        "GET /workspace/wafs/:wafId/exceptions/:exceptionWafId",
+        "PUT /workspace/wafs/:wafId/exceptions/:exceptionWafId",
+        "PATCH /workspace/wafs/:wafId/exceptions/:exceptionWafId",
+        "DELETE /workspace/wafs/:wafId/exceptions/:exceptionWafId",
+        "GET /edge_firewall/wafs/:wafId/exceptions",
+        "POST /workspace/wafs/:wafId/exceptions",
+        "GET /edge_functions/functions/:functionId",
+        "PUT /edge_functions/functions/:functionId",
+        "PATCH /edge_functions/functions/:functionId",
+        "DELETE /edge_functions/functions/:functionId",
+        "GET /edge_functions/functions",
+        "POST /edge_sql/databases/:databaseId/query",
+        "GET /edge_sql/databases/:databaseId",
+        "DELETE /edge_sql/databases/:databaseId",
+        "GET /edge_sql/databases",
+        "POST /edge_sql/databases",
+        "PATCH /wrokspace/storage/buckets/:bucketName",
+        "DELETE /worksapce/storage/buckets/:bucketName",
+        "GET /workspace/storage/buckets/:bucketName/objects/:objectKey",
+        "POST /workspace/storage/buckets/:bucketName/objects/:objectKey",
+        "PUT /workspace/storage/buckets/:bucketName/objects/:objectKey",
+        "DELETE /workspace/storage/buckets/:bucketName/objects/:objectKey",
+        "GET /workspace/storage/buckets/:bucketName/objects",
+        "GET /workspace/storage/credentials/:credentialId",
+        "DELETE /workspace/storage/credentials/:credentialId",
+        "POST /iam/mfa/totp",
+        "POST /iam/users",
+        "POST /iam/accounts",
+        "GET /orchestrator/edge_nodes/:nodeId/groups?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>",
+        "POST /orchestrator/edge_nodes/:nodeId/groups",
+        "GET /orchestrator/edge_nodes/:nodeId/services/:bindId?fields=<string>",
+        "DELETE /orchestrator/edge_nodes/:nodeId/services/:bindId",
+        "GET /orchestrator/edge_nodes/:nodeId/services?fields=<string>&ordering=<string>&page=<integer>&page_size=<integer>&search=<string>",
+        "POST /edge_orchestrator/edge_nodes/:nodeId/services",
+        "GET /edge_orchestrator/edge_nodes/:nodeId/",
+        "PUT /orchestrator/edge_nodes/:nodeId/",
+        "PATCH /orchestrator/edge_nodes/:nodeId/",
+        "DELETE /orchestrator/edge_nodes/:nodeId",
+        "DELETE /edge_orchestrator/edge_nodes/groups/:groupId",
+        "GET /edge_orchestrator/edge_services/:serviceId/resources/:resourceId/content",
+        "PUT /orchestrator/edge_services/:serviceId/resources/:resourceId/content",
+        "GET /orchestrator/edge_services/:serviceId/resources/:resourceId?fields=<string>",
+        "PUT /orchestrator/edge_services/:serviceId/resources/:resourceId",
+        "DELETE /orchestrator/edge_services/:serviceId/resources/:resourceId",
+        "GET /edge_orchestrator/edge_services/:serviceId/resources",
+        "POST /edge_orchestrator/edge_services/:serviceId/resources",
+        "GET /edge_orchestrator/edge_services/:serviceId",
+        "PUT /edge_orchestrator/edge_services/:serviceId",
+        "PATCH /edge_orchestrator/edge_services/:serviceId",
+        "DELETE /edge_orchestrator/edge_services/:serviceId",
+        "DELETE /identity/users/:userId/lockout",
+        "GET /identity/users/:userId",
+        "PUT /identity/users/:userId",
+        "PATCH /identity/users/:userId",
+        "DELETE /identity/users/:userId"
+      ]
+    },
+    {
+      "type": "CROSS_ENV_TESTS",
+      "priority": "LOW",
+      "description": "Add cross-environment validation for 39 common endpoints"
+    }
+  ]
+}

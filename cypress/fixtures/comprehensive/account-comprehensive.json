@@ -1,0 +1,958 @@
+{
+  "context": "account",
+  "metadata": {
+    "timestamp": "2025-09-23T15:25:24.069Z",
+    "endpoints_count": 24,
+    "total_scenarios": 76
+  },
+  "endpoints": {
+    "URL_/account/auth/login": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/login",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/login": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/login": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/login": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/login",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/login",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "URL_/account/auth/login/method": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/login/method",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/login/method": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/login/method",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/login/method": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/login/method",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/login/method": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/login/method",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/login/method",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/login/method",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "URL_/account/auth/mfa/totp": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/mfa/totp": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/mfa/totp": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/mfa/totp": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "URL_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_path_params",
+        "description": "Request with invalid path parameters",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/invalid",
+        "expected_status": 404,
+        "priority": "medium",
+        "category": "error"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_path_params",
+        "description": "Request with invalid path parameters",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/invalid",
+        "expected_status": 404,
+        "priority": "medium",
+        "category": "error"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_path_params",
+        "description": "Request with invalid path parameters",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/invalid",
+        "expected_status": 404,
+        "priority": "medium",
+        "category": "error"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/mfa/totp/{totp_id}": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_path_params",
+        "description": "Request with invalid path parameters",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/invalid",
+        "expected_status": 404,
+        "priority": "medium",
+        "category": "error"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/mfa/totp/{totp_id}",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "URL_/account/auth/token": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/token",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/token": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/token",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/token": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/token",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/token": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/token",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/token",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/token",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "URL_/account/auth/revoke": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "URL",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "URL",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "URL",
+        "path": "/account/auth/revoke",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "OPERATIONS_/account/auth/revoke": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "OPERATIONS",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "OPERATIONS",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "OPERATIONS",
+        "path": "/account/auth/revoke",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "PARAMETERS_/account/auth/revoke": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "PARAMETERS",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "PARAMETERS",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "PARAMETERS",
+        "path": "/account/auth/revoke",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ],
+    "CONTEXT_/account/auth/revoke": [
+      {
+        "name": "no_auth_token",
+        "description": "Request without authentication",
+        "method": "CONTEXT",
+        "path": "/account/auth/revoke",
+        "headers": {},
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "invalid_auth_token",
+        "description": "Request with invalid token",
+        "method": "CONTEXT",
+        "path": "/account/auth/revoke",
+        "headers": {
+          "Authorization": "Token invalid"
+        },
+        "expected_status": 401,
+        "priority": "high",
+        "category": "security"
+      },
+      {
+        "name": "rate_limit_test",
+        "description": "Test rate limiting behavior",
+        "method": "CONTEXT",
+        "path": "/account/auth/revoke",
+        "repeat": 100,
+        "expected_status": [
+          200,
+          201,
+          429
+        ],
+        "priority": "low",
+        "category": "error"
+      }
+    ]
+  }
+}

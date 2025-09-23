@@ -1,0 +1,201 @@
+{
+  "name": "edge_functions",
+  "endpoints_count": 6,
+  "tests_count": 12,
+  "coverage_percentage": 100,
+  "endpoints": [
+    {
+      "name": "Retrieve details of an Edge Function",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Retrieve details of an Edge Function"
+    },
+    {
+      "name": "Update an Edge Function",
+      "method": "PUT",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Update an Edge Function"
+    },
+    {
+      "name": "Partially update an Edge Function",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Partially update an Edge Function"
+    },
+    {
+      "name": "Destroy an Edge Function",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Destroy an Edge Function"
+    },
+    {
+      "name": "List Edge Functions",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_functions/functions",
+      "path": "edge_functions/functions",
+      "parentPath": "edge_functions/functions",
+      "fullPath": "edge_functions/functions/List Edge Functions"
+    },
+    {
+      "name": "Create an Edge Function",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/functions",
+      "path": "workspace/functions",
+      "parentPath": "edge_functions/functions",
+      "fullPath": "edge_functions/functions/Create an Edge Function"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list edge_functions resources",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new edge_functions resource",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific edge_functions resource",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update edge_functions resource",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Retrieve details of an Edge Function",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Retrieve details of an Edge Function"
+    },
+    {
+      "name": "Update an Edge Function",
+      "method": "PUT",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Update an Edge Function"
+    },
+    {
+      "name": "Partially update an Edge Function",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Partially update an Edge Function"
+    },
+    {
+      "name": "Destroy an Edge Function",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/edge_functions/functions/{{functionId}}",
+      "path": "edge_functions/functions/{{functionId}}",
+      "parentPath": "edge_functions/functions/{id}",
+      "fullPath": "edge_functions/functions/{id}/Destroy an Edge Function"
+    },
+    {
+      "name": "List Edge Functions",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_functions/functions",
+      "path": "edge_functions/functions",
+      "parentPath": "edge_functions/functions",
+      "fullPath": "edge_functions/functions/List Edge Functions"
+    },
+    {
+      "name": "Create an Edge Function",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/functions",
+      "path": "workspace/functions",
+      "parentPath": "edge_functions/functions",
+      "fullPath": "edge_functions/functions/Create an Edge Function"
+    }
+  ],
+  "missing_endpoints": [],
+  "extra_tests": [
+    {
+      "name": "should validate data types",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-functions.cy.js",
+      "hasApiCall": false
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "name": "edge_sql",
+  "endpoints_count": 5,
+  "tests_count": 12,
+  "coverage_percentage": 100,
+  "endpoints": [
+    {
+      "name": "Execute a query into a database",
+      "method": "POST",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}/query",
+      "path": "edge_sql/databases/{{databaseId}}/query",
+      "parentPath": "edge_sql/databases/{id}/query",
+      "fullPath": "edge_sql/databases/{id}/query/Execute a query into a database"
+    },
+    {
+      "name": "Retrieve details from a database",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}",
+      "path": "edge_sql/databases/{{databaseId}}",
+      "parentPath": "edge_sql/databases/{id}",
+      "fullPath": "edge_sql/databases/{id}/Retrieve details from a database"
+    },
+    {
+      "name": "Destroy a database",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}",
+      "path": "edge_sql/databases/{{databaseId}}",
+      "parentPath": "edge_sql/databases/{id}",
+      "fullPath": "edge_sql/databases/{id}/Destroy a database"
+    },
+    {
+      "name": "List databases",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_sql/databases",
+      "path": "edge_sql/databases",
+      "parentPath": "edge_sql/databases",
+      "fullPath": "edge_sql/databases/List databases"
+    },
+    {
+      "name": "Create a database",
+      "method": "POST",
+      "url": "{{baseUrl}}/edge_sql/databases",
+      "path": "edge_sql/databases",
+      "parentPath": "edge_sql/databases",
+      "fullPath": "edge_sql/databases/Create a database"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list edge_sql resources",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new edge_sql resource",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific edge_sql resource",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update edge_sql resource",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Execute a query into a database",
+      "method": "POST",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}/query",
+      "path": "edge_sql/databases/{{databaseId}}/query",
+      "parentPath": "edge_sql/databases/{id}/query",
+      "fullPath": "edge_sql/databases/{id}/query/Execute a query into a database"
+    },
+    {
+      "name": "Retrieve details from a database",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}",
+      "path": "edge_sql/databases/{{databaseId}}",
+      "parentPath": "edge_sql/databases/{id}",
+      "fullPath": "edge_sql/databases/{id}/Retrieve details from a database"
+    },
+    {
+      "name": "Destroy a database",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/edge_sql/databases/{{databaseId}}",
+      "path": "edge_sql/databases/{{databaseId}}",
+      "parentPath": "edge_sql/databases/{id}",
+      "fullPath": "edge_sql/databases/{id}/Destroy a database"
+    },
+    {
+      "name": "List databases",
+      "method": "GET",
+      "url": "{{baseUrl}}/edge_sql/databases",
+      "path": "edge_sql/databases",
+      "parentPath": "edge_sql/databases",
+      "fullPath": "edge_sql/databases/List databases"
+    },
+    {
+      "name": "Create a database",
+      "method": "POST",
+      "url": "{{baseUrl}}/edge_sql/databases",
+      "path": "edge_sql/databases",
+      "parentPath": "edge_sql/databases",
+      "fullPath": "edge_sql/databases/Create a database"
+    }
+  ],
+  "missing_endpoints": [],
+  "extra_tests": [
+    {
+      "name": "should handle invalid resource ID",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-sql.cy.js",
+      "hasApiCall": false
+    }
+  ]
+}

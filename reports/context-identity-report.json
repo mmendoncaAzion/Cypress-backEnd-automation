@@ -1,0 +1,212 @@
+{
+  "name": "identity",
+  "endpoints_count": 7,
+  "tests_count": 12,
+  "coverage_percentage": 100,
+  "endpoints": [
+    {
+      "name": "Unlock user",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/identity/users/{{userId}}/lockout",
+      "path": "identity/users/{{userId}}/lockout",
+      "parentPath": "identity/users/{id}/lockout",
+      "fullPath": "identity/users/{id}/lockout/Unlock user"
+    },
+    {
+      "name": "Retrieve details from a user",
+      "method": "GET",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Retrieve details from a user"
+    },
+    {
+      "name": "Update a user",
+      "method": "PUT",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Update a user"
+    },
+    {
+      "name": "Partially update a user",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Partially update a user"
+    },
+    {
+      "name": "Destroy a user",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Destroy a user"
+    },
+    {
+      "name": "List of the account users",
+      "method": "GET",
+      "url": "{{baseUrl}}/identity/users",
+      "path": "identity/users",
+      "parentPath": "identity/users",
+      "fullPath": "identity/users/List of the account users"
+    },
+    {
+      "name": "Create a new user",
+      "method": "POST",
+      "url": "{{baseUrl}}/identity/users",
+      "path": "identity/users",
+      "parentPath": "identity/users",
+      "fullPath": "identity/users/Create a new user"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list identity resources",
+      "file": "identity.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new identity resource",
+      "file": "identity.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific identity resource",
+      "file": "identity.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update identity resource",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Unlock user",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/identity/users/{{userId}}/lockout",
+      "path": "identity/users/{{userId}}/lockout",
+      "parentPath": "identity/users/{id}/lockout",
+      "fullPath": "identity/users/{id}/lockout/Unlock user"
+    },
+    {
+      "name": "Retrieve details from a user",
+      "method": "GET",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Retrieve details from a user"
+    },
+    {
+      "name": "Update a user",
+      "method": "PUT",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Update a user"
+    },
+    {
+      "name": "Partially update a user",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Partially update a user"
+    },
+    {
+      "name": "Destroy a user",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/identity/users/{{userId}}",
+      "path": "identity/users/{{userId}}",
+      "parentPath": "identity/users/{id}",
+      "fullPath": "identity/users/{id}/Destroy a user"
+    },
+    {
+      "name": "List of the account users",
+      "method": "GET",
+      "url": "{{baseUrl}}/identity/users",
+      "path": "identity/users",
+      "parentPath": "identity/users",
+      "fullPath": "identity/users/List of the account users"
+    },
+    {
+      "name": "Create a new user",
+      "method": "POST",
+      "url": "{{baseUrl}}/identity/users",
+      "path": "identity/users",
+      "parentPath": "identity/users",
+      "fullPath": "identity/users/Create a new user"
+    }
+  ],
+  "missing_endpoints": [],
+  "extra_tests": [
+    {
+      "name": "should handle unauthorized requests",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "identity.cy.js",
+      "hasApiCall": false
+    }
+  ]
+}

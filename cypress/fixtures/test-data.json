@@ -1,0 +1,52 @@
+{
+  "timestamp": 1758578232076,
+  "testId": 12345,
+  "testAccountId": 67890,
+  "testEmail": "cypress-test@azion.com",
+  "testDomain": "cypress-test.azion.com",
+  "authToken": "test-auth-token",
+  "apiBaseUrl": "https://api.azion.com",
+  "account": {
+    "testAccountId": 12345,
+    "validAccount": {
+      "name": "Cypress Test Account",
+      "email": "cypress@azion.com",
+      "company": "Azion Test",
+      "country": "BR"
+    }
+  },
+  "edgeApplication": {
+    "testAppId": 54321,
+    "validApp": {
+      "name": "Cypress Test App",
+      "delivery_protocol": "http,https",
+      "origin_type": "single_origin",
+      "address": "httpbin.org"
+    }
+  },
+  "dns": {
+    "testZoneId": 98765,
+    "validRecord": {
+      "record_type": "A",
+      "entry": "test",
+      "answers_list": [
+        "192.168.1.1"
+      ],
+      "ttl": 3600
+    }
+  },
+  "environment": {
+    "dev": {
+      "baseUrl": "https://api-dev.azion.com",
+      "timeout": 10000
+    },
+    "staging": {
+      "baseUrl": "https://api-staging.azion.com",
+      "timeout": 5000
+    },
+    "production": {
+      "baseUrl": "https://api.azion.com",
+      "timeout": 3000
+    }
+  }
+}

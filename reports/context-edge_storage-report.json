@@ -1,0 +1,283 @@
+{
+  "name": "edge_storage",
+  "endpoints_count": 13,
+  "tests_count": 12,
+  "coverage_percentage": 92,
+  "endpoints": [
+    {
+      "name": "Update bucket info",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/wrokspace/storage/buckets/{{bucketName}}",
+      "path": "wrokspace/storage/buckets/{{bucketName}}",
+      "parentPath": "edge_storage/buckets/{name}",
+      "fullPath": "edge_storage/buckets/{name}/Update bucket info"
+    },
+    {
+      "name": "Delete a bucket",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/worksapce/storage/buckets/{{bucketName}}",
+      "path": "worksapce/storage/buckets/{{bucketName}}",
+      "parentPath": "edge_storage/buckets/{name}",
+      "fullPath": "edge_storage/buckets/{name}/Delete a bucket"
+    },
+    {
+      "name": "Download object",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Download object"
+    },
+    {
+      "name": "Create new object key",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Create new object key"
+    },
+    {
+      "name": "Update the object key",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Update the object key"
+    },
+    {
+      "name": "Delete object key",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Delete object key"
+    },
+    {
+      "name": "List buckets objects",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/List buckets objects"
+    },
+    {
+      "name": "List buckets",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets",
+      "path": "workspace/storage/buckets",
+      "parentPath": "edge_storage/buckets",
+      "fullPath": "edge_storage/buckets/List buckets"
+    },
+    {
+      "name": "Create a new bucket",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/buckets",
+      "path": "workspace/storage/buckets",
+      "parentPath": "edge_storage/buckets",
+      "fullPath": "edge_storage/buckets/Create a new bucket"
+    },
+    {
+      "name": "Retrieve details from a credential",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/credentials/{{credentialId}}",
+      "path": "workspace/storage/credentials/{{credentialId}}",
+      "parentPath": "edge_storage/s3-credentials/{accessKey}",
+      "fullPath": "edge_storage/s3-credentials/{accessKey}/Retrieve details from a credential"
+    },
+    {
+      "name": "Delete a Credential",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/storage/credentials/{{credentialId}}",
+      "path": "workspace/storage/credentials/{{credentialId}}",
+      "parentPath": "edge_storage/s3-credentials/{accessKey}",
+      "fullPath": "edge_storage/s3-credentials/{accessKey}/Delete a Credential"
+    },
+    {
+      "name": "List credentials",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/credentials",
+      "path": "workspace/storage/credentials",
+      "parentPath": "edge_storage/s3-credentials",
+      "fullPath": "edge_storage/s3-credentials/List credentials"
+    },
+    {
+      "name": "Create a new credential",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/credentials",
+      "path": "workspace/storage/credentials",
+      "parentPath": "edge_storage/s3-credentials",
+      "fullPath": "edge_storage/s3-credentials/Create a new credential"
+    }
+  ],
+  "tests": [
+    {
+      "name": "should list edge_storage resources",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should create new edge_storage resource",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should get specific edge_storage resource",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": true
+    },
+    {
+      "name": "should update edge_storage resource",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate required fields on creation",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle invalid resource ID",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should validate data types",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle unauthorized requests",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle malformed JSON",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle method not allowed",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should respond within acceptable time",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    },
+    {
+      "name": "should handle concurrent requests",
+      "file": "edge-storage.cy.js",
+      "hasApiCall": false
+    }
+  ],
+  "covered_endpoints": [
+    {
+      "name": "Update bucket info",
+      "method": "PATCH",
+      "url": "{{baseUrl}}/wrokspace/storage/buckets/{{bucketName}}",
+      "path": "wrokspace/storage/buckets/{{bucketName}}",
+      "parentPath": "edge_storage/buckets/{name}",
+      "fullPath": "edge_storage/buckets/{name}/Update bucket info"
+    },
+    {
+      "name": "Delete a bucket",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/worksapce/storage/buckets/{{bucketName}}",
+      "path": "worksapce/storage/buckets/{{bucketName}}",
+      "parentPath": "edge_storage/buckets/{name}",
+      "fullPath": "edge_storage/buckets/{name}/Delete a bucket"
+    },
+    {
+      "name": "Download object",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Download object"
+    },
+    {
+      "name": "Create new object key",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Create new object key"
+    },
+    {
+      "name": "Update the object key",
+      "method": "PUT",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Update the object key"
+    },
+    {
+      "name": "Delete object key",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects/{{objectKey}}",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/{objectKey}/Delete object key"
+    },
+    {
+      "name": "List buckets objects",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets/{{bucketName}}/objects",
+      "path": "workspace/storage/buckets/{{bucketName}}/objects",
+      "parentPath": "edge_storage/buckets/{bucketName}/objects",
+      "fullPath": "edge_storage/buckets/{bucketName}/objects/List buckets objects"
+    },
+    {
+      "name": "List buckets",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/buckets",
+      "path": "workspace/storage/buckets",
+      "parentPath": "edge_storage/buckets",
+      "fullPath": "edge_storage/buckets/List buckets"
+    },
+    {
+      "name": "Create a new bucket",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/buckets",
+      "path": "workspace/storage/buckets",
+      "parentPath": "edge_storage/buckets",
+      "fullPath": "edge_storage/buckets/Create a new bucket"
+    },
+    {
+      "name": "Retrieve details from a credential",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/credentials/{{credentialId}}",
+      "path": "workspace/storage/credentials/{{credentialId}}",
+      "parentPath": "edge_storage/s3-credentials/{accessKey}",
+      "fullPath": "edge_storage/s3-credentials/{accessKey}/Retrieve details from a credential"
+    },
+    {
+      "name": "Delete a Credential",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/workspace/storage/credentials/{{credentialId}}",
+      "path": "workspace/storage/credentials/{{credentialId}}",
+      "parentPath": "edge_storage/s3-credentials/{accessKey}",
+      "fullPath": "edge_storage/s3-credentials/{accessKey}/Delete a Credential"
+    },
+    {
+      "name": "List credentials",
+      "method": "GET",
+      "url": "{{baseUrl}}/workspace/storage/credentials",
+      "path": "workspace/storage/credentials",
+      "parentPath": "edge_storage/s3-credentials",
+      "fullPath": "edge_storage/s3-credentials/List credentials"
+    }
+  ],
+  "missing_endpoints": [
+    {
+      "name": "Create a new credential",
+      "method": "POST",
+      "url": "{{baseUrl}}/workspace/storage/credentials",
+      "path": "workspace/storage/credentials",
+      "parentPath": "edge_storage/s3-credentials",
+      "fullPath": "edge_storage/s3-credentials/Create a new credential"
+    }
+  ],
+  "extra_tests": []
+}

@@ -1,0 +1,4813 @@
+{
+  "stageSpecific": [
+    {
+      "name": "Stage-specific: GetAccountAccountsId",
+      "endpoint": "GET /account/accounts/{id}",
+      "path": "/account/accounts/{id}",
+      "method": "get",
+      "tags": "Accounts - Descendants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutAccountAccountsId",
+      "endpoint": "PUT /account/accounts/{id}",
+      "path": "/account/accounts/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchAccountAccountsId",
+      "endpoint": "PATCH /account/accounts/{id}",
+      "path": "/account/accounts/{id}",
+      "method": "patch",
+      "tags": "Accounts - Descendants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAccountAccountsIdInfo",
+      "endpoint": "GET /account/accounts/{id}/info",
+      "path": "/account/accounts/{id}/info",
+      "method": "get",
+      "tags": "Accounts - Info",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutAccountAccountsIdInfo",
+      "endpoint": "PUT /account/accounts/{id}/info",
+      "path": "/account/accounts/{id}/info",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationId",
+      "endpoint": "GET /workspace/applications/{application_id}",
+      "path": "/workspace/applications/{application_id}",
+      "method": "get",
+      "tags": "Applications",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationId",
+      "endpoint": "PUT /workspace/applications/{application_id}",
+      "path": "/workspace/applications/{application_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationId",
+      "endpoint": "PATCH /workspace/applications/{application_id}",
+      "path": "/workspace/applications/{application_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationId",
+      "endpoint": "DELETE /workspace/applications/{application_id}",
+      "path": "/workspace/applications/{application_id}",
+      "method": "delete",
+      "tags": "Applications",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdClone",
+      "endpoint": "POST /workspace/applications/{application_id}/clone",
+      "path": "/workspace/applications/{application_id}/clone",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdCacheSettings",
+      "endpoint": "GET /workspace/applications/{application_id}/cache_settings",
+      "path": "/workspace/applications/{application_id}/cache_settings",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdCacheSettings",
+      "endpoint": "POST /workspace/applications/{application_id}/cache_settings",
+      "path": "/workspace/applications/{application_id}/cache_settings",
+      "method": "post",
+      "tags": "Applications - Cache Settings",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "endpoint": "GET /workspace/applications/{application_id}/cache_settings/{id}",
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "endpoint": "PUT /workspace/applications/{application_id}/cache_settings/{id}",
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "endpoint": "PATCH /workspace/applications/{application_id}/cache_settings/{id}",
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationIdCacheSettingsId",
+      "endpoint": "DELETE /workspace/applications/{application_id}/cache_settings/{id}",
+      "path": "/workspace/applications/{application_id}/cache_settings/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdDeviceGroups",
+      "endpoint": "GET /workspace/applications/{application_id}/device_groups",
+      "path": "/workspace/applications/{application_id}/device_groups",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdDeviceGroups",
+      "endpoint": "POST /workspace/applications/{application_id}/device_groups",
+      "path": "/workspace/applications/{application_id}/device_groups",
+      "method": "post",
+      "tags": "Applications - Device Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "endpoint": "GET /workspace/applications/{application_id}/device_groups/{id}",
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "endpoint": "PUT /workspace/applications/{application_id}/device_groups/{id}",
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "endpoint": "PATCH /workspace/applications/{application_id}/device_groups/{id}",
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationIdDeviceGroupsId",
+      "endpoint": "DELETE /workspace/applications/{application_id}/device_groups/{id}",
+      "path": "/workspace/applications/{application_id}/device_groups/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdFunctions",
+      "endpoint": "GET /workspace/applications/{application_id}/functions",
+      "path": "/workspace/applications/{application_id}/functions",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdFunctions",
+      "endpoint": "POST /workspace/applications/{application_id}/functions",
+      "path": "/workspace/applications/{application_id}/functions",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "endpoint": "GET /workspace/applications/{application_id}/functions/{function_id}",
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "endpoint": "PUT /workspace/applications/{application_id}/functions/{function_id}",
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "endpoint": "PATCH /workspace/applications/{application_id}/functions/{function_id}",
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationIdFunctionsFunctionId",
+      "endpoint": "DELETE /workspace/applications/{application_id}/functions/{function_id}",
+      "path": "/workspace/applications/{application_id}/functions/{function_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdRequestRules",
+      "endpoint": "GET /workspace/applications/{application_id}/request_rules",
+      "path": "/workspace/applications/{application_id}/request_rules",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdRequestRules",
+      "endpoint": "POST /workspace/applications/{application_id}/request_rules",
+      "path": "/workspace/applications/{application_id}/request_rules",
+      "method": "post",
+      "tags": "Applications - Request Rules",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "endpoint": "GET /workspace/applications/{application_id}/request_rules/{id}",
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "endpoint": "PUT /workspace/applications/{application_id}/request_rules/{id}",
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "endpoint": "PATCH /workspace/applications/{application_id}/request_rules/{id}",
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationIdRequestRulesId",
+      "endpoint": "DELETE /workspace/applications/{application_id}/request_rules/{id}",
+      "path": "/workspace/applications/{application_id}/request_rules/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdRequestRulesOrder",
+      "endpoint": "PUT /workspace/applications/{application_id}/request_rules/order",
+      "path": "/workspace/applications/{application_id}/request_rules/order",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdResponseRules",
+      "endpoint": "GET /workspace/applications/{application_id}/response_rules",
+      "path": "/workspace/applications/{application_id}/response_rules",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeApplicationApplicationsApplicationIdResponseRules",
+      "endpoint": "POST /workspace/applications/{application_id}/response_rules",
+      "path": "/workspace/applications/{application_id}/response_rules",
+      "method": "post",
+      "tags": "Applications - Response Rules",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "endpoint": "GET /workspace/applications/{application_id}/response_rules/{id}",
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "endpoint": "PUT /workspace/applications/{application_id}/response_rules/{id}",
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "endpoint": "PATCH /workspace/applications/{application_id}/response_rules/{id}",
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeApplicationApplicationsApplicationIdResponseRulesId",
+      "endpoint": "DELETE /workspace/applications/{application_id}/response_rules/{id}",
+      "path": "/workspace/applications/{application_id}/response_rules/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeApplicationApplicationsApplicationIdResponseRulesOrder",
+      "endpoint": "PUT /workspace/applications/{application_id}/response_rules/order",
+      "path": "/workspace/applications/{application_id}/response_rules/order",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostAuthLogin",
+      "endpoint": "POST /account/auth/login",
+      "path": "/account/auth/login",
+      "method": "post",
+      "tags": "Auth - Login",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAuthLoginMethod",
+      "endpoint": "GET /account/auth/login/method",
+      "path": "/account/auth/login/method",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostAuthMfaTotpVerify",
+      "endpoint": "POST /account/auth/mfa/totp/verify",
+      "path": "/account/auth/mfa/totp/verify",
+      "method": "post",
+      "tags": "Auth - Login",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAuthMfaTotp",
+      "endpoint": "GET /account/auth/mfa/totp",
+      "path": "/account/auth/mfa/totp",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostAuthMfaTotp",
+      "endpoint": "POST /account/auth/mfa/totp",
+      "path": "/account/auth/mfa/totp",
+      "method": "post",
+      "tags": "Auth - MFA TOTP Device",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteAuthMfaTotpId",
+      "endpoint": "DELETE /account/auth/mfa/totp/{totp_id}",
+      "path": "/account/auth/mfa/totp/{totp_id}",
+      "method": "delete",
+      "tags": "Auth - MFA TOTP Device",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostAuthToken",
+      "endpoint": "POST /account/auth/token",
+      "path": "/account/auth/token",
+      "method": "post",
+      "tags": "Auth - Refresh Access Token",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostAuthRevoke",
+      "endpoint": "POST /account/auth/revoke",
+      "path": "/account/auth/revoke",
+      "method": "post",
+      "tags": "Auth - Revoke",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetPaymentsCreditCardsId",
+      "endpoint": "GET /payments/credit_cards/{id}",
+      "path": "/payments/credit_cards/{id}",
+      "method": "get",
+      "tags": "Billing & Payments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchPaymentsCreditCardsId",
+      "endpoint": "PATCH /payments/credit_cards/{id}",
+      "path": "/payments/credit_cards/{id}",
+      "method": "patch",
+      "tags": "Billing & Payments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeletePaymentsCreditCardsId",
+      "endpoint": "DELETE /payments/credit_cards/{id}",
+      "path": "/payments/credit_cards/{id}",
+      "method": "delete",
+      "tags": "Billing & Payments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetBillingInvoicesPeriod",
+      "endpoint": "GET /billing/invoices/{period}",
+      "path": "/billing/invoices/{period}",
+      "method": "get",
+      "tags": "Billing - Invoices",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeConnectorConnectors",
+      "endpoint": "GET /workspace/connectors",
+      "path": "/workspace/connectors",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeConnectorConnectors",
+      "endpoint": "POST /workspace/connectors",
+      "path": "/workspace/connectors",
+      "method": "post",
+      "tags": "Connectors",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeConnectorConnectorsId",
+      "endpoint": "GET /workspace/connectors/{connector_id}",
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "get",
+      "tags": "Connectors",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeConnectorConnectorsId",
+      "endpoint": "PUT /workspace/connectors/{connector_id}",
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "put",
+      "tags": "Connectors",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeConnectorConnectorsId",
+      "endpoint": "PATCH /workspace/connectors/{connector_id}",
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "patch",
+      "tags": "Connectors",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeConnectorConnectorsId",
+      "endpoint": "DELETE /workspace/connectors/{connector_id}",
+      "path": "/workspace/connectors/{connector_id}",
+      "method": "delete",
+      "tags": "Connectors",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetWorkspaceCustomPagesId",
+      "endpoint": "GET /workspace/custom_pages/{id}",
+      "path": "/workspace/custom_pages/{id}",
+      "method": "get",
+      "tags": "Custom Pages",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutWorkspaceCustomPagesId",
+      "endpoint": "PUT /workspace/custom_pages/{id}",
+      "path": "/workspace/custom_pages/{id}",
+      "method": "put",
+      "tags": "Custom Pages",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchWorkspaceCustomPagesId",
+      "endpoint": "PATCH /workspace/custom_pages/{id}",
+      "path": "/workspace/custom_pages/{id}",
+      "method": "patch",
+      "tags": "Custom Pages",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteWorkspaceCustomPagesId",
+      "endpoint": "DELETE /workspace/custom_pages/{id}",
+      "path": "/workspace/custom_pages/{id}",
+      "method": "delete",
+      "tags": "Custom Pages",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeDnsZonesZoneIdDnssec",
+      "endpoint": "GET /workspace/dns/zones/{zone_id}/dnssec",
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "get",
+      "tags": "DNS - DNSSEC",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeDnsZonesZoneIdDnssec",
+      "endpoint": "PUT /workspace/dns/zones/{zone_id}/dnssec",
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "put",
+      "tags": "DNS - DNSSEC",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeDnsZonesZoneIdDnssec",
+      "endpoint": "PATCH /workspace/dns/zones/{zone_id}/dnssec",
+      "path": "/workspace/dns/zones/{zone_id}/dnssec",
+      "method": "patch",
+      "tags": "DNS - DNSSEC",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeDnsZonesZoneIdRecords",
+      "endpoint": "GET /workspace/dns/zones/{zone_id}/records",
+      "path": "/workspace/dns/zones/{zone_id}/records",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeDnsZonesZoneIdRecords",
+      "endpoint": "POST /workspace/dns/zones/{zone_id}/records",
+      "path": "/workspace/dns/zones/{zone_id}/records",
+      "method": "post",
+      "tags": "DNS - Records",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeDnsZonesZoneIdRecordsRecordId",
+      "endpoint": "GET /workspace/dns/zones/{zone_id}/records/{record_id}",
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeDnsZonesZoneIdRecordsRecordId",
+      "endpoint": "PUT /workspace/dns/zones/{zone_id}/records/{record_id}",
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeDnsZonesZoneIdRecordsRecordId",
+      "endpoint": "PATCH /workspace/dns/zones/{zone_id}/records/{record_id}",
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeDnsZonesZoneIdRecordsRecordId",
+      "endpoint": "DELETE /workspace/dns/zones/{zone_id}/records/{record_id}",
+      "path": "/workspace/dns/zones/{zone_id}/records/{record_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeDnsZonesZoneId",
+      "endpoint": "GET /workspace/dns/zones/{zone_id}",
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "get",
+      "tags": "DNS - Zones",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeDnsZonesZoneId",
+      "endpoint": "PUT /workspace/dns/zones/{zone_id}",
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "put",
+      "tags": "DNS - Zones",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeDnsZonesZoneId",
+      "endpoint": "PATCH /workspace/dns/zones/{zone_id}",
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "patch",
+      "tags": "DNS - Zones",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeDnsZonesZoneId",
+      "endpoint": "DELETE /workspace/dns/zones/{zone_id}",
+      "path": "/workspace/dns/zones/{zone_id}",
+      "method": "delete",
+      "tags": "DNS - Zones",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDataStreamDataSources",
+      "endpoint": "GET /workspace/stream/data_sources",
+      "path": "/workspace/stream/data_sources",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDataStreamStreams",
+      "endpoint": "GET /workspace/stream/streams",
+      "path": "/workspace/stream/streams",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDataStreamStreams",
+      "endpoint": "POST /workspace/stream/streams",
+      "path": "/workspace/stream/streams",
+      "method": "post",
+      "tags": "Data Stream - Streams",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDataStreamStreamsId",
+      "endpoint": "GET /workspace/stream/streams/{stream_id}",
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "get",
+      "tags": "Data Stream - Streams",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutDataStreamStreamsId",
+      "endpoint": "PUT /workspace/stream/streams/{stream_id}",
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "put",
+      "tags": "Data Stream - Streams",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchDataStreamStreamsId",
+      "endpoint": "PATCH /workspace/stream/streams/{stream_id}",
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "patch",
+      "tags": "Data Stream - Streams",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteDataStreamStreamsId",
+      "endpoint": "DELETE /workspace/stream/streams/{stream_id}",
+      "path": "/workspace/stream/streams/{stream_id}",
+      "method": "delete",
+      "tags": "Data Stream - Streams",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDataStreamTemplates",
+      "endpoint": "GET /workspace/stream/templates",
+      "path": "/workspace/stream/templates",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDataStreamTemplates",
+      "endpoint": "POST /workspace/stream/templates",
+      "path": "/workspace/stream/templates",
+      "method": "post",
+      "tags": "Data Stream - Templates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDataStreamTemplatesId",
+      "endpoint": "GET /workspace/stream/templates/{template_id}",
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "get",
+      "tags": "Data Stream - Templates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutDataStreamTemplatesId",
+      "endpoint": "PUT /workspace/stream/templates/{template_id}",
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "put",
+      "tags": "Data Stream - Templates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchDataStreamTemplatesId",
+      "endpoint": "PATCH /workspace/stream/templates/{template_id}",
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "patch",
+      "tags": "Data Stream - Templates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteDataStreamTemplatesId",
+      "endpoint": "DELETE /workspace/stream/templates/{template_id}",
+      "path": "/workspace/stream/templates/{template_id}",
+      "method": "delete",
+      "tags": "Data Stream - Templates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDigitalCertificatesCrls",
+      "endpoint": "GET /workspace/tls/crls",
+      "path": "/workspace/tls/crls",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDigitalCertificatesCrls",
+      "endpoint": "POST /workspace/tls/crls",
+      "path": "/workspace/tls/crls",
+      "method": "post",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDigitalCertificatesCrlsId",
+      "endpoint": "GET /workspace/tls/crls/{crl_id}",
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "get",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutDigitalCertificatesCrlsId",
+      "endpoint": "PUT /workspace/tls/crls/{crl_id}",
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "put",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchDigitalCertificatesCrlsId",
+      "endpoint": "PATCH /workspace/tls/crls/{crl_id}",
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "patch",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteDigitalCertificatesCrlsId",
+      "endpoint": "DELETE /workspace/tls/crls/{crl_id}",
+      "path": "/workspace/tls/crls/{crl_id}",
+      "method": "delete",
+      "tags": "Digital Certificates - Certificate Revocation Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDigitalCertificatesCsr",
+      "endpoint": "POST /workspace/tls/csr",
+      "path": "/workspace/tls/csr",
+      "method": "post",
+      "tags": "Digital Certificates - Certificate Signing Requests",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDigitalCertificatesCertificates",
+      "endpoint": "GET /workspace/tls/certificates",
+      "path": "/workspace/tls/certificates",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDigitalCertificatesCertificates",
+      "endpoint": "POST /workspace/tls/certificates",
+      "path": "/workspace/tls/certificates",
+      "method": "post",
+      "tags": "Digital Certificates - Certificates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetDigitalCertificatesCertificatesId",
+      "endpoint": "GET /workspace/tls/certificates/{certificate_id}",
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "get",
+      "tags": "Digital Certificates - Certificates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutDigitalCertificatesCertificatesId",
+      "endpoint": "PUT /workspace/tls/certificates/{certificate_id}",
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchDigitalCertificatesCertificatesId",
+      "endpoint": "PATCH /workspace/tls/certificates/{certificate_id}",
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteDigitalCertificatesCertificatesId",
+      "endpoint": "DELETE /workspace/tls/certificates/{certificate_id}",
+      "path": "/workspace/tls/certificates/{certificate_id}",
+      "method": "delete",
+      "tags": "Digital Certificates - Certificates",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostDigitalCertificatesCertificatesRequest",
+      "endpoint": "POST /workspace/tls/certificates/request",
+      "path": "/workspace/tls/certificates/request",
+      "method": "post",
+      "tags": "Digital Certificates - Request a Certificate",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityUserFavorites",
+      "endpoint": "GET /identity/user/favorites",
+      "path": "/identity/user/favorites",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostIdentityUserFavorites",
+      "endpoint": "POST /identity/user/favorites",
+      "path": "/identity/user/favorites",
+      "method": "post",
+      "tags": "Favorites",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityUserFavoritesId",
+      "endpoint": "DELETE /identity/user/favorites/{id}",
+      "path": "/identity/user/favorites/{id}",
+      "method": "delete",
+      "tags": "Favorites",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallFirewallsId",
+      "endpoint": "GET /workspace/firewalls/{id}",
+      "path": "/workspace/firewalls/{id}",
+      "method": "get",
+      "tags": "Firewalls",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallFirewallsId",
+      "endpoint": "PUT /workspace/firewalls/{id}",
+      "path": "/workspace/firewalls/{id}",
+      "method": "put",
+      "tags": "Firewalls",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFirewallFirewallsId",
+      "endpoint": "PATCH /workspace/firewalls/{id}",
+      "path": "/workspace/firewalls/{id}",
+      "method": "patch",
+      "tags": "Firewalls",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFirewallFirewallsId",
+      "endpoint": "DELETE /workspace/firewalls/{id}",
+      "path": "/workspace/firewalls/{id}",
+      "method": "delete",
+      "tags": "Firewalls",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeFirewallFirewallsIdClone",
+      "endpoint": "POST /workspace/firewalls/{id}/clone",
+      "path": "/workspace/firewalls/{id}/clone",
+      "method": "post",
+      "tags": "Firewalls",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallFirewallsEdgeFirewallIdFunctions",
+      "endpoint": "GET /workspace/firewalls/{edge_firewall_id}/functions",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeFirewallFirewallsEdgeFirewallIdFunctions",
+      "endpoint": "POST /workspace/firewalls/{edge_firewall_id}/functions",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "endpoint": "GET /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "endpoint": "PUT /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "endpoint": "PATCH /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFirewallFirewallsEdgeFirewallIdFunctionsId",
+      "endpoint": "DELETE /workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/functions/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallFirewallsEdgeFirewallIdRequestRules",
+      "endpoint": "GET /workspace/firewalls/{edge_firewall_id}/request_rules",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeFirewallFirewallsEdgeFirewallIdRequestRules",
+      "endpoint": "POST /workspace/firewalls/{edge_firewall_id}/request_rules",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules",
+      "method": "post",
+      "tags": "Firewalls - Rules Engine",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "endpoint": "GET /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "endpoint": "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "endpoint": "PATCH /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFirewallFirewallsEdgeFirewallIdRequestRulesId",
+      "endpoint": "DELETE /workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallFirewallsEdgeFirewallIdRequestRulesOrder",
+      "endpoint": "PUT /workspace/firewalls/{edge_firewall_id}/request_rules/order",
+      "path": "/workspace/firewalls/{edge_firewall_id}/request_rules/order",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFunctionsFunctions",
+      "endpoint": "GET /workspace/functions",
+      "path": "/workspace/functions",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFunctionsFunctionsId",
+      "endpoint": "GET /workspace/functions/{function_id}",
+      "path": "/workspace/functions/{function_id}",
+      "method": "get",
+      "tags": "Functions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFunctionsFunctionsId",
+      "endpoint": "PUT /workspace/functions/{function_id}",
+      "path": "/workspace/functions/{function_id}",
+      "method": "put",
+      "tags": "Functions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFunctionsFunctionsId",
+      "endpoint": "PATCH /workspace/functions/{function_id}",
+      "path": "/workspace/functions/{function_id}",
+      "method": "patch",
+      "tags": "Functions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFunctionsFunctionsId",
+      "endpoint": "DELETE /workspace/functions/{function_id}",
+      "path": "/workspace/functions/{function_id}",
+      "method": "delete",
+      "tags": "Functions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityGrants",
+      "endpoint": "GET /identity/grants",
+      "path": "/identity/grants",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostIdentityGrants",
+      "endpoint": "POST /identity/grants",
+      "path": "/identity/grants",
+      "method": "post",
+      "tags": "Identity - Grants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityGrantsId",
+      "endpoint": "GET /identity/grants/{id}",
+      "path": "/identity/grants/{id}",
+      "method": "get",
+      "tags": "Identity - Grants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityGrantsId",
+      "endpoint": "PUT /identity/grants/{id}",
+      "path": "/identity/grants/{id}",
+      "method": "put",
+      "tags": "Identity - Grants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchIdentityGrantsId",
+      "endpoint": "PATCH /identity/grants/{id}",
+      "path": "/identity/grants/{id}",
+      "method": "patch",
+      "tags": "Identity - Grants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityGrantsId",
+      "endpoint": "DELETE /identity/grants/{id}",
+      "path": "/identity/grants/{id}",
+      "method": "delete",
+      "tags": "Identity - Grants",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityGroupsIdMembers",
+      "endpoint": "GET /identity/groups/{id}/members",
+      "path": "/identity/groups/{id}/members",
+      "method": "get",
+      "tags": "Identity - Group Members",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityGroupsIdMembers",
+      "endpoint": "PUT /identity/groups/{id}/members",
+      "path": "/identity/groups/{id}/members",
+      "method": "put",
+      "tags": "Identity - Group Members",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityGroups",
+      "endpoint": "GET /identity/groups",
+      "path": "/identity/groups",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostIdentityGroups",
+      "endpoint": "POST /identity/groups",
+      "path": "/identity/groups",
+      "method": "post",
+      "tags": "Identity - Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityGroupsId",
+      "endpoint": "GET /identity/groups/{id}",
+      "path": "/identity/groups/{id}",
+      "method": "get",
+      "tags": "Identity - Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityGroupsId",
+      "endpoint": "PUT /identity/groups/{id}",
+      "path": "/identity/groups/{id}",
+      "method": "put",
+      "tags": "Identity - Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchIdentityGroupsId",
+      "endpoint": "PATCH /identity/groups/{id}",
+      "path": "/identity/groups/{id}",
+      "method": "patch",
+      "tags": "Identity - Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityGroupsId",
+      "endpoint": "DELETE /identity/groups/{id}",
+      "path": "/identity/groups/{id}",
+      "method": "delete",
+      "tags": "Identity - Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityUser",
+      "endpoint": "GET /identity/user",
+      "path": "/identity/user",
+      "method": "get",
+      "tags": "Identity - Logged In User",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityUser",
+      "endpoint": "PUT /identity/user",
+      "path": "/identity/user",
+      "method": "put",
+      "tags": "Identity - Logged In User",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchIdentityUser",
+      "endpoint": "PATCH /identity/user",
+      "path": "/identity/user",
+      "method": "patch",
+      "tags": "Identity - Logged In User",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostIdentityService-TokensIdRenew",
+      "endpoint": "POST /identity/service-tokens/{id}/renew",
+      "path": "/identity/service-tokens/{id}/renew",
+      "method": "post",
+      "tags": "Identity - Service Token Renew",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityService-Tokens",
+      "endpoint": "GET /identity/service-tokens",
+      "path": "/identity/service-tokens",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostIdentityService-Tokens",
+      "endpoint": "POST /identity/service-tokens",
+      "path": "/identity/service-tokens",
+      "method": "post",
+      "tags": "Identity - Service Tokens",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityService-TokensId",
+      "endpoint": "GET /identity/service-tokens/{id}",
+      "path": "/identity/service-tokens/{id}",
+      "method": "get",
+      "tags": "Identity - Service Tokens",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityService-TokensId",
+      "endpoint": "PUT /identity/service-tokens/{id}",
+      "path": "/identity/service-tokens/{id}",
+      "method": "put",
+      "tags": "Identity - Service Tokens",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchIdentityService-TokensId",
+      "endpoint": "PATCH /identity/service-tokens/{id}",
+      "path": "/identity/service-tokens/{id}",
+      "method": "patch",
+      "tags": "Identity - Service Tokens",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityService-TokensId",
+      "endpoint": "DELETE /identity/service-tokens/{id}",
+      "path": "/identity/service-tokens/{id}",
+      "method": "delete",
+      "tags": "Identity - Service Tokens",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityUsersIdInfo",
+      "endpoint": "GET /identity/users/{id}/info",
+      "path": "/identity/users/{id}/info",
+      "method": "get",
+      "tags": "Identity - User info",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityUsersIdInfo",
+      "endpoint": "PUT /identity/users/{id}/info",
+      "path": "/identity/users/{id}/info",
+      "method": "put",
+      "tags": "Identity - User info",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetIdentityUsersId",
+      "endpoint": "GET /identity/users/{id}",
+      "path": "/identity/users/{id}",
+      "method": "get",
+      "tags": "Identity - Users",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutIdentityUsersId",
+      "endpoint": "PUT /identity/users/{id}",
+      "path": "/identity/users/{id}",
+      "method": "put",
+      "tags": "Identity - Users",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchIdentityUsersId",
+      "endpoint": "PATCH /identity/users/{id}",
+      "path": "/identity/users/{id}",
+      "method": "patch",
+      "tags": "Identity - Users",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityUsersId",
+      "endpoint": "DELETE /identity/users/{id}",
+      "path": "/identity/users/{id}",
+      "method": "delete",
+      "tags": "Identity - Users",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboards",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards",
+      "path": "/metrics/folders/{folder_id}/dashboards",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsFoldersFolderIdDashboards",
+      "endpoint": "POST /metrics/folders/{folder_id}/dashboards",
+      "path": "/metrics/folders/{folder_id}/dashboards",
+      "method": "post",
+      "tags": "Metrics - Dashboard",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboardsId",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersFolderIdDashboardsId",
+      "endpoint": "PUT /metrics/folders/{folder_id}/dashboards/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchMetricsFoldersFolderIdDashboardsId",
+      "endpoint": "PATCH /metrics/folders/{folder_id}/dashboards/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsFoldersFolderIdDashboardsId",
+      "endpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFolders",
+      "endpoint": "GET /metrics/folders",
+      "path": "/metrics/folders",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsFolders",
+      "endpoint": "POST /metrics/folders",
+      "path": "/metrics/folders",
+      "method": "post",
+      "tags": "Metrics - Folders",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersId",
+      "endpoint": "GET /metrics/folders/{id}",
+      "path": "/metrics/folders/{id}",
+      "method": "get",
+      "tags": "Metrics - Folders",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersId",
+      "endpoint": "PUT /metrics/folders/{id}",
+      "path": "/metrics/folders/{id}",
+      "method": "put",
+      "tags": "Metrics - Folders",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchMetricsFoldersId",
+      "endpoint": "PATCH /metrics/folders/{id}",
+      "path": "/metrics/folders/{id}",
+      "method": "patch",
+      "tags": "Metrics - Folders",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsFoldersId",
+      "endpoint": "DELETE /metrics/folders/{id}",
+      "path": "/metrics/folders/{id}",
+      "method": "delete",
+      "tags": "Metrics - Folders",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsLibraryReports",
+      "endpoint": "GET /metrics/library/reports",
+      "path": "/metrics/library/reports",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsLibraryReports",
+      "endpoint": "POST /metrics/library/reports",
+      "path": "/metrics/library/reports",
+      "method": "post",
+      "tags": "Metrics - Library Reports",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsLibraryReportsId",
+      "endpoint": "GET /metrics/library/reports/{id}",
+      "path": "/metrics/library/reports/{id}",
+      "method": "get",
+      "tags": "Metrics - Library Reports",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsLibraryReportsId",
+      "endpoint": "PUT /metrics/library/reports/{id}",
+      "path": "/metrics/library/reports/{id}",
+      "method": "put",
+      "tags": "Metrics - Library Reports",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsLibraryReportsId",
+      "endpoint": "DELETE /metrics/library/reports/{id}",
+      "path": "/metrics/library/reports/{id}",
+      "method": "delete",
+      "tags": "Metrics - Library Reports",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsRecommendations",
+      "endpoint": "GET /metrics/recommendations",
+      "path": "/metrics/recommendations",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsRecommendations",
+      "endpoint": "POST /metrics/recommendations",
+      "path": "/metrics/recommendations",
+      "method": "post",
+      "tags": "Metrics - Recommendations",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsRecommendationsId",
+      "endpoint": "DELETE /metrics/recommendations/{id}",
+      "path": "/metrics/recommendations/{id}",
+      "method": "delete",
+      "tags": "Metrics - Recommendations",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReports",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReports",
+      "endpoint": "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "endpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsId",
+      "endpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersFolderIdDashboardsDashboardIdRowsRowIdReportsOrder",
+      "endpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/order",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{row_id}/reports/order",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboardsDashboardIdRows",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostMetricsFoldersFolderIdDashboardsDashboardIdRows",
+      "endpoint": "POST /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "endpoint": "GET /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "endpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteMetricsFoldersFolderIdDashboardsDashboardIdRowsId",
+      "endpoint": "DELETE /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/{id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMetricsFoldersFolderIdDashboardsDashboardIdRowsOrder",
+      "endpoint": "PUT /metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/order",
+      "path": "/metrics/folders/{folder_id}/dashboards/{dashboard_id}/rows/order",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetWorkspaceNetworkListsId",
+      "endpoint": "GET /workspace/network_lists/{id}",
+      "path": "/workspace/network_lists/{id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutWorkspaceNetworkListsId",
+      "endpoint": "PUT /workspace/network_lists/{id}",
+      "path": "/workspace/network_lists/{id}",
+      "method": "put",
+      "tags": "Network Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchWorkspaceNetworkListsId",
+      "endpoint": "PATCH /workspace/network_lists/{id}",
+      "path": "/workspace/network_lists/{id}",
+      "method": "patch",
+      "tags": "Network Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteWorkspaceNetworkListsId",
+      "endpoint": "DELETE /workspace/network_lists/{id}",
+      "path": "/workspace/network_lists/{id}",
+      "method": "delete",
+      "tags": "Network Lists",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeNodesNodeIdGroups",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/groups",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/groups",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeOrchestratorEdgeNodesNodeIdGroups",
+      "endpoint": "POST /edge_orchestrator/edge_nodes/{node_id}/groups",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/groups",
+      "method": "post",
+      "tags": "Orchestrator - Edge Node Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeOrchestratorEdgeNodesGroupsGroupId",
+      "endpoint": "DELETE /edge_orchestrator/edge_nodes/groups/{group_id}",
+      "path": "/edge_orchestrator/edge_nodes/groups/{group_id}",
+      "method": "delete",
+      "tags": "Orchestrator - Edge Node Groups",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeNodesNodeIdServices",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/services",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeOrchestratorEdgeNodesNodeIdServices",
+      "endpoint": "POST /edge_orchestrator/edge_nodes/{node_id}/services",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services",
+      "method": "post",
+      "tags": "Orchestrator - Edge Node Services",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeNodesNodeIdServicesBindId",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeOrchestratorEdgeNodesNodeIdServicesBindId",
+      "endpoint": "DELETE /edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/services/{bind_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/{node_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "get",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "PUT /edge_orchestrator/edge_nodes/{node_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "put",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "PATCH /edge_orchestrator/edge_nodes/{node_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "patch",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "DELETE /edge_orchestrator/edge_nodes/{node_id}",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}",
+      "method": "delete",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/{node_id}/",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "get",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "PUT /edge_orchestrator/edge_nodes/{node_id}/",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "put",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeOrchestratorEdgeNodesNodeId",
+      "endpoint": "PATCH /edge_orchestrator/edge_nodes/{node_id}/",
+      "path": "/edge_orchestrator/edge_nodes/{node_id}/",
+      "method": "patch",
+      "tags": "Orchestrator - Edge Nodes",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeServicesServiceIdResources",
+      "endpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeOrchestratorEdgeServicesServiceIdResources",
+      "endpoint": "POST /edge_orchestrator/edge_services/{service_id}/resources",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources",
+      "method": "post",
+      "tags": "Orchestrator - Edge Service Resources",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "endpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "endpoint": "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeOrchestratorEdgeServicesServiceIdResourcesResourceId",
+      "endpoint": "DELETE /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeServicesServiceIdResourcesResourceIdContent",
+      "endpoint": "GET /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeOrchestratorEdgeServicesServiceIdResourcesResourceIdContent",
+      "endpoint": "PUT /edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "path": "/edge_orchestrator/edge_services/{service_id}/resources/{resource_id}/content",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeOrchestratorEdgeServicesServiceId",
+      "endpoint": "GET /edge_orchestrator/edge_services/{service_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "get",
+      "tags": "Orchestrator - Edge Services",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeOrchestratorEdgeServicesServiceId",
+      "endpoint": "PUT /edge_orchestrator/edge_services/{service_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "put",
+      "tags": "Orchestrator - Edge Services",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeOrchestratorEdgeServicesServiceId",
+      "endpoint": "PATCH /edge_orchestrator/edge_services/{service_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "patch",
+      "tags": "Orchestrator - Edge Services",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeOrchestratorEdgeServicesServiceId",
+      "endpoint": "DELETE /edge_orchestrator/edge_services/{service_id}",
+      "path": "/edge_orchestrator/edge_services/{service_id}",
+      "method": "delete",
+      "tags": "Orchestrator - Edge Services",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAuthPoliciesLockout",
+      "endpoint": "GET /auth/policies/lockout",
+      "path": "/auth/policies/lockout",
+      "method": "get",
+      "tags": "Policy - Lockout Policy",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAuthPoliciesId",
+      "endpoint": "GET /auth/policies/{id}",
+      "path": "/auth/policies/{id}",
+      "method": "get",
+      "tags": "Policy - Policies",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutAuthPoliciesId",
+      "endpoint": "PUT /auth/policies/{id}",
+      "path": "/auth/policies/{id}",
+      "method": "put",
+      "tags": "Policy - Policies",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchAuthPoliciesId",
+      "endpoint": "PATCH /auth/policies/{id}",
+      "path": "/auth/policies/{id}",
+      "method": "patch",
+      "tags": "Policy - Policies",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteAuthPoliciesId",
+      "endpoint": "DELETE /auth/policies/{id}",
+      "path": "/auth/policies/{id}",
+      "method": "delete",
+      "tags": "Policy - Policies",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetAuthPoliciesSession",
+      "endpoint": "GET /auth/policies/session",
+      "path": "/auth/policies/session",
+      "method": "get",
+      "tags": "Policy - Session Timeout Policy",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetMarketplacePublisher",
+      "endpoint": "GET /marketplace/publisher",
+      "path": "/marketplace/publisher",
+      "method": "get",
+      "tags": "Publisher Management",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutMarketplacePublisher",
+      "endpoint": "PUT /marketplace/publisher",
+      "path": "/marketplace/publisher",
+      "method": "put",
+      "tags": "Publisher Management",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostWorkspacePurgePurgeType",
+      "endpoint": "POST /workspace/purge/{purge_type}",
+      "path": "/workspace/purge/{purge_type}",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeSqlDatabases",
+      "endpoint": "GET /workspace/sql/databases",
+      "path": "/workspace/sql/databases",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeSqlDatabases",
+      "endpoint": "POST /workspace/sql/databases",
+      "path": "/workspace/sql/databases",
+      "method": "post",
+      "tags": "SQL",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeSqlDatabasesId",
+      "endpoint": "GET /workspace/sql/databases/{id}",
+      "path": "/workspace/sql/databases/{id}",
+      "method": "get",
+      "tags": "SQL",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeSqlDatabasesId",
+      "endpoint": "DELETE /workspace/sql/databases/{id}",
+      "path": "/workspace/sql/databases/{id}",
+      "method": "delete",
+      "tags": "SQL",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeSqlDatabasesIdQuery",
+      "endpoint": "POST /workspace/sql/databases/{id}/query",
+      "path": "/workspace/sql/databases/{id}/query",
+      "method": "post",
+      "tags": "SQL",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeStorageBucketsName",
+      "endpoint": "GET /workspace/storage/buckets/{name}",
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "get",
+      "tags": "Storage - Buckets",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeStorageBucketsName",
+      "endpoint": "PATCH /workspace/storage/buckets/{name}",
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "patch",
+      "tags": "Storage - Buckets",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeStorageBucketsName",
+      "endpoint": "DELETE /workspace/storage/buckets/{name}",
+      "path": "/workspace/storage/buckets/{name}",
+      "method": "delete",
+      "tags": "Storage - Buckets",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeStorageCredentialsId",
+      "endpoint": "GET /workspace/storage/credentials/{id}",
+      "path": "/workspace/storage/credentials/{id}",
+      "method": "get",
+      "tags": "Storage - Credentials",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeStorageCredentialsId",
+      "endpoint": "DELETE /workspace/storage/credentials/{id}",
+      "path": "/workspace/storage/credentials/{id}",
+      "method": "delete",
+      "tags": "Storage - Credentials",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeStorageBucketsBucketNameObjects",
+      "endpoint": "GET /workspace/storage/buckets/{bucket_name}/objects",
+      "path": "/workspace/storage/buckets/{bucket_name}/objects",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "endpoint": "GET /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "endpoint": "POST /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "post",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "endpoint": "PUT /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeStorageBucketsBucketNameObjectsObjectKey",
+      "endpoint": "DELETE /workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "path": "/workspace/storage/buckets/{bucket_name}/objects/{object_key}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteIdentityUsersIdLockout",
+      "endpoint": "DELETE /identity/users/{id}/lockout",
+      "path": "/identity/users/{id}/lockout",
+      "method": "delete",
+      "tags": "Users - Lockout",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsContinuousDeploymentsIdExecutions",
+      "endpoint": "GET /vcs/continuous_deployments/{id}/executions",
+      "path": "/vcs/continuous_deployments/{id}/executions",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostVcsContinuousDeploymentsIdExecutions",
+      "endpoint": "POST /vcs/continuous_deployments/{id}/executions",
+      "path": "/vcs/continuous_deployments/{id}/executions",
+      "method": "post",
+      "tags": "VCS - Continuous Deployment Executions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsContinuousDeploymentsIdExecutor",
+      "endpoint": "GET /vcs/continuous_deployments/{id}/executor",
+      "path": "/vcs/continuous_deployments/{id}/executor",
+      "method": "get",
+      "tags": "VCS - Continuous Deployment Executor",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutVcsContinuousDeploymentsIdExecutor",
+      "endpoint": "PUT /vcs/continuous_deployments/{id}/executor",
+      "path": "/vcs/continuous_deployments/{id}/executor",
+      "method": "put",
+      "tags": "VCS - Continuous Deployment Executor",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsContinuousDeployments",
+      "endpoint": "GET /vcs/continuous_deployments",
+      "path": "/vcs/continuous_deployments",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostVcsContinuousDeployments",
+      "endpoint": "POST /vcs/continuous_deployments",
+      "path": "/vcs/continuous_deployments",
+      "method": "post",
+      "tags": "VCS - Continuous Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsContinuousDeploymentsId",
+      "endpoint": "GET /vcs/continuous_deployments/{id}",
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "get",
+      "tags": "VCS - Continuous Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutVcsContinuousDeploymentsId",
+      "endpoint": "PUT /vcs/continuous_deployments/{id}",
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "put",
+      "tags": "VCS - Continuous Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchVcsContinuousDeploymentsId",
+      "endpoint": "PATCH /vcs/continuous_deployments/{id}",
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "patch",
+      "tags": "VCS - Continuous Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteVcsContinuousDeploymentsId",
+      "endpoint": "DELETE /vcs/continuous_deployments/{id}",
+      "path": "/vcs/continuous_deployments/{id}",
+      "method": "delete",
+      "tags": "VCS - Continuous Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsExecutionScripts",
+      "endpoint": "GET /vcs/execution_scripts",
+      "path": "/vcs/execution_scripts",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsExecutionScriptsId",
+      "endpoint": "GET /vcs/execution_scripts/{id}",
+      "path": "/vcs/execution_scripts/{id}",
+      "method": "get",
+      "tags": "VCS - Execution Scripts",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsIntegrations",
+      "endpoint": "GET /vcs/integrations",
+      "path": "/vcs/integrations",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsIntegrationsIdRepositories",
+      "endpoint": "GET /vcs/integrations/{id}/repositories",
+      "path": "/vcs/integrations/{id}/repositories",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsIntegrationsId",
+      "endpoint": "GET /vcs/integrations/{id}",
+      "path": "/vcs/integrations/{id}",
+      "method": "get",
+      "tags": "VCS - Integrations",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteVcsIntegrationsId",
+      "endpoint": "DELETE /vcs/integrations/{id}",
+      "path": "/vcs/integrations/{id}",
+      "method": "delete",
+      "tags": "VCS - Integrations",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetVcsProviders",
+      "endpoint": "GET /vcs/providers",
+      "path": "/vcs/providers",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallWafsWafId",
+      "endpoint": "GET /workspace/wafs/{waf_id}",
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "get",
+      "tags": "WAFs",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallWafsWafId",
+      "endpoint": "PUT /workspace/wafs/{waf_id}",
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "put",
+      "tags": "WAFs",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFirewallWafsWafId",
+      "endpoint": "PATCH /workspace/wafs/{waf_id}",
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "patch",
+      "tags": "WAFs",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFirewallWafsWafId",
+      "endpoint": "DELETE /workspace/wafs/{waf_id}",
+      "path": "/workspace/wafs/{waf_id}",
+      "method": "delete",
+      "tags": "WAFs",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeFirewallWafsWafIdClone",
+      "endpoint": "POST /workspace/wafs/{waf_id}/clone",
+      "path": "/workspace/wafs/{waf_id}/clone",
+      "method": "post",
+      "tags": "WAFs",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallWafsWafIdExceptions",
+      "endpoint": "GET /workspace/wafs/{waf_id}/exceptions",
+      "path": "/workspace/wafs/{waf_id}/exceptions",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostEdgeFirewallWafsWafIdExceptions",
+      "endpoint": "POST /workspace/wafs/{waf_id}/exceptions",
+      "path": "/workspace/wafs/{waf_id}/exceptions",
+      "method": "post",
+      "tags": "WAFs - Exceptions",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "endpoint": "GET /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "endpoint": "PUT /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "endpoint": "PATCH /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteEdgeFirewallWafsWafIdExceptionsExceptionId",
+      "endpoint": "DELETE /workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "path": "/workspace/wafs/{waf_id}/exceptions/{exception_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetWorkspaceWorkloadsWorkloadIdDeployments",
+      "endpoint": "GET /workspace/workloads/{workload_id}/deployments",
+      "path": "/workspace/workloads/{workload_id}/deployments",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PostWorkspaceWorkloadsWorkloadIdDeployments",
+      "endpoint": "POST /workspace/workloads/{workload_id}/deployments",
+      "path": "/workspace/workloads/{workload_id}/deployments",
+      "method": "post",
+      "tags": "Workload Deployments",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "endpoint": "GET /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "endpoint": "PUT /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "put",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "endpoint": "PATCH /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "patch",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteWorkspaceWorkloadsWorkloadIdDeploymentsDeploymentId",
+      "endpoint": "DELETE /workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "path": "/workspace/workloads/{workload_id}/deployments/{deployment_id}",
+      "method": "delete",
+      "tags": "Unknown",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: GetWorkspaceWorkloadsWorkloadId",
+      "endpoint": "GET /workspace/workloads/{workload_id}",
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "get",
+      "tags": "Workloads",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PutWorkspaceWorkloadsWorkloadId",
+      "endpoint": "PUT /workspace/workloads/{workload_id}",
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "put",
+      "tags": "Workloads",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: PatchWorkspaceWorkloadsWorkloadId",
+      "endpoint": "PATCH /workspace/workloads/{workload_id}",
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "patch",
+      "tags": "Workloads",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    },
+    {
+      "name": "Stage-specific: DeleteWorkspaceWorkloadsWorkloadId",
+      "endpoint": "DELETE /workspace/workloads/{workload_id}",
+      "path": "/workspace/workloads/{workload_id}",
+      "method": "delete",
+      "tags": "Workloads",
+      "priority": "high",
+      "testTypes": [
+        "core",
+        "security",
+        "validation"
+      ],
+      "environment": "stage",
+      "description": "Test for endpoint only available in Stage environment"
+    }
+  ],
+  "modifiedEndpoints": [],
+  "commonEndpoints": [
+    {
+      "name": "Cross-env: GetAccountAccounts",
+      "endpoint": "GET /account/accounts",
+      "path": "/account/accounts",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostAccountAccounts",
+      "endpoint": "POST /account/accounts",
+      "path": "/account/accounts",
+      "method": "post",
+      "tags": "Accounts - Descendants",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetAccountAccount",
+      "endpoint": "GET /account/account",
+      "path": "/account/account",
+      "method": "get",
+      "tags": "Accounts - Logged In",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PutAccountAccount",
+      "endpoint": "PUT /account/account",
+      "path": "/account/account",
+      "method": "put",
+      "tags": "Accounts - Logged In",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PatchAccountAccount",
+      "endpoint": "PATCH /account/account",
+      "path": "/account/account",
+      "method": "patch",
+      "tags": "Accounts - Logged In",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeApplicationApplications",
+      "endpoint": "GET /workspace/applications",
+      "path": "/workspace/applications",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeApplicationApplications",
+      "endpoint": "POST /workspace/applications",
+      "path": "/workspace/applications",
+      "method": "post",
+      "tags": "Applications",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetPaymentsCreditCards",
+      "endpoint": "GET /payments/credit_cards",
+      "path": "/payments/credit_cards",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostPaymentsCreditCards",
+      "endpoint": "POST /payments/credit_cards",
+      "path": "/payments/credit_cards",
+      "method": "post",
+      "tags": "Billing & Payments",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostPaymentsCredits",
+      "endpoint": "POST /payments/credits",
+      "path": "/payments/credits",
+      "method": "post",
+      "tags": "Billing & Payments",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetPaymentsHistory",
+      "endpoint": "GET /payments/history",
+      "path": "/payments/history",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetWorkspaceCustomPages",
+      "endpoint": "GET /workspace/custom_pages",
+      "path": "/workspace/custom_pages",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostWorkspaceCustomPages",
+      "endpoint": "POST /workspace/custom_pages",
+      "path": "/workspace/custom_pages",
+      "method": "post",
+      "tags": "Custom Pages",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeDnsZones",
+      "endpoint": "GET /workspace/dns/zones",
+      "path": "/workspace/dns/zones",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeDnsZones",
+      "endpoint": "POST /workspace/dns/zones",
+      "path": "/workspace/dns/zones",
+      "method": "post",
+      "tags": "DNS - Zones",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeFirewallFirewalls",
+      "endpoint": "GET /workspace/firewalls",
+      "path": "/workspace/firewalls",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeFirewallFirewalls",
+      "endpoint": "POST /workspace/firewalls",
+      "path": "/workspace/firewalls",
+      "method": "post",
+      "tags": "Firewalls",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeFunctionsFunctions",
+      "endpoint": "POST /workspace/functions",
+      "path": "/workspace/functions",
+      "method": "post",
+      "tags": "Functions",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetIdentityUsers",
+      "endpoint": "GET /identity/users",
+      "path": "/identity/users",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostIdentityUsers",
+      "endpoint": "POST /identity/users",
+      "path": "/identity/users",
+      "method": "post",
+      "tags": "Identity - Users",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetWorkspaceNetworkLists",
+      "endpoint": "GET /workspace/network_lists",
+      "path": "/workspace/network_lists",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostWorkspaceNetworkLists",
+      "endpoint": "POST /workspace/network_lists",
+      "path": "/workspace/network_lists",
+      "method": "post",
+      "tags": "Network Lists",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeOrchestratorEdgeNodesGroups",
+      "endpoint": "GET /edge_orchestrator/edge_nodes/groups",
+      "path": "/edge_orchestrator/edge_nodes/groups",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeOrchestratorEdgeNodesGroups",
+      "endpoint": "POST /edge_orchestrator/edge_nodes/groups",
+      "path": "/edge_orchestrator/edge_nodes/groups",
+      "method": "post",
+      "tags": "Orchestrator - Edge Node Groups",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeOrchestratorEdgeNodes",
+      "endpoint": "GET /edge_orchestrator/edge_nodes",
+      "path": "/edge_orchestrator/edge_nodes",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeOrchestratorEdgeServices",
+      "endpoint": "GET /edge_orchestrator/edge_services",
+      "path": "/edge_orchestrator/edge_services",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeOrchestratorEdgeServices",
+      "endpoint": "POST /edge_orchestrator/edge_services",
+      "path": "/edge_orchestrator/edge_services",
+      "method": "post",
+      "tags": "Orchestrator - Edge Services",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PutAuthPoliciesLockout",
+      "endpoint": "PUT /auth/policies/lockout",
+      "path": "/auth/policies/lockout",
+      "method": "put",
+      "tags": "Policy - Lockout Policy",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetAuthPolicies",
+      "endpoint": "GET /auth/policies",
+      "path": "/auth/policies",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostAuthPolicies",
+      "endpoint": "POST /auth/policies",
+      "path": "/auth/policies",
+      "method": "post",
+      "tags": "Policy - Policies",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PutAuthPoliciesSession",
+      "endpoint": "PUT /auth/policies/session",
+      "path": "/auth/policies/session",
+      "method": "put",
+      "tags": "Policy - Session Timeout Policy",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeStorageBuckets",
+      "endpoint": "GET /workspace/storage/buckets",
+      "path": "/workspace/storage/buckets",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeStorageBuckets",
+      "endpoint": "POST /workspace/storage/buckets",
+      "path": "/workspace/storage/buckets",
+      "method": "post",
+      "tags": "Storage - Buckets",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeStorageCredentials",
+      "endpoint": "GET /workspace/storage/credentials",
+      "path": "/workspace/storage/credentials",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeStorageCredentials",
+      "endpoint": "POST /workspace/storage/credentials",
+      "path": "/workspace/storage/credentials",
+      "method": "post",
+      "tags": "Storage - Credentials",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetEdgeFirewallWafs",
+      "endpoint": "GET /workspace/wafs",
+      "path": "/workspace/wafs",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostEdgeFirewallWafs",
+      "endpoint": "POST /workspace/wafs",
+      "path": "/workspace/wafs",
+      "method": "post",
+      "tags": "WAFs",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: GetWorkspaceWorkloads",
+      "endpoint": "GET /workspace/workloads",
+      "path": "/workspace/workloads",
+      "method": "get",
+      "tags": "Unknown",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    },
+    {
+      "name": "Cross-env: PostWorkspaceWorkloads",
+      "endpoint": "POST /workspace/workloads",
+      "path": "/workspace/workloads",
+      "method": "post",
+      "tags": "Workloads",
+      "priority": "medium",
+      "testTypes": [
+        "core",
+        "compatibility"
+      ],
+      "environment": "both",
+      "description": "Verify endpoint works consistently across environments"
+    }
+  ]
+}

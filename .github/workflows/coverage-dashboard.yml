@@ -1,0 +1,86 @@
+name: Coverage Dashboard Deployment
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run every hour to update dashboard
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  deploy-dashboard:
+    name: Deploy Live Coverage Dashboard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          cd cypress-automation
+          npm ci
+
+      - name: Generate coverage reports
+        run: |
+          cd cypress-automation
+          npm run dashboard:report
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_API_TOKEN }}
+          CYPRESS_accountId: ${{ secrets.AZION_ACCOUNT_ID }}
+
+      - name: Build dashboard
+        run: |
+          cd cypress-automation
+          mkdir -p dist
+          cp reports/live/dashboard.html dist/index.html
+          cp reports/live/*.json dist/
+          cp reports/live/*.md dist/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./cypress-automation/dist
+          destination_dir: dashboard
+
+      - name: Update deployment status
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Dashboard deployed successfully"
+            echo "🔗 Available at: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/dashboard/"
+          else
+            echo "❌ Dashboard deployment failed"
+          fi
+
+  notify-teams:
+    name: Notify Teams
+    runs-on: ubuntu-latest
+    needs: deploy-dashboard
+    if: always()
+    steps:
+      - name: Send notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          channel: '#api-testing'
+          text: |
+            🚀 Coverage Dashboard Update
+            
+            **Status**: ${{ needs.deploy-dashboard.result }}
+            **Branch**: ${{ github.ref_name }}
+            **Commit**: ${{ github.sha }}
+            
+            📊 Dashboard: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/dashboard/
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
