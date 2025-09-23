@@ -90,6 +90,7 @@ jobs:
         env:
           AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
           AZION_BASE_URL: ${{ vars.AZION_BASE_URL }}
+          ACCOUNT_ID: ${{ vars.ACCOUNT_ID }}
           TARGET_ENVIRONMENT: ${{ github.event.inputs.environment }}
         run: |
           echo "🌍 Configuring environment: $TARGET_ENVIRONMENT"
@@ -113,7 +114,7 @@ jobs:
             "baseUrl": "$BASE_URL",
             "token": "$AZION_TOKEN",
             "environment": "$TARGET_ENVIRONMENT",
-            "accountId": "${{ vars.ACCOUNT_ID || '1234' }}",
+            "accountId": "${ACCOUNT_ID:-1234}",
             "timeout": 30000,
             "requestTimeout": 10000,
             "responseTimeout": 30000,
@@ -133,7 +134,7 @@ jobs:
           echo "🔧 Validating test configuration..."
           
           # Check required secrets
-          if [ -z "${{ secrets.AZION_TOKEN }}" ]; then
+          if [ -z "$AZION_TOKEN" ]; then
             echo "❌ AZION_TOKEN secret not configured for ${{ github.event.inputs.environment }}"
             exit 1
           fi
@@ -146,6 +147,8 @@ jobs:
 
       - name: 🧪 Run Cypress Tests
         env:
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          ACCOUNT_ID: ${{ vars.ACCOUNT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -182,7 +185,7 @@ jobs:
           CYPRESS_CMD="$CYPRESS_CMD --headless"
           CYPRESS_CMD="$CYPRESS_CMD --spec \"$SPEC_PATTERN\""
           CYPRESS_CMD="$CYPRESS_CMD --config baseUrl=\$BASE_URL,video=true,screenshotOnRunFailure=true,videosFolder=cypress/videos,screenshotsFolder=cypress/screenshots"
-          CYPRESS_CMD="$CYPRESS_CMD --env token=\$AZION_TOKEN,accountId=\${{ vars.ACCOUNT_ID || '1234' }},environment=\$TARGET_ENVIRONMENT"
+          CYPRESS_CMD="$CYPRESS_CMD --env token=$AZION_TOKEN,accountId=${ACCOUNT_ID:-1234},environment=$TARGET_ENVIRONMENT"
           CYPRESS_CMD="$CYPRESS_CMD --reporter mochawesome"
           CYPRESS_CMD="$CYPRESS_CMD --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true,reportFilename=api-test-report"
           
@@ -241,10 +244,10 @@ jobs:
             echo "✅ AZION_TOKEN is set (length: ${#AZION_TOKEN})"
           fi
           
-          if [ -z "${{ vars.ACCOUNT_ID }}" ]; then
+          if [ -z "$ACCOUNT_ID" ]; then
             echo "❌ ACCOUNT_ID is empty or not set"
           else
-            echo "✅ ACCOUNT_ID is set: ${{ vars.ACCOUNT_ID }}"
+            echo "✅ ACCOUNT_ID is set: $ACCOUNT_ID"
           fi
           
           # Execute tests with comprehensive error handling
