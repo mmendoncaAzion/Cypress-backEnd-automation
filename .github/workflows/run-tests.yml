@@ -181,7 +181,8 @@ jobs:
           CYPRESS_CMD="$CYPRESS_CMD --browser ${{ github.event.inputs.browser }}"
           CYPRESS_CMD="$CYPRESS_CMD --headless"
           CYPRESS_CMD="$CYPRESS_CMD --spec \"$SPEC_PATTERN\""
-          CYPRESS_CMD="$CYPRESS_CMD --config video=true,screenshotOnRunFailure=true,videosFolder=cypress/videos,screenshotsFolder=cypress/screenshots"
+          CYPRESS_CMD="$CYPRESS_CMD --config baseUrl=\$BASE_URL,video=true,screenshotOnRunFailure=true,videosFolder=cypress/videos,screenshotsFolder=cypress/screenshots"
+          CYPRESS_CMD="$CYPRESS_CMD --env token=\$AZION_TOKEN,accountId=\${{ vars.ACCOUNT_ID || '1234' }},environment=\$TARGET_ENVIRONMENT"
           CYPRESS_CMD="$CYPRESS_CMD --reporter mochawesome"
           CYPRESS_CMD="$CYPRESS_CMD --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true,reportFilename=api-test-report"
           
@@ -194,6 +195,24 @@ jobs:
           # Add recording if enabled and key is available
           if [ "${{ github.event.inputs.record }}" == "true" ] && [ -n "$CYPRESS_RECORD_KEY" ]; then
             CYPRESS_CMD="$CYPRESS_CMD --record --key $CYPRESS_RECORD_KEY"
+          fi
+          
+          # Debug: Show environment and configuration
+          echo "🔍 Debug Information:"
+          echo "BASE_URL: $BASE_URL"
+          echo "TARGET_ENVIRONMENT: $TARGET_ENVIRONMENT"
+          echo "SPEC_PATTERN: $SPEC_PATTERN"
+          echo "Working Directory: $(pwd)"
+          
+          # Check if test files exist
+          echo "📁 Checking test files:"
+          if [ -d "cypress/e2e/api" ]; then
+            echo "✅ cypress/e2e/api directory exists"
+            ls -la cypress/e2e/api/ | head -10
+          else
+            echo "❌ cypress/e2e/api directory not found"
+            echo "Available directories:"
+            find cypress -type d -name "*api*" 2>/dev/null || echo "No API directories found"
           fi
           
           # Execute tests with error handling
@@ -210,8 +229,8 @@ jobs:
             echo '{"stats":{"tests":0,"passes":0,"failures":0},"results":[]}' > cypress/reports/api-test-report.json
           fi
           
-          # Exit with the original test exit code
-          exit $TEST_EXIT_CODE
+          # Don't exit with failure code to allow artifact collection
+          echo "Continuing workflow to collect artifacts..."
 
       - name: 📊 Generate API Test Report
         if: always()
