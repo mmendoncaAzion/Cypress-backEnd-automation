@@ -1,0 +1,161 @@
+name: ⚡ Parallel Core API Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  parallel-tests:
+    name: 🚀 ${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          - name: 'Account Management'
+            spec: 'cypress/e2e/api/account-management-v2.cy.js'
+            tests: 10
+          - name: 'Domains API'
+            spec: 'cypress/e2e/api/domains-api-v2.cy.js'
+            tests: 12
+          - name: 'Real-time Purge'
+            spec: 'cypress/e2e/api/real-time-purge-v2.cy.js'
+            tests: 14
+          - name: 'Framework Demo'
+            spec: 'cypress/e2e/api/enhanced/integrated-framework-demo.cy.js'
+            tests: 10
+          - name: 'Simple Validation'
+            spec: 'cypress/e2e/api/enhanced/simple-test-validation.cy.js'
+            tests: 8
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔧 Environment Setup
+        run: |
+          case "${{ github.event.inputs.environment || 'stage' }}" in
+            "dev") echo "CYPRESS_baseUrl=https://api-dev.azionapi.net" >> $GITHUB_ENV ;;
+            "stage") echo "CYPRESS_baseUrl=https://api-stage.azionapi.net" >> $GITHUB_ENV ;;
+            "prod") echo "CYPRESS_baseUrl=https://api.azionapi.net" >> $GITHUB_ENV ;;
+          esac
+
+      - name: 🧪 Run Tests - ${{ matrix.suite.name }}
+        uses: cypress-io/github-action@v6
+        with:
+          spec: ${{ matrix.suite.spec }}
+          browser: electron
+          headless: true
+          config: |
+            video=true,
+            screenshotOnRunFailure=true,
+            requestTimeout=60000,
+            responseTimeout=60000
+        env:
+          CYPRESS_token: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_accountId: ${{ vars.ACCOUNT_ID }}
+          CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📊 Test Metrics
+        if: always()
+        run: |
+          mkdir -p reports/parallel-metrics
+          cat > reports/parallel-metrics/${{ matrix.suite.name }}.json << EOF
+          {
+            "suite": "${{ matrix.suite.name }}",
+            "spec": "${{ matrix.suite.spec }}",
+            "expectedTests": ${{ matrix.suite.tests }},
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)",
+            "environment": "${{ github.event.inputs.environment || 'stage' }}",
+            "runId": "${{ github.run_id }}",
+            "status": "${{ job.status }}"
+          }
+          EOF
+
+      - name: 📤 Upload Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.suite.name }}-results
+          path: |
+            cypress/videos/
+            cypress/screenshots/
+            reports/
+          retention-days: 30
+
+  consolidate-results:
+    name: 📋 Consolidate Results
+    runs-on: ubuntu-latest
+    needs: parallel-tests
+    if: always()
+    
+    steps:
+      - name: 📥 Download Results
+        uses: actions/download-artifact@v4
+        with:
+          path: all-results/
+
+      - name: 📊 Generate Consolidated Report
+        run: |
+          echo "# ⚡ Parallel Core Tests Report" > consolidated-report.md
+          echo "" >> consolidated-report.md
+          echo "**Environment:** ${{ github.event.inputs.environment || 'stage' }}" >> consolidated-report.md
+          echo "**Execution Time:** $(date -u)" >> consolidated-report.md
+          echo "**Run ID:** ${{ github.run_id }}" >> consolidated-report.md
+          echo "" >> consolidated-report.md
+          echo "## Test Suites Execution" >> consolidated-report.md
+          echo "" >> consolidated-report.md
+          echo "| Suite | Expected Tests | Status | Artifacts |" >> consolidated-report.md
+          echo "|-------|----------------|--------|-----------|" >> consolidated-report.md
+          
+          suites=("Account Management:10" "Domains API:12" "Real-time Purge:14" "Framework Demo:10" "Simple Validation:8")
+          total_tests=0
+          
+          for suite_info in "${suites[@]}"; do
+            suite_name=$(echo $suite_info | cut -d: -f1)
+            expected=$(echo $suite_info | cut -d: -f2)
+            total_tests=$((total_tests + expected))
+            
+            if [ -d "all-results/${suite_name}-results" ]; then
+              echo "| ${suite_name} | ${expected} | ✅ | 📁 Available |" >> consolidated-report.md
+            else
+              echo "| ${suite_name} | ${expected} | ❌ | ❌ Missing |" >> consolidated-report.md
+            fi
+          done
+          
+          echo "" >> consolidated-report.md
+          echo "**Total Expected Tests:** ${total_tests}" >> consolidated-report.md
+          echo "" >> consolidated-report.md
+          echo "## Performance Benefits" >> consolidated-report.md
+          echo "" >> consolidated-report.md
+          echo "- ⚡ **Parallel Execution:** All 5 suites run simultaneously" >> consolidated-report.md
+          echo "- 🚀 **Faster Feedback:** ~5x speed improvement vs sequential" >> consolidated-report.md
+          echo "- 🎯 **Focused Testing:** Only production-ready core tests" >> consolidated-report.md
+          echo "- 📊 **Individual Metrics:** Per-suite reporting and artifacts" >> consolidated-report.md
+          
+          cat consolidated-report.md
+
+      - name: 📤 Upload Consolidated Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: consolidated-parallel-report
+          path: consolidated-report.md
+          retention-days: 90

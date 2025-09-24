@@ -5,7 +5,6 @@
 
 class UrlBuilder {
   constructor() {
-    const baseUrl = Cypress.env('baseUrl') || this.getBaseUrl();
     this.pathCache = new Map()
   }
 
@@ -61,7 +60,7 @@ class UrlBuilder {
     // Handle common parameter patterns
     const paramPatterns = {
       '{id}': pathParams.id || pathParams.resourceId,
-      '{accountId}': pathParams.accountId || authHelper.getAccountId(),
+      '{accountId}': pathParams.accountId || Cypress.env('ACCOUNT_ID'),
       '{applicationId}': pathParams.applicationId,
       '{domainId}': pathParams.domainId,
       '{functionId}': pathParams.functionId,
@@ -260,7 +259,7 @@ class UrlBuilder {
      */
   buildUrlWithContext(endpoint, context = {}) {
     const pathParams = {
-      accountId: context.accountId || authHelper.getAccountId(),
+      accountId: context.accountId || Cypress.env('ACCOUNT_ID'),
       id: context.id || context.resourceId,
       applicationId: context.applicationId,
       domainId: context.domainId,

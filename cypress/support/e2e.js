@@ -6,8 +6,7 @@
 import './commands'
 
 // Import API helper classes
-import './api-helpers'
-import './edge-application-helpers'
+import './enhanced-api-client'
 
 // Global test configuration
 beforeEach(() => {

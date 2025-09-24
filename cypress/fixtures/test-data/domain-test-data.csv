@@ -1,0 +1,6 @@
+testCase,name,cnameAccessOnly,isActive,expectedStatus,shouldSucceed
+valid_domain,test-domain-1.com,true,true,201,true
+invalid_domain_format,invalid..domain,false,true,422,false
+duplicate_domain,existing-domain.com,false,true,400,false
+empty_domain_name,,true,false,422,false
+special_chars_domain,test@domain.com,false,true,422,false

@@ -75,7 +75,7 @@ export class ImprovedErrorHandler {
     if (response.body) {
       throw new Error(
         `API request failed with status ${response.status}: ${JSON.stringify(response.body)}`
-      );
+      )
     }
 
     if (response.body) {
@@ -131,7 +131,9 @@ export class ImprovedErrorHandler {
         if (response.body.detail) expect(response.body.detail).to.be.a('string')
       },
       401: () => {
-        if (response.body.detail) expect(response.body.detail).to.include.oneOf(['authentication', 'token', 'unauthorized'])
+        if (response.body.detail) {
+          expect(response.body.detail).to.include.oneOf(['authentication', 'token', 'unauthorized'])
+        }
       },
       403: () => {
         if (response.body.detail) expect(response.body.detail).to.include.oneOf(['permission', 'forbidden', 'access'])
@@ -140,7 +142,7 @@ export class ImprovedErrorHandler {
         if (response.body.detail) expect(response.body.detail).to.include.oneOf(['not found', 'does not exist'])
       },
       429: () => {
-        cy.wait(2000); // eslint-disable-line cypress/no-unnecessary-waiting
+        cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
         return true
       }
     }
@@ -150,8 +152,7 @@ export class ImprovedErrorHandler {
       try {
         validator()
       } catch (error) {
-        cy.log(`⚠️ Error structure validation failed: ${error.message}`)
-        // Don't fail the test, just log the issue
+        cy.log(`⚠️ Error validation failed: ${error.message}`)
       }
     }
   }

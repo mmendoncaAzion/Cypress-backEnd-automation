@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypress API Tests - CI/CD Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header { 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 1.1em; }
+        .metrics { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            padding: 30px; 
+        }
+        .metric-card { 
+            background: #f8f9fa; 
+            padding: 25px; 
+            border-radius: 8px; 
+            text-align: center;
+            border-left: 4px solid #28a745;
+        }
+        .metric-card.warning { border-left-color: #ffc107; }
+        .metric-card.danger { border-left-color: #dc3545; }
+        .metric-value { 
+            font-size: 2.5em; 
+            font-weight: bold; 
+            color: #333; 
+            margin-bottom: 5px; 
+        }
+        .metric-label { 
+            color: #666; 
+            font-size: 0.9em; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .tests-grid { 
+            padding: 30px; 
+            background: #f8f9fa; 
+        }
+        .tests-grid h2 { 
+            margin-bottom: 20px; 
+            color: #333; 
+            text-align: center; 
+        }
+        .test-suite { 
+            background: white; 
+            margin-bottom: 15px; 
+            padding: 20px; 
+            border-radius: 8px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .suite-info h3 { color: #333; margin-bottom: 5px; }
+        .suite-info p { color: #666; font-size: 0.9em; }
+        .suite-status { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        .status-badge { 
+            padding: 5px 12px; 
+            border-radius: 20px; 
+            font-size: 0.8em; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+        }
+        .status-passing { 
+            background: #d4edda; 
+            color: #155724; 
+        }
+        .status-failing { 
+            background: #f8d7da; 
+            color: #721c24; 
+        }
+        .footer { 
+            padding: 20px 30px; 
+            background: #333; 
+            color: white; 
+            text-align: center; 
+        }
+        .timestamp { 
+            opacity: 0.7; 
+            font-size: 0.9em; 
+        }
+        .success-rate {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Cypress API Tests</h1>
+            <p>Production Ready Core Tests Dashboard</p>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value success-rate">100.0%</div>
+                <div class="metric-label">Success Rate</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">5</div>
+                <div class="metric-label">Test Suites</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">54</div>
+                <div class="metric-label">Total Tests</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">54</div>
+                <div class="metric-label">Passing Tests</div>
+            </div>
+        </div>
+        
+        <div class="tests-grid">
+            <h2>📊 Core Test Suites Status</h2>
+            
+                <div class="test-suite">
+                    <div class="suite-info">
+                        <h3>Account Management V2</h3>
+                        <p>10 tests • Duration: 5s</p>
+                    </div>
+                    <div class="suite-status">
+                        <span class="status-badge status-passing">passing</span>
+                        <span style="font-size: 1.5em;">✅</span>
+                    </div>
+                </div>
+            
+                <div class="test-suite">
+                    <div class="suite-info">
+                        <h3>Domains Api V2</h3>
+                        <p>12 tests • Duration: 2s</p>
+                    </div>
+                    <div class="suite-status">
+                        <span class="status-badge status-passing">passing</span>
+                        <span style="font-size: 1.5em;">✅</span>
+                    </div>
+                </div>
+            
+                <div class="test-suite">
+                    <div class="suite-info">
+                        <h3>Real Time Purge V2</h3>
+                        <p>14 tests • Duration: 1s</p>
+                    </div>
+                    <div class="suite-status">
+                        <span class="status-badge status-passing">passing</span>
+                        <span style="font-size: 1.5em;">✅</span>
+                    </div>
+                </div>
+            
+                <div class="test-suite">
+                    <div class="suite-info">
+                        <h3>Integrated Framework Demo</h3>
+                        <p>10 tests • Duration: 619ms</p>
+                    </div>
+                    <div class="suite-status">
+                        <span class="status-badge status-passing">passing</span>
+                        <span style="font-size: 1.5em;">✅</span>
+                    </div>
+                </div>
+            
+                <div class="test-suite">
+                    <div class="suite-info">
+                        <h3>Simple Test Validation</h3>
+                        <p>8 tests • Duration: 539ms</p>
+                    </div>
+                    <div class="suite-status">
+                        <span class="status-badge status-passing">passing</span>
+                        <span style="font-size: 1.5em;">✅</span>
+                    </div>
+                </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p><strong>Environment:</strong> STAGE</p>
+            <p class="timestamp">Last updated: 9/24/2025, 4:10:12 PM</p>
+        </div>
+    </div>
+</body>
+</html>

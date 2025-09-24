@@ -1,0 +1,32 @@
+[
+  {
+    "page": 1,
+    "pageSize": 5,
+    "expectedMinItems": 1,
+    "expectedMaxItems": 5
+  },
+  {
+    "page": 1,
+    "pageSize": 10,
+    "expectedMinItems": 1,
+    "expectedMaxItems": 10
+  },
+  {
+    "page": 2,
+    "pageSize": 5,
+    "expectedMinItems": 0,
+    "expectedMaxItems": 5
+  },
+  {
+    "page": 1,
+    "pageSize": 100,
+    "expectedMinItems": 1,
+    "expectedMaxItems": 100
+  },
+  {
+    "page": 999,
+    "pageSize": 10,
+    "expectedMinItems": 0,
+    "expectedMaxItems": 0
+  }
+]

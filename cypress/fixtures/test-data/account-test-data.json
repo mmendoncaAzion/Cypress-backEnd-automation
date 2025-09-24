@@ -1,0 +1,42 @@
+[
+  {
+    "testCase": "valid_account_creation",
+    "name": "Test Account 1",
+    "email": "test1@example.com",
+    "company": "Test Company 1",
+    "expectedStatus": 201,
+    "shouldSucceed": true
+  },
+  {
+    "testCase": "duplicate_email",
+    "name": "Test Account 2",
+    "email": "duplicate@example.com",
+    "company": "Test Company 2",
+    "expectedStatus": 400,
+    "shouldSucceed": false
+  },
+  {
+    "testCase": "invalid_email_format",
+    "name": "Test Account 3",
+    "email": "invalid-email",
+    "company": "Test Company 3",
+    "expectedStatus": 422,
+    "shouldSucceed": false
+  },
+  {
+    "testCase": "missing_required_fields",
+    "name": "",
+    "email": "",
+    "company": "Test Company 4",
+    "expectedStatus": 422,
+    "shouldSucceed": false
+  },
+  {
+    "testCase": "long_name_validation",
+    "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "email": "longname@example.com",
+    "company": "Test Company 5",
+    "expectedStatus": 422,
+    "shouldSucceed": false
+  }
+]

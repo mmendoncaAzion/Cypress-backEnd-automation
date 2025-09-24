@@ -19,7 +19,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/login/method - Retrieve user login method', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.azionApiRequest('GET', '/auth/login/method',
+    cy.azionApiRequest('GET', '/auth/login/method', null, {
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
