@@ -1,127 +1,141 @@
 {
   "category": "Account API V3",
-  "passed": 17,
+  "passed": 19,
   "failed": 0,
-  "total": 17,
+  "total": 19,
   "successRate": 100,
   "results": [
     {
-      "test": "read_list",
+      "test": "update_valid",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:10.099Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:32.093Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "delete_valid",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:32.487Z",
       "category": "Account API V3"
     },
     {
       "test": "cors_validation",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:17.392Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:34.267Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "concurrent_0",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.171Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "concurrent_1",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.173Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "concurrent_2",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.174Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "concurrent_3",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.175Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "concurrent_4",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.176Z",
       "category": "Account API V3"
     },
     {
       "test": "rate_limit_0",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:20.410Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.276Z",
       "category": "Account API V3"
     },
     {
       "test": "rate_limit_1",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:21.051Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.307Z",
       "category": "Account API V3"
     },
     {
       "test": "rate_limit_2",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:21.551Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.335Z",
       "category": "Account API V3"
     },
     {
       "test": "rate_limit_3",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:22.133Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.385Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_4",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.411Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_5",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.466Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_6",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.494Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_7",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.527Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_8",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.558Z",
+      "category": "Account API V3"
+    },
+    {
+      "test": "rate_limit_9",
+      "status": "passed",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.608Z",
       "category": "Account API V3"
     },
     {
       "test": "response_time",
       "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:23.189Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "large_data",
-      "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:23.801Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "validation_required",
-      "status": "passed",
-      "statusCode": 400,
-      "timestamp": "2025-09-24T18:49:27.880Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "validation_types",
-      "status": "passed",
-      "statusCode": 400,
-      "timestamp": "2025-09-24T18:49:28.504Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "validation_email",
-      "status": "passed",
-      "statusCode": 400,
-      "timestamp": "2025-09-24T18:49:28.996Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "i18n_utf8",
-      "status": "passed",
-      "statusCode": 400,
-      "timestamp": "2025-09-24T18:49:30.239Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "i18n_locale_en-US",
-      "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:30.839Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "i18n_locale_pt-BR",
-      "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:31.288Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "i18n_locale_ja-JP",
-      "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:31.673Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "i18n_locale_zh-CN",
-      "status": "passed",
-      "statusCode": 200,
-      "timestamp": "2025-09-24T18:49:32.152Z",
-      "category": "Account API V3"
-    },
-    {
-      "test": "error_missing_content_type",
-      "status": "passed",
-      "statusCode": 415,
-      "timestamp": "2025-09-24T18:49:34.304Z",
+      "statusCode": 204,
+      "timestamp": "2025-09-24T20:46:35.693Z",
       "category": "Account API V3"
     }
   ]

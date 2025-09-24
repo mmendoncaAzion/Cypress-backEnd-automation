@@ -52,9 +52,9 @@ jobs:
       - name: 🔧 Environment Setup
         run: |
           case "${{ github.event.inputs.environment || 'stage' }}" in
-            "dev") echo "CYPRESS_baseUrl=https://api-dev.azionapi.net" >> $GITHUB_ENV ;;
-            "stage") echo "CYPRESS_baseUrl=https://api-stage.azionapi.net" >> $GITHUB_ENV ;;
-            "prod") echo "CYPRESS_baseUrl=https://api.azionapi.net" >> $GITHUB_ENV ;;
+            "dev") echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV ;;
+            "stage") echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV ;;
+            "prod") echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV ;;
           esac
 
       - name: 🧪 Run Tests - ${{ matrix.suite.name }}

@@ -1,0 +1,51 @@
+name: 🧪 Simple API Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  api-tests:
+    name: 🚀 API Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🧪 Run Cypress Tests
+        uses: cypress-io/github-action@v6
+        with:
+          spec: cypress/e2e/api/simple-test-validation.cy.js
+        env:
+          CYPRESS_token: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_accountId: ${{ vars.ACCOUNT_ID }}
+          CYPRESS_baseUrl: https://api.azion.com
+          CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📤 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-results-${{ github.run_number }}
+          path: |
+            cypress/videos/
+            cypress/screenshots/
+          retention-days: 7

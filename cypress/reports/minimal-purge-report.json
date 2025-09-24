@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-09-24T20:01:18.784Z",
+  "environment": "production",
+  "baseUrl": "https://api.azion.com",
+  "totalTests": 5,
+  "statusCodes": {
+    "204": 5
+  },
+  "results": [
+    {
+      "test": "Basic Purge URL",
+      "timestamp": "2025-09-24T20:01:17.462Z",
+      "status": 204,
+      "statusText": "No Content",
+      "curlCommand": "curl -X POST \"https://api.azion.com/purge/url\" -H \"Content-Type: application/json\" -H \"Authorization: Token [REDACTED]\" -d '{\"urls\":[\"https://example.com/test-page.html\"],\"method\":\"delete\"}'"
+    },
+    {
+      "test": "No Authentication",
+      "timestamp": "2025-09-24T20:01:17.860Z",
+      "status": 204,
+      "statusText": "No Content",
+      "curlCommand": "curl -X POST \"https://api.azion.com/purge/url\" -H \"Content-Type: application/json\" -d '{\"urls\":[\"https://example.com/test-page.html\"],\"method\":\"delete\"}'"
+    },
+    {
+      "test": "External Domain Purge",
+      "timestamp": "2025-09-24T20:01:18.119Z",
+      "status": 204,
+      "statusText": "No Content",
+      "curlCommand": "curl -X POST \"https://api.azion.com/purge/url\" -H \"Content-Type: application/json\" -H \"Authorization: Token [REDACTED]\" -d '{\"urls\":[\"https://google.com/test-page.html\"],\"method\":\"delete\"}'"
+    },
+    {
+      "test": "Cache Key Purge",
+      "timestamp": "2025-09-24T20:01:18.354Z",
+      "status": 204,
+      "statusText": "No Content",
+      "curlCommand": "curl -X POST \"https://api.azion.com/purge/cachekey\" -H \"Content-Type: application/json\" -H \"Authorization: Token [REDACTED]\" -d '{\"cache_keys\":[\"test-cache-key-123\"],\"method\":\"delete\"}'"
+    },
+    {
+      "test": "Invalid Request Format",
+      "timestamp": "2025-09-24T20:01:18.603Z",
+      "status": 204,
+      "statusText": "No Content",
+      "curlCommand": "curl -X POST \"https://api.azion.com/purge/url\" -H \"Content-Type: application/json\" -H \"Authorization: Token [REDACTED]\" -d '{\"invalid_field\":\"invalid_value\"}'"
+    }
+  ],
+  "conclusions": [
+    "Real HTTP responses captured from Azion Purge API",
+    "Status codes are actual API responses - no assumptions",
+    "Evidence-based findings for security assessment",
+    "Tests completed without compilation errors"
+  ]
+}

@@ -56,16 +56,16 @@ jobs:
         run: |
           echo "Setting up environment for: ${{ github.event.inputs.environment || 'stage' }}"
           
-          # Set environment-specific base URL
+          # Set environment-specific base URL  
           case "${{ github.event.inputs.environment || 'stage' }}" in
             "dev")
-              echo "CYPRESS_baseUrl=https://api-dev.azionapi.net" >> $GITHUB_ENV
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
               ;;
             "stage")
-              echo "CYPRESS_baseUrl=https://api-stage.azionapi.net" >> $GITHUB_ENV
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
               ;;
             "prod")
-              echo "CYPRESS_baseUrl=https://api.azionapi.net" >> $GITHUB_ENV
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
               ;;
           esac
           
@@ -89,12 +89,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           spec: ${{ env.SPEC_PATTERN }}
-          browser: ${{ github.event.inputs.browser }}
           install: true
-          start: ""
-          wait-on: ""
-          parallel: ${{ github.event.inputs.parallel || 'true' }}
-          record: ${{ github.event.inputs.record || 'false' }}
           config: video=true,screenshotOnRunFailure=true,requestTimeout=60000,responseTimeout=60000,defaultCommandTimeout=10000
             
         env:
@@ -102,7 +97,6 @@ jobs:
           CYPRESS_accountId: ${{ vars.ACCOUNT_ID }}
           CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: 📊 Generate Test Metrics
         if: always()

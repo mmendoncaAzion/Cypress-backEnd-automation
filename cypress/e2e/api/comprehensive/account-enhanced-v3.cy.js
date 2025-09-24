@@ -39,7 +39,7 @@ class AccountTestSuite extends ComprehensiveTestSuite {
   }
 
   getDefaultResourceId() {
-    return Cypress.env('ACCOUNT_ID') || '12345'
+    return Cypress.env('ACCOUNT_ID') || Cypress.env('accountId') || '25433'
   }
 
   getMinimumValidData() {

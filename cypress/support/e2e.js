@@ -2,8 +2,14 @@
 // Azion V4 API Test Support Configuration
 // ***********************************************************
 
-// Import custom commands
+// Import commands.js using ES2015 syntax:
 import './commands'
+
+// Import Newman patterns support
+import './newman-patterns'
+
+// Alternatively you can use CommonJS syntax:
+// require('./commands')
 
 // Import API helper classes
 import './enhanced-api-client'

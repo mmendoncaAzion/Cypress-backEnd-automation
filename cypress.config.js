@@ -21,16 +21,16 @@ module.exports = defineConfig({
       
       const environments = {
         dev: {
-          baseUrl: 'https://api-dev.azionapi.net',
-          authEndpoint: 'https://api-dev.azionapi.net/tokens'
+          baseUrl: 'https://api.azion.com',
+          authEndpoint: 'https://api.azion.com/tokens'
         },
         stage: {
-          baseUrl: 'https://api-stage.azionapi.net',
-          authEndpoint: 'https://api-stage.azionapi.net/tokens'
+          baseUrl: 'https://api.azion.com',
+          authEndpoint: 'https://api.azion.com/tokens'
         },
         prod: {
-          baseUrl: 'https://api.azionapi.net',
-          authEndpoint: 'https://api.azionapi.net/tokens'
+          baseUrl: 'https://api.azion.com',
+          authEndpoint: 'https://api.azion.com/tokens'
         }
       }
 

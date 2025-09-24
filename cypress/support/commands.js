@@ -7,13 +7,8 @@
 import 'cypress-real-events'
 import '@cypress/grep'
 
-// Import utilities
-const authHelper = require('./auth-helper')
-const urlBuilder = require('./url-builder')
-
-// Import enhanced API helpers
-import './enhanced-api-helpers'
-import apiClient from './enhanced-api-client'
+// Import custom commands
+import './commands/detailed-logging'
 
 // Disable test failure for all uncaught exceptions
 Cypress.on('uncaught:exception', () => {
@@ -24,14 +19,27 @@ Cypress.on('uncaught:exception', () => {
  * Custom Cypress command to make authenticated API requests
  */
 Cypress.Commands.add('azionApiRequest', (method, endpoint, body = null, options = {}) => {
-  return apiClient.makeRequest(method, endpoint, {
-    body,
-    pathParams: options.pathParams,
-    queryParams: options.queryParams,
-    headers: options.headers,
+  const baseUrl = Cypress.config('baseUrl') || 'https://api.azion.com';
+  const token = Cypress.env('AZION_TOKEN') || Cypress.env('token');
+  
+  const requestConfig = {
+    method: method.toUpperCase(),
+    url: `${baseUrl}/${endpoint.replace(/^\//, '')}`,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      ...(token && { 'Authorization': `Token ${token}` }),
+      ...(options.headers || {})
+    },
     timeout: options.timeout || 30000,
     failOnStatusCode: options.failOnStatusCode !== undefined ? options.failOnStatusCode : false
-  });
+  };
+
+  if (body && ['POST', 'PUT', 'PATCH'].includes(method.toUpperCase())) {
+    requestConfig.body = body;
+  }
+
+  return cy.request(requestConfig);
 });
 
 /**
@@ -48,10 +56,7 @@ Cypress.Commands.add('enhancedApiRequest', (method, endpoint, options = {}) => {
     logResponse = true
   } = options;
 
-  return apiClient.makeRequest(method, endpoint, {
-    body,
-    pathParams,
-    queryParams,
+  return cy.azionApiRequest(method, endpoint, body, {
     headers,
     timeout,
     failOnStatusCode: false
@@ -71,7 +76,22 @@ Cypress.Commands.add('enhancedApiRequest', (method, endpoint, options = {}) => {
  * Batch API request command using enhanced API client
  */
 Cypress.Commands.add('batchApiRequests', (requests) => {
-  return apiClient.batchRequests(requests);
+  const results = [];
+  let chain = cy.wrap(null);
+  
+  requests.forEach((request, index) => {
+    const { method, endpoint, body, ...options } = request;
+    chain = chain.then(() => {
+      return cy.azionApiRequest(method, endpoint, body, options).then((result) => {
+        results.push(result);
+        if (index < requests.length - 1) {
+          cy.wait(100); // Small delay between requests
+        }
+      });
+    });
+  });
+  
+  return chain.then(() => cy.wrap(results));
 });
 
 /**
@@ -80,17 +100,27 @@ Cypress.Commands.add('batchApiRequests', (requests) => {
 Cypress.Commands.add('validateApiResponse', (response, options = {}) => {
   const { expectedCodes = [200, 201, 202, 204], requiredFields = [] } = options;
   
-  apiClient.validateStatusCode(response, expectedCodes);
+  expect(response.status).to.be.oneOf(expectedCodes);
   
-  if (requiredFields.length > 0) {
-    apiClient.validateResponseStructure(response, requiredFields);
+  if (requiredFields.length > 0 && [200, 201, 202].includes(response.status) && response.body) {
+    requiredFields.forEach(field => {
+      expect(response.body).to.have.property(field);
+    });
   }
   
   return cy.wrap(response);
 });
 
 Cypress.Commands.add('measureApiPerformance', (response) => {
-  apiClient.measurePerformance(response);
+  if (response.duration) {
+    cy.log(`⏱️ Request duration: ${response.duration}ms`);
+    
+    if (response.duration > 5000) {
+      cy.log('⚠️ Slow response detected (>5s)');
+    } else if (response.duration > 2000) {
+      cy.log('⚠️ Moderate response time (>2s)');
+    }
+  }
   return cy.wrap(response);
 });
 
