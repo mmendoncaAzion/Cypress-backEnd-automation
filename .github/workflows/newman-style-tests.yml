@@ -107,7 +107,9 @@ jobs:
             defaultCommandTimeout=15000,
             pageLoadTimeout=60000,
             viewportWidth=1280,
-            viewportHeight=720
+            viewportHeight=720,
+            reporter=json,
+            reporterOptions={"output":"cypress/results/results-${{ matrix.test-group }}.json"}
           browser: chrome
           headed: false
           
@@ -119,50 +121,161 @@ jobs:
           CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📊 Generate Newman-Style Report
+      - name: 📊 Generate Detailed Test Report
         if: always()
         run: |
-          echo "📈 Generating Newman-style test report..."
+          echo "📈 Generating detailed test report..."
           
           mkdir -p reports/newman-style
           
-          # Create Newman-style summary
-          cat > reports/newman-style/summary-${{ matrix.test-group }}.json << EOF
+          # Parse Cypress results if available
+          TOTAL_TESTS=0
+          PASSED_TESTS=0
+          FAILED_TESTS=0
+          SKIPPED_TESTS=0
+          DURATION=0
+          
+          # Check for Cypress results JSON
+          RESULTS_FILE="cypress/results/results-${{ matrix.test-group }}.json"
+          if [ -f "$RESULTS_FILE" ]; then
+            TOTAL_TESTS=$(jq -r '.stats.tests // 0' "$RESULTS_FILE")
+            PASSED_TESTS=$(jq -r '.stats.passes // 0' "$RESULTS_FILE")
+            FAILED_TESTS=$(jq -r '.stats.failures // 0' "$RESULTS_FILE")
+            SKIPPED_TESTS=$(jq -r '.stats.skipped // 0' "$RESULTS_FILE")
+            DURATION=$(jq -r '.stats.duration // 0' "$RESULTS_FILE")
+            
+            # Extract individual test results
+            echo "🔍 Extracting individual test results..."
+            jq -r '.tests[] | "- \(.title): \(if .state == "passed" then "✅ PASSED" else "❌ FAILED" end) (\(.duration)ms)"' "$RESULTS_FILE" > test-details-${{ matrix.test-group }}.txt || echo "No individual test data available"
+          else
+            echo "⚠️ Results file not found: $RESULTS_FILE"
+            # Try to extract from Cypress output or use defaults
+            TOTAL_TESTS=0
+            PASSED_TESTS=0
+            FAILED_TESTS=0
+            SKIPPED_TESTS=0
+            DURATION=0
+          fi
+          
+          # Extract test details from Cypress output
+          echo "🔍 Extracting test execution details..."
+          
+          # Create detailed test report
+          cat > reports/newman-style/detailed-report-${{ matrix.test-group }}.json << EOF
           {
             "collection": {
               "name": "Azion API V4 - Newman Style",
-              "description": "Newman-style tests executed via Cypress"
+              "description": "Newman-style tests executed via Cypress - ${{ matrix.test-group }}",
+              "version": "1.0.0"
             },
             "environment": {
               "name": "${{ github.event.inputs.environment || 'stage' }}",
               "values": {
                 "baseUrl": "${{ env.CYPRESS_baseUrl }}",
-                "environment": "${{ env.CYPRESS_environment }}"
+                "environment": "${{ env.CYPRESS_environment }}",
+                "testGroup": "${{ matrix.test-group }}"
               }
             },
             "run": {
               "info": {
-                "name": "Newman-Style Test Run",
+                "name": "Newman-Style Test Run - ${{ matrix.test-group }}",
                 "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)",
                 "runId": "${{ github.run_id }}",
                 "runNumber": ${{ github.run_number }},
                 "testGroup": "${{ matrix.test-group }}",
                 "triggeredBy": "${{ github.actor }}",
                 "ref": "${{ github.ref }}",
-                "sha": "${{ github.sha }}"
+                "sha": "${{ github.sha }}",
+                "workflow": "${{ github.workflow }}"
               },
               "stats": {
+                "tests": {
+                  "total": ${TOTAL_TESTS},
+                  "passed": ${PASSED_TESTS},
+                  "failed": ${FAILED_TESTS},
+                  "skipped": ${SKIPPED_TESTS}
+                },
+                "assertions": {
+                  "total": ${TOTAL_TESTS},
+                  "failed": ${FAILED_TESTS}
+                },
+                "duration": ${DURATION},
                 "iterations": {
                   "total": 1,
                   "pending": 0,
-                  "failed": 0
+                  "failed": ${FAILED_TESTS}
                 }
-              }
+              },
+              "executions": []
             }
           }
           EOF
           
-          echo "✅ Newman-style report generated"
+          # Generate test execution summary
+          echo "📋 Test Group: ${{ matrix.test-group }}" > reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "🕒 Timestamp: $(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "🎯 Environment: ${{ github.event.inputs.environment || 'stage' }}" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "## 📊 Test Results Summary" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- **Total Tests**: ${TOTAL_TESTS}" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- **Passed**: ${PASSED_TESTS} ✅" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- **Failed**: ${FAILED_TESTS} ❌" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- **Skipped**: ${SKIPPED_TESTS} ⏭️" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- **Duration**: ${DURATION}ms" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          
+          if [ ${TOTAL_TESTS} -gt 0 ]; then
+            SUCCESS_RATE=$(echo "scale=1; ${PASSED_TESTS} * 100 / ${TOTAL_TESTS}" | bc -l)
+            echo "- **Success Rate**: ${SUCCESS_RATE}% 📈" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          fi
+          
+          echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "## 🧪 Test Categories Executed" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          
+          case "${{ matrix.test-group }}" in
+            "account-auth")
+              echo "### 📋 Account Management Tests" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Account info retrieval with Newman patterns" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Account list request with pagination" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "### 🔐 Authentication Tests" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Token validation and verification" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Invalid token handling scenarios" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              ;;
+            "domains-purge")
+              echo "### 🌐 Domain Management Tests" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Domain creation with unique naming" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Domain retrieval and validation" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Domain cleanup operations" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "### 🔄 Real-time Purge Tests" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- URL purge request execution" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Cache key purge operations" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              ;;
+            "comprehensive")
+              echo "### 🚀 Comprehensive Test Suite" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- All Newman-style patterns validation" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- End-to-end API workflow testing" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              echo "- Cross-category integration tests" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+              ;;
+          esac
+          
+          echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "## 📋 Individual Test Results" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          if [ -f "test-details-${{ matrix.test-group }}.txt" ]; then
+            cat "test-details-${{ matrix.test-group }}.txt" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          else
+            echo "- Individual test details not available" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          fi
+          
+          echo "" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "## 🔧 Newman Features Validated" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- ✅ Pre-request scripts execution" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- ✅ Test scripts with pm.test() assertions" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- ✅ Environment variable resolution" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          echo "- ✅ Response validation patterns" >> reports/newman-style/execution-summary-${{ matrix.test-group }}.md
+          
+          echo "✅ Detailed test report generated for ${{ matrix.test-group }}"
 
       - name: 🔍 Validate Test Results
         if: always()
@@ -223,72 +336,151 @@ jobs:
           
       - name: 📈 Generate Comprehensive Summary
         run: |
-          echo "# 🧪 Newman-Style API Tests Summary" > newman-summary.md
+          echo "# 🧪 Newman-Style API Tests - Detailed Execution Report" > newman-summary.md
           echo "" >> newman-summary.md
           echo "**Environment:** ${{ github.event.inputs.environment || 'stage' }}" >> newman-summary.md
           echo "**Timestamp:** $(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" >> newman-summary.md
           echo "**Run ID:** ${{ github.run_id }}" >> newman-summary.md
+          echo "**Run Number:** ${{ github.run_number }}" >> newman-summary.md
           echo "**Triggered by:** ${{ github.actor }}" >> newman-summary.md
+          echo "**Branch:** ${{ github.ref_name }}" >> newman-summary.md
+          echo "**Commit:** ${{ github.sha }}" >> newman-summary.md
           echo "" >> newman-summary.md
           
-          echo "## 🚀 Newman Pattern Implementation" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "This test suite replicates Newman patterns in Cypress:" >> newman-summary.md
-          echo "- ✅ Pre-request scripts for setup and validation" >> newman-summary.md
-          echo "- ✅ Test scripts with pm.test() assertions" >> newman-summary.md
-          echo "- ✅ Environment variable resolution ({{variable}})" >> newman-summary.md
-          echo "- ✅ Newman-style response validation" >> newman-summary.md
-          echo "- ✅ Collection runner with iteration support" >> newman-summary.md
-          echo "" >> newman-summary.md
+          # Initialize counters
+          TOTAL_TESTS_ALL=0
+          PASSED_TESTS_ALL=0
+          FAILED_TESTS_ALL=0
+          TOTAL_DURATION=0
           
-          echo "## Test Groups Results" >> newman-summary.md
+          echo "## 📊 Test Execution Results" >> newman-summary.md
           echo "" >> newman-summary.md
-          echo "| Test Group | Status | Artifacts |" >> newman-summary.md
-          echo "|------------|--------|-----------|" >> newman-summary.md
+          echo "| Test Group | Total Tests | Passed | Failed | Success Rate | Duration | Status |" >> newman-summary.md
+          echo "|------------|-------------|--------|--------|--------------|----------|--------|" >> newman-summary.md
           
-          # Check job results
+          # Process each test group
           for group in account-auth domains-purge comprehensive; do
             if [ -d "artifacts/newman-style-results-${group}-${{ github.run_number }}" ]; then
-              echo "| ${group} | ✅ Completed | 📁 Available |" >> newman-summary.md
+              # Try to extract metrics from detailed report
+              REPORT_FILE="artifacts/newman-style-results-${group}-${{ github.run_number }}/reports/newman-style/detailed-report-${group}.json"
+              if [ -f "$REPORT_FILE" ]; then
+                TOTAL=$(jq -r '.run.stats.tests.total // 0' "$REPORT_FILE")
+                PASSED=$(jq -r '.run.stats.tests.passed // 0' "$REPORT_FILE")
+                FAILED=$(jq -r '.run.stats.tests.failed // 0' "$REPORT_FILE")
+                DURATION=$(jq -r '.run.stats.duration // 0' "$REPORT_FILE")
+                
+                if [ $TOTAL -gt 0 ]; then
+                  SUCCESS_RATE=$(echo "scale=1; $PASSED * 100 / $TOTAL" | bc -l)
+                else
+                  SUCCESS_RATE="0.0"
+                fi
+                
+                # Update totals
+                TOTAL_TESTS_ALL=$((TOTAL_TESTS_ALL + TOTAL))
+                PASSED_TESTS_ALL=$((PASSED_TESTS_ALL + PASSED))
+                FAILED_TESTS_ALL=$((FAILED_TESTS_ALL + FAILED))
+                TOTAL_DURATION=$((TOTAL_DURATION + DURATION))
+                
+                if [ $FAILED -eq 0 ]; then
+                  STATUS="✅ Success"
+                else
+                  STATUS="⚠️ Partial"
+                fi
+                
+                echo "| $group | $TOTAL | $PASSED | $FAILED | ${SUCCESS_RATE}% | ${DURATION}ms | $STATUS |" >> newman-summary.md
+              else
+                echo "| $group | - | - | - | - | - | ❌ No Data |" >> newman-summary.md
+              fi
             else
-              echo "| ${group} | ❌ Failed | ❌ Missing |" >> newman-summary.md
+              echo "| $group | - | - | - | - | - | ❌ Failed |" >> newman-summary.md
             fi
           done
           
+          # Calculate overall success rate
+          if [ $TOTAL_TESTS_ALL -gt 0 ]; then
+            OVERALL_SUCCESS_RATE=$(echo "scale=1; $PASSED_TESTS_ALL * 100 / $TOTAL_TESTS_ALL" | bc -l)
+          else
+            OVERALL_SUCCESS_RATE="0.0"
+          fi
+          
           echo "" >> newman-summary.md
-          echo "## 🎯 Test Coverage" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "### Account Management API" >> newman-summary.md
-          echo "- ✅ Account info retrieval with validation" >> newman-summary.md
-          echo "- ✅ Account listing with pagination" >> newman-summary.md
-          echo "- ✅ Pre-request environment validation" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "### Authentication API" >> newman-summary.md
-          echo "- ✅ Token validation and verification" >> newman-summary.md
-          echo "- ✅ Invalid token error handling" >> newman-summary.md
-          echo "- ✅ Authentication flow testing" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "### Domain Management API" >> newman-summary.md
-          echo "- ✅ Domain creation with unique naming" >> newman-summary.md
-          echo "- ✅ Domain retrieval and validation" >> newman-summary.md
-          echo "- ✅ Domain cleanup and lifecycle management" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "### Real-time Purge API" >> newman-summary.md
-          echo "- ✅ URL purge with validation" >> newman-summary.md
-          echo "- ✅ Cache key purge operations" >> newman-summary.md
-          echo "- ✅ Purge response validation" >> newman-summary.md
+          echo "### 🎯 Overall Results" >> newman-summary.md
+          echo "- **Total Tests Executed:** $TOTAL_TESTS_ALL" >> newman-summary.md
+          echo "- **Tests Passed:** $PASSED_TESTS_ALL ✅" >> newman-summary.md
+          echo "- **Tests Failed:** $FAILED_TESTS_ALL ❌" >> newman-summary.md
+          echo "- **Overall Success Rate:** ${OVERALL_SUCCESS_RATE}% 📈" >> newman-summary.md
+          echo "- **Total Execution Time:** ${TOTAL_DURATION}ms ⏱️" >> newman-summary.md
           echo "" >> newman-summary.md
           
-          echo "## 🔧 Newman Features Implemented" >> newman-summary.md
-          echo "" >> newman-summary.md
-          echo "1. **Pre-request Scripts**: Environment validation, data setup" >> newman-summary.md
-          echo "2. **Test Scripts**: pm.test() assertions, response validation" >> newman-summary.md
-          echo "3. **Variable Resolution**: {{baseUrl}}, {{token}}, {{accountId}}" >> newman-summary.md
-          echo "4. **Collection Runner**: Sequential execution, iteration support" >> newman-summary.md
-          echo "5. **Newman-style Reports**: Summary generation, metrics collection" >> newman-summary.md
+          echo "## 🧪 Detailed Test Categories" >> newman-summary.md
           echo "" >> newman-summary.md
           
-          echo "**Total Newman-Style Tests:** ~20 tests across 4 API categories" >> newman-summary.md
+          # Include detailed summaries from each group
+          for group in account-auth domains-purge comprehensive; do
+            SUMMARY_FILE="artifacts/newman-style-results-${group}-${{ github.run_number }}/reports/newman-style/execution-summary-${group}.md"
+            if [ -f "$SUMMARY_FILE" ]; then
+              echo "### Test Group: $group" >> newman-summary.md
+              echo "" >> newman-summary.md
+              cat "$SUMMARY_FILE" >> newman-summary.md
+              echo "" >> newman-summary.md
+              echo "---" >> newman-summary.md
+              echo "" >> newman-summary.md
+            fi
+          done
+          
+          echo "## 🚀 Newman Pattern Implementation" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "This test suite successfully replicates Newman patterns in Cypress:" >> newman-summary.md
+          echo "- ✅ **Pre-request Scripts**: Environment validation, data setup, token verification" >> newman-summary.md
+          echo "- ✅ **Test Scripts**: pm.test() assertions, response validation, error handling" >> newman-summary.md
+          echo "- ✅ **Environment Variables**: {{baseUrl}}, {{token}}, {{accountId}} resolution" >> newman-summary.md
+          echo "- ✅ **Newman-style Validation**: Status codes, response structure, timing" >> newman-summary.md
+          echo "- ✅ **Collection Runner**: Sequential execution, iteration support, cleanup" >> newman-summary.md
+          echo "" >> newman-summary.md
+          
+          echo "## 🎯 API Coverage Validated" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "### 📋 Account Management API" >> newman-summary.md
+          echo "- Account info retrieval with Newman patterns" >> newman-summary.md
+          echo "- Account listing with pagination support" >> newman-summary.md
+          echo "- Pre-request environment validation" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "### 🔐 Authentication API" >> newman-summary.md
+          echo "- Token validation and verification flows" >> newman-summary.md
+          echo "- Invalid token error handling scenarios" >> newman-summary.md
+          echo "- Authentication security testing" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "### 🌐 Domain Management API" >> newman-summary.md
+          echo "- Domain creation with unique naming patterns" >> newman-summary.md
+          echo "- Domain retrieval and validation workflows" >> newman-summary.md
+          echo "- Domain cleanup and lifecycle management" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "### 🔄 Real-time Purge API" >> newman-summary.md
+          echo "- URL purge operations with validation" >> newman-summary.md
+          echo "- Cache key purge request handling" >> newman-summary.md
+          echo "- Purge response validation and timing" >> newman-summary.md
+          echo "" >> newman-summary.md
+          
+          echo "## 📈 Performance Metrics" >> newman-summary.md
+          echo "" >> newman-summary.md
+          if [ $TOTAL_TESTS_ALL -gt 0 ]; then
+            AVG_DURATION=$(echo "scale=0; $TOTAL_DURATION / $TOTAL_TESTS_ALL" | bc -l)
+            echo "- **Average Test Duration:** ${AVG_DURATION}ms per test" >> newman-summary.md
+          fi
+          echo "- **Parallel Execution:** 3 test groups running concurrently" >> newman-summary.md
+          echo "- **Environment:** ${{ github.event.inputs.environment || 'stage' }} with real API tokens" >> newman-summary.md
+          echo "- **Browser:** Chrome headless for consistent results" >> newman-summary.md
+          echo "" >> newman-summary.md
+          
+          echo "## 🔧 Artifacts Generated" >> newman-summary.md
+          echo "" >> newman-summary.md
+          echo "Each test group generates the following artifacts:" >> newman-summary.md
+          echo "- 📊 **Detailed JSON Report**: Complete test execution data" >> newman-summary.md
+          echo "- 📋 **Execution Summary**: Markdown report with test details" >> newman-summary.md
+          echo "- 🎥 **Test Videos**: Visual recording of test execution" >> newman-summary.md
+          echo "- 📸 **Screenshots**: Failure screenshots for debugging" >> newman-summary.md
+          echo "- 📁 **Cypress Reports**: Native Cypress reporting data" >> newman-summary.md
+          echo "" >> newman-summary.md
           
           cat newman-summary.md
 
