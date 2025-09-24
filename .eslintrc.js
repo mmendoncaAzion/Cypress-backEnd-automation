@@ -16,6 +16,13 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
+  ignorePatterns: [
+    'cypress/screenshots/**/*',
+    'cypress/videos/**/*',
+    'cypress/downloads/**/*',
+    'node_modules/**/*',
+    'reports/**/*'
+  ],
   rules: {
     // Cypress specific rules
     'cypress/no-assigning-return-values': 'error',

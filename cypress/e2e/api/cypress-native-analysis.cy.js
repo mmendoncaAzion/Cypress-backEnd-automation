@@ -1,3 +1,4 @@
+// Fixed imports for enhanced utilities
 /**
  * Cypress Native API Analysis
  * Pure Cypress implementation without external dependencies
@@ -202,17 +203,14 @@ describe('Cypress Native API Analysis', () => {
       const coreScenario = accountScenarios.find(s => s.category === 'core' && s.method === 'GET');
       
       if (coreScenario) {
-        const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-        const apiToken = Cypress.env('apiToken');
+        const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+        const apiToken = Cypress.env('AZION_TOKEN');
         
         if (apiToken) {
           cy.request({
             method: coreScenario.method,
-            url: `${baseUrl}${coreScenario.path}`,
-            headers: {
-              'Authorization': `Token ${apiToken}`,
-              'Content-Type': 'application/json'
-            },
+            endpoint: '',
+            ,
             failOnStatusCode: false
           }).then((response) => {
             cy.log(`✅ ${coreScenario.name}: ${response.status}`);
@@ -231,11 +229,11 @@ describe('Cypress Native API Analysis', () => {
       const securityScenario = accountScenarios.find(s => s.category === 'security');
       
       if (securityScenario) {
-        const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
+        const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
         
         cy.request({
           method: securityScenario.method,
-          url: `${baseUrl}${securityScenario.path}`,
+          endpoint: '',
           headers: {
             'Content-Type': 'application/json'
           },

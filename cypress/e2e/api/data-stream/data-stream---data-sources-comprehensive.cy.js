@@ -1,3 +1,4 @@
+// Fixed imports for enhanced utilities
 /// <reference types="cypress" />
 
 describe('Data Stream   Data Sources - Comprehensive API Tests', { 
@@ -29,14 +30,18 @@ describe('Data Stream   Data Sources - Comprehensive API Tests', {
 
     it('should handle pagination correctly', { tags: ['@success', '@pagination'] }, () => {
       cy.azionApiRequest(method, endpoint).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201, 204, 400, 401, 403, 404, 429])
-      })
+    expect(response.status).to.be.oneOf([200, 201, 204, 400, 401, 403, 404, 429])
+      
+    return cy.wrap(response);
+  })
     })
 
     it('should handle field filtering', { tags: ['@success', '@filtering'] }, () => {
       cy.azionApiRequest(method, endpoint).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201, 204, 400, 401, 403, 404, 429])
-      })
+    expect(response.status).to.be.oneOf([200, 201, 204, 400, 401, 403, 404, 429])
+      
+    return cy.wrap(response);
+  })
     })
 
     it('should handle unauthorized access', { tags: ['@error', '@auth'] }, () => {

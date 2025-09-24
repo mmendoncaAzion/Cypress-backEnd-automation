@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Identity API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Identity API Tests', () => {
   });
 
   it('DELETE identity/users/{{userId}}/lockout - Unlock user', { tags: ['@api', '@delete', '@identity'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/identity/users/${testData.userId}/lockout`,
+    cy.azionApiRequest('DELETE', '/identity/users//lockout',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Identity API Tests', () => {
   });
 
   it('GET identity/users/{{userId}} - Retrieve details from a user', { tags: ['@api', '@get', '@identity'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/identity/users/${testData.userId}`,
+    cy.azionApiRequest('GET', '/identity/users/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Identity API Tests', () => {
   });
 
   it('PUT identity/users/{{userId}} - Update a user', { tags: ['@api', '@put', '@identity'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/identity/users/${testData.userId}`,
+    cy.azionApiRequest('PUT', '/identity/users/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Identity API Tests', () => {
   });
 
   it('PATCH identity/users/{{userId}} - Partially update a user', { tags: ['@api', '@patch', '@identity'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/identity/users/${testData.userId}`,
+    cy.azionApiRequest('PATCH', '/identity/users/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Identity API Tests', () => {
   });
 
   it('DELETE identity/users/{{userId}} - Destroy a user', { tags: ['@api', '@delete', '@identity'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/identity/users/${testData.userId}`,
+    cy.azionApiRequest('DELETE', '/identity/users/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Identity API Tests', () => {
   });
 
   it('GET identity/users - List of the account users', { tags: ['@api', '@get', '@identity'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/identity/users`,
+    cy.azionApiRequest('GET', '/identity/users',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Identity API Tests', () => {
   });
 
   it('POST identity/users - Create a new user', { tags: ['@api', '@post', '@identity'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/identity/users`,
+    cy.azionApiRequest('POST', '/identity/users',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

@@ -1,3 +1,4 @@
+// Fixed imports for enhanced utilities
 /**
  * Stage-Specific API Tests
  * Tests for endpoints that exist only in Stage environment
@@ -15,12 +16,12 @@ describe('Stage-Specific API Tests', () => {
     
     // Ensure we're testing against Stage environment
     cy.wrap(Cypress.env('environment')).should('eq', 'stage');
-    cy.wrap(Cypress.env('baseUrl')).should('include', 'stage-api.azion.com');
+    cy.wrap(Cypress.env('AZION_BASE_URL')).should('include', 'stage-api.azion.com');
   });
 
   context('Stage-Only Endpoints', () => {
     it('should validate Stage environment configuration', () => {
-      expect(Cypress.env('baseUrl')).to.include('stage-api.azion.com');
+      expect(Cypress.env('AZION_BASE_URL')).to.include('stage-api.azion.com');
       expect(Cypress.env('apiTokenStage')).to.exist;
       expect(Cypress.env('environment')).to.equal('stage');
     });
@@ -34,12 +35,11 @@ describe('Stage-Specific API Tests', () => {
         highPriorityScenarios.forEach((scenario) => {
           cy.log(`Testing Stage-specific: ${scenario.name}`);
           
-          const baseUrl = Cypress.env('baseUrl');
-          const token = Cypress.env('apiTokenStage');
+          const baseUrl = Cypress.env('AZION_BASE_URL');
           
           cy.request({
             method: scenario.method.toUpperCase(),
-            url: `${baseUrl}${scenario.path}`,
+            endpoint: '',
             headers: {
               'Authorization': token,
               'Content-Type': 'application/json'
@@ -77,12 +77,11 @@ describe('Stage-Specific API Tests', () => {
         commonScenarios.forEach((scenario) => {
           cy.log(`Testing cross-env: ${scenario.name}`);
           
-          const baseUrl = Cypress.env('baseUrl');
-          const token = Cypress.env('apiTokenStage');
+          const baseUrl = Cypress.env('AZION_BASE_URL');
           
           cy.request({
             method: scenario.method.toUpperCase(),
-            url: `${baseUrl}${scenario.path}`,
+            endpoint: '',
             headers: {
               'Authorization': token,
               'Content-Type': 'application/json'
@@ -101,11 +100,9 @@ describe('Stage-Specific API Tests', () => {
   context('Stage Environment Features', () => {
     it('should test Stage-specific authentication methods', () => {
       // Test if Stage supports additional auth methods
-      const baseUrl = Cypress.env('baseUrl');
+      const baseUrl = Cypress.env('AZION_BASE_URL');
       
-      cy.request({
-        method: 'GET',
-        url: `${baseUrl}/account/account`,
+      cy.azionApiRequest('GET', '/account/account',
         headers: {
           'Authorization': Cypress.env('apiTokenStage'),
           'Content-Type': 'application/json'
@@ -122,12 +119,9 @@ describe('Stage-Specific API Tests', () => {
     });
 
     it('should verify Stage API rate limiting', () => {
-      const baseUrl = Cypress.env('baseUrl');
-      const token = Cypress.env('apiTokenStage');
+      const baseUrl = Cypress.env('AZION_BASE_URL');
       
-      cy.request({
-        method: 'GET',
-        url: `${baseUrl}/account/accounts`,
+      cy.azionApiRequest('GET', '/account/accounts',
         headers: {
           'Authorization': token,
           'Content-Type': 'application/json'
@@ -169,7 +163,7 @@ describe('Stage-Specific API Tests', () => {
 
     it('should validate Stage environment is properly configured', () => {
       // Verify all Stage-specific configurations
-      expect(Cypress.env('baseUrl')).to.equal('https://stage-api.azion.com/v4');
+      expect(Cypress.env('AZION_BASE_URL')).to.equal('https://stage-api.azion.com/v4');
       expect(Cypress.env('stageUrl')).to.equal('https://stage-api.azion.com/v4');
       expect(Cypress.env('environment')).to.equal('stage');
       expect(Cypress.env('apiTokenStage')).to.exist;

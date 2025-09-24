@@ -1,7 +1,8 @@
+// Fixed imports for enhanced utilities
 /// <reference types="cypress" />
 
-describe('Applications API - V4 Complete Coverage', { 
-  tags: ['@api', '@v4', '@applications'] 
+describe('Applications API - V4 Complete Coverage', {
+  tags: ['@api', '@v4', '@applications']
 }, () => {
   let testResources = []
 
@@ -18,16 +19,17 @@ describe('Applications API - V4 Complete Coverage', {
 
   describe('DELETE /workspace/applications/{id}', () => {
     it('should handle successful DELETE request', { tags: ['@success', '@smoke'] }, () => {
-            // First create a resource to delete
-      const testData = cy.generateTestData('applications')
-      
-      cy.azionApiRequest('POST', '/workspace/applications', testData).then((createResponse) => {
-        const resourceId = createResponse.body.results.id
-        const deleteEndpoint = '/workspace/applications/{id}'.replace('{id}', resourceId)
-        
-        cy.azionApiRequest('DELETE', deleteEndpoint).then((response) => {
-          cy.validateApiResponse(response, 204)
-          cy.validateRateLimit(response)
+      // First create a resource to delete
+      cy.generateTestData('applications').then((testData) => {
+
+        cy.azionApiRequest('POST', '/workspace/applications', testData).then((createResponse) => {
+          const resourceId = createResponse.body.results.id
+          const deleteEndpoint = '/workspace/applications/{id}'.replace('{id}', resourceId)
+
+          cy.azionApiRequest('DELETE', deleteEndpoint).then((response) => {
+            cy.validateApiResponse(response, 204)
+            cy.validateRateLimit(response)
+          })
         })
       })
     })
@@ -41,10 +43,10 @@ describe('Applications API - V4 Complete Coverage', {
     })
 
     it('should handle rate limiting', { tags: ['@error', '@rate_limit'] }, () => {
-      const requests = Array(15).fill().map(() => 
+      const requests = Array(15).fill().map(() =>
         cy.azionApiRequest('DELETE', '/workspace/applications/{id}', null, { failOnStatusCode: false })
       )
-      
+
       cy.wrap(Promise.all(requests)).then((responses) => {
         const rateLimitedResponse = responses.find(r => r.status === 429)
         if (rateLimitedResponse) {
@@ -56,7 +58,7 @@ describe('Applications API - V4 Complete Coverage', {
 
     it('should respond within acceptable time', { tags: ['@performance'] }, () => {
       const startTime = Date.now()
-      
+
       cy.azionApiRequest('DELETE', '/workspace/applications/{id}').then((response) => {
         const responseTime = Date.now() - startTime
         expect(responseTime).to.be.lessThan(5000)

@@ -1,4 +1,30 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run quality:check
+echo "🔍 Running pre-commit quality checks..."
+
+# Run linting check
+echo "📋 Checking code quality with ESLint..."
+npm run lint:check
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint check failed. Please fix linting errors before committing."
+  exit 1
+fi
+
+# Run syntax validation
+echo "🔧 Validating JavaScript syntax..."
+npm run validate:syntax
+if [ $? -ne 0 ]; then
+  echo "❌ Syntax validation failed. Please fix syntax errors before committing."
+  exit 1
+fi
+
+# Run health check
+echo "🏥 Running comprehensive health check..."
+npm run health:check
+if [ $? -ne 0 ]; then
+  echo "❌ Health check failed. Please review and fix issues before committing."
+  exit 1
+fi
+
+echo "✅ All pre-commit checks passed! Proceeding with commit..."

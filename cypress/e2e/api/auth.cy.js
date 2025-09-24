@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Auth API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/login/method - Retrieve user login method', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/login/method`,
+    cy.azionApiRequest('GET', '/auth/login/method',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/login - Retrieve user JWT tokens', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/login`,
+    cy.azionApiRequest('POST', '/auth/login',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Auth API Tests', () => {
   });
 
   it('DELETE auth/mfa/totp/:id - Destroy a TOTP device', { tags: ['@api', '@delete', '@auth'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/auth/mfa/totp/${testData.accountId}`,
+    cy.azionApiRequest('DELETE', '/auth/mfa/totp/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/mfa/totp - List of TOTP devices', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/mfa/totp`,
+    cy.azionApiRequest('GET', '/auth/mfa/totp',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/mfa/totp - Create a TOTP device', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/mfa/totp`,
+    cy.azionApiRequest('POST', '/auth/mfa/totp',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/token - Refresh user JWT access token', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/token`,
+    cy.azionApiRequest('POST', '/auth/token',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/revoke - Revoke user JWT refresh token', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/revoke`,
+    cy.azionApiRequest('POST', '/auth/revoke',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -207,9 +194,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/verify - Retrieve user JWT tokens by MFA auth', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/verify`,
+    cy.azionApiRequest('POST', '/auth/verify',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -234,9 +219,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/policies/lockout - Get Lockout Policy', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/policies/lockout`,
+    cy.azionApiRequest('GET', '/auth/policies/lockout',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -261,9 +244,7 @@ describe('Auth API Tests', () => {
   });
 
   it('PUT auth/policies/lockout - Put Lockout Policy', { tags: ['@api', '@put', '@auth'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/auth/policies/lockout`,
+    cy.azionApiRequest('PUT', '/auth/policies/lockout',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -288,9 +269,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/policies/:id - Retrieve details from a policy', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/policies/${testData.accountId}`,
+    cy.azionApiRequest('GET', '/auth/policies/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -315,9 +294,7 @@ describe('Auth API Tests', () => {
   });
 
   it('PUT auth/policies/:id - Update a policy', { tags: ['@api', '@put', '@auth'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/auth/policies/${testData.accountId}`,
+    cy.azionApiRequest('PUT', '/auth/policies/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -342,9 +319,7 @@ describe('Auth API Tests', () => {
   });
 
   it('PATCH auth/policies/:id - Partially update a policy', { tags: ['@api', '@patch', '@auth'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/auth/policies/${testData.accountId}`,
+    cy.azionApiRequest('PATCH', '/auth/policies/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -369,9 +344,7 @@ describe('Auth API Tests', () => {
   });
 
   it('DELETE auth/policies/:id - Destroy a policy', { tags: ['@api', '@delete', '@auth'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/auth/policies/${testData.accountId}`,
+    cy.azionApiRequest('DELETE', '/auth/policies/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -396,9 +369,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/policies/session - Get Session Timeout Policy', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/policies/session`,
+    cy.azionApiRequest('GET', '/auth/policies/session',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -423,9 +394,7 @@ describe('Auth API Tests', () => {
   });
 
   it('PUT auth/policies/session - Put Session Timeout Policy', { tags: ['@api', '@put', '@auth'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/auth/policies/session`,
+    cy.azionApiRequest('PUT', '/auth/policies/session',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -450,9 +419,7 @@ describe('Auth API Tests', () => {
   });
 
   it('GET auth/policies - List of account policies', { tags: ['@api', '@get', '@auth'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/auth/policies`,
+    cy.azionApiRequest('GET', '/auth/policies',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -477,9 +444,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST auth/policies - Create a new policy', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/auth/policies`,
+    cy.azionApiRequest('POST', '/auth/policies',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -504,9 +469,7 @@ describe('Auth API Tests', () => {
   });
 
   it('POST iam/mfa/totp - Create a TOTP device', { tags: ['@api', '@post', '@auth'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/iam/mfa/totp`,
+    cy.azionApiRequest('POST', '/iam/mfa/totp',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

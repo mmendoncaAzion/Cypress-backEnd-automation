@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Edge Storage API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Edge Storage API Tests', () => {
   });
 
   it('PATCH wrokspace/storage/buckets/{{bucketName}} - Update bucket info', { tags: ['@api', '@patch', '@edge_storage'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/wrokspace/storage/buckets/${testData.bucketName}`,
+    cy.azionApiRequest('PATCH', '/wrokspace/storage/buckets/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Edge Storage API Tests', () => {
   });
 
   it('DELETE worksapce/storage/buckets/{{bucketName}} - Delete a bucket', { tags: ['@api', '@delete', '@edge_storage'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/worksapce/storage/buckets/${testData.bucketName}`,
+    cy.azionApiRequest('DELETE', '/worksapce/storage/buckets/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

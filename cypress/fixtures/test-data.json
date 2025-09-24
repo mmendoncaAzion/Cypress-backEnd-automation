@@ -1,52 +1,294 @@
 {
-  "timestamp": 1758578232076,
-  "testId": 12345,
-  "testAccountId": 67890,
-  "testEmail": "cypress-test@azion.com",
-  "testDomain": "cypress-test.azion.com",
-  "authToken": "test-auth-token",
-  "apiBaseUrl": "https://api.azion.com",
-  "account": {
-    "testAccountId": 12345,
-    "validAccount": {
-      "name": "Cypress Test Account",
-      "email": "cypress@azion.com",
-      "company": "Azion Test",
-      "country": "BR"
-    }
+  "accountId": "25433",
+  "id": "12345",
+  "ruleId": "67890",
+  "validPayload": {
+    "name": "Test Resource",
+    "description": "Comprehensive test resource",
+    "active": true
   },
-  "edgeApplication": {
-    "testAppId": 54321,
-    "validApp": {
-      "name": "Cypress Test App",
-      "delivery_protocol": "http,https",
-      "origin_type": "single_origin",
-      "address": "httpbin.org"
-    }
+  "orchestrator": {
+    "name": "Test Workload",
+    "preset_name": "javascript",
+    "resource_type": "compute",
+    "environment": "test",
+    "replicas": 1,
+    "memory": "512Mi",
+    "cpu": "0.5",
+    "image": "node:16-alpine"
+  },
+  "edge_firewall": {
+    "name": "Test Firewall",
+    "domains": [],
+    "is_active": true,
+    "edge_functions_enabled": false,
+    "network_protection_enabled": true,
+    "waf_enabled": true,
+    "ddos_protection_enabled": true
+  },
+  "iam": {
+    "name": "Test User",
+    "email": "test@example.com",
+    "first_name": "Test",
+    "last_name": "User",
+    "is_active": true,
+    "role": "viewer"
+  },
+  "waf": {
+    "rulesetId": "12345",
+    "ruleId": "67890",
+    "validRuleset": {
+      "name": "test-waf-ruleset",
+      "mode": "counting",
+      "active": true,
+      "sql_injection": true,
+      "sql_injection_sensitivity": "medium",
+      "cross_site_scripting": true,
+      "cross_site_scripting_sensitivity": "medium"
+    },
+    "validRule": {
+      "description": "Test WAF rule",
+      "match_pattern": ".*\\.php.*",
+      "path": "/admin/*",
+      "threat_type_id": 1,
+      "active": true
+    },
+    "threatTypes": [
+      {
+        "id": 1,
+        "name": "SQL Injection"
+      },
+      {
+        "id": 2,
+        "name": "Cross-Site Scripting"
+      },
+      {
+        "id": 3,
+        "name": "Remote File Inclusion"
+      },
+      {
+        "id": 4,
+        "name": "Command Injection"
+      }
+    ],
+    "sensitivityLevels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "modes": [
+      "counting",
+      "blocking"
+    ]
+  },
+  "network_list": {
+    "name": "Test Network List",
+    "list_type": "ip_cidr",
+    "items_values": [
+      "192.168.1.0/24",
+      "10.0.0.0/8"
+    ]
   },
   "dns": {
-    "testZoneId": 98765,
+    "zoneId": "12345",
+    "recordId": "67890",
+    "zoneName": "test-zone.example.com",
+    "validZone": {
+      "name": "test-zone.example.com",
+      "domain": "test-zone.example.com",
+      "is_active": true
+    },
     "validRecord": {
       "record_type": "A",
-      "entry": "test",
+      "entry": "www",
       "answers_list": [
         "192.168.1.1"
       ],
       "ttl": 3600
+    },
+    "recordTypes": [
+      {
+        "type": "A",
+        "answers": [
+          "192.168.1.1"
+        ]
+      },
+      {
+        "type": "AAAA",
+        "answers": [
+          "2001:db8::1"
+        ]
+      },
+      {
+        "type": "CNAME",
+        "answers": [
+          "example.com"
+        ]
+      },
+      {
+        "type": "MX",
+        "answers": [
+          "10 mail.example.com"
+        ]
+      },
+      {
+        "type": "TXT",
+        "answers": [
+          "v=spf1 include:_spf.example.com ~all"
+        ]
+      }
+    ]
+  },
+  "dnsZoneId": "12345",
+  "dnsRecordId": "67890",
+  "wafRulesetId": "12345",
+  "wafRuleId": "67890",
+  "storage": {
+    "bucketName": "test-bucket",
+    "objectKey": "test-object.txt",
+    "validBucket": {
+      "name": "test-storage-bucket",
+      "edge_access": "read_write"
+    },
+    "accessLevels": [
+      "read_only",
+      "read_write",
+      "restricted"
+    ]
+  },
+  "dataStreaming": {
+    "streamId": "12345",
+    "templateId": "2",
+    "validStreaming": {
+      "name": "test-data-streaming",
+      "template_id": 2,
+      "data_source": "http",
+      "active": true,
+      "endpoint": {
+        "endpoint_type": "standard",
+        "url": "https://example.com/webhook",
+        "payload_format": "$dataset"
+      }
+    },
+    "dataSources": [
+      "http",
+      "waf",
+      "cells_console",
+      "rtm_activity"
+    ],
+    "endpointTypes": [
+      "standard",
+      "kafka",
+      "s3",
+      "google_bigquery"
+    ]
+  },
+  "certificates": {
+    "certificateId": "12345",
+    "letsEncryptId": "67890",
+    "csrId": "54321",
+    "validCertificate": "-----BEGIN CERTIFICATE-----\\nMIIBkTCB+wIJAL...",
+    "validPrivateKey": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...",
+    "updatedCertificate": "-----BEGIN CERTIFICATE-----\\nMIIBkTCB+wIJAL...",
+    "updatedPrivateKey": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...",
+    "certificateTypes": [
+      "edge_certificate",
+      "trusted_ca_certificate"
+    ],
+    "privateKeyTypes": [
+      "rsa_2048",
+      "rsa_4096",
+      "ecdsa_256",
+      "ecdsa_384"
+    ]
+  },
+  "networkLists": {
+    "listId": "12345",
+    "validList": {
+      "name": "test-network-list",
+      "list_type": "ip_cidr",
+      "items_values": [
+        "192.168.1.0/24",
+        "10.0.0.0/8"
+      ]
+    },
+    "listTypes": [
+      "ip_cidr",
+      "countries",
+      "asn"
+    ],
+    "sampleValues": {
+      "ip_cidr": [
+        "192.168.1.0/24",
+        "10.0.0.0/8",
+        "172.16.0.0/12"
+      ],
+      "countries": [
+        "BR",
+        "US",
+        "CA",
+        "GB",
+        "DE"
+      ],
+      "asn": [
+        "64512",
+        "64513",
+        "64514",
+        "65001",
+        "65002"
+      ]
     }
   },
-  "environment": {
-    "dev": {
-      "baseUrl": "https://api-dev.azion.com",
-      "timeout": 10000
+  "workspace": {
+    "workspaceId": "12345",
+    "memberId": "67890",
+    "teamId": "54321",
+    "validWorkspace": {
+      "name": "test-workspace",
+      "description": "Test workspace for API testing",
+      "active": true
     },
-    "staging": {
-      "baseUrl": "https://api-staging.azion.com",
-      "timeout": 5000
-    },
-    "production": {
-      "baseUrl": "https://api.azion.com",
-      "timeout": 3000
+    "roles": [
+      "owner",
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "permissions": [
+      "read",
+      "write",
+      "delete",
+      "admin"
+    ]
+  },
+  "identity": {
+    "userId": "12345",
+    "validUser": {
+      "first_name": "Test",
+      "last_name": "User",
+      "timezone": "America/Sao_Paulo"
     }
+  },
+  "payments": {
+    "methodId": "12345",
+    "invoiceId": "67890",
+    "validPaymentMethod": {
+      "type": "credit_card",
+      "card_number": "4111111111111111",
+      "expiry_month": "12",
+      "expiry_year": "2025"
+    }
+  },
+  "edgeFunctions": {
+    "functionId": "12345",
+    "validFunction": {
+      "name": "test-function",
+      "code": "addEventListener(\"fetch\", event => { event.respondWith(new Response(\"Hello World\")); });",
+      "active": true,
+      "language": "javascript"
+    }
+  },
+  "personalTokens": {
+    "tokenId": "12345"
   }
 }

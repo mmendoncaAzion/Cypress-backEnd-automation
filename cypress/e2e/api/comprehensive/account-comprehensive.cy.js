@@ -1,6 +1,7 @@
+// Fixed imports for enhanced utilities
 describe('ACCOUNT - Comprehensive API Tests', () => {
-  const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-  const apiToken = Cypress.env('apiToken');
+  const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+  const apiToken = Cypress.env('AZION_TOKEN');
   let testScenarios;
 
   before(() => {

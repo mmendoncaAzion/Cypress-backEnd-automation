@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Edge Firewall API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Edge Firewall API Tests', () => {
   });
 
   it('POST edge_firewall/wafs/{{wafId}}/clone - Clone a Web Application Firewall WAF', { tags: ['@api', '@post', '@edge_firewall'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_firewall/wafs/{{wafId}}/clone`,
+    cy.azionApiRequest('POST', '/edge_firewall/wafs/{{wafId}}/clone',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Edge Firewall API Tests', () => {
   });
 
   it('DELETE edge_firewall/wafs/{{wafId}} - Destroy a Web Application Firewall WAF', { tags: ['@api', '@delete', '@edge_firewall'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_firewall/wafs/{{wafId}}`,
+    cy.azionApiRequest('DELETE', '/edge_firewall/wafs/{{wafId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Edge Firewall API Tests', () => {
   });
 
   it('GET edge_firewall/wafs/{{wafId}}/exceptions - List Exceptions for a Web Application Firewall WAF', { tags: ['@api', '@get', '@edge_firewall'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_firewall/wafs/{{wafId}}/exceptions`,
+    cy.azionApiRequest('GET', '/edge_firewall/wafs/{{wafId}}/exceptions',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

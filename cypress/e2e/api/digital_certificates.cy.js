@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Digital Certificates API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('POST digital_certificates/certificates/request - Create a certificate request CR', { tags: ['@api', '@post', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/digital_certificates/certificates/request`,
+    cy.azionApiRequest('POST', '/digital_certificates/certificates/request',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('GET digital_certificates/certificates/{{certificateId}} - Retrieve details from a certificate', { tags: ['@api', '@get', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/digital_certificates/certificates/${testData.certificateId}`,
+    cy.azionApiRequest('GET', '/digital_certificates/certificates/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('PUT digital_certificates/certificates/{{certificateId}} - Update a certificate', { tags: ['@api', '@put', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/digital_certificates/certificates/${testData.certificateId}`,
+    cy.azionApiRequest('PUT', '/digital_certificates/certificates/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('PATCH digital_certificates/certificates/{{certificateId}} - Partially update a certificate', { tags: ['@api', '@patch', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/digital_certificates/certificates/${testData.certificateId}`,
+    cy.azionApiRequest('PATCH', '/digital_certificates/certificates/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('DELETE digital_certificates/certificates/{{certificateId}} - Destroy a certificate', { tags: ['@api', '@delete', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/digital_certificates/certificates/${testData.certificateId}`,
+    cy.azionApiRequest('DELETE', '/digital_certificates/certificates/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('GET digital_certificates/certificates - List certificates', { tags: ['@api', '@get', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/digital_certificates/certificates`,
+    cy.azionApiRequest('GET', '/digital_certificates/certificates',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('POST digital_certificates/certificates - Create a certificate', { tags: ['@api', '@post', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/digital_certificates/certificates`,
+    cy.azionApiRequest('POST', '/digital_certificates/certificates',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -207,9 +194,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('GET digital_certificates/crls/{{crlsId}} - Retrieve details from a certificate revocation lists CRL', { tags: ['@api', '@get', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/digital_certificates/crls/{{crlsId}}`,
+    cy.azionApiRequest('GET', '/digital_certificates/crls/{{crlsId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -234,9 +219,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('PUT digital_certificates/crls/{{crlsId}} - Update a certificate revocation lists CRL', { tags: ['@api', '@put', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/digital_certificates/crls/{{crlsId}}`,
+    cy.azionApiRequest('PUT', '/digital_certificates/crls/{{crlsId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -261,9 +244,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('PATCH digital_certificates/crls/{{crlsId}} - Update a certificate revocation lists CRL', { tags: ['@api', '@patch', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/digital_certificates/crls/{{crlsId}}`,
+    cy.azionApiRequest('PATCH', '/digital_certificates/crls/{{crlsId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -288,9 +269,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('DELETE digital_certificates/crls/{{crlsId}} - Destroy a certificate revocation lists CRL', { tags: ['@api', '@delete', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/digital_certificates/crls/{{crlsId}}`,
+    cy.azionApiRequest('DELETE', '/digital_certificates/crls/{{crlsId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -315,9 +294,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('GET digital_certificates/crls - List certificate revocation lists CRL', { tags: ['@api', '@get', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/digital_certificates/crls`,
+    cy.azionApiRequest('GET', '/digital_certificates/crls',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -342,9 +319,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('POST digital_certificates/crls - Create a certificate revocation lists CRL', { tags: ['@api', '@post', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/digital_certificates/crls`,
+    cy.azionApiRequest('POST', '/digital_certificates/crls',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -369,9 +344,7 @@ describe('Digital Certificates API Tests', () => {
   });
 
   it('POST digital_certificates/csr - Create a certificate signing request CSR', { tags: ['@api', '@post', '@digital_certificates'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/digital_certificates/csr`,
+    cy.azionApiRequest('POST', '/digital_certificates/csr',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

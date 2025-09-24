@@ -4,8 +4,8 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -28,9 +28,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test basic valid configuration with minimal required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -75,9 +73,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions_enabled module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -122,9 +118,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions_enabled module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -169,9 +163,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with network_protection_enabled module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -216,9 +208,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with network_protection_enabled module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -263,9 +253,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with waf_enabled module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -310,9 +298,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with waf_enabled module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -349,9 +335,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with missing required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -392,9 +376,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with invalid field values');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -440,9 +422,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions_enabled enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -488,9 +468,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with network_protection_enabled enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -536,9 +514,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with waf_enabled enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -581,9 +557,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with maximum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -625,9 +599,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with minimum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -673,9 +645,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -701,9 +671,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -729,9 +697,7 @@ describe('Edge Firewall API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_firewall/edge_firewalls`,
+      cy.azionApiRequest('POST', '/edge_firewall/edge_firewalls',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',

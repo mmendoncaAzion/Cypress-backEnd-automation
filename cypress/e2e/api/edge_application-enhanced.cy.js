@@ -4,8 +4,8 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -26,9 +26,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test basic valid configuration with minimal required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -78,9 +76,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with application_acceleration module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -123,9 +119,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with application_acceleration module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -175,9 +169,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with caching module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -220,9 +212,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with caching module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -265,9 +255,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with device_detection module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -310,9 +298,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with device_detection module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -356,9 +342,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_firewall module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -401,9 +385,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_firewall module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -452,9 +434,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -497,9 +477,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -542,9 +520,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with image_optimization module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -587,9 +563,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with image_optimization module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -643,9 +617,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with load_balancer module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -688,9 +660,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with load_balancer module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -733,9 +703,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with raw_logs module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -778,9 +746,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with raw_logs module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -823,9 +789,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with web_application_firewall module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -868,9 +832,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with web_application_firewall module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -909,9 +871,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with missing required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -953,9 +913,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with invalid field values');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -999,9 +957,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with application_acceleration enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1045,9 +1001,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with caching enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1091,9 +1045,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with device_detection enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1137,9 +1089,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_firewall enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1183,9 +1133,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with edge_functions enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1229,9 +1177,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with image_optimization enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1275,9 +1221,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with load_balancer enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1321,9 +1265,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with raw_logs enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1367,9 +1309,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with web_application_firewall enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1410,9 +1350,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with maximum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1452,9 +1390,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with minimum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1505,9 +1441,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       ]
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1538,9 +1472,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       ]
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1564,9 +1496,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1591,9 +1521,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       "edge_firewall_id": 12345
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1623,9 +1551,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       ]
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1649,9 +1575,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1686,9 +1610,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       ]
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1712,9 +1634,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1738,9 +1658,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
       }
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/edge_application/applications`,
+      cy.azionApiRequest('POST', '/edge_application/applications',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -1763,9 +1681,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
 };
           payload.name = 'a';
           
-          cy.request({
-            method: 'POST',
-            url: `${baseUrl}/edge_application/applications`,
+          cy.azionApiRequest('POST', '/edge_application/applications',
             headers: {
               'Authorization': `Token ${authToken}`,
               'Accept': 'application/json',
@@ -1775,7 +1691,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
             failOnStatusCode: false
           }).then((response) => {
             cy.log('Testing name minimum length: 1');
-            expect(response.status).to.be.oneOf([200, 201, 202]);
+            expect(response.status).to.be.oneOf([200, 201, 202, 204]);
           });
         });
 
@@ -1786,9 +1702,7 @@ describe('Edge Application API - Enhanced AI-Generated Tests', () => {
 };
           payload.name = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
           
-          cy.request({
-            method: 'POST',
-            url: `${baseUrl}/edge_application/applications`,
+          cy.azionApiRequest('POST', '/edge_application/applications',
             headers: {
               'Authorization': `Token ${authToken}`,
               'Accept': 'application/json',

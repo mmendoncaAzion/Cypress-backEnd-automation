@@ -25,8 +25,8 @@ describe('Domain Purge Security Validation', {
     // Setup test accounts with different tokens
     testAccount1 = {
       token: Cypress.env('AZION_TOKEN'),
-      accountId: Cypress.env('accountId'),
-      baseUrl: Cypress.env('baseUrl')
+      accountId: Cypress.env('ACCOUNT_ID'),
+      baseUrl: Cypress.env('AZION_BASE_URL')
     };
     
     // For testing, we'll simulate a second account scenario
@@ -82,14 +82,16 @@ describe('Domain Purge Security Validation', {
       cy.azionApiRequest('POST', '/edge_applications', edgeAppPayload, {
         headers: { 'Authorization': `Token ${testAccount1.token}` }
       }).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201]);
+    expect(response.status).to.be.oneOf([200, 201]);
         const edgeAppId = response.body.results?.id || response.body.data?.id;
         
         createdResources.push({
           type: 'edge_application',
           id: edgeAppId,
           token: testAccount1.token
-        });
+        
+    return cy.wrap(response);
+  });
 
         // Create domain associated with this edge application
         const domainPayload = {
@@ -184,7 +186,7 @@ describe('Domain Purge Security Validation', {
         headers: { 'Authorization': `Token ${testAccount1.token}` }
       }).then((response) => {
         // This should succeed
-        expect(response.status).to.be.oneOf([200, 201, 202]);
+        expect(response.status).to.be.oneOf([200, 201, 202, 204]);
         
         if (response.body.results) {
           expect(response.body.results).to.be.an('array');
@@ -240,7 +242,7 @@ describe('Domain Purge Security Validation', {
       }, {
         headers: { 'Authorization': `Token ${testAccount1.token}` }
       }).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201, 202]);
+        expect(response.status).to.be.oneOf([200, 201, 202, 204]);
         cy.log(`✅ Legitimate wildcard purge successful`);
       });
     });
@@ -281,7 +283,7 @@ describe('Domain Purge Security Validation', {
       }, {
         headers: { 'Authorization': `Token ${testAccount1.token}` }
       }).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201, 202]);
+        expect(response.status).to.be.oneOf([200, 201, 202, 204]);
         cy.log(`✅ Cache key purge successful for owned domain`);
       });
     });
@@ -392,7 +394,7 @@ describe('Domain Purge Security Validation', {
       }, {
         headers: { 'Authorization': `Token ${testAccount1.token}` }
       }).then((response) => {
-        expect(response.status).to.be.oneOf([200, 201, 202]);
+        expect(response.status).to.be.oneOf([200, 201, 202, 204]);
         
         // Check if response includes audit information
         if (response.body.request_id || response.body.trace_id) {

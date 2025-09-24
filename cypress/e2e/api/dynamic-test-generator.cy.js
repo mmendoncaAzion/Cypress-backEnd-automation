@@ -1,3 +1,4 @@
+// Fixed imports for enhanced utilities
 /**
  * Dynamic Test Generator
  * Generates and executes tests dynamically based on API Reference analysis
@@ -32,8 +33,8 @@ describe('Dynamic API Test Generation', () => {
       it(`should execute high priority scenarios for ${context}`, () => {
         cy.getScenariosByContext(context).then((scenarios) => {
           const highPriorityScenarios = scenarios.filter(s => s.priority === 'high');
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-          const apiToken = Cypress.env('apiToken');
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+          const apiToken = Cypress.env('AZION_TOKEN');
 
           if (!apiToken) {
             cy.log('⚠️ No API token provided, testing without authentication');
@@ -67,7 +68,7 @@ describe('Dynamic API Test Generation', () => {
       it(`should test security scenarios for ${context}`, () => {
         cy.getScenariosByContext(context).then((scenarios) => {
           const securityScenarios = scenarios.filter(s => s.category === 'security');
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
           
           securityScenarios.slice(0, 3).forEach((scenario) => {
             cy.log(`🔒 Testing security: ${scenario.name}`);
@@ -132,8 +133,8 @@ describe('Dynamic API Test Generation', () => {
     it('should execute multiple scenarios in parallel', () => {
       cy.getScenariosByContext('account').then((scenarios) => {
         const testScenarios = scenarios.filter(s => s.priority === 'high').slice(0, 5);
-        const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-        const apiToken = Cypress.env('apiToken');
+        const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+        const apiToken = Cypress.env('AZION_TOKEN');
         
         const startTime = Date.now();
         
@@ -154,8 +155,8 @@ describe('Dynamic API Test Generation', () => {
         const coreScenario = scenarios.find(s => s.category === 'core' && s.method === 'GET');
         
         if (coreScenario) {
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-          const apiToken = Cypress.env('apiToken');
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+          const apiToken = Cypress.env('AZION_TOKEN');
           
           if (apiToken) {
             const startTime = Date.now();
@@ -182,8 +183,8 @@ describe('Dynamic API Test Generation', () => {
         category: 'validation'
       };
       
-      const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-      const apiToken = Cypress.env('apiToken');
+      const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+      const apiToken = Cypress.env('AZION_TOKEN');
       
       cy.executeScenario(invalidScenario, baseUrl, apiToken);
     });
@@ -193,8 +194,8 @@ describe('Dynamic API Test Generation', () => {
         const testScenario = scenarios.find(s => s.category === 'core');
         
         if (testScenario) {
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-          const apiToken = Cypress.env('apiToken');
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+          const apiToken = Cypress.env('AZION_TOKEN');
           
           if (apiToken) {
             // Execute same scenario multiple times to test rate limiting

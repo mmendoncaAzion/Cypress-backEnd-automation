@@ -18,13 +18,9 @@ const generateUniqueName = (prefix) => {
       month: '2-digit',
       year: '2-digit',
       hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
+      minute: '2-digit'
     })
-    .replace(/\//g, '')
-    .replace(/:/g, '')
-    .replace(/, /g, '')
-  
+
   const milliseconds = timestamp.getMilliseconds().toString().padStart(3, '0')
 
   return `${prefix}${formattedTimestamp}${milliseconds}`
@@ -117,7 +113,7 @@ const formatBrazilianTimestamp = () => {
   const now = new Date()
   return now.toLocaleDateString('pt-BR', {
     day: '2-digit',
-    month: '2-digit', 
+    month: '2-digit',
     year: '2-digit',
     hour: '2-digit',
     minute: '2-digit',
@@ -133,18 +129,18 @@ const formatBrazilianTimestamp = () => {
  */
 const generateTestVariation = (baseValue, type) => {
   switch (type) {
-    case 'max':
-      return typeof baseValue === 'string' ? 'x'.repeat(255) : 999999
-    case 'min':
-      return typeof baseValue === 'string' ? 'a' : 1
-    case 'empty':
-      return typeof baseValue === 'string' ? '' : null
-    case 'special':
-      return 'test-@#$%^&*()_+-=[]{}|;:,.<>?'
-    case 'unicode':
-      return 'test-🚀🔥💯🎉 中文 العربية русский'
-    default:
-      return baseValue
+  case 'max':
+    return typeof baseValue === 'string' ? 'x'.repeat(255) : 999999
+  case 'min':
+    return typeof baseValue === 'string' ? 'a' : 1
+  case 'empty':
+    return typeof baseValue === 'string' ? '' : null
+  case 'special':
+    return 'test-@#$%^&*()_+-=[]{}|;:,.<>?'
+  case 'unicode':
+    return 'test-🚀🔥💯🎉 中文 العربية русский'
+  default:
+    return baseValue
   }
 }
 
@@ -174,7 +170,7 @@ const validateResponseStructure = (response, expectedSchema) => {
  */
 const generateTestScenarios = (endpoint, method, basePayload = {}) => {
   const scenarios = []
-  
+
   // Success scenarios
   scenarios.push({
     name: `${method} ${endpoint} - Success`,
@@ -184,7 +180,7 @@ const generateTestScenarios = (endpoint, method, basePayload = {}) => {
     expectedStatus: method === 'POST' ? 201 : (method === 'DELETE' ? 204 : 200),
     tags: ['@success', '@smoke']
   })
-  
+
   // Error scenarios
   if (method !== 'GET') {
     scenarios.push({
@@ -196,7 +192,7 @@ const generateTestScenarios = (endpoint, method, basePayload = {}) => {
       tags: ['@error', '@validation']
     })
   }
-  
+
   // Boundary scenarios
   if (basePayload.name) {
     scenarios.push({
@@ -208,7 +204,7 @@ const generateTestScenarios = (endpoint, method, basePayload = {}) => {
       tags: ['@boundary', '@regression']
     })
   }
-  
+
   return scenarios
 }
 

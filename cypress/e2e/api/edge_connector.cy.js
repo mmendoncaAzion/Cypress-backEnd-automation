@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Edge Connector API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('GET edge_connector/connectors/{{connector_id}} - Retrieve details of an Edge Connector', { tags: ['@api', '@get', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_connector/connectors/${testData.connectorId}`,
+    cy.azionApiRequest('GET', '/edge_connector/connectors/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('PUT edge_connector/connectors/{{connector_id}} - Update an Edge Connector', { tags: ['@api', '@put', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/edge_connector/connectors/${testData.connectorId}`,
+    cy.azionApiRequest('PUT', '/edge_connector/connectors/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('PATCH edge_connector/connectors/{{connector_id}} - Partially update an Edge Connector', { tags: ['@api', '@patch', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/edge_connector/connectors/${testData.connectorId}`,
+    cy.azionApiRequest('PATCH', '/edge_connector/connectors/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('DELETE edge_connector/connectors/{{connector_id}} - Destroy an Edge Connector', { tags: ['@api', '@delete', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_connector/connectors/${testData.connectorId}`,
+    cy.azionApiRequest('DELETE', '/edge_connector/connectors/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('GET edge_connector/connectors - List Edge Connectors', { tags: ['@api', '@get', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_connector/connectors`,
+    cy.azionApiRequest('GET', '/edge_connector/connectors',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Edge Connector API Tests', () => {
   });
 
   it('POST edge_connector/connectors - Create an Edge Connector', { tags: ['@api', '@post', '@edge_connector'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_connector/connectors`,
+    cy.azionApiRequest('POST', '/edge_connector/connectors',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

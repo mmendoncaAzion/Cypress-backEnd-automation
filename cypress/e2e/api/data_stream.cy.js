@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Data Stream API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('GET data_stream/templates/{{templateId}} - Retrieve details of a template', { tags: ['@api', '@get', '@data_stream'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/data_stream/templates/{{templateId}}`,
+    cy.azionApiRequest('GET', '/data_stream/templates/{{templateId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('PUT data_stream/templates/{{dataSetId}} - Update a template', { tags: ['@api', '@put', '@data_stream'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/data_stream/templates/{{dataSetId}}`,
+    cy.azionApiRequest('PUT', '/data_stream/templates/{{dataSetId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('PATCH data_stream/templates/{{dataSetId}} - Partially update a template', { tags: ['@api', '@patch', '@data_stream'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/data_stream/templates/{{dataSetId}}`,
+    cy.azionApiRequest('PATCH', '/data_stream/templates/{{dataSetId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('DELETE data_stream/data_sets/{{dataSetId}} - Destroy a template', { tags: ['@api', '@delete', '@data_stream'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/data_stream/data_sets/{{dataSetId}}`,
+    cy.azionApiRequest('DELETE', '/data_stream/data_sets/{{dataSetId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('GET data_stream/templates - List Template', { tags: ['@api', '@get', '@data_stream'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/data_stream/templates`,
+    cy.azionApiRequest('GET', '/data_stream/templates',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('POST data_stream/templates - Create a Template', { tags: ['@api', '@post', '@data_stream'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/data_stream/templates`,
+    cy.azionApiRequest('POST', '/data_stream/templates',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('GET data_stream/data_sources - List of Data Sources', { tags: ['@api', '@get', '@data_stream'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/data_stream/data_sources`,
+    cy.azionApiRequest('GET', '/data_stream/data_sources',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -207,9 +194,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('GET data_stream/streams/{{dataStreamingId}} - Retrieve details of a Data Stream', { tags: ['@api', '@get', '@data_stream'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/data_stream/streams/${testData.streamId}`,
+    cy.azionApiRequest('GET', '/data_stream/streams/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -234,9 +219,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('PUT data_stream/streams/{{dataStreamingId}} - Update a Data Stream', { tags: ['@api', '@put', '@data_stream'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/data_stream/streams/${testData.streamId}`,
+    cy.azionApiRequest('PUT', '/data_stream/streams/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -261,9 +244,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('PATCH data_stream/streams/{{dataStreamingId}} - Partially update a Data Stream', { tags: ['@api', '@patch', '@data_stream'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/data_stream/streams/${testData.streamId}`,
+    cy.azionApiRequest('PATCH', '/data_stream/streams/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -288,9 +269,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('DELETE data_stream/streams/{{dataStreamingId}} - Destroy a Data Stream', { tags: ['@api', '@delete', '@data_stream'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/data_stream/streams/${testData.streamId}`,
+    cy.azionApiRequest('DELETE', '/data_stream/streams/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -315,9 +294,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('GET data_stream/streams - List Data Streams', { tags: ['@api', '@get', '@data_stream'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/data_stream/streams`,
+    cy.azionApiRequest('GET', '/data_stream/streams',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -342,9 +319,7 @@ describe('Data Stream API Tests', () => {
   });
 
   it('POST data_stream/streams - Create a Data Stream', { tags: ['@api', '@post', '@data_stream'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/data_stream/streams`,
+    cy.azionApiRequest('POST', '/data_stream/streams',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

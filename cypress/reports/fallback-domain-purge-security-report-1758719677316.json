@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-09-24T13:14:31.642Z",
+  "environment": "stage",
+  "testType": "fallback-domain-purge-security",
+  "testAccounts": {
+    "primary": {
+      "accountId": "25433",
+      "name": "Primary Test Account"
+    },
+    "secondary": {
+      "token": "invalid_secondary_token_test123",
+      "accountId": "invalid_account_999",
+      "name": "Simulated Unauthorized Account"
+    }
+  },
+  "purgeAttempts": [],
+  "securityVulnerabilities": [],
+  "apiCallsLog": [],
+  "summary": {
+    "totalPurgeAttempts": 0,
+    "blockedAttempts": 0,
+    "totalApiCalls": 0,
+    "totalVulnerabilities": 0,
+    "criticalVulnerabilities": 0,
+    "highRiskVulnerabilities": 0,
+    "mediumRiskVulnerabilities": 0,
+    "testDuration": "2025-09-24T13:14:37.316Z"
+  },
+  "securityAssessment": {
+    "overallRisk": "LOW",
+    "authenticationSecurity": "SECURE",
+    "inputValidationSecurity": "SECURE",
+    "rateLimitingSecurity": "ADEQUATE"
+  }
+}

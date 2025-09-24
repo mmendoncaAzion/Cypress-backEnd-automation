@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Orchestrator API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET orchestrator/edge_nodes/:nodeId/groups - List Edge Node Groups by id', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}/groups`,
+    cy.azionApiRequest('GET', '/orchestrator/edge_nodes//groups',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('POST orchestrator/edge_nodes/:nodeId/groups - Bind Node Group', { tags: ['@api', '@post', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}/groups`,
+    cy.azionApiRequest('POST', '/orchestrator/edge_nodes//groups',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET orchestrator/edge_nodes/:nodeId/services/:bindId - Retrieve details of an Edge Node Service Bind', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}/services/${testData.bindId}`,
+    cy.azionApiRequest('GET', '/orchestrator/edge_nodes//services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('DELETE orchestrator/edge_nodes/:nodeId/services/:bindId - Unbind Node Service', { tags: ['@api', '@delete', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}/services/${testData.bindId}`,
+    cy.azionApiRequest('DELETE', '/orchestrator/edge_nodes//services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET orchestrator/edge_nodes/:nodeId/services - List Node Services', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}/services`,
+    cy.azionApiRequest('GET', '/orchestrator/edge_nodes//services',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('POST edge_orchestrator/edge_nodes/:nodeId/services - Bind Node Service', { tags: ['@api', '@post', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes/${testData.nodeId}/services`,
+    cy.azionApiRequest('POST', '/edge_orchestrator/edge_nodes//services',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_nodes/:nodeId - Retrieve details of an Edge Node', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes/${testData.nodeId}`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_nodes/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -207,9 +194,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PUT orchestrator/edge_nodes/:nodeId - Update an Edge Node', { tags: ['@api', '@put', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}`,
+    cy.azionApiRequest('PUT', '/orchestrator/edge_nodes/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -234,9 +219,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PATCH orchestrator/edge_nodes/:nodeId - Partially update an Edge Node', { tags: ['@api', '@patch', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}`,
+    cy.azionApiRequest('PATCH', '/orchestrator/edge_nodes/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -261,9 +244,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('DELETE orchestrator/edge_nodes/:nodeId - Delete an Edge Node', { tags: ['@api', '@delete', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/orchestrator/edge_nodes/${testData.nodeId}`,
+    cy.azionApiRequest('DELETE', '/orchestrator/edge_nodes/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -288,9 +269,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('DELETE edge_orchestrator/edge_nodes/groups/{{groupId}} - Remove Node Group', { tags: ['@api', '@delete', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes/groups/{{groupId}}`,
+    cy.azionApiRequest('DELETE', '/edge_orchestrator/edge_nodes/groups/{{groupId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -315,9 +294,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_nodes/groups - List Edge Node Groups', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes/groups`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_nodes/groups',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -342,9 +319,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('POST edge_orchestrator/edge_nodes/groups - Create Edge Node Group', { tags: ['@api', '@post', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes/groups`,
+    cy.azionApiRequest('POST', '/edge_orchestrator/edge_nodes/groups',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -369,9 +344,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_nodes - List Edge Nodes', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_nodes`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_nodes',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -396,9 +369,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_services/{{serviceId}}/resources/{{resourceId}}/content - Retrieve content of a Resource', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}/resources/{{resourceId}}/content`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_services//resources/{{resourceId}}/content',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -423,9 +394,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PUT orchestrator/edge_services/:serviceId/resources/:resourceId/content - Upload content of a Resource', { tags: ['@api', '@put', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/orchestrator/edge_services/${testData.serviceId}/resources/${testData.resourceId}/content`,
+    cy.azionApiRequest('PUT', '/orchestrator/edge_services//resources//content',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -450,9 +419,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET orchestrator/edge_services/:serviceId/resources/:resourceId - Retrieve details of a Resource', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/orchestrator/edge_services/${testData.serviceId}/resources/${testData.resourceId}`,
+    cy.azionApiRequest('GET', '/orchestrator/edge_services//resources/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -477,9 +444,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PUT orchestrator/edge_services/:serviceId/resources/:resourceId - Update Resource', { tags: ['@api', '@put', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/orchestrator/edge_services/${testData.serviceId}/resources/${testData.resourceId}`,
+    cy.azionApiRequest('PUT', '/orchestrator/edge_services//resources/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -504,9 +469,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('DELETE orchestrator/edge_services/:serviceId/resources/:resourceId - Delete Resource', { tags: ['@api', '@delete', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/orchestrator/edge_services/${testData.serviceId}/resources/${testData.resourceId}`,
+    cy.azionApiRequest('DELETE', '/orchestrator/edge_services//resources/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -531,9 +494,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_services/{{serviceId}}/resources - List Service Resources', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}/resources`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_services//resources',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -558,9 +519,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('POST edge_orchestrator/edge_services/{{serviceId}}/resources - Create Service Resource', { tags: ['@api', '@post', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}/resources`,
+    cy.azionApiRequest('POST', '/edge_orchestrator/edge_services//resources',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -585,9 +544,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_services/{{serviceId}} - Retrieve details of an Edge Service', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -612,9 +569,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PUT edge_orchestrator/edge_services/{{serviceId}} - Update an Edge Service', { tags: ['@api', '@put', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}`,
+    cy.azionApiRequest('PUT', '/edge_orchestrator/edge_services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -639,9 +594,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('PATCH edge_orchestrator/edge_services/{{serviceId}} - Partially update an Edge Service', { tags: ['@api', '@patch', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}`,
+    cy.azionApiRequest('PATCH', '/edge_orchestrator/edge_services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -666,9 +619,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('DELETE edge_orchestrator/edge_services/{{serviceId}} - Destroy an Edge Service', { tags: ['@api', '@delete', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_orchestrator/edge_services/${testData.serviceId}`,
+    cy.azionApiRequest('DELETE', '/edge_orchestrator/edge_services/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -693,9 +644,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('GET edge_orchestrator/edge_services - List Edge Services', { tags: ['@api', '@get', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_orchestrator/edge_services`,
+    cy.azionApiRequest('GET', '/edge_orchestrator/edge_services',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -720,9 +669,7 @@ describe('Orchestrator API Tests', () => {
   });
 
   it('POST edge_orchestrator/edge_services - Create Edge Service', { tags: ['@api', '@post', '@orchestrator'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_orchestrator/edge_services`,
+    cy.azionApiRequest('POST', '/edge_orchestrator/edge_services',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

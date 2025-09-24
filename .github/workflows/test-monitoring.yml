@@ -1,0 +1,242 @@
+name: Test Health Monitoring
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Run Comprehensive API Tests"]
+    types: [completed]
+
+jobs:
+  monitor-test-health:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+
+      - name: Install dependencies
+        working-directory: cypress-automation
+        run: npm ci
+
+      - name: Download recent test artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: cypress-automation/artifacts/
+          pattern: test-results-*
+          merge-multiple: true
+        continue-on-error: true
+
+      - name: Analyze test health
+        working-directory: cypress-automation
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          
+          // Calculate test health metrics
+          const calculateTestHealth = () => {
+            const artifactsDir = './artifacts';
+            let totalTests = 0;
+            let failedTests = 0;
+            let flakyTests = [];
+            
+            if (fs.existsSync(artifactsDir)) {
+              const files = fs.readdirSync(artifactsDir, { recursive: true });
+              const jsonFiles = files.filter(f => f.endsWith('.json'));
+              
+              jsonFiles.forEach(file => {
+                try {
+                  const data = JSON.parse(fs.readFileSync(path.join(artifactsDir, file), 'utf8'));
+                  if (data.stats) {
+                    totalTests += data.stats.tests || 0;
+                    failedTests += data.stats.failures || 0;
+                  }
+                } catch (e) {
+                  console.log('Could not parse:', file);
+                }
+              });
+            }
+            
+            const failureRate = totalTests > 0 ? (failedTests / totalTests * 100).toFixed(2) : 0;
+            
+            return {
+              totalTests,
+              failedTests,
+              failureRate,
+              status: failureRate > 15 ? 'CRITICAL' : failureRate > 5 ? 'WARNING' : 'HEALTHY'
+            };
+          };
+          
+          const health = calculateTestHealth();
+          
+          console.log('📊 Test Health Report');
+          console.log('====================');
+          console.log('Total Tests:', health.totalTests);
+          console.log('Failed Tests:', health.failedTests);
+          console.log('Failure Rate:', health.failureRate + '%');
+          console.log('Status:', health.status);
+          
+          // Set outputs for next steps
+          const fs = require('fs');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, 'failure_rate=' + health.failureRate + '\n');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, 'status=' + health.status + '\n');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, 'total_tests=' + health.totalTests + '\n');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, 'failed_tests=' + health.failedTests + '\n');
+          "
+        id: health_check
+
+      - name: Generate health report
+        working-directory: cypress-automation
+        run: |
+          cat > health-report.md << EOF
+          # 🏥 Test Health Report
+          
+          **Generated**: $(date)
+          **Status**: ${{ steps.health_check.outputs.status }}
+          
+          ## Metrics
+          - **Total Tests**: ${{ steps.health_check.outputs.total_tests }}
+          - **Failed Tests**: ${{ steps.health_check.outputs.failed_tests }}
+          - **Failure Rate**: ${{ steps.health_check.outputs.failure_rate }}%
+          
+          ## Status Indicators
+          - 🟢 **HEALTHY**: < 5% failure rate
+          - 🟡 **WARNING**: 5-15% failure rate  
+          - 🔴 **CRITICAL**: > 15% failure rate
+          
+          ## Current Status: ${{ steps.health_check.outputs.status }}
+          
+          $(if [ "${{ steps.health_check.outputs.status }}" = "CRITICAL" ]; then
+            echo "⚠️ **Action Required**: High failure rate detected. Please investigate failing tests."
+          elif [ "${{ steps.health_check.outputs.status }}" = "WARNING" ]; then
+            echo "⚠️ **Attention**: Elevated failure rate. Monitor closely."
+          else
+            echo "✅ **All Good**: Test suite is healthy."
+          fi)
+          
+          ## Recommendations
+          
+          $(if [ "${{ steps.health_check.outputs.status }}" != "HEALTHY" ]; then
+            echo "1. Review recent test failures in GitHub Actions"
+            echo "2. Check for API endpoint changes or authentication issues"
+            echo "3. Validate environment configuration"
+            echo "4. Consider running: \`npm run test:priority\` to isolate issues"
+          else
+            echo "1. Continue regular monitoring"
+            echo "2. Consider expanding test coverage"
+            echo "3. Review performance metrics"
+          fi)
+          EOF
+
+      - name: Upload health report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-health-report-${{ github.run_number }}
+          path: cypress-automation/health-report.md
+          retention-days: 30
+
+      - name: Create issue on critical failure
+        if: steps.health_check.outputs.status == 'CRITICAL'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `🚨 Critical Test Health Alert - ${new Date().toISOString().split('T')[0]}`;
+            const body = `
+            ## Critical Test Health Alert
+            
+            **Failure Rate**: ${{ steps.health_check.outputs.failure_rate }}%
+            **Failed Tests**: ${{ steps.health_check.outputs.failed_tests }}/${{ steps.health_check.outputs.total_tests }}
+            **Detected**: ${new Date().toISOString()}
+            
+            ### Immediate Actions Required
+            
+            1. **Investigate Failures**: Review recent workflow runs for error patterns
+            2. **Check Authentication**: Verify API tokens and permissions
+            3. **Validate Environment**: Ensure API endpoints are accessible
+            4. **Run Diagnostics**: Execute \`npm run test:priority\` locally
+            
+            ### Recent Workflow Runs
+            
+            Check the [Actions tab](https://github.com/${{ github.repository }}/actions) for detailed failure information.
+            
+            ### Auto-generated by Test Health Monitoring
+            `;
+            
+            // Check if similar issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'test-health,critical'
+            });
+            
+            const existingIssue = issues.data.find(issue => 
+              issue.title.includes('Critical Test Health Alert')
+            );
+            
+            if (!existingIssue) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['test-health', 'critical', 'bug']
+              });
+            } else {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: `## Updated Alert - ${new Date().toISOString()}\n\n${body}`
+              });
+            }
+
+      - name: Update status badge
+        run: |
+          STATUS="${{ steps.health_check.outputs.status }}"
+          COLOR="red"
+          
+          case $STATUS in
+            "HEALTHY") COLOR="brightgreen" ;;
+            "WARNING") COLOR="yellow" ;;
+            "CRITICAL") COLOR="red" ;;
+          esac
+          
+          echo "Test health status: $STATUS (color: $COLOR)"
+          
+          # Could integrate with shields.io or similar service
+          # curl -X POST "https://api.shields.io/badge/test%20health-$STATUS-$COLOR"
+
+      - name: Summary
+        run: |
+          echo "## 📊 Test Health Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ steps.health_check.outputs.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total Tests**: ${{ steps.health_check.outputs.total_tests }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Failed Tests**: ${{ steps.health_check.outputs.failed_tests }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Failure Rate**: ${{ steps.health_check.outputs.failure_rate }}%" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.health_check.outputs.status }}" = "CRITICAL" ]; then
+            echo "🚨 **Critical Alert**: High failure rate detected!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Immediate Actions**:" >> $GITHUB_STEP_SUMMARY
+            echo "1. Check recent workflow failures" >> $GITHUB_STEP_SUMMARY
+            echo "2. Validate API authentication" >> $GITHUB_STEP_SUMMARY
+            echo "3. Run diagnostic tests" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.health_check.outputs.status }}" = "WARNING" ]; then
+            echo "⚠️ **Warning**: Elevated failure rate" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **Healthy**: Test suite is performing well" >> $GITHUB_STEP_SUMMARY
+          fi

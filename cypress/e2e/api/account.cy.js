@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Account API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Account API Tests', () => {
   });
 
   it('GET account/accounts/{{accountId}}/info - Retrieve account information details', { tags: ['@api', '@get', '@account'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/account/accounts/${testData.accountId}/info`,
+    cy.azionApiRequest('GET', '/account/accounts//info',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Account API Tests', () => {
   });
 
   it('PUT account/accounts/{{accountId}}/info - Update account information details', { tags: ['@api', '@put', '@account'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/account/accounts/${testData.accountId}/info`,
+    cy.azionApiRequest('PUT', '/account/accounts//info',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Account API Tests', () => {
   });
 
   it('GET account/accounts/{{accountId}} - Retrieve account details', { tags: ['@api', '@get', '@account'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/account/accounts/${testData.accountId}`,
+    cy.azionApiRequest('GET', '/account/accounts/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Account API Tests', () => {
   });
 
   it('PUT account/accounts/:id - Update account details', { tags: ['@api', '@put', '@account'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/account/accounts/${testData.accountId}`,
+    cy.azionApiRequest('PUT', '/account/accounts/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Account API Tests', () => {
   });
 
   it('PATCH account/accounts/:id - Partially update account details', { tags: ['@api', '@patch', '@account'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/account/accounts/${testData.accountId}`,
+    cy.azionApiRequest('PATCH', '/account/accounts/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Account API Tests', () => {
   });
 
   it('GET account/accounts - List accounts', { tags: ['@api', '@get', '@account'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/account/accounts`,
+    cy.azionApiRequest('GET', '/account/accounts',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Account API Tests', () => {
   });
 
   it('POST account/accounts - Create a new account', { tags: ['@api', '@post', '@account'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/account/accounts`,
+    cy.azionApiRequest('POST', '/account/accounts',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -207,9 +194,7 @@ describe('Account API Tests', () => {
   });
 
   it('GET account/account - Retrieve logged account details', { tags: ['@api', '@get', '@account'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/account/account`,
+    cy.azionApiRequest('GET', '/account/account',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -234,9 +219,7 @@ describe('Account API Tests', () => {
   });
 
   it('PUT account/account - Update logged account details', { tags: ['@api', '@put', '@account'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/account/account`,
+    cy.azionApiRequest('PUT', '/account/account',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -261,9 +244,7 @@ describe('Account API Tests', () => {
   });
 
   it('PATCH account/account - Partially update logged account details', { tags: ['@api', '@patch', '@account'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/account/account`,
+    cy.azionApiRequest('PATCH', '/account/account',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -288,9 +269,7 @@ describe('Account API Tests', () => {
   });
 
   it('POST iam/users - Create User', { tags: ['@api', '@post', '@account'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/iam/users`,
+    cy.azionApiRequest('POST', '/iam/users',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -315,9 +294,7 @@ describe('Account API Tests', () => {
   });
 
   it('POST iam/accounts - Create new account', { tags: ['@api', '@post', '@account'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/iam/accounts`,
+    cy.azionApiRequest('POST', '/iam/accounts',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

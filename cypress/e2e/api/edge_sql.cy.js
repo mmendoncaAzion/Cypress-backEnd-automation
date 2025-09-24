@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Edge Sql API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Edge Sql API Tests', () => {
   });
 
   it('POST edge_sql/databases/{{databaseId}}/query - Execute a query into a database', { tags: ['@api', '@post', '@edge_sql'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_sql/databases/${testData.databaseId}/query`,
+    cy.azionApiRequest('POST', '/edge_sql/databases//query',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Edge Sql API Tests', () => {
   });
 
   it('GET edge_sql/databases/{{databaseId}} - Retrieve details from a database', { tags: ['@api', '@get', '@edge_sql'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_sql/databases/${testData.databaseId}`,
+    cy.azionApiRequest('GET', '/edge_sql/databases/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Edge Sql API Tests', () => {
   });
 
   it('DELETE edge_sql/databases/{{databaseId}} - Destroy a database', { tags: ['@api', '@delete', '@edge_sql'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_sql/databases/${testData.databaseId}`,
+    cy.azionApiRequest('DELETE', '/edge_sql/databases/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Edge Sql API Tests', () => {
   });
 
   it('GET edge_sql/databases - List databases', { tags: ['@api', '@get', '@edge_sql'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_sql/databases`,
+    cy.azionApiRequest('GET', '/edge_sql/databases',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Edge Sql API Tests', () => {
   });
 
   it('POST edge_sql/databases - Create a database', { tags: ['@api', '@post', '@edge_sql'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/edge_sql/databases`,
+    cy.azionApiRequest('POST', '/edge_sql/databases',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

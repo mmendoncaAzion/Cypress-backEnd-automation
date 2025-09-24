@@ -1,3 +1,4 @@
+// Fixed imports for enhanced utilities
 /**
  * Cypress API Analysis Test Suite
  * Tests the API Reference analysis and scenario generation within Cypress
@@ -119,8 +120,8 @@ describe('Cypress API Analysis', () => {
         const coreScenario = scenarios.find(s => s.category === 'core' && s.method === 'GET');
         
         if (coreScenario) {
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
-          const apiToken = Cypress.env('apiToken');
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
+          const apiToken = Cypress.env('AZION_TOKEN');
           
           if (apiToken) {
             cy.executeScenario(coreScenario, baseUrl, apiToken);
@@ -136,7 +137,7 @@ describe('Cypress API Analysis', () => {
         const securityScenario = scenarios.find(s => s.category === 'security' && s.name === 'no_authentication');
         
         if (securityScenario) {
-          const baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com/v4';
+          const baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com/v4';
           cy.executeScenario(securityScenario, baseUrl, null);
         }
       });

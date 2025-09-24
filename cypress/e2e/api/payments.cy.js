@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Payments API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Payments API Tests', () => {
   });
 
   it('GET payments/credit_cards/{{creditCardId}} - Retrieve details from a credit card', { tags: ['@api', '@get', '@payments'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/payments/credit_cards/{{creditCardId}}`,
+    cy.azionApiRequest('GET', '/payments/credit_cards/{{creditCardId}}',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Payments API Tests', () => {
   });
 
   it('PATCH payments/credit_cards/:id - Partially update a credit card', { tags: ['@api', '@patch', '@payments'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/payments/credit_cards/${testData.accountId}`,
+    cy.azionApiRequest('PATCH', '/payments/credit_cards/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Payments API Tests', () => {
   });
 
   it('DELETE payments/credit_cards/:id - Destroy a credit card', { tags: ['@api', '@delete', '@payments'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/payments/credit_cards/${testData.accountId}`,
+    cy.azionApiRequest('DELETE', '/payments/credit_cards/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Payments API Tests', () => {
   });
 
   it('GET payments/credit_cards - List of the credit cards', { tags: ['@api', '@get', '@payments'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/payments/credit_cards`,
+    cy.azionApiRequest('GET', '/payments/credit_cards',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Payments API Tests', () => {
   });
 
   it('POST payments/credit_cards - Create a new credit card', { tags: ['@api', '@post', '@payments'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/payments/credit_cards`,
+    cy.azionApiRequest('POST', '/payments/credit_cards',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -153,9 +144,7 @@ describe('Payments API Tests', () => {
   });
 
   it('POST payments/credits - Add credits using the default credit card', { tags: ['@api', '@post', '@payments'] }, () => {
-    cy.request({
-      method: 'POST',
-      url: `${baseUrl}/payments/credits`,
+    cy.azionApiRequest('POST', '/payments/credits',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -180,9 +169,7 @@ describe('Payments API Tests', () => {
   });
 
   it('GET payments/history - List of the payment history', { tags: ['@api', '@get', '@payments'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/payments/history`,
+    cy.azionApiRequest('GET', '/payments/history',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',

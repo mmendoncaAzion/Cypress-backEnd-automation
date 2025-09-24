@@ -4,8 +4,8 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -26,9 +26,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test basic valid configuration with minimal required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -72,9 +70,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with sampling module enabled and dependencies satisfied');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -117,9 +113,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with sampling module explicitly disabled');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -156,9 +150,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with missing required fields');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -199,9 +191,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test validation with invalid field values');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -245,9 +235,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with sampling enabled but missing required dependencies');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -288,9 +276,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with maximum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -330,9 +316,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       
       cy.log('🧪 Testing: Test with minimum allowed field lengths');
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',
@@ -377,9 +361,7 @@ describe('Data Stream API - Enhanced AI-Generated Tests', () => {
       "sampling_percentage": 50
 };
       
-      cy.request({
-        method: 'POST',
-        url: `${baseUrl}/data_stream/streamings`,
+      cy.azionApiRequest('POST', '/data_stream/streamings',
         headers: {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json',

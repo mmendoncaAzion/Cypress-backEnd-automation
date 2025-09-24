@@ -111,7 +111,7 @@ cypress-automation/
 │   ├── coverage-audit.js
 │   └── validate-project-structure.js
 ├── reports/                   # Relatórios de teste
-└── .github/workflows/         # CI/CD workflows
+└── .github/workflows/         # CI/CD pipelines
 ```
 
 ## 🎯 Cobertura Completa da API V4

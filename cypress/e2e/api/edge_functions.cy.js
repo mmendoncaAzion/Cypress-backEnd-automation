@@ -1,11 +1,12 @@
+// Fixed imports for enhanced utilities
 describe('Edge Functions API Tests', () => {
   let authToken;
   let baseUrl;
   let testData;
 
   before(() => {
-    baseUrl = Cypress.env('baseUrl') || 'https://api.azion.com';
-    authToken = Cypress.env('apiToken');
+    baseUrl = Cypress.env('AZION_BASE_URL') || 'https://api.azion.com';
+    authToken = Cypress.env('AZION_TOKEN');
     
     if (!authToken) {
       throw new Error('API token not found. Set CYPRESS_apiToken environment variable.');
@@ -18,9 +19,7 @@ describe('Edge Functions API Tests', () => {
   });
 
   it('GET edge_functions/functions/{{functionId}} - Retrieve details of an Edge Function', { tags: ['@api', '@get', '@edge_functions'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_functions/functions/${testData.functionId}`,
+    cy.azionApiRequest('GET', '/edge_functions/functions/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -45,9 +44,7 @@ describe('Edge Functions API Tests', () => {
   });
 
   it('PUT edge_functions/functions/{{functionId}} - Update an Edge Function', { tags: ['@api', '@put', '@edge_functions'] }, () => {
-    cy.request({
-      method: 'PUT',
-      url: `${baseUrl}/edge_functions/functions/${testData.functionId}`,
+    cy.azionApiRequest('PUT', '/edge_functions/functions/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -72,9 +69,7 @@ describe('Edge Functions API Tests', () => {
   });
 
   it('PATCH edge_functions/functions/{{functionId}} - Partially update an Edge Function', { tags: ['@api', '@patch', '@edge_functions'] }, () => {
-    cy.request({
-      method: 'PATCH',
-      url: `${baseUrl}/edge_functions/functions/${testData.functionId}`,
+    cy.azionApiRequest('PATCH', '/edge_functions/functions/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -99,9 +94,7 @@ describe('Edge Functions API Tests', () => {
   });
 
   it('DELETE edge_functions/functions/{{functionId}} - Destroy an Edge Function', { tags: ['@api', '@delete', '@edge_functions'] }, () => {
-    cy.request({
-      method: 'DELETE',
-      url: `${baseUrl}/edge_functions/functions/${testData.functionId}`,
+    cy.azionApiRequest('DELETE', '/edge_functions/functions/',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -126,9 +119,7 @@ describe('Edge Functions API Tests', () => {
   });
 
   it('GET edge_functions/functions - List Edge Functions', { tags: ['@api', '@get', '@edge_functions'] }, () => {
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/edge_functions/functions`,
+    cy.azionApiRequest('GET', '/edge_functions/functions',
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
