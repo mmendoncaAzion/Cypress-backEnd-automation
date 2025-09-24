@@ -89,21 +89,13 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           spec: ${{ env.SPEC_PATTERN }}
-          browser: electron
-          headless: true
+          browser: ${{ github.event.inputs.browser }}
           install: true
           start: ""
           wait-on: ""
           parallel: ${{ github.event.inputs.parallel || 'true' }}
           record: ${{ github.event.inputs.record || 'false' }}
-          config: |
-            video=true,
-            screenshotOnRunFailure=true,
-            videosFolder=cypress/videos,
-            screenshotsFolder=cypress/screenshots,
-            requestTimeout=60000,
-            responseTimeout=60000,
-            defaultCommandTimeout=10000
+          config: video=true,screenshotOnRunFailure=true,requestTimeout=60000,responseTimeout=60000,defaultCommandTimeout=10000
             
         env:
           CYPRESS_token: ${{ secrets.AZION_TOKEN }}

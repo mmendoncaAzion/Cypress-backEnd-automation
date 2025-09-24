@@ -62,12 +62,7 @@ jobs:
         with:
           spec: ${{ matrix.suite.spec }}
           browser: electron
-          headless: true
-          config: |
-            video=true,
-            screenshotOnRunFailure=true,
-            requestTimeout=60000,
-            responseTimeout=60000
+          config: video=true,screenshotOnRunFailure=true,requestTimeout=60000,responseTimeout=60000
         env:
           CYPRESS_token: ${{ secrets.AZION_TOKEN }}
           CYPRESS_accountId: ${{ vars.ACCOUNT_ID }}

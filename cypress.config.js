@@ -21,15 +21,15 @@ module.exports = defineConfig({
       
       const environments = {
         dev: {
-          baseUrl: 'http://localhost:8080/api',
-          authEndpoint: 'http://localhost:9999/api/tokens'
+          baseUrl: 'https://api-dev.azionapi.net',
+          authEndpoint: 'https://api-dev.azionapi.net/tokens'
         },
         stage: {
-          baseUrl: 'https://stage-api.azion.com/v4',
-          authEndpoint: 'https://stage-api.azion.net/tokens'
+          baseUrl: 'https://api-stage.azionapi.net',
+          authEndpoint: 'https://api-stage.azionapi.net/tokens'
         },
         prod: {
-          baseUrl: 'https://api.azion.com/v4',
+          baseUrl: 'https://api.azionapi.net',
           authEndpoint: 'https://api.azionapi.net/tokens'
         }
       }
@@ -45,7 +45,8 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
     video: true,
     screenshotOnRunFailure: true,
-    experimentalRunAllSpecs: true
+    experimentalRunAllSpecs: true,
+    projectId: null
   },
   viewportWidth: 1280,
   viewportHeight: 720,
