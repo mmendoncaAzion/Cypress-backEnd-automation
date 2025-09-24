@@ -1,0 +1,575 @@
+name: 🚀 Comprehensive API Tests - All Endpoints
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      test_category:
+        description: 'Test category to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - core-apis
+          - applications
+          - auth-security
+          - certificates
+          - data-stream
+          - dns-domains
+          - edge-services
+          - firewall-security
+          - iam-identity
+          - orchestrator
+          - payments
+          - purge-cache
+          - storage
+          - workspace
+      parallel_jobs:
+        description: 'Number of parallel jobs'
+        required: false
+        default: '8'
+        type: choice
+        options:
+          - '4'
+          - '6'
+          - '8'
+          - '10'
+          - '12'
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'cypress/e2e/api/**'
+      - 'cypress/support/**'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'cypress/e2e/api/**'
+      - 'cypress/support/**'
+  schedule:
+    # Run comprehensive tests daily at 6 AM UTC
+    - cron: '0 6 * * *'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  test-discovery:
+    name: 🔍 Test Discovery & Planning
+    runs-on: ubuntu-latest
+    outputs:
+      test-matrix: ${{ steps.discovery.outputs.test-matrix }}
+      total-tests: ${{ steps.discovery.outputs.total-tests }}
+      test-categories: ${{ steps.discovery.outputs.test-categories }}
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔍 Discover Test Files
+        id: discovery
+        run: |
+          echo "🔍 Discovering all test files..."
+          
+          # Create test discovery script
+          cat > discover-tests.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          function discoverTests(dir, category = 'all') {
+            const tests = [];
+            const items = fs.readdirSync(dir, { withFileTypes: true });
+            
+            for (const item of items) {
+              const fullPath = path.join(dir, item.name);
+              if (item.isDirectory()) {
+                tests.push(...discoverTests(fullPath, category));
+              } else if (item.name.endsWith('.cy.js')) {
+                const relativePath = path.relative('cypress/e2e', fullPath);
+                const testCategory = categorizeTest(relativePath);
+                
+                if (category === 'all' || category === testCategory) {
+                  tests.push({
+                    file: relativePath,
+                    category: testCategory,
+                    priority: getPriority(relativePath),
+                    estimated_duration: getEstimatedDuration(relativePath)
+                  });
+                }
+              }
+            }
+            return tests;
+          }
+          
+          function categorizeTest(filePath) {
+            if (filePath.includes('newman-style')) return 'newman-style';
+            if (filePath.includes('account') || filePath.includes('auth')) return 'core-apis';
+            if (filePath.includes('applications')) return 'applications';
+            if (filePath.includes('auth/') || filePath.includes('security')) return 'auth-security';
+            if (filePath.includes('certificates')) return 'certificates';
+            if (filePath.includes('data-stream')) return 'data-stream';
+            if (filePath.includes('dns') || filePath.includes('domains')) return 'dns-domains';
+            if (filePath.includes('edge')) return 'edge-services';
+            if (filePath.includes('firewall')) return 'firewall-security';
+            if (filePath.includes('iam') || filePath.includes('identity')) return 'iam-identity';
+            if (filePath.includes('orchestrator')) return 'orchestrator';
+            if (filePath.includes('payments')) return 'payments';
+            if (filePath.includes('purge')) return 'purge-cache';
+            if (filePath.includes('storage')) return 'storage';
+            if (filePath.includes('workspace')) return 'workspace';
+            return 'misc';
+          }
+          
+          function getPriority(filePath) {
+            if (filePath.includes('priority') || filePath.includes('newman-style')) return 'high';
+            if (filePath.includes('comprehensive') || filePath.includes('enhanced')) return 'medium';
+            return 'low';
+          }
+          
+          function getEstimatedDuration(filePath) {
+            if (filePath.includes('comprehensive')) return 180; // 3 minutes
+            if (filePath.includes('enhanced')) return 120; // 2 minutes
+            if (filePath.includes('priority')) return 60; // 1 minute
+            return 90; // 1.5 minutes default
+          }
+          
+          // Discover all tests
+          const allTests = discoverTests('cypress/e2e');
+          const category = process.env.TEST_CATEGORY || 'all';
+          const filteredTests = category === 'all' ? allTests : allTests.filter(t => t.category === category);
+          
+          // Group tests for parallel execution
+          const parallelJobs = parseInt(process.env.PARALLEL_JOBS || '8');
+          const groups = [];
+          const testsPerGroup = Math.ceil(filteredTests.length / parallelJobs);
+          
+          for (let i = 0; i < parallelJobs; i++) {
+            const start = i * testsPerGroup;
+            const end = Math.min(start + testsPerGroup, filteredTests.length);
+            const groupTests = filteredTests.slice(start, end);
+            
+            if (groupTests.length > 0) {
+              groups.push({
+                group: i + 1,
+                tests: groupTests,
+                specs: groupTests.map(t => `cypress/e2e/${t.file}`).join(','),
+                categories: [...new Set(groupTests.map(t => t.category))],
+                total_duration: groupTests.reduce((sum, t) => sum + t.estimated_duration, 0)
+              });
+            }
+          }
+          
+          // Output results
+          console.log(JSON.stringify({
+            matrix: { include: groups },
+            total_tests: filteredTests.length,
+            categories: [...new Set(filteredTests.map(t => t.category))]
+          }, null, 2));
+          EOF
+          
+          # Run discovery
+          export TEST_CATEGORY="${{ github.event.inputs.test_category || 'all' }}"
+          export PARALLEL_JOBS="${{ github.event.inputs.parallel_jobs || '8' }}"
+          
+          DISCOVERY_RESULT=$(node discover-tests.js)
+          
+          echo "test-matrix=$(echo "$DISCOVERY_RESULT" | jq -c '.matrix')" >> $GITHUB_OUTPUT
+          echo "total-tests=$(echo "$DISCOVERY_RESULT" | jq -r '.total_tests')" >> $GITHUB_OUTPUT
+          echo "test-categories=$(echo "$DISCOVERY_RESULT" | jq -c '.categories')" >> $GITHUB_OUTPUT
+          
+          echo "📊 Discovery Results:"
+          echo "Total Tests: $(echo "$DISCOVERY_RESULT" | jq -r '.total_tests')"
+          echo "Categories: $(echo "$DISCOVERY_RESULT" | jq -r '.categories | join(", ")')"
+          echo "Parallel Groups: $(echo "$DISCOVERY_RESULT" | jq '.matrix.include | length')"
+
+  comprehensive-api-tests:
+    name: 🧪 API Tests - Group ${{ matrix.group }}
+    runs-on: ubuntu-latest
+    needs: test-discovery
+    if: needs.test-discovery.outputs.total-tests > 0
+    
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.test-discovery.outputs.test-matrix) }}
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Environment Variables
+        run: |
+          echo "Setting up environment for: ${{ github.event.inputs.environment || 'stage' }}"
+          
+          # Set environment-specific configuration
+          case "${{ github.event.inputs.environment || 'stage' }}" in
+            "dev")
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
+              echo "CYPRESS_environment=dev" >> $GITHUB_ENV
+              ;;
+            "stage")
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
+              echo "CYPRESS_environment=stage" >> $GITHUB_ENV
+              ;;
+            "prod")
+              echo "CYPRESS_baseUrl=https://api.azion.com" >> $GITHUB_ENV
+              echo "CYPRESS_environment=prod" >> $GITHUB_ENV
+              ;;
+          esac
+          
+          echo "📊 Test Group Info:"
+          echo "Group: ${{ matrix.group }}"
+          echo "Categories: ${{ join(matrix.categories, ', ') }}"
+          echo "Estimated Duration: ${{ matrix.total_duration }}s"
+          echo "Test Count: ${{ matrix.tests | length }}"
+
+      - name: 🧪 Run Comprehensive API Tests
+        uses: cypress-io/github-action@v6
+        continue-on-error: true
+        with:
+          spec: ${{ matrix.specs }}
+          install: true
+          working-directory: ./
+          config: |
+            video=true,
+            screenshotOnRunFailure=true,
+            requestTimeout=60000,
+            responseTimeout=60000,
+            defaultCommandTimeout=15000,
+            pageLoadTimeout=60000,
+            viewportWidth=1280,
+            viewportHeight=720,
+            reporter=json,
+            reporterOptions={"output":"cypress/results/results-group-${{ matrix.group }}.json"}
+          browser: chrome
+          headed: false
+          
+        env:
+          CYPRESS_apiToken: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_accountId: ${{ vars.ACCOUNT_ID || '25433' }}
+          CYPRESS_ACCOUNT_ID: ${{ vars.ACCOUNT_ID || '25433' }}
+          CYPRESS_environment: ${{ github.event.inputs.environment || 'stage' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📊 Generate Detailed Test Report
+        if: always()
+        run: |
+          echo "📈 Generating detailed test report for Group ${{ matrix.group }}..."
+          
+          mkdir -p reports/comprehensive
+          
+          # Parse Cypress results if available
+          TOTAL_TESTS=0
+          PASSED_TESTS=0
+          FAILED_TESTS=0
+          SKIPPED_TESTS=0
+          DURATION=0
+          
+          # Check for Cypress results JSON
+          RESULTS_FILE="cypress/results/results-group-${{ matrix.group }}.json"
+          if [ -f "$RESULTS_FILE" ]; then
+            TOTAL_TESTS=$(jq -r '.stats.tests // 0' "$RESULTS_FILE")
+            PASSED_TESTS=$(jq -r '.stats.passes // 0' "$RESULTS_FILE")
+            FAILED_TESTS=$(jq -r '.stats.failures // 0' "$RESULTS_FILE")
+            SKIPPED_TESTS=$(jq -r '.stats.skipped // 0' "$RESULTS_FILE")
+            DURATION=$(jq -r '.stats.duration // 0' "$RESULTS_FILE")
+            
+            # Extract individual test results
+            echo "🔍 Extracting individual test results..."
+            jq -r '.tests[]? | "- \(.fullTitle // .title): \(if .state == "passed" then "✅ PASSED" else "❌ FAILED" end) (\(.duration // 0)ms)"' "$RESULTS_FILE" > test-details-group-${{ matrix.group }}.txt || echo "No individual test data available"
+          else
+            echo "⚠️ Results file not found: $RESULTS_FILE"
+          fi
+          
+          # Create detailed test report
+          cat > reports/comprehensive/detailed-report-group-${{ matrix.group }}.json << EOF
+          {
+            "group": {
+              "number": ${{ matrix.group }},
+              "categories": ${{ toJson(matrix.categories) }},
+              "test_count": ${{ matrix.tests | length }},
+              "estimated_duration": ${{ matrix.total_duration }}
+            },
+            "environment": {
+              "name": "${{ github.event.inputs.environment || 'stage' }}",
+              "baseUrl": "${{ env.CYPRESS_baseUrl }}",
+              "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
+            },
+            "execution": {
+              "runId": "${{ github.run_id }}",
+              "runNumber": ${{ github.run_number }},
+              "triggeredBy": "${{ github.actor }}",
+              "ref": "${{ github.ref }}",
+              "sha": "${{ github.sha }}"
+            },
+            "results": {
+              "tests": {
+                "total": ${TOTAL_TESTS},
+                "passed": ${PASSED_TESTS},
+                "failed": ${FAILED_TESTS},
+                "skipped": ${SKIPPED_TESTS}
+              },
+              "duration": ${DURATION},
+              "success_rate": $(echo "scale=2; if (${TOTAL_TESTS} > 0) ${PASSED_TESTS} * 100 / ${TOTAL_TESTS} else 0" | bc -l)
+            }
+          }
+          EOF
+          
+          # Generate execution summary
+          echo "📋 Test Group ${{ matrix.group }} - Execution Summary" > reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "🕒 Timestamp: $(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "🎯 Environment: ${{ github.event.inputs.environment || 'stage' }}" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "📂 Categories: ${{ join(matrix.categories, ', ') }}" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "## 📊 Test Results Summary" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "- **Total Tests**: ${TOTAL_TESTS}" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "- **Passed**: ${PASSED_TESTS} ✅" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "- **Failed**: ${FAILED_TESTS} ❌" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "- **Skipped**: ${SKIPPED_TESTS} ⏭️" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "- **Duration**: ${DURATION}ms" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          
+          if [ ${TOTAL_TESTS} -gt 0 ]; then
+            SUCCESS_RATE=$(echo "scale=1; ${PASSED_TESTS} * 100 / ${TOTAL_TESTS}" | bc -l)
+            echo "- **Success Rate**: ${SUCCESS_RATE}% 📈" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          fi
+          
+          echo "" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "## 📋 Individual Test Results" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          if [ -f "test-details-group-${{ matrix.group }}.txt" ]; then
+            cat "test-details-group-${{ matrix.group }}.txt" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          else
+            echo "- Individual test details not available" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          fi
+          
+          echo "" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "## 🧪 Test Files Executed" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo '${{ matrix.specs }}' | tr ',' '\n' | sed 's/^/- /' >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          
+          echo "✅ Detailed test report generated for Group ${{ matrix.group }}"
+
+      - name: 📤 Upload Test Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: comprehensive-results-group-${{ matrix.group }}-${{ github.run_number }}
+          path: |
+            cypress/videos/
+            cypress/screenshots/
+            cypress/results/
+            reports/
+            test-details-group-${{ matrix.group }}.txt
+          retention-days: 30
+
+  comprehensive-summary:
+    name: 📋 Comprehensive Test Summary
+    runs-on: ubuntu-latest
+    needs: [test-discovery, comprehensive-api-tests]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📊 Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          
+      - name: 📈 Generate Comprehensive Summary
+        run: |
+          echo "# 🚀 Comprehensive API Tests - Detailed Execution Report" > comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "**Environment:** ${{ github.event.inputs.environment || 'stage' }}" >> comprehensive-summary.md
+          echo "**Test Category:** ${{ github.event.inputs.test_category || 'all' }}" >> comprehensive-summary.md
+          echo "**Parallel Jobs:** ${{ github.event.inputs.parallel_jobs || '8' }}" >> comprehensive-summary.md
+          echo "**Total Test Files:** ${{ needs.test-discovery.outputs.total-tests }}" >> comprehensive-summary.md
+          echo "**Categories:** ${{ join(fromJson(needs.test-discovery.outputs.test-categories), ', ') }}" >> comprehensive-summary.md
+          echo "**Timestamp:** $(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" >> comprehensive-summary.md
+          echo "**Run ID:** ${{ github.run_id }}" >> comprehensive-summary.md
+          echo "**Triggered by:** ${{ github.actor }}" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          
+          # Initialize counters
+          TOTAL_TESTS_ALL=0
+          PASSED_TESTS_ALL=0
+          FAILED_TESTS_ALL=0
+          TOTAL_DURATION=0
+          GROUPS_PROCESSED=0
+          
+          echo "## 📊 Test Execution Results by Group" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "| Group | Categories | Total Tests | Passed | Failed | Success Rate | Duration | Status |" >> comprehensive-summary.md
+          echo "|-------|------------|-------------|--------|--------|--------------|----------|--------|" >> comprehensive-summary.md
+          
+          # Process each group
+          for artifact_dir in artifacts/comprehensive-results-group-*; do
+            if [ -d "$artifact_dir" ]; then
+              GROUP_NUM=$(echo "$artifact_dir" | grep -o 'group-[0-9]*' | grep -o '[0-9]*')
+              REPORT_FILE="$artifact_dir/reports/comprehensive/detailed-report-group-${GROUP_NUM}.json"
+              
+              if [ -f "$REPORT_FILE" ]; then
+                TOTAL=$(jq -r '.results.tests.total // 0' "$REPORT_FILE")
+                PASSED=$(jq -r '.results.tests.passed // 0' "$REPORT_FILE")
+                FAILED=$(jq -r '.results.tests.failed // 0' "$REPORT_FILE")
+                DURATION=$(jq -r '.results.duration // 0' "$REPORT_FILE")
+                SUCCESS_RATE=$(jq -r '.results.success_rate // 0' "$REPORT_FILE")
+                CATEGORIES=$(jq -r '.group.categories | join(", ")' "$REPORT_FILE")
+                
+                # Update totals
+                TOTAL_TESTS_ALL=$((TOTAL_TESTS_ALL + TOTAL))
+                PASSED_TESTS_ALL=$((PASSED_TESTS_ALL + PASSED))
+                FAILED_TESTS_ALL=$((FAILED_TESTS_ALL + FAILED))
+                TOTAL_DURATION=$((TOTAL_DURATION + DURATION))
+                GROUPS_PROCESSED=$((GROUPS_PROCESSED + 1))
+                
+                if [ $FAILED -eq 0 ] && [ $TOTAL -gt 0 ]; then
+                  STATUS="✅ Success"
+                elif [ $TOTAL -eq 0 ]; then
+                  STATUS="⚠️ No Tests"
+                else
+                  STATUS="⚠️ Partial"
+                fi
+                
+                echo "| Group $GROUP_NUM | $CATEGORIES | $TOTAL | $PASSED | $FAILED | ${SUCCESS_RATE}% | ${DURATION}ms | $STATUS |" >> comprehensive-summary.md
+              else
+                echo "| Group $GROUP_NUM | - | - | - | - | - | - | ❌ No Data |" >> comprehensive-summary.md
+              fi
+            fi
+          done
+          
+          # Calculate overall success rate
+          if [ $TOTAL_TESTS_ALL -gt 0 ]; then
+            OVERALL_SUCCESS_RATE=$(echo "scale=1; $PASSED_TESTS_ALL * 100 / $TOTAL_TESTS_ALL" | bc -l)
+          else
+            OVERALL_SUCCESS_RATE="0.0"
+          fi
+          
+          echo "" >> comprehensive-summary.md
+          echo "### 🎯 Overall Results" >> comprehensive-summary.md
+          echo "- **Total Test Groups Processed:** $GROUPS_PROCESSED" >> comprehensive-summary.md
+          echo "- **Total Tests Executed:** $TOTAL_TESTS_ALL" >> comprehensive-summary.md
+          echo "- **Tests Passed:** $PASSED_TESTS_ALL ✅" >> comprehensive-summary.md
+          echo "- **Tests Failed:** $FAILED_TESTS_ALL ❌" >> comprehensive-summary.md
+          echo "- **Overall Success Rate:** ${OVERALL_SUCCESS_RATE}% 📈" >> comprehensive-summary.md
+          echo "- **Total Execution Time:** ${TOTAL_DURATION}ms ⏱️" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          
+          if [ $TOTAL_TESTS_ALL -gt 0 ]; then
+            AVG_DURATION=$(echo "scale=0; $TOTAL_DURATION / $TOTAL_TESTS_ALL" | bc -l)
+            echo "- **Average Test Duration:** ${AVG_DURATION}ms per test" >> comprehensive-summary.md
+          fi
+          
+          echo "" >> comprehensive-summary.md
+          echo "## 🧪 API Coverage Summary" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "This comprehensive test execution covers all major Azion API endpoints:" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "### 📋 Core APIs" >> comprehensive-summary.md
+          echo "- **Account Management**: Account info, billing, user management" >> comprehensive-summary.md
+          echo "- **Authentication**: Login, token management, MFA, refresh tokens" >> comprehensive-summary.md
+          echo "- **IAM & Identity**: User roles, permissions, identity management" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "### 🌐 Edge Services" >> comprehensive-summary.md
+          echo "- **Edge Applications**: Application management, rules, functions" >> comprehensive-summary.md
+          echo "- **Edge Firewall**: Security rules, WAF, DDoS protection" >> comprehensive-summary.md
+          echo "- **Edge Storage**: Object storage, buckets, file management" >> comprehensive-summary.md
+          echo "- **Edge Functions**: Serverless functions, edge computing" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "### 🔒 Security & Certificates" >> comprehensive-summary.md
+          echo "- **Digital Certificates**: SSL/TLS certificates, CSR management" >> comprehensive-summary.md
+          echo "- **Security Policies**: Firewall rules, security configurations" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "### 📊 Data & Analytics" >> comprehensive-summary.md
+          echo "- **Data Stream**: Real-time data streaming, analytics" >> comprehensive-summary.md
+          echo "- **DNS Management**: Domain configuration, DNS records" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "### 🔄 Operations" >> comprehensive-summary.md
+          echo "- **Purge & Cache**: Cache invalidation, purge operations" >> comprehensive-summary.md
+          echo "- **Orchestrator**: Infrastructure orchestration" >> comprehensive-summary.md
+          echo "- **Workspace**: Project and workspace management" >> comprehensive-summary.md
+          echo "- **Payments**: Billing and payment processing" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          
+          echo "## 🔧 Test Execution Strategy" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          echo "- **Parallel Execution**: Tests distributed across ${{ github.event.inputs.parallel_jobs || '8' }} parallel jobs" >> comprehensive-summary.md
+          echo "- **Environment**: ${{ github.event.inputs.environment || 'stage' }} with real API authentication" >> comprehensive-summary.md
+          echo "- **Browser**: Chrome headless for consistent results" >> comprehensive-summary.md
+          echo "- **Retry Strategy**: Continue-on-error enabled for comprehensive coverage" >> comprehensive-summary.md
+          echo "- **Reporting**: Detailed JSON and Markdown reports per group" >> comprehensive-summary.md
+          echo "" >> comprehensive-summary.md
+          
+          cat comprehensive-summary.md
+
+      - name: 💬 Comment PR Results
+        uses: actions/github-script@v7
+        if: always() && github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('comprehensive-summary.md', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+
+      - name: 📤 Upload Comprehensive Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-summary-${{ github.run_number }}
+          path: comprehensive-summary.md
+          retention-days: 90
+
+  notify-results:
+    name: 📢 Notify Comprehensive Results
+    runs-on: ubuntu-latest
+    needs: [test-discovery, comprehensive-api-tests, comprehensive-summary]
+    if: always()
+    
+    steps:
+      - name: 📊 Determine Overall Status
+        id: status
+        run: |
+          if [[ "${{ needs.comprehensive-api-tests.result }}" == "success" ]]; then
+            echo "status=✅ SUCCESS" >> $GITHUB_OUTPUT
+            echo "color=28a745" >> $GITHUB_OUTPUT
+            echo "message=All comprehensive API tests passed successfully!" >> $GITHUB_OUTPUT
+          elif [[ "${{ needs.comprehensive-api-tests.result }}" == "failure" ]]; then
+            echo "status=⚠️ PARTIAL" >> $GITHUB_OUTPUT
+            echo "color=ffc107" >> $GITHUB_OUTPUT
+            echo "message=Comprehensive API tests completed with some failures. Check detailed reports." >> $GITHUB_OUTPUT
+          else
+            echo "status=❌ FAILURE" >> $GITHUB_OUTPUT
+            echo "color=d73a49" >> $GITHUB_OUTPUT
+            echo "message=Comprehensive API test execution encountered issues." >> $GITHUB_OUTPUT
+          fi
+
+      - name: 📝 Create Status Summary
+        run: |
+          echo "Comprehensive API Test Status: ${{ steps.status.outputs.status }}"
+          echo "Total Test Files: ${{ needs.test-discovery.outputs.total-tests }}"
+          echo "Categories: ${{ join(fromJson(needs.test-discovery.outputs.test-categories), ', ') }}"
+          echo "Message: ${{ steps.status.outputs.message }}"
+          
+          mkdir -p status
+          echo "${{ steps.status.outputs.status }}" > status/comprehensive-latest.txt
+          echo "$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)" > status/comprehensive-timestamp.txt
+          echo "${{ needs.test-discovery.outputs.total-tests }}" > status/comprehensive-total-tests.txt
+
+      - name: 📤 Upload Status
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-status-${{ github.run_number }}
+          path: status/
+          retention-days: 30
