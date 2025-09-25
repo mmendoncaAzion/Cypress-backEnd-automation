@@ -4,6 +4,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './enhanced-commands'
+import './enhanced-utilities'
 
 // Import Newman patterns support
 import './newman-patterns'

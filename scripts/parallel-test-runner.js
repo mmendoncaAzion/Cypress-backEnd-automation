@@ -1,358 +1,500 @@
 #!/usr/bin/env node
 
 /**
- * Parallel Test Runner for Cypress API Tests
- * Executes Cypress tests in parallel with multiple strategies
- * Adapted from Python parallel test runner patterns
+ * Parallel Test Runner - Optimized execution with multiple strategies
+ * Enhanced from mature project patterns for maximum efficiency
  */
 
-const { spawn } = require('child_process')
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const { spawn, execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const cluster = require('cluster');
 
-class CypressParallelRunner {
+class ParallelTestRunner {
   constructor(options = {}) {
-    this.maxWorkers = options.maxWorkers || os.cpus().length
-    this.timeout = options.timeout || 300000 // 5 minutes
-    this.strategy = options.strategy || 'context'
-    this.outputDir = options.outputDir || 'reports/parallel-tests'
-    this.verbose = options.verbose || false
-    this.results = []
-    this.startTime = Date.now()
-  }
-
-  /**
-   * Create test jobs based on parallelization strategy
-   */
-  createTestJobs(contexts = [], endpoints = [], tags = []) {
-    const jobs = []
-    const timestamp = Date.now()
-
-    if (this.strategy === 'context' && contexts.length > 0) {
-      contexts.forEach((context, index) => {
-        jobs.push({
-          id: `ctx_${index}_${context}`,
-          name: `Context: ${context}`,
-          type: 'context',
-          target: context,
-          outputFile: `cypress-context-${context}-${timestamp}`,
-          spec: `cypress/e2e/**/*.cy.js`,
-          env: { grepTags: `@${context}` }
-        })
-      })
-    }
-
-    if (this.strategy === 'tags' && tags.length > 0) {
-      tags.forEach((tag, index) => {
-        jobs.push({
-          id: `tag_${index}_${tag}`,
-          name: `Tag: ${tag}`,
-          type: 'tag',
-          target: tag,
-          outputFile: `cypress-tag-${tag}-${timestamp}`,
-          spec: `cypress/e2e/**/*.cy.js`,
-          env: { grepTags: `@${tag}` }
-        })
-      })
-    }
-
-    if (this.strategy === 'spec') {
-      const specFiles = this.getSpecFiles()
-      specFiles.forEach((spec, index) => {
-        const specName = path.basename(spec, '.cy.js')
-        jobs.push({
-          id: `spec_${index}_${specName}`,
-          name: `Spec: ${specName}`,
-          type: 'spec',
-          target: spec,
-          outputFile: `cypress-spec-${specName}-${timestamp}`,
-          spec: spec,
-          env: {}
-        })
-      })
-    }
-
-    return jobs
-  }
-
-  /**
-   * Get all spec files
-   */
-  getSpecFiles() {
-    const specDir = path.join(process.cwd(), 'cypress', 'e2e')
-    const files = []
+    this.maxWorkers = options.maxWorkers || Math.min(os.cpus().length, 8);
+    this.timeout = options.timeout || 600000; // 10 minutes
+    this.strategy = options.strategy || 'smart';
+    this.outputDir = options.outputDir || path.join(__dirname, '../reports/parallel');
+    this.verbose = options.verbose || false;
+    this.retryAttempts = options.retryAttempts || 2;
+    this.loadBalancing = options.loadBalancing || true;
     
-    const scanDir = (dir) => {
-      const items = fs.readdirSync(dir)
+    this.results = [];
+    this.activeJobs = new Map();
+    this.completedJobs = new Map();
+    this.failedJobs = new Map();
+    this.startTime = Date.now();
+    
+    this.ensureDirectories();
+  }
+
+  ensureDirectories() {
+    if (!fs.existsSync(this.outputDir)) {
+      fs.mkdirSync(this.outputDir, { recursive: true });
+    }
+  }
+
+  /**
+   * Smart test job creation with load balancing
+   */
+  createTestJobs(options = {}) {
+    const jobs = [];
+    const timestamp = Date.now();
+    
+    // Discover test files
+    const testFiles = this.discoverTestFiles(options.testDir || 'cypress/e2e');
+    
+    if (this.strategy === 'smart') {
+      return this.createSmartJobs(testFiles, timestamp);
+    } else if (this.strategy === 'file') {
+      return this.createFileBasedJobs(testFiles, timestamp);
+    } else if (this.strategy === 'spec') {
+      return this.createSpecBasedJobs(testFiles, timestamp);
+    } else if (this.strategy === 'category') {
+      return this.createCategoryBasedJobs(testFiles, timestamp, options.categories);
+    }
+    
+    return jobs;
+  }
+
+  discoverTestFiles(testDir) {
+    const files = [];
+    
+    const scanDirectory = (dir) => {
+      const items = fs.readdirSync(dir);
+      
       items.forEach(item => {
-        const fullPath = path.join(dir, item)
-        const stat = fs.statSync(fullPath)
+        const fullPath = path.join(dir, item);
+        const stat = fs.statSync(fullPath);
         
         if (stat.isDirectory()) {
-          scanDir(fullPath)
-        } else if (item.endsWith('.cy.js')) {
-          files.push(path.relative(process.cwd(), fullPath))
+          scanDirectory(fullPath);
+        } else if (item.endsWith('.cy.js') || item.endsWith('.spec.js')) {
+          files.push(fullPath);
         }
-      })
+      });
+    };
+    
+    if (fs.existsSync(testDir)) {
+      scanDirectory(testDir);
     }
     
-    if (fs.existsSync(specDir)) {
-      scanDir(specDir)
-    }
-    
-    return files
+    return files;
   }
 
-  /**
-   * Execute a single test job
-   */
-  async executeJob(job) {
-    const startTime = Date.now()
-    
-    return new Promise((resolve) => {
-      const outputDir = path.join(this.outputDir, `job_${job.id}`)
+  createSmartJobs(testFiles, timestamp) {
+    // Analyze test files for optimal grouping
+    const fileAnalysis = testFiles.map(file => {
+      const content = fs.readFileSync(file, 'utf8');
+      const testCount = (content.match(/it\(/g) || []).length;
+      const complexity = this.calculateComplexity(content);
       
-      // Ensure output directory exists
-      if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true })
-      }
+      return {
+        file,
+        testCount,
+        complexity,
+        estimatedTime: testCount * 1000 + complexity * 500 // rough estimation
+      };
+    });
 
-      const args = [
+    // Sort by estimated time (descending) for better load balancing
+    fileAnalysis.sort((a, b) => b.estimatedTime - a.estimatedTime);
+
+    // Group files into balanced jobs
+    const jobs = [];
+    const targetJobTime = fileAnalysis.reduce((sum, f) => sum + f.estimatedTime, 0) / this.maxWorkers;
+    
+    let currentJob = {
+      id: `smart_job_0`,
+      name: 'Smart Group 0',
+      type: 'smart',
+      files: [],
+      estimatedTime: 0,
+      outputFile: `cypress-smart-0-${timestamp}`
+    };
+
+    fileAnalysis.forEach((fileInfo, index) => {
+      if (currentJob.estimatedTime + fileInfo.estimatedTime > targetJobTime && currentJob.files.length > 0) {
+        jobs.push(currentJob);
+        currentJob = {
+          id: `smart_job_${jobs.length}`,
+          name: `Smart Group ${jobs.length}`,
+          type: 'smart',
+          files: [],
+          estimatedTime: 0,
+          outputFile: `cypress-smart-${jobs.length}-${timestamp}`
+        };
+      }
+      
+      currentJob.files.push(fileInfo.file);
+      currentJob.estimatedTime += fileInfo.estimatedTime;
+    });
+
+    if (currentJob.files.length > 0) {
+      jobs.push(currentJob);
+    }
+
+    return jobs;
+  }
+
+  createFileBasedJobs(testFiles, timestamp) {
+    return testFiles.map((file, index) => ({
+      id: `file_${index}`,
+      name: `File: ${path.basename(file)}`,
+      type: 'file',
+      files: [file],
+      outputFile: `cypress-file-${index}-${timestamp}`,
+      spec: file
+    }));
+  }
+
+  createSpecBasedJobs(testFiles, timestamp) {
+    const jobs = [];
+    
+    testFiles.forEach((file, fileIndex) => {
+      const content = fs.readFileSync(file, 'utf8');
+      const describes = content.match(/describe\(['"`]([^'"`]+)['"`]/g) || [];
+      
+      describes.forEach((describe, descIndex) => {
+        const testName = describe.match(/['"`]([^'"`]+)['"`]/)[1];
+        jobs.push({
+          id: `spec_${fileIndex}_${descIndex}`,
+          name: `Spec: ${testName}`,
+          type: 'spec',
+          files: [file],
+          outputFile: `cypress-spec-${fileIndex}-${descIndex}-${timestamp}`,
+          spec: file,
+          grep: testName
+        });
+      });
+    });
+    
+    return jobs;
+  }
+
+  createCategoryBasedJobs(testFiles, timestamp, categories = []) {
+    const defaultCategories = [
+      { name: 'account', pattern: /account/i, priority: 'high' },
+      { name: 'domains', pattern: /domain/i, priority: 'high' },
+      { name: 'edge_applications', pattern: /edge.*application/i, priority: 'medium' },
+      { name: 'origins', pattern: /origin/i, priority: 'medium' },
+      { name: 'cache', pattern: /cache/i, priority: 'medium' },
+      { name: 'security', pattern: /security|firewall|waf/i, priority: 'high' },
+      { name: 'performance', pattern: /performance|load/i, priority: 'low' }
+    ];
+
+    const categoriesToUse = categories.length > 0 ? categories : defaultCategories;
+    const jobs = [];
+
+    categoriesToUse.forEach((category, index) => {
+      const categoryFiles = testFiles.filter(file => 
+        category.pattern.test(file) || category.pattern.test(fs.readFileSync(file, 'utf8'))
+      );
+
+      if (categoryFiles.length > 0) {
+        jobs.push({
+          id: `category_${index}_${category.name}`,
+          name: `Category: ${category.name}`,
+          type: 'category',
+          category: category.name,
+          priority: category.priority,
+          files: categoryFiles,
+          outputFile: `cypress-category-${category.name}-${timestamp}`,
+          spec: categoryFiles.join(',')
+        });
+      }
+    });
+
+    // Sort by priority
+    const priorityOrder = { high: 0, medium: 1, low: 2 };
+    jobs.sort((a, b) => (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2));
+
+    return jobs;
+  }
+
+  calculateComplexity(content) {
+    let complexity = 0;
+    
+    // Count API requests
+    complexity += (content.match(/cy\.azionApiRequest|cy\.request/g) || []).length * 2;
+    
+    // Count assertions
+    complexity += (content.match(/expect\(/g) || []).length;
+    
+    // Count async operations
+    complexity += (content.match(/\.then\(|await /g) || []).length;
+    
+    // Count retries and error handling
+    complexity += (content.match(/retry|catch|failOnStatusCode/g) || []).length * 3;
+    
+    return complexity;
+  }
+
+  async runJob(job) {
+    return new Promise((resolve, reject) => {
+      const startTime = Date.now();
+      const outputPath = path.join(this.outputDir, `${job.outputFile}.json`);
+      
+      let cypressArgs = [
         'run',
-        '--spec', job.spec,
-        '--reporter', 'mochawesome',
-        '--reporter-options', `reportDir=${outputDir},reportFilename=${job.outputFile},html=true,json=true`,
+        '--reporter', 'json',
+        '--reporter-options', `reportFilename=${outputPath}`,
+        '--browser', 'electron',
         '--headless'
-      ]
+      ];
 
-      // Add environment variables
-      if (job.env.grepTags) {
-        args.push('--env', `grepTags=${job.env.grepTags}`)
+      if (job.spec) {
+        cypressArgs.push('--spec', job.spec);
+      } else if (job.files && job.files.length > 0) {
+        cypressArgs.push('--spec', job.files.join(','));
       }
 
-      if (this.verbose) {
-        console.log(`🚀 Starting job: ${job.name}`)
-        console.log(`   Command: cypress ${args.join(' ')}`)
+      if (job.grep) {
+        cypressArgs.push('--env', `grep=${job.grep}`);
       }
 
-      const cypress = spawn('npx', ['cypress', ...args], {
+      if (job.env) {
+        Object.entries(job.env).forEach(([key, value]) => {
+          cypressArgs.push('--env', `${key}=${value}`);
+        });
+      }
+
+      const cypress = spawn('npx', ['cypress', ...cypressArgs], {
         stdio: this.verbose ? 'inherit' : 'pipe',
-        timeout: this.timeout
-      })
+        cwd: process.cwd()
+      });
 
-      let stdout = ''
-      let stderr = ''
+      let stdout = '';
+      let stderr = '';
 
       if (!this.verbose) {
-        cypress.stdout?.on('data', (data) => {
-          stdout += data.toString()
-        })
+        cypress.stdout.on('data', (data) => {
+          stdout += data.toString();
+        });
 
-        cypress.stderr?.on('data', (data) => {
-          stderr += data.toString()
-        })
+        cypress.stderr.on('data', (data) => {
+          stderr += data.toString();
+        });
       }
 
-      cypress.on('close', (code) => {
-        const duration = Date.now() - startTime
-        const success = code === 0
+      const timeoutId = setTimeout(() => {
+        cypress.kill('SIGKILL');
+        reject(new Error(`Job ${job.id} timed out after ${this.timeout}ms`));
+      }, this.timeout);
 
-        // Parse results from mochawesome report
-        const reportPath = path.join(outputDir, `${job.outputFile}.json`)
-        let testResults = { totalTests: 0, passedTests: 0, failedTests: 0 }
-        
-        if (fs.existsSync(reportPath)) {
-          try {
-            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
-            testResults = {
-              totalTests: report.stats?.tests || 0,
-              passedTests: report.stats?.passes || 0,
-              failedTests: report.stats?.failures || 0
-            }
-          } catch (error) {
-            console.warn(`Warning: Could not parse report for ${job.name}`)
-          }
-        }
+      cypress.on('close', (code) => {
+        clearTimeout(timeoutId);
+        const duration = Date.now() - startTime;
 
         const result = {
           jobId: job.id,
-          name: job.name,
-          success,
-          duration: duration / 1000,
-          ...testResults,
-          outputDir,
-          errorMessage: success ? '' : stderr || stdout
+          jobName: job.name,
+          exitCode: code,
+          duration,
+          success: code === 0,
+          outputPath,
+          stdout: this.verbose ? null : stdout,
+          stderr: this.verbose ? null : stderr,
+          timestamp: new Date().toISOString()
+        };
+
+        // Try to read test results
+        if (fs.existsSync(outputPath)) {
+          try {
+            const testResults = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+            result.stats = testResults.stats;
+            result.tests = testResults.tests;
+          } catch (error) {
+            result.parseError = error.message;
+          }
         }
 
-        if (this.verbose) {
-          const status = success ? '✅' : '❌'
-          console.log(`${status} Completed job: ${job.name} (${result.duration.toFixed(2)}s)`)
+        if (code === 0) {
+          resolve(result);
+        } else {
+          reject(result);
         }
-
-        resolve(result)
-      })
+      });
 
       cypress.on('error', (error) => {
-        const duration = Date.now() - startTime
-        resolve({
+        clearTimeout(timeoutId);
+        reject({
           jobId: job.id,
-          name: job.name,
-          success: false,
-          duration: duration / 1000,
-          totalTests: 0,
-          passedTests: 0,
-          failedTests: 0,
-          outputDir,
-          errorMessage: error.message
-        })
-      })
-    })
+          jobName: job.name,
+          error: error.message,
+          duration: Date.now() - startTime,
+          success: false
+        });
+      });
+    });
   }
 
-  /**
-   * Execute all jobs in parallel
-   */
-  async executeParallel(jobs) {
-    console.log(`🔄 Starting parallel execution with ${this.maxWorkers} workers`)
-    console.log(`📊 Total jobs: ${jobs.length}`)
+  async runParallel(jobs) {
+    console.log(`🚀 Starting parallel execution with ${jobs.length} jobs using ${this.maxWorkers} workers`);
     
-    const chunks = []
-    for (let i = 0; i < jobs.length; i += this.maxWorkers) {
-      chunks.push(jobs.slice(i, i + this.maxWorkers))
-    }
+    const results = [];
+    const activePromises = new Map();
+    let jobIndex = 0;
 
-    for (const chunk of chunks) {
-      const promises = chunk.map(job => this.executeJob(job))
-      const chunkResults = await Promise.all(promises)
-      this.results.push(...chunkResults)
-    }
-
-    return this.results
-  }
-
-  /**
-   * Generate consolidated report
-   */
-  generateReport() {
-    const totalDuration = (Date.now() - this.startTime) / 1000
-    const successfulJobs = this.results.filter(r => r.success).length
-    const failedJobs = this.results.length - successfulJobs
-    
-    const totalTests = this.results.reduce((sum, r) => sum + r.totalTests, 0)
-    const passedTests = this.results.reduce((sum, r) => sum + r.passedTests, 0)
-    const failedTests = this.results.reduce((sum, r) => sum + r.failedTests, 0)
-
-    const report = {
-      execution_summary: {
-        total_duration: totalDuration,
-        total_jobs: this.results.length,
-        successful_jobs: successfulJobs,
-        failed_jobs: failedJobs,
-        job_success_rate: ((successfulJobs / this.results.length) * 100).toFixed(2)
-      },
-      test_summary: {
-        total_tests: totalTests,
-        passed_tests: passedTests,
-        failed_tests: failedTests,
-        success_rate: totalTests > 0 ? ((passedTests / totalTests) * 100).toFixed(2) : 0
-      },
-      performance_metrics: {
-        average_job_duration: (this.results.reduce((sum, r) => sum + r.duration, 0) / this.results.length).toFixed(2),
-        fastest_job: this.results.reduce((min, r) => r.duration < min.duration ? r : min),
-        slowest_job: this.results.reduce((max, r) => r.duration > max.duration ? r : max),
-        parallelization_efficiency: (this.results.reduce((sum, r) => sum + r.duration, 0) / totalDuration).toFixed(2)
-      },
-      job_details: this.results
-    }
-
-    // Save report
-    const reportPath = path.join(this.outputDir, `parallel-execution-report-${Date.now()}.json`)
-    if (!fs.existsSync(this.outputDir)) {
-      fs.mkdirSync(this.outputDir, { recursive: true })
-    }
-    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2))
-
-    return report
-  }
-
-  /**
-   * Print summary to console
-   */
-  printSummary(report) {
-    console.log('\n📊 Parallel Execution Summary:')
-    console.log(`  Total Duration: ${report.execution_summary.total_duration}s`)
-    console.log(`  Parallelization Efficiency: ${report.performance_metrics.parallelization_efficiency}x speedup`)
-    console.log(`  Jobs: ${report.execution_summary.successful_jobs}/${report.execution_summary.total_jobs} successful (${report.execution_summary.job_success_rate}%)`)
-    console.log(`  Tests: ${report.test_summary.passed_tests}/${report.test_summary.total_tests} passed (${report.test_summary.success_rate}%)`)
-    
-    console.log('\nPerformance Breakdown:')
-    console.log(`  Average Job Duration: ${report.performance_metrics.average_job_duration}s`)
-    console.log(`  Fastest Job: ${report.performance_metrics.fastest_job.name} (${report.performance_metrics.fastest_job.duration.toFixed(2)}s)`)
-    console.log(`  Slowest Job: ${report.performance_metrics.slowest_job.name} (${report.performance_metrics.slowest_job.duration.toFixed(2)}s)`)
-
-    if (report.execution_summary.failed_jobs > 0) {
-      console.log('\n❌ Failed Jobs:')
-      this.results.filter(r => !r.success).forEach(job => {
-        console.log(`  - ${job.name}: ${job.errorMessage}`)
-      })
-    }
-  }
-}
-
-// CLI Interface
-if (require.main === module) {
-  const args = process.argv.slice(2)
-  const options = {}
-  
-  // Parse command line arguments
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case '--max-workers':
-        options.maxWorkers = parseInt(args[++i])
-        break
-      case '--strategy':
-        options.strategy = args[++i]
-        break
-      case '--timeout':
-        options.timeout = parseInt(args[++i]) * 1000
-        break
-      case '--output-dir':
-        options.outputDir = args[++i]
-        break
-      case '--verbose':
-        options.verbose = true
-        break
-    }
-  }
-
-  const runner = new CypressParallelRunner(options)
-  
-  // Example usage - customize based on your needs
-  const contexts = ['api', 'smoke', 'regression']
-  const tags = ['edge-applications', 'domains', 'real-time-purge']
-  
-  async function run() {
-    try {
-      const jobs = runner.createTestJobs(contexts, [], tags)
+    const processNextJob = async () => {
+      if (jobIndex >= jobs.length) return;
       
-      if (jobs.length === 0) {
-        console.log('No test jobs created. Check your strategy and targets.')
-        process.exit(1)
+      const job = jobs[jobIndex++];
+      console.log(`📋 Starting job: ${job.name}`);
+      
+      try {
+        const result = await this.runJob(job);
+        results.push(result);
+        this.completedJobs.set(job.id, result);
+        console.log(`✅ Completed job: ${job.name} (${result.duration}ms)`);
+      } catch (error) {
+        const failedResult = { ...error, success: false };
+        results.push(failedResult);
+        this.failedJobs.set(job.id, failedResult);
+        console.log(`❌ Failed job: ${job.name} - ${error.message || 'Unknown error'}`);
+        
+        // Retry logic
+        if (this.retryAttempts > 0 && !job.retryCount) {
+          job.retryCount = 1;
+          jobs.push({ ...job, id: `${job.id}_retry_${job.retryCount}` });
+          console.log(`🔄 Queued retry for job: ${job.name}`);
+        }
       }
       
-      await runner.executeParallel(jobs)
-      const report = runner.generateReport()
-      runner.printSummary(report)
+      activePromises.delete(job.id);
       
-      process.exit(report.execution_summary.failed_jobs > 0 ? 1 : 0)
-    } catch (error) {
-      console.error('Error running parallel tests:', error)
-      process.exit(1)
+      // Process next job if available
+      if (jobIndex < jobs.length) {
+        const nextJobPromise = processNextJob();
+        activePromises.set(jobs[jobIndex - 1]?.id, nextJobPromise);
+      }
+    };
+
+    // Start initial batch of jobs
+    const initialBatch = Math.min(this.maxWorkers, jobs.length);
+    for (let i = 0; i < initialBatch; i++) {
+      const jobPromise = processNextJob();
+      activePromises.set(jobs[i]?.id, jobPromise);
     }
+
+    // Wait for all jobs to complete
+    await Promise.allSettled(Array.from(activePromises.values()));
+    
+    return results;
   }
-  
-  run()
+
+  generateReport(results) {
+    const totalDuration = Date.now() - this.startTime;
+    const successful = results.filter(r => r.success).length;
+    const failed = results.filter(r => !r.success).length;
+    
+    const report = {
+      summary: {
+        totalJobs: results.length,
+        successful,
+        failed,
+        successRate: results.length > 0 ? (successful / results.length) * 100 : 0,
+        totalDuration,
+        strategy: this.strategy,
+        maxWorkers: this.maxWorkers
+      },
+      jobs: results,
+      performance: {
+        averageJobDuration: results.length > 0 ? 
+          results.reduce((sum, r) => sum + (r.duration || 0), 0) / results.length : 0,
+        fastestJob: results.reduce((fastest, r) => 
+          (!fastest || (r.duration || 0) < (fastest.duration || 0)) ? r : fastest, null),
+        slowestJob: results.reduce((slowest, r) => 
+          (!slowest || (r.duration || 0) > (slowest.duration || 0)) ? r : slowest, null)
+      },
+      timestamp: new Date().toISOString()
+    };
+
+    // Aggregate test statistics
+    let totalTests = 0;
+    let totalPasses = 0;
+    let totalFailures = 0;
+    let totalPending = 0;
+
+    results.forEach(result => {
+      if (result.stats) {
+        totalTests += result.stats.tests || 0;
+        totalPasses += result.stats.passes || 0;
+        totalFailures += result.stats.failures || 0;
+        totalPending += result.stats.pending || 0;
+      }
+    });
+
+    report.testStats = {
+      totalTests,
+      totalPasses,
+      totalFailures,
+      totalPending,
+      testSuccessRate: totalTests > 0 ? (totalPasses / totalTests) * 100 : 0
+    };
+
+    const reportPath = path.join(this.outputDir, `parallel-report-${Date.now()}.json`);
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+    
+    console.log(`\n📊 Parallel Execution Report:`);
+    console.log(`   Strategy: ${this.strategy}`);
+    console.log(`   Jobs: ${successful}/${results.length} successful (${report.summary.successRate.toFixed(1)}%)`);
+    console.log(`   Tests: ${totalPasses}/${totalTests} passed (${report.testStats.testSuccessRate.toFixed(1)}%)`);
+    console.log(`   Duration: ${(totalDuration / 1000).toFixed(1)}s`);
+    console.log(`   Report: ${reportPath}`);
+
+    return report;
+  }
+
+  async run(options = {}) {
+    const jobs = this.createTestJobs(options);
+    
+    if (jobs.length === 0) {
+      console.log('⚠️ No test jobs created. Check your test files and strategy.');
+      return null;
+    }
+
+    console.log(`📋 Created ${jobs.length} test jobs using '${this.strategy}' strategy`);
+    
+    const results = await this.runParallel(jobs);
+    const report = this.generateReport(results);
+    
+    return report;
+  }
 }
 
-module.exports = CypressParallelRunner
+// CLI interface
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  const options = {
+    strategy: 'smart',
+    maxWorkers: os.cpus().length,
+    verbose: false
+  };
+
+  // Parse command line arguments
+  for (let i = 0; i < args.length; i += 2) {
+    const key = args[i].replace('--', '');
+    const value = args[i + 1];
+    
+    if (key === 'strategy') options.strategy = value;
+    if (key === 'workers') options.maxWorkers = parseInt(value);
+    if (key === 'verbose') options.verbose = value === 'true';
+    if (key === 'timeout') options.timeout = parseInt(value) * 1000;
+  }
+
+  const runner = new ParallelTestRunner(options);
+  
+  runner.run().then(report => {
+    if (report && report.summary.failed > 0) {
+      process.exit(1);
+    }
+  }).catch(error => {
+    console.error('❌ Parallel runner failed:', error);
+    process.exit(1);
+  });
+}
+
+module.exports = ParallelTestRunner;

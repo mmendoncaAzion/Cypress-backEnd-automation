@@ -1,0 +1,74 @@
+name: Edge Application API Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  edge-application-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome]
+        
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+          
+      - name: Install dependencies
+        run: |
+          cd cypress-automation
+          npm ci
+          
+      - name: Run Edge Application Tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          browser: ${{ matrix.browser }}
+          spec: cypress/e2e/api/edge_application-enhanced.cy.js
+          wait-on-timeout: 120
+          command-timeout: 60000
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          AZION_BASE_URL: https://stage-api.azion.com/v4
+          CI: true
+          GITHUB_ACTIONS: true
+          
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-results-${{ matrix.browser }}
+          path: |
+            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/videos/
+            cypress-automation/cypress/reports/
+          retention-days: 30
+          
+      - name: Generate Test Summary
+        if: always()
+        run: |
+          cd cypress-automation
+          echo "## 🧪 Edge Application Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Browser**: ${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Environment**: CI/CD (GitHub Actions)" >> $GITHUB_STEP_SUMMARY
+          echo "- **API Base URL**: https://stage-api.azion.com/v4" >> $GITHUB_STEP_SUMMARY
+          echo "- **Expected Success Rate**: 82-92%" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f cypress/reports/mochawesome.json ]; then
+            echo "- **Test Report**: Available in artifacts" >> $GITHUB_STEP_SUMMARY
+          fi
