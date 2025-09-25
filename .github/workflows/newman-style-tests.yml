@@ -80,15 +80,15 @@ jobs:
           # Set test spec pattern based on matrix group
           case "${{ matrix.test-group }}" in
             "account-auth")
-              echo "SPEC_PATTERN=cypress/e2e/api/newman-style/azion-api-newman.cy.js" >> $GITHUB_ENV
-              echo "GREP_TAGS=@account,@auth" >> $GITHUB_ENV
+              echo "SPEC_PATTERN=cypress/e2e/api/newman-style/azion-api-newman.cy.js,cypress/e2e/api/account*.cy.js,cypress/e2e/api/auth*.cy.js" >> $GITHUB_ENV
+              echo "GREP_TAGS=" >> $GITHUB_ENV
               ;;
             "domains-purge")
-              echo "SPEC_PATTERN=cypress/e2e/api/newman-style/azion-api-newman.cy.js" >> $GITHUB_ENV
-              echo "GREP_TAGS=@domains,@purge" >> $GITHUB_ENV
+              echo "SPEC_PATTERN=cypress/e2e/api/newman-style/azion-api-newman.cy.js,cypress/e2e/api/domains*.cy.js,cypress/e2e/api/*purge*.cy.js" >> $GITHUB_ENV
+              echo "GREP_TAGS=" >> $GITHUB_ENV
               ;;
             "comprehensive")
-              echo "SPEC_PATTERN=cypress/e2e/api/newman-style/**/*.cy.js" >> $GITHUB_ENV
+              echo "SPEC_PATTERN=cypress/e2e/api/comprehensive/*.cy.js,cypress/e2e/api/enhanced/*.cy.js" >> $GITHUB_ENV
               echo "GREP_TAGS=" >> $GITHUB_ENV
               ;;
           esac

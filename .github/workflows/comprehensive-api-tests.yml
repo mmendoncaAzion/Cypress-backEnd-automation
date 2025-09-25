@@ -86,6 +86,12 @@ jobs:
           
           function discoverTests(dir, category = 'all') {
             const tests = [];
+            
+            if (!fs.existsSync(dir)) {
+              console.log(`Directory ${dir} does not exist`);
+              return tests;
+            }
+            
             const items = fs.readdirSync(dir, { withFileTypes: true });
             
             for (const item of items) {
@@ -101,7 +107,8 @@ jobs:
                     file: relativePath,
                     category: testCategory,
                     priority: getPriority(relativePath),
-                    estimated_duration: getEstimatedDuration(relativePath)
+                    estimated_duration: getEstimatedDuration(relativePath),
+                    full_path: `cypress/e2e/${relativePath}`
                   });
                 }
               }
@@ -160,7 +167,7 @@ jobs:
               groups.push({
                 group: i + 1,
                 tests: groupTests,
-                specs: groupTests.map(t => `cypress/e2e/${t.file}`).join(','),
+                specs: groupTests.map(t => t.full_path).join(','),
                 categories: [...new Set(groupTests.map(t => t.category))],
                 total_duration: groupTests.reduce((sum, t) => sum + t.estimated_duration, 0)
               });
@@ -352,6 +359,17 @@ jobs:
           echo "" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
           echo "## 🧪 Test Files Executed" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
           echo '${{ matrix.specs }}' | tr ',' '\n' | sed 's/^/- /' >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          
+          echo "" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          echo "## 🌐 API Endpoints Tested" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          
+          # Extract API endpoints from test results if available
+          if [ -f "$RESULTS_FILE" ]; then
+            echo "Extracting API endpoints from test execution..." 
+            jq -r '.tests[]? | select(.title | contains("GET") or contains("POST") or contains("PUT") or contains("DELETE")) | "- \(.title)"' "$RESULTS_FILE" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md 2>/dev/null || echo "- API endpoint details not available in this format" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          else
+            echo "- API endpoint details not available (no results file)" >> reports/comprehensive/execution-summary-group-${{ matrix.group }}.md
+          fi
           
           echo "✅ Detailed test report generated for Group ${{ matrix.group }}"
 
