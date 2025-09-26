@@ -55,7 +55,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
           
       - name: 📦 Install Dependencies
         run: |
@@ -133,9 +133,10 @@ jobs:
         with:
           name: test-results-${{ matrix.test_suite.name }}-${{ github.run_number }}
           path: |
-            cypress-automation/cypress/videos/
-            cypress-automation/cypress/screenshots/
-            cypress-automation/cypress/reports/
+            cypress-automation/cypress/videos/**/*
+            cypress-automation/cypress/screenshots/**/*
+            cypress-automation/cypress/reports/**/*
+          if-no-files-found: ignore
           retention-days: 30
 
   test-summary:

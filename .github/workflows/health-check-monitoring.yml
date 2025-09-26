@@ -57,7 +57,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
           
       - name: 📦 Install Dependencies
         working-directory: cypress-automation
@@ -146,7 +146,8 @@ jobs:
           name: health-check-report-${{ matrix.service }}-${{ github.run_number }}
           path: |
             cypress-automation/reports/health-check/
-            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/screenshots/**/*
+          if-no-files-found: ignore
           retention-days: 30
           
       - name: 🚨 Notify on Critical Failure

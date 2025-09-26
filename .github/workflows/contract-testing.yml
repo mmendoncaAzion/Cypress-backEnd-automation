@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
           
       - name: 📦 Install Dependencies
         working-directory: cypress-automation
@@ -222,7 +222,8 @@ jobs:
           name: contract-test-report-${{ matrix.api_group }}-${{ github.run_number }}
           path: |
             cypress-automation/reports/contract-testing/
-            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/screenshots/**/*
+          if-no-files-found: ignore
           retention-days: 60
           
       - name: 🚨 Contract Violation Alert
