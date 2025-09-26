@@ -55,7 +55,7 @@ jobs:
               'certificates': ['cypress/e2e/api/certificates/*.cy.js'],
               'domains-dns': ['cypress/e2e/api/domains*.cy.js', 'cypress/e2e/api/dns/*.cy.js'],
               'purge-cache': ['cypress/e2e/api/*purge*.cy.js'],
-              'enhanced': ['cypress/e2e/api/comprehensive/*.cy.js']
+              'enhanced': ['cypress/e2e/api/enhanced/*.cy.js', 'cypress/e2e/api/comprehensive/*.cy.js', 'cypress/e2e/api/*enhanced*.cy.js']
             },
             complete: {
               'all-apis': ['cypress/e2e/api/**/*.cy.js']

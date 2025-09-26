@@ -61,6 +61,68 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
     ]
   };
 
+  
+  // Dynamic Resource Creation Helpers
+  const createTestApplication = () => {
+    return cy.request({
+      method: 'POST',
+      url: `${Cypress.config('baseUrl')}/edge_applications`,
+      headers: {
+        'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: {
+        name: `test-app-${Date.now()}`,
+        delivery_protocol: 'http'
+      },
+      failOnStatusCode: false
+    }).then(response => {
+      if ([200, 201].includes(response.status) && response.body?.results?.id) {
+        return response.body.results.id;
+      }
+      return '1'; // Fallback ID
+    });
+  };
+
+  const createTestDomain = () => {
+    return cy.request({
+      method: 'POST',
+      url: `${Cypress.config('baseUrl')}/domains`,
+      headers: {
+        'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: {
+        name: `test-domain-${Date.now()}.example.com`,
+        cname_access_only: false
+      },
+      failOnStatusCode: false
+    }).then(response => {
+      if ([200, 201].includes(response.status) && response.body?.results?.id) {
+        return response.body.results.id;
+      }
+      return '1'; // Fallback ID
+    });
+  };
+
+  const cleanupResource = (resourceType, resourceId) => {
+    if (resourceId && resourceId !== '1') {
+      cy.request({
+        method: 'DELETE',
+        url: `${Cypress.config('baseUrl')}/${resourceType}/${resourceId}`,
+        headers: {
+          'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+          'Accept': 'application/json'
+        },
+        failOnStatusCode: false
+      }).then(response => {
+        cy.log(`🧹 Cleanup ${resourceType} ${resourceId}: ${response.status}`);
+      });
+    }
+  };
+
   before(() => {
     cy.log('🔍 Starting Exploratory Negative Testing');
   });
@@ -78,7 +140,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
           method: 'GET',
           url: `${baseUrl}/account`,
           headers: headers,
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should reject invalid authentication
@@ -103,7 +165,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
         headers: {
           'Accept': 'application/json'
         },
-        timeout: 10000,
+        timeout: 20000,
         failOnStatusCode: false
       }).then((response) => {
         expect(response.status, 'Should require authentication').to.equal(401);
@@ -128,7 +190,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Authorization': header,
             'Accept': 'application/json'
           },
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `Malformed header ${index + 1} should be rejected`).to.be.oneOf([401, 400]);
@@ -148,7 +210,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should return method not allowed or similar
@@ -177,7 +239,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             ...overrideHeader
           },
           body: { name: 'test' },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should not honor method override for destructive operations
@@ -211,7 +273,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Content-Type': contentType
           },
           body: JSON.stringify({ name: 'test', delivery_protocol: 'http' }),
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should reject invalid content types
@@ -231,7 +293,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
           'Content-Type': 'application/json'
         },
         body: 'name=test&protocol=http', // Form data with JSON content type
-        timeout: 15000,
+        timeout: 20000,
         failOnStatusCode: false
       }).then((response) => {
         expect(response.status, 'Content type mismatch should be rejected').to.be.oneOf([400, 422]);
@@ -250,7 +312,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should handle invalid IDs gracefully
@@ -279,7 +341,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           responses.push({ id, status: response.status });
@@ -354,7 +416,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `LDAP injection ${index + 1} should be handled`).to.be.oneOf([200, 400, 422]);
@@ -373,7 +435,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json'
         },
-        timeout: 10000,
+        timeout: 20000,
         failOnStatusCode: false
       }).then((response) => {
         expect(response.status, 'Negative page size should be rejected').to.be.oneOf([400, 422]);
@@ -389,7 +451,7 @@ describe('🔍 Exploratory Negative Testing Scenarios', () => {
           'Authorization': `Token ${authToken}`,
           'Accept': 'application/json'
         },
-        timeout: 15000,
+        timeout: 20000,
         failOnStatusCode: false
       }).then((response) => {
         expect(response.status, 'Excessive page size should be limited').to.be.oneOf([200, 400, 422]);

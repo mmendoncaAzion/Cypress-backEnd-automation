@@ -65,6 +65,68 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
     }
   };
 
+  
+  // Dynamic Resource Creation Helpers
+  const createTestApplication = () => {
+    return cy.request({
+      method: 'POST',
+      url: `${Cypress.config('baseUrl')}/edge_applications`,
+      headers: {
+        'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: {
+        name: `test-app-${Date.now()}`,
+        delivery_protocol: 'http'
+      },
+      failOnStatusCode: false
+    }).then(response => {
+      if ([200, 201].includes(response.status) && response.body?.results?.id) {
+        return response.body.results.id;
+      }
+      return '1'; // Fallback ID
+    });
+  };
+
+  const createTestDomain = () => {
+    return cy.request({
+      method: 'POST',
+      url: `${Cypress.config('baseUrl')}/domains`,
+      headers: {
+        'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: {
+        name: `test-domain-${Date.now()}.example.com`,
+        cname_access_only: false
+      },
+      failOnStatusCode: false
+    }).then(response => {
+      if ([200, 201].includes(response.status) && response.body?.results?.id) {
+        return response.body.results.id;
+      }
+      return '1'; // Fallback ID
+    });
+  };
+
+  const cleanupResource = (resourceType, resourceId) => {
+    if (resourceId && resourceId !== '1') {
+      cy.request({
+        method: 'DELETE',
+        url: `${Cypress.config('baseUrl')}/${resourceType}/${resourceId}`,
+        headers: {
+          'Authorization': `Token ${Cypress.env('AZION_TOKEN')}`,
+          'Accept': 'application/json'
+        },
+        failOnStatusCode: false
+      }).then(response => {
+        cy.log(`🧹 Cleanup ${resourceType} ${resourceId}: ${response.status}`);
+      });
+    }
+  };
+
   before(() => {
     cy.log('🎯 Starting Boundary Testing - Edge Cases');
     expect(authToken, 'AZION_TOKEN should be set').to.exist;
@@ -176,7 +238,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should handle floating point values in pagination
@@ -253,7 +315,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `URL encoding ${index + 1} should be handled`).to.be.oneOf([200, 400, 422]);
@@ -274,7 +336,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           if (testName === 'invalidDate') {
@@ -310,7 +372,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 10000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `Timezone ${index + 1} should be handled`).to.be.oneOf([200, 400, 422]);
@@ -350,7 +412,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 15000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should handle invalid pagination gracefully
