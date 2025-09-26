@@ -1,0 +1,304 @@
+name: 🧪 Specialized Testing Suite
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      test_type:
+        description: 'Type of specialized test'
+        required: true
+        default: 'newman-style'
+        type: choice
+        options:
+          - newman-style
+          - parallel-core
+          - framework-validation
+          - all
+      test_suite:
+        description: 'Specific test suite'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - account
+          - auth
+          - domains
+          - applications
+          - purge
+  schedule:
+    # Run daily at 8 AM UTC for newman-style tests
+    - cron: '0 8 * * *'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  newman-style-tests:
+    name: 🚀 Newman-Style Tests - ${{ matrix.test-group }}
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.test_type == 'newman-style' || github.event.inputs.test_type == 'all' || github.event_name == 'schedule' }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group:
+          - name: "Account Management"
+            spec: "cypress/e2e/api/newman-style/azion-api-newman.cy.js"
+            grep: "Account"
+            priority: "high"
+          - name: "Authentication"
+            spec: "cypress/e2e/api/newman-style/azion-api-newman.cy.js"
+            grep: "Auth"
+            priority: "high"
+          - name: "Domains & DNS"
+            spec: "cypress/e2e/api/newman-style/azion-api-newman.cy.js"
+            grep: "Domain|DNS"
+            priority: "medium"
+          - name: "Edge Applications"
+            spec: "cypress/e2e/api/newman-style/azion-api-newman.cy.js"
+            grep: "Application"
+            priority: "medium"
+          - name: "Purge & Cache"
+            spec: "cypress/e2e/api/newman-style/azion-api-newman.cy.js"
+            grep: "Purge|Cache"
+            priority: "low"
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+
+      - name: 📦 Install Dependencies
+        working-directory: cypress-automation
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx cypress verify
+
+      - name: 🧪 Run Newman-Style Tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          spec: ${{ matrix.test-group.spec }}
+          browser: chrome
+          headless: true
+          install: false
+          wait-on-timeout: 180
+          config: |
+            baseUrl=https://api.azion.com,
+            defaultCommandTimeout=20000,
+            requestTimeout=30000,
+            responseTimeout=30000,
+            video=false,
+            screenshotOnRunFailure=true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          CYPRESS_GREP: ${{ matrix.test-group.grep }}
+
+      - name: 📊 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: newman-results-${{ matrix.test-group.name }}-${{ github.run_number }}
+          path: |
+            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/videos/
+            cypress-automation/cypress/reports/
+          retention-days: 30
+
+  parallel-core-tests:
+    name: ⚡ Parallel Core Tests - ${{ matrix.test-suite.name }}
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.test_type == 'parallel-core' || github.event.inputs.test_type == 'all' }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        test-suite:
+          - name: 'Account Priority'
+            spec: 'cypress/e2e/api/account-priority.cy.js'
+            tests: 12
+          - name: 'Auth Priority'
+            spec: 'cypress/e2e/api/auth-priority.cy.js'
+            tests: 8
+          - name: 'Real-time Purge'
+            spec: 'cypress/e2e/api/real-time-purge-v2.cy.js'
+            tests: 14
+          - name: 'Framework Demo'
+            spec: 'cypress/e2e/api/enhanced/integrated-framework-demo.cy.js'
+            tests: 10
+          - name: 'Simple Validation'
+            spec: 'cypress/e2e/api/enhanced/simple-test-validation.cy.js'
+            tests: 8
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+
+      - name: 📦 Install Dependencies
+        working-directory: cypress-automation
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx cypress verify
+
+      - name: ⚡ Run Parallel Core Tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          spec: ${{ matrix.test-suite.spec }}
+          browser: chrome
+          headless: true
+          install: false
+          wait-on-timeout: 120
+          config: |
+            baseUrl=https://api.azion.com,
+            defaultCommandTimeout=15000,
+            requestTimeout=25000,
+            responseTimeout=25000,
+            video=false
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+
+      - name: 📊 Upload Parallel Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parallel-results-${{ matrix.test-suite.name }}-${{ github.run_number }}
+          path: |
+            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/videos/
+            cypress-automation/cypress/reports/
+          retention-days: 30
+
+  framework-validation:
+    name: 🔬 Framework Validation Tests
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.test_type == 'framework-validation' || github.event.inputs.test_type == 'all' }}
+    
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+
+      - name: 📦 Install Dependencies
+        working-directory: cypress-automation
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx cypress verify
+
+      - name: 🔬 Run Framework Validation
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          spec: |
+            cypress/e2e/api/enhanced/integrated-framework-demo.cy.js,
+            cypress/e2e/api/enhanced/simple-test-validation.cy.js
+          browser: chrome
+          headless: true
+          install: false
+          wait-on-timeout: 180
+          config: |
+            baseUrl=https://api.azion.com,
+            defaultCommandTimeout=20000,
+            requestTimeout=30000,
+            responseTimeout=30000,
+            video=false
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+
+      - name: 📊 Upload Framework Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: framework-validation-results-${{ github.run_number }}
+          path: |
+            cypress-automation/cypress/screenshots/
+            cypress-automation/cypress/videos/
+            cypress-automation/cypress/reports/
+          retention-days: 30
+
+  consolidation-report:
+    name: 📋 Generate Consolidation Report
+    runs-on: ubuntu-latest
+    needs: [newman-style-tests, parallel-core-tests, framework-validation]
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 📊 Generate Specialized Testing Report
+        run: |
+          cat > specialized-testing-report.md << 'EOF'
+          # 🧪 Specialized Testing Suite Report
+          **Run ID:** ${{ github.run_number }}
+          **Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Environment:** ${{ github.event.inputs.environment || 'stage' }}
+          **Test Type:** ${{ github.event.inputs.test_type || 'all' }}
+          
+          ## Test Results Summary
+          
+          ### Newman-Style Tests
+          - **Status:** ${{ needs.newman-style-tests.result }}
+          - **Purpose:** Postman/Newman-style API validation
+          - **Coverage:** Account, Auth, Domains, Applications, Purge
+          
+          ### Parallel Core Tests  
+          - **Status:** ${{ needs.parallel-core-tests.result }}
+          - **Purpose:** High-priority tests in parallel execution
+          - **Coverage:** Priority tests, Real-time features, Framework validation
+          
+          ### Framework Validation
+          - **Status:** ${{ needs.framework-validation.result }}
+          - **Purpose:** Test framework integrity and patterns
+          - **Coverage:** Enhanced testing patterns, Integration demos
+          
+          ## Consolidation Benefits
+          - ✅ **Unified specialized testing** - Single workflow for multiple test types
+          - ✅ **Reduced complexity** - Consolidated from 2 separate workflows
+          - ✅ **Better resource utilization** - Optimized CI/CD minutes usage
+          - ✅ **Flexible execution** - Choose specific test types or run all
+          
+          ---
+          *Generated by Specialized Testing Suite v1.0*
+          EOF
+
+      - name: 📤 Upload Consolidation Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: specialized-testing-report-${{ github.run_number }}
+          path: specialized-testing-report.md
+          retention-days: 90
