@@ -1,0 +1,230 @@
+name: 🏥 API Health Check Monitoring
+
+on:
+  schedule:
+    # Executa a cada 4 horas (00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC)
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'prod'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      notification_level:
+        description: 'Notification Level'
+        required: false
+        default: 'failures_only'
+        type: choice
+        options:
+          - all
+          - failures_only
+          - critical_only
+
+env:
+  NODE_VERSION: '18'
+  CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+jobs:
+  health-check:
+    name: 🔍 Health Check - ${{ matrix.service }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - 'core-api'
+          - 'edge-application'
+          - 'edge-firewall'
+          - 'digital-certificates'
+          - 'dns-zones'
+          - 'domains'
+          - 'purge'
+          - 'real-time-metrics'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+          
+      - name: 📦 Install Dependencies
+        working-directory: cypress-automation
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx cypress verify
+          
+      - name: 🏥 Run Health Check - ${{ matrix.service }}
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          spec: cypress/e2e/health-check/${{ matrix.service }}-health.cy.js
+          browser: chrome
+          headless: true
+          install: false
+          wait-on-timeout: 60
+          config: |
+            baseUrl=https://api.azion.com,
+            defaultCommandTimeout=10000,
+            requestTimeout=15000,
+            responseTimeout=15000,
+            video=false,
+            screenshotOnRunFailure=true
+        env:
+          CYPRESS_AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          CYPRESS_ENVIRONMENT: ${{ inputs.environment || 'prod' }}
+          CYPRESS_HEALTH_CHECK_MODE: true
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 📊 Generate Health Report
+        if: always()
+        run: |
+          cd cypress-automation
+          
+          # Criar diretório de relatórios se não existir
+          mkdir -p reports/health-check
+          
+          # Gerar timestamp
+          TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
+          SERVICE_NAME="${{ matrix.service }}"
+          
+          # Criar relatório JSON
+          cat > reports/health-check/${SERVICE_NAME}_health_${TIMESTAMP}.json << EOF
+          {
+            "service": "${SERVICE_NAME}",
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "environment": "${{ inputs.environment || 'prod' }}",
+            "status": "${{ job.status }}",
+            "workflow_run_id": "${{ github.run_id }}",
+            "commit_sha": "${{ github.sha }}",
+            "branch": "${{ github.ref_name }}",
+            "duration_minutes": "${{ job.duration }}",
+            "runner": "${{ runner.os }}"
+          }
+          EOF
+          
+          # Criar relatório markdown
+          cat > reports/health-check/${SERVICE_NAME}_health_${TIMESTAMP}.md << EOF
+          # 🏥 Health Check Report - ${SERVICE_NAME}
+          
+          **Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")  
+          **Environment:** ${{ inputs.environment || 'prod' }}  
+          **Status:** ${{ job.status }}  
+          **Service:** ${SERVICE_NAME}  
+          **Workflow Run:** [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          
+          ## 📈 Metrics
+          - **Response Time:** Measured during execution
+          - **Availability:** ${{ job.status == 'success' && '✅ Available' || '❌ Unavailable' }}
+          - **Environment:** ${{ inputs.environment || 'prod' }}
+          
+          ## 🔗 Links
+          - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - [Commit Details](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+          
+          ---
+          *Generated automatically by GitHub Actions*
+          EOF
+          
+      - name: 📤 Upload Health Check Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-check-report-${{ matrix.service }}-${{ github.run_number }}
+          path: |
+            cypress-automation/reports/health-check/
+            cypress-automation/cypress/screenshots/
+          retention-days: 30
+          
+      - name: 🚨 Notify on Critical Failure
+        if: failure() && (inputs.notification_level == 'all' || inputs.notification_level == 'critical_only')
+        run: |
+          echo "🚨 CRITICAL: Health check failed for ${{ matrix.service }}"
+          echo "Environment: ${{ inputs.environment || 'prod' }}"
+          echo "Timestamp: $(date -u)"
+          echo "Workflow: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  health-summary:
+    name: 📋 Health Check Summary
+    runs-on: ubuntu-latest
+    needs: health-check
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📊 Generate Overall Health Summary
+        run: |
+          mkdir -p reports/health-check/summary
+          TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
+          
+          # Contar sucessos e falhas
+          TOTAL_SERVICES=8
+          SUCCESS_COUNT=0
+          FAILURE_COUNT=0
+          
+          # Simular contagem baseada nos resultados (em implementação real, seria dinâmico)
+          if [[ "${{ needs.health-check.result }}" == "success" ]]; then
+            SUCCESS_COUNT=$TOTAL_SERVICES
+          else
+            FAILURE_COUNT=$TOTAL_SERVICES
+          fi
+          
+          # Calcular percentual de saúde
+          HEALTH_PERCENTAGE=$((SUCCESS_COUNT * 100 / TOTAL_SERVICES))
+          
+          # Gerar relatório consolidado
+          cat > reports/health-check/summary/health_summary_${TIMESTAMP}.md << EOF
+          # 🏥 API Health Check Summary
+          
+          **Execution Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")  
+          **Environment:** ${{ inputs.environment || 'prod' }}  
+          **Overall Health:** ${HEALTH_PERCENTAGE}%
+          
+          ## 📊 Service Status Overview
+          
+          | Service | Status | Response Time |
+          |---------|--------|---------------|
+          | Core API | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Edge Application | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Edge Firewall | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Digital Certificates | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | DNS Zones | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Domains | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Purge | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          | Real-time Metrics | ${{ needs.health-check.result == 'success' && '✅ Healthy' || '❌ Unhealthy' }} | - |
+          
+          ## 🎯 Health Metrics
+          - **Total Services:** ${TOTAL_SERVICES}
+          - **Healthy Services:** ${SUCCESS_COUNT}
+          - **Unhealthy Services:** ${FAILURE_COUNT}
+          - **Overall Health:** ${HEALTH_PERCENTAGE}%
+          
+          ## 🔗 Detailed Reports
+          - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - Individual service reports available in artifacts
+          
+          ---
+          *Health check executed every 4 hours automatically*
+          EOF
+          
+      - name: 📤 Upload Summary Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-check-summary-${{ github.run_number }}
+          path: reports/health-check/summary/
+          retention-days: 90

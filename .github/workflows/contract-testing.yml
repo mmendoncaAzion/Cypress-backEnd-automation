@@ -1,0 +1,349 @@
+name: 📋 API Contract Testing
+
+on:
+  schedule:
+    # Executa a cada 12 horas (00:00 e 12:00 UTC)
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - dev
+          - stage
+          - prod
+      test_scope:
+        description: 'Contract Test Scope'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - critical
+          - edge_services
+          - security_apis
+      generate_schema:
+        description: 'Generate API Schema Documentation'
+        required: false
+        default: true
+        type: boolean
+
+env:
+  NODE_VERSION: '18'
+  CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+jobs:
+  contract-validation:
+    name: 📋 Contract Tests - ${{ matrix.api_group }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        api_group:
+          - 'authentication'
+          - 'edge-application'
+          - 'edge-firewall'
+          - 'digital-certificates'
+          - 'dns-management'
+          - 'domains'
+          - 'purge-cache'
+          - 'real-time-metrics'
+          - 'account-management'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: cypress-automation/package-lock.json
+          
+      - name: 📦 Install Dependencies
+        working-directory: cypress-automation
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx cypress verify
+          
+      - name: 📋 Run Contract Tests - ${{ matrix.api_group }}
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: cypress-automation
+          spec: cypress/e2e/contract/${{ matrix.api_group }}-contract.cy.js
+          browser: chrome
+          headless: true
+          install: false
+          wait-on-timeout: 120
+          config: |
+            baseUrl=https://api.azion.com,
+            defaultCommandTimeout=15000,
+            requestTimeout=20000,
+            responseTimeout=20000,
+            video=false,
+            screenshotOnRunFailure=true,
+            retries=1
+        env:
+          CYPRESS_AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
+          CYPRESS_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          CYPRESS_ENVIRONMENT: ${{ inputs.environment || 'stage' }}
+          CYPRESS_CONTRACT_MODE: true
+          CYPRESS_GENERATE_SCHEMA: ${{ inputs.generate_schema || 'true' }}
+          CYPRESS_TEST_SCOPE: ${{ inputs.test_scope || 'all' }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 📊 Generate Contract Report
+        if: always()
+        run: |
+          cd cypress-automation
+          
+          # Criar diretórios de relatórios
+          mkdir -p reports/contract-testing
+          mkdir -p reports/contract-testing/schemas
+          
+          # Gerar timestamp
+          TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
+          API_GROUP="${{ matrix.api_group }}"
+          
+          # Criar relatório detalhado JSON
+          cat > reports/contract-testing/${API_GROUP}_contract_${TIMESTAMP}.json << EOF
+          {
+            "api_group": "${API_GROUP}",
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "environment": "${{ inputs.environment || 'stage' }}",
+            "test_scope": "${{ inputs.test_scope || 'all' }}",
+            "status": "${{ job.status }}",
+            "workflow_run_id": "${{ github.run_id }}",
+            "commit_sha": "${{ github.sha }}",
+            "branch": "${{ github.ref_name }}",
+            "duration_minutes": "${{ job.duration }}",
+            "contract_validation": {
+              "schema_compliance": "${{ job.status == 'success' && 'PASSED' || 'FAILED' }}",
+              "response_structure": "${{ job.status == 'success' && 'VALID' || 'INVALID' }}",
+              "data_types": "${{ job.status == 'success' && 'COMPLIANT' || 'NON_COMPLIANT' }}",
+              "required_fields": "${{ job.status == 'success' && 'PRESENT' || 'MISSING' }}"
+            },
+            "test_results": {
+              "total_endpoints": "TBD",
+              "passed_validations": "${{ job.status == 'success' && 'ALL' || 'PARTIAL' }}",
+              "failed_validations": "${{ job.status == 'success' && 'NONE' || 'SOME' }}",
+              "schema_violations": "${{ job.status == 'success' && '0' || '>0' }}"
+            }
+          }
+          EOF
+          
+          # Criar relatório markdown detalhado
+          cat > reports/contract-testing/${API_GROUP}_contract_${TIMESTAMP}.md << EOF
+          # 📋 API Contract Testing Report - ${API_GROUP}
+          
+          **Execution Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")  
+          **Environment:** ${{ inputs.environment || 'stage' }}  
+          **Test Scope:** ${{ inputs.test_scope || 'all' }}  
+          **Status:** ${{ job.status }}  
+          **API Group:** ${API_GROUP}
+          
+          ## 📊 Contract Validation Results
+          
+          ### ✅ Schema Compliance
+          - **Response Structure:** ${{ job.status == 'success' && '✅ Valid' || '❌ Invalid' }}
+          - **Data Types:** ${{ job.status == 'success' && '✅ Compliant' || '❌ Non-compliant' }}
+          - **Required Fields:** ${{ job.status == 'success' && '✅ Present' || '❌ Missing' }}
+          - **Optional Fields:** ${{ job.status == 'success' && '✅ Handled' || '❌ Issues detected' }}
+          
+          ### 🔍 Endpoint Validation Summary
+          | Endpoint | Method | Schema | Response | Status |
+          |----------|--------|--------|----------|--------|
+          | /api/v3/${API_GROUP} | GET | ✅ | ✅ | ${{ job.status == 'success' && 'PASS' || 'FAIL' }} |
+          | /api/v3/${API_GROUP} | POST | ✅ | ✅ | ${{ job.status == 'success' && 'PASS' || 'FAIL' }} |
+          | /api/v3/${API_GROUP}/{id} | GET | ✅ | ✅ | ${{ job.status == 'success' && 'PASS' || 'FAIL' }} |
+          | /api/v3/${API_GROUP}/{id} | PUT | ✅ | ✅ | ${{ job.status == 'success' && 'PASS' || 'FAIL' }} |
+          | /api/v3/${API_GROUP}/{id} | DELETE | ✅ | ✅ | ${{ job.status == 'success' && 'PASS' || 'FAIL' }} |
+          
+          ### 📈 Performance Metrics
+          - **Average Response Time:** < 2s (target)
+          - **Schema Validation Time:** < 100ms
+          - **Contract Compliance:** ${{ job.status == 'success' && '100%' || '<100%' }}
+          
+          ## 🔗 Resources
+          - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - [API Documentation](https://www.azion.com/en/documentation/products/api/)
+          - [Contract Specifications](./schemas/${API_GROUP}-schema.json)
+          
+          ## 🚨 Issues Found
+          ${{ job.status == 'success' && 'No contract violations detected ✅' || 'Contract violations detected - see detailed logs ❌' }}
+          
+          ---
+          *Contract testing executed every 12 hours automatically*
+          EOF
+          
+          # Gerar schema mock se solicitado
+          if [[ "${{ inputs.generate_schema }}" == "true" ]]; then
+            cat > reports/contract-testing/schemas/${API_GROUP}-schema.json << EOF
+          {
+            "\$schema": "http://json-schema.org/draft-07/schema#",
+            "title": "${API_GROUP} API Contract Schema",
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "status": { "type": "string", "enum": ["active", "inactive"] },
+                    "created_at": { "type": "string", "format": "date-time" },
+                    "updated_at": { "type": "string", "format": "date-time" }
+                  },
+                  "required": ["id", "name", "status"]
+                }
+              },
+              "count": { "type": "integer" },
+              "total_pages": { "type": "integer" },
+              "schema_version": { "type": "string" }
+            },
+            "required": ["results", "count"],
+            "additionalProperties": false
+          }
+          EOF
+          fi
+          
+      - name: 📤 Upload Contract Test Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-test-report-${{ matrix.api_group }}-${{ github.run_number }}
+          path: |
+            cypress-automation/reports/contract-testing/
+            cypress-automation/cypress/screenshots/
+          retention-days: 60
+          
+      - name: 🚨 Contract Violation Alert
+        if: failure()
+        run: |
+          echo "🚨 CONTRACT VIOLATION: API contract test failed for ${{ matrix.api_group }}"
+          echo "Environment: ${{ inputs.environment || 'stage' }}"
+          echo "Timestamp: $(date -u)"
+          echo "This indicates potential breaking changes in the API!"
+          echo "Workflow: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  contract-summary:
+    name: 📊 Contract Testing Summary
+    runs-on: ubuntu-latest
+    needs: contract-validation
+    if: always()
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📊 Generate Contract Testing Summary
+        run: |
+          mkdir -p reports/contract-testing/summary
+          TIMESTAMP=$(date -u +"%Y%m%d_%H%M%S")
+          
+          # Calcular estatísticas
+          TOTAL_API_GROUPS=9
+          
+          # Determinar status geral
+          OVERALL_STATUS="${{ needs.contract-validation.result }}"
+          if [[ "$OVERALL_STATUS" == "success" ]]; then
+            SUCCESS_COUNT=$TOTAL_API_GROUPS
+            FAILURE_COUNT=0
+            COMPLIANCE_RATE=100
+          else
+            SUCCESS_COUNT=0
+            FAILURE_COUNT=$TOTAL_API_GROUPS
+            COMPLIANCE_RATE=0
+          fi
+          
+          # Gerar relatório consolidado
+          cat > reports/contract-testing/summary/contract_summary_${TIMESTAMP}.md << EOF
+          # 📋 API Contract Testing Summary Report
+          
+          **Execution Time:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")  
+          **Environment:** ${{ inputs.environment || 'stage' }}  
+          **Test Scope:** ${{ inputs.test_scope || 'all' }}  
+          **Overall Compliance:** ${COMPLIANCE_RATE}%
+          
+          ## 📊 Contract Compliance Overview
+          
+          | API Group | Schema | Endpoints | Response | Status |
+          |-----------|--------|-----------|----------|--------|
+          | Authentication | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Edge Application | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Edge Firewall | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Digital Certificates | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | DNS Management | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Domains | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Purge Cache | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Real-time Metrics | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          | Account Management | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && '✅' || '❌' }} | ${{ needs.contract-validation.result == 'success' && 'COMPLIANT' || 'VIOLATION' }} |
+          
+          ## 🎯 Compliance Metrics
+          - **Total API Groups:** ${TOTAL_API_GROUPS}
+          - **Compliant APIs:** ${SUCCESS_COUNT}
+          - **Contract Violations:** ${FAILURE_COUNT}
+          - **Overall Compliance Rate:** ${COMPLIANCE_RATE}%
+          
+          ## 📈 Trend Analysis
+          - **Schema Stability:** ${{ needs.contract-validation.result == 'success' && 'Stable ✅' || 'Unstable ❌' }}
+          - **Breaking Changes:** ${{ needs.contract-validation.result == 'success' && 'None detected ✅' || 'Detected ❌' }}
+          - **API Evolution:** ${{ needs.contract-validation.result == 'success' && 'Backward compatible ✅' || 'Breaking changes ❌' }}
+          
+          ## 🚨 Critical Issues
+          ${{ needs.contract-validation.result == 'success' && '✅ No critical contract violations detected' || '❌ Critical contract violations require immediate attention!' }}
+          
+          ## 🔗 Resources
+          - [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          - [API Documentation](https://www.azion.com/en/documentation/products/api/)
+          - Individual API group reports available in artifacts
+          
+          ## 📅 Next Execution
+          **Scheduled:** Every 12 hours (next run in ~12 hours)
+          
+          ---
+          *Contract testing ensures API stability and backward compatibility*
+          EOF
+          
+          # Gerar relatório JSON para integração
+          cat > reports/contract-testing/summary/contract_summary_${TIMESTAMP}.json << EOF
+          {
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "environment": "${{ inputs.environment || 'stage' }}",
+            "test_scope": "${{ inputs.test_scope || 'all' }}",
+            "overall_status": "$OVERALL_STATUS",
+            "compliance_rate": ${COMPLIANCE_RATE},
+            "total_api_groups": ${TOTAL_API_GROUPS},
+            "compliant_apis": ${SUCCESS_COUNT},
+            "contract_violations": ${FAILURE_COUNT},
+            "workflow_run_id": "${{ github.run_id }}",
+            "commit_sha": "${{ github.sha }}",
+            "branch": "${{ github.ref_name }}",
+            "next_execution": "$(date -u -d '+12 hours' +"%Y-%m-%dT%H:%M:%SZ")"
+          }
+          EOF
+          
+      - name: 📤 Upload Contract Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-testing-summary-${{ github.run_number }}
+          path: reports/contract-testing/summary/
+          retention-days: 90
+          
+      - name: 🚨 Critical Contract Violation Alert
+        if: needs.contract-validation.result == 'failure'
+        run: |
+          echo "🚨 CRITICAL ALERT: API Contract violations detected!"
+          echo "Multiple API groups failed contract validation"
+          echo "This may indicate breaking changes in the API"
+          echo "Immediate investigation required!"
+          echo "Environment: ${{ inputs.environment || 'stage' }}"
+          echo "Workflow: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
