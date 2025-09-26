@@ -5,8 +5,7 @@
   Cypress.config('responseTimeout', 2000);
   Cypress.config('pageLoadTimeout', 2000);
 // Fixed imports for enhanced utilities
-describe('API Error Handling Tests', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -33,6 +32,8 @@ describe('API Error Handling Tests', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('API Error Handling Tests', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

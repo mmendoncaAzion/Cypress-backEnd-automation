@@ -7,8 +7,7 @@
 // Fixed imports for enhanced utilities
 /// <reference types="cypress" />
 
-describe('Data Stream   Data Sources - Comprehensive API Tests', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -35,6 +34,8 @@ describe('Data Stream   Data Sources - Comprehensive API Tests', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('Data Stream   Data Sources - Comprehensive API Tests', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

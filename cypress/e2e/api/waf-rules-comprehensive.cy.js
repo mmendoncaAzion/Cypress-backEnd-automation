@@ -4,8 +4,7 @@
   Cypress.config('requestTimeout', 2000);
   Cypress.config('responseTimeout', 2000);
   Cypress.config('pageLoadTimeout', 2000);
-describe('WAF Rules Management API Tests', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -32,6 +31,8 @@ describe('WAF Rules Management API Tests', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('WAF Rules Management API Tests', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

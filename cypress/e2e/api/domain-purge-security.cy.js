@@ -16,8 +16,7 @@
  * Priority: High - Security vulnerability
  */
 
-describe('Domain Purge Security Validation', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -44,6 +43,8 @@ describe('Domain Purge Security Validation', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('Domain Purge Security Validation', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

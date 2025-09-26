@@ -158,7 +158,7 @@ const ultimateFailsafe = (testName, testFunction) => {
     return response;
   };
  
-describe('Edge Application API - Enhanced Optimized Tests', {
+describe('Edge Application API - Enhanced Optimized Tests', () => {
   tags: ['@api', '@enhanced', '@edge_applications'] 
 }, () => {
   let authToken

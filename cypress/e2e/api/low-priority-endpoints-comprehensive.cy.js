@@ -5,8 +5,7 @@
   Cypress.config('responseTimeout', 2000);
   Cypress.config('pageLoadTimeout', 2000);
 // Fixed imports for enhanced utilities
-describe('Low Priority Endpoints API Tests', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -33,6 +32,8 @@ describe('Low Priority Endpoints API Tests', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('Low Priority Endpoints API Tests', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

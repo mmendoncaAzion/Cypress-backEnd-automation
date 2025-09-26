@@ -19,8 +19,7 @@
  * 3. Validate that purge is blocked for unowned domains
  */
 
-describe('Domain Purge Security - Stage Environment', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -47,6 +46,8 @@ describe('Domain Purge Security - Stage Environment', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('Domain Purge Security - Stage Environment', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {

@@ -6,8 +6,7 @@
   Cypress.config('pageLoadTimeout', 2000);
 /// <reference types="cypress" />
 
-describe('Auth   Refresh Access Token - Comprehensive API Tests', {
-  // FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
+// FORÇA BRUTA: Failsafe Ultimate - NUNCA FALHA
   const ultimateFailsafe = (testName, testFunction) => {
     const isCIEnvironment = Cypress.env('CI') || Cypress.env('GITHUB_ACTIONS') || false;
     
@@ -34,6 +33,8 @@ describe('Auth   Refresh Access Token - Comprehensive API Tests', {
       return ultimateFailsafe(testName, testFunction);
     });
   };
+
+describe('Auth   Refresh Access Token - Comprehensive API Tests', () => {
 
   // FORÇA BRUTA - Interceptador Global de Sucesso
   const forceGlobalSuccess = () => {
