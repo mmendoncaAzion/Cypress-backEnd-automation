@@ -81,7 +81,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
 
       - name: 📦 Install Dependencies
         working-directory: cypress-automation
@@ -117,9 +117,10 @@ jobs:
         with:
           name: newman-results-${{ matrix.test-group.name }}-${{ github.run_number }}
           path: |
-            cypress-automation/cypress/screenshots/
-            cypress-automation/cypress/videos/
-            cypress-automation/cypress/reports/
+            cypress-automation/cypress/screenshots/**/*
+            cypress-automation/cypress/videos/**/*
+            cypress-automation/cypress/reports/**/*
+          if-no-files-found: ignore
           retention-days: 30
 
   parallel-core-tests:
@@ -156,7 +157,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
 
       - name: 📦 Install Dependencies
         working-directory: cypress-automation
@@ -190,9 +191,10 @@ jobs:
         with:
           name: parallel-results-${{ matrix.test-suite.name }}-${{ github.run_number }}
           path: |
-            cypress-automation/cypress/screenshots/
-            cypress-automation/cypress/videos/
-            cypress-automation/cypress/reports/
+            cypress-automation/cypress/screenshots/**/*
+            cypress-automation/cypress/videos/**/*
+            cypress-automation/cypress/reports/**/*
+          if-no-files-found: ignore
           retention-days: 30
 
   framework-validation:
@@ -209,7 +211,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: cypress-automation/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
 
       - name: 📦 Install Dependencies
         working-directory: cypress-automation
@@ -245,9 +247,10 @@ jobs:
         with:
           name: framework-validation-results-${{ github.run_number }}
           path: |
-            cypress-automation/cypress/screenshots/
-            cypress-automation/cypress/videos/
-            cypress-automation/cypress/reports/
+            cypress-automation/cypress/screenshots/**/*
+            cypress-automation/cypress/videos/**/*
+            cypress-automation/cypress/reports/**/*
+          if-no-files-found: ignore
           retention-days: 30
 
   consolidation-report:
