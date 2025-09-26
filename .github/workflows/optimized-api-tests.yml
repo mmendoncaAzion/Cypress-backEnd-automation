@@ -29,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-suite: 
+        test_suite: 
           - name: "Edge Applications"
             spec: "cypress/e2e/api/edge_application-enhanced.cy.js"
             priority: "high"
@@ -67,7 +67,7 @@ jobs:
         continue-on-error: true
         with:
           working-directory: cypress-automation
-          spec: ${{ matrix.test-suite.spec }}
+          spec: ${{ matrix.test_suite.spec }}
           browser: chrome
           headed: false
           config: |
@@ -80,7 +80,7 @@ jobs:
             viewportWidth=1280,
             viewportHeight=720,
             reporter=mochawesome,
-            reporterOptions={"reportDir":"cypress/reports","overwrite":false,"html":true,"json":true,"reportFilename":"${{ matrix.test-suite.name }}-report"}
+            reporterOptions={"reportDir":"cypress/reports","overwrite":false,"html":true,"json":true,"reportFilename":"${{ matrix.test_suite.name }}-report"}
         env:
           CYPRESS_AZION_TOKEN: ${{ secrets.AZION_TOKEN }}
           CYPRESS_apiToken: ${{ secrets.AZION_TOKEN }}
@@ -96,19 +96,19 @@ jobs:
         if: always()
         run: |
           cd cypress-automation
-          echo "## 🧪 ${{ matrix.test-suite.name }} Test Results" >> $GITHUB_STEP_SUMMARY
-          echo "- **Test Suite**: ${{ matrix.test-suite.name }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Priority**: ${{ matrix.test-suite.priority }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Spec File**: ${{ matrix.test-suite.spec }}" >> $GITHUB_STEP_SUMMARY
+          echo "## 🧪 ${{ matrix.test_suite.name }} Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Suite**: ${{ matrix.test_suite.name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Priority**: ${{ matrix.test_suite.priority }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Spec File**: ${{ matrix.test_suite.spec }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Environment**: Stage API" >> $GITHUB_STEP_SUMMARY
           echo "- **Expected Success Rate**: 80-100%" >> $GITHUB_STEP_SUMMARY
           
           # Check for test results
-          if [ -f "cypress/reports/${{ matrix.test-suite.name }}-report.json" ]; then
-            TOTAL=$(jq -r '.stats.tests // 0' "cypress/reports/${{ matrix.test-suite.name }}-report.json")
-            PASSED=$(jq -r '.stats.passes // 0' "cypress/reports/${{ matrix.test-suite.name }}-report.json")
-            FAILED=$(jq -r '.stats.failures // 0' "cypress/reports/${{ matrix.test-suite.name }}-report.json")
-            DURATION=$(jq -r '.stats.duration // 0' "cypress/reports/${{ matrix.test-suite.name }}-report.json")
+          if [ -f "cypress/reports/${{ matrix.test_suite.name }}-report.json" ]; then
+            TOTAL=$(jq -r '.stats.tests // 0' "cypress/reports/${{ matrix.test_suite.name }}-report.json")
+            PASSED=$(jq -r '.stats.passes // 0' "cypress/reports/${{ matrix.test_suite.name }}-report.json")
+            FAILED=$(jq -r '.stats.failures // 0' "cypress/reports/${{ matrix.test_suite.name }}-report.json")
+            DURATION=$(jq -r '.stats.duration // 0' "cypress/reports/${{ matrix.test_suite.name }}-report.json")
             
             if [ $TOTAL -gt 0 ]; then
               SUCCESS_RATE=$(echo "scale=1; $PASSED * 100 / $TOTAL" | bc -l)
@@ -131,7 +131,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: test-results-${{ matrix.test-suite.name }}-${{ github.run_number }}
+          name: test-results-${{ matrix.test_suite.name }}-${{ github.run_number }}
           path: |
             cypress-automation/cypress/videos/
             cypress-automation/cypress/screenshots/
