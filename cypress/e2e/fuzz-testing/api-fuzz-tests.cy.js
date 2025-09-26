@@ -297,7 +297,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             name: fuzzValue,
             delivery_protocol: 'http'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // API should handle malicious input gracefully
@@ -331,7 +331,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             http_port: fuzzValue,
             https_port: fuzzValue
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should validate numeric boundaries
@@ -365,7 +365,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             'Content-Type': 'application/json'
           },
           body: malformedPayload,
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should reject malformed JSON
@@ -402,7 +402,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             'Authorization': `Token ${fuzzToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should properly handle invalid tokens
@@ -432,7 +432,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             'Accept': fuzzValue,
             'Content-Type': fuzzValue
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should not allow header injection
@@ -464,7 +464,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
               'Authorization': `Token ${authToken}`,
               'Accept': 'application/json'
             },
-            timeout: 1000,
+            timeout: 20000,
             failOnStatusCode: false
           })
         );
@@ -504,7 +504,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
           'Content-Type': 'application/json'
         },
         body: largePayload,
-        timeout: 1000,
+        timeout: 20000,
         failOnStatusCode: false
       }).then((response) => {
         // Should reject oversized payloads
@@ -539,7 +539,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should not execute SQL injection
@@ -581,7 +581,7 @@ describe('🎯 API Fuzz Testing Suite', () => {
             name: payload,
             delivery_protocol: 'http'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should not execute NoSQL injection

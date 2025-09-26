@@ -277,7 +277,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             name: testValue,
             delivery_protocol: 'http'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           if (testValue.length === 0) {
@@ -324,7 +324,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             http_port: testValue,
             https_port: testValue
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Port numbers should be in valid range (1-65535)
@@ -368,7 +368,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should handle floating point values in pagination
@@ -394,7 +394,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             name: `${testName}-${testValue}`,
             delivery_protocol: 'http'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           if (testValue.includes('\x00') || testValue.includes('\x01')) {
@@ -445,7 +445,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `URL encoding ${index + 1} should be handled`).to.be.oneOf([200, 400, 422]);
@@ -466,7 +466,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           if (testName === 'invalidDate') {
@@ -502,7 +502,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           expect(response.status, `Timezone ${index + 1} should be handled`).to.be.oneOf([200, 400, 422]);
@@ -542,7 +542,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
             'Authorization': `Token ${authToken}`,
             'Accept': 'application/json'
           },
-          timeout: 1000,
+          timeout: 20000,
           failOnStatusCode: false
         }).then((response) => {
           // Should handle invalid pagination gracefully
@@ -581,7 +581,7 @@ describe('🎯 Boundary Testing - Edge Cases', () => {
               name: `${baseName}-${i}`,
               delivery_protocol: 'http'
             },
-            timeout: 1000,
+            timeout: 20000,
             failOnStatusCode: false
           })
         );

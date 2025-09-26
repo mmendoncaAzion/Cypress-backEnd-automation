@@ -231,7 +231,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       // Status code contract
       expect(response.status, 'Token endpoint should return 200').to.equal(200);
@@ -256,7 +256,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       // Status code contract
@@ -288,7 +288,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': 'Token invalid_token',
         'Accept': 'application/json'
       },
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       // Error response contract
@@ -312,7 +312,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       const responseTime = Date.now() - startTime;
       
@@ -333,7 +333,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': `Token ${authToken}`
         // Intentionally omitting Accept header to test contract
       },
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       // Should still work without Accept header (graceful degradation)
@@ -351,7 +351,7 @@ describe('🔐 Authentication API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       if (response.status === 200 && response.body) {

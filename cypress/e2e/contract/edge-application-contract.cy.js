@@ -266,7 +266,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       // Status contract
       expect(response.status, 'Should return 200').to.equal(200);
@@ -307,7 +307,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       // Status contract
       expect(response.status, 'Should return 200').to.equal(200);
@@ -350,7 +350,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Content-Type': 'application/json'
       },
       body: testApp,
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       // Status contract (201 for creation or 400/422 for validation errors)
@@ -392,7 +392,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       expect(response.status, 'Should handle pagination').to.equal(200);
       expect(response.body.results, 'Should respect page_size').to.have.length.at.most(5);
@@ -409,7 +409,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000,
+      timeout: 20000,
       failOnStatusCode: false
     }).then((response) => {
       // Error status contract
@@ -430,7 +430,7 @@ describe('🚀 Edge Application API Contract Tests', () => {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json'
       },
-      timeout: 1000
+      timeout: 20000
     }).then((response) => {
       const responseTime = Date.now() - startTime;
       

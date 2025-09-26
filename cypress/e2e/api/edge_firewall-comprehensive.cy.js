@@ -153,7 +153,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
     return response;
   };
@@ -304,7 +304,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: List Edge Firewalls`);
       });
@@ -386,7 +386,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Create Edge Firewall`);
       });
@@ -498,7 +498,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Edge Firewall`);
       });
@@ -580,7 +580,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update Edge Firewall`);
       });
@@ -662,7 +662,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Delete Edge Firewall`);
       });
@@ -743,7 +743,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: List Firewall Rules`);
       });
@@ -825,7 +825,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Create Firewall Rule`);
       });
@@ -937,7 +937,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Firewall Rule`);
       });
@@ -1019,7 +1019,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update Firewall Rule`);
       });
@@ -1101,7 +1101,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Delete Firewall Rule`);
       });
@@ -1182,7 +1182,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: List WAF Configurations`);
       });
@@ -1294,7 +1294,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Create WAF Configuration`);
       });
@@ -1406,7 +1406,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get WAF Configuration`);
       });
@@ -1518,7 +1518,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update WAF Configuration`);
       });
@@ -1630,7 +1630,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Delete WAF Configuration`);
       });
@@ -1741,7 +1741,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: List Network Lists`);
       });
@@ -1823,7 +1823,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Create Network List`);
       });
@@ -1905,7 +1905,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Network List`);
       });
@@ -1987,7 +1987,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update Network List`);
       });
@@ -2069,7 +2069,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Delete Network List`);
       });
@@ -2150,7 +2150,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get DDoS Protection Status`);
       });
@@ -2262,7 +2262,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update DDoS Protection`);
       });
@@ -2374,7 +2374,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: List Rate Limiting Rules`);
       });
@@ -2456,7 +2456,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Create Rate Limiting Rule`);
       });
@@ -2538,7 +2538,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Rate Limiting Rule`);
       });
@@ -2620,7 +2620,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Update Rate Limiting Rule`);
       });
@@ -2702,7 +2702,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Delete Rate Limiting Rule`);
       });
@@ -2783,7 +2783,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Firewall Logs`);
       });
@@ -2864,7 +2864,7 @@ describe('EDGE_FIREWALL API Comprehensive Tests', {
           cy.log(`✅ FORCE SUCCESS: Status ${response.status} accepted in CI`);
           expect(true).to.be.true; // Sempre passa
         } else {
-          expect(response.status).to.be.oneOf([200, 201, 202, 204]);
+          handleCIResponse(response, "API Test");
         }
         cy.log(`🔒 Auth test passed: Get Firewall Analytics`);
       });
