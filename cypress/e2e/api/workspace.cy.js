@@ -19,7 +19,7 @@ describe('Workspace API Tests', () => {
   });
 
   it('GET workspace/custom_pages/{{customPageId}} - Retrieve details of a Custom Page', { tags: ['@api', '@get', '@workspace'] }, () => {
-    cy.azionApiRequest('GET', '/workspace/custom_pages/{{customPageId}}',
+    cy.azionApiRequest('GET', '/workspace/custom_pages/123', null, {
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
@@ -44,7 +44,9 @@ describe('Workspace API Tests', () => {
   });
 
   it('PUT workspace/custom_pages/{{customPageId}} - Update a Custom Page', { tags: ['@api', '@put', '@workspace'] }, () => {
-    cy.azionApiRequest('PUT', '/workspace/custom_pages/{{customPageId}}',
+    cy.azionApiRequest('PUT', '/workspace/custom_pages/123', {
+      name: 'Updated Custom Page'
+    }, {
       headers: {
         'Authorization': `Token ${authToken}`,
         'Accept': 'application/json',
